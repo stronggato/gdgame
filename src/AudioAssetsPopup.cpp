@@ -1,0 +1,106 @@
+#include <Geode/binding/AudioAssetsPopup.hpp>
+#include <cocos2d.h>
+
+using namespace cocos2d;
+
+// [1/3] Address: 0xbbea0
+// Method: AudioAssetsPopup::~AudioAssetsPopup
+// Hidden C++ exception states: #wind=1
+cocos2d::CCNode *__fastcall AudioAssetsPopup__dtor_AudioAssetsPopup(cocos2d::CCNode *Block, char a2)
+{
+  __int64 v4; // rcx
+  void *v5; // rax
+
+  *(_QWORD *)Block = &AudioAssetsPopup::`vftable'; /*0xbbebb*/
+  *((_QWORD *)Block + 40) = &AudioAssetsPopup::`vftable'; /*0xbbec5*/
+  *((_QWORD *)Block + 41) = &AudioAssetsPopup::`vftable'; /*0xbbed3*/
+  *((_QWORD *)Block + 42) = &AudioAssetsPopup::`vftable'; /*0xbbee1*/
+  *((_QWORD *)Block + 43) = &AudioAssetsPopup::`vftable'; /*0xbbeef*/
+  *((_QWORD *)Block + 44) = &AudioAssetsPopup::`vftable'; /*0xbbefd*/
+  *((_QWORD *)Block + 51) = &AudioAssetsPopup::`vftable'; /*0xbbf0b*/
+  *((_QWORD *)Block + 54) = &AudioAssetsPopup::`vftable'; /*0xbbf19*/
+  *((_QWORD *)Block + 68) = &AudioAssetsPopup::`vftable'; /*0xbbf27*/
+  *((_QWORD *)Block + 83) = &AudioAssetsPopup::`vftable'; /*0xbbf35*/
+  *((_QWORD *)Block + 84) = &AudioAssetsPopup::`vftable'; /*0xbbf43*/
+  *((_QWORD *)Block + 125) = &AudioAssetsPopup::`vftable'; /*0xbbf51*/
+  v4 = qword_906070; /*0xbbf58*/
+  if ( !qword_906070 ) /*0xbbf62*/
+  {
+    v5 = operator new(0x3D0u); /*0xbbf69*/
+    qword_906070 = sub_47C350(v5); /*0xbbf76*/
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070); /*0xbbf87*/
+    v4 = qword_906070; /*0xbbf8a*/
+  }
+  MusicDownloadManager_removeMusicDownloadDelegate(v4, (__int64)Block + 1000); /*0xbbf98*/
+  UIPOptionsLayer__dtor_UIPOptionsLayer(Block); /*0xbbfa0*/
+  if ( (a2 & 1) != 0 ) /*0xbbfaa*/
+    j_j_free(Block); /*0xbbfb4*/
+  return Block; /*0xbbfbc*/
+}
+
+// [2/3] Address: 0xbc5b0
+// Method: AudioAssetsPopup::musicActionFinished
+// Hidden C++ exception states: #wind=2
+double __fastcall AudioAssetsPopup_musicActionFinished(__int64 a1, int a2)
+{
+  __int64 v3; // rax
+  __int64 v4; // rbx
+  int v5; // edx
+  __int64 v6; // rcx
+  double result; // xmm0_8
+  void *v8; // [rsp+40h] [rbp+18h]
+  void *v9; // [rsp+40h] [rbp+18h]
+
+  if ( a2 == 8 && *(_QWORD *)(a1 + 8) ) /*0xbc5c6*/
+  {
+    v3 = qword_906070; /*0xbc5d1*/
+    if ( !qword_906070 ) /*0xbc5db*/
+    {
+      v8 = operator new(0x3D0u); /*0xbc5e7*/
+      qword_906070 = sub_47C350(v8); /*0xbc5f5*/
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070); /*0xbc602*/
+      v3 = qword_906070; /*0xbc605*/
+    }
+    v4 = v3; /*0xbc60c*/
+    if ( !v3 ) /*0xbc612*/
+    {
+      v9 = operator new(0x3D0u); /*0xbc61e*/
+      qword_906070 = sub_47C350(v9); /*0xbc62c*/
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070); /*0xbc63d*/
+      v3 = qword_906070; /*0xbc63f*/
+    }
+    v5 = *(_DWORD *)(v4 + 404); /*0xbc646*/
+    v6 = *(_QWORD *)(a1 + 8); /*0xbc64c*/
+    *(_DWORD *)(v6 + 608) = *(_DWORD *)(v3 + 400); /*0xbc656*/
+    *(_DWORD *)(v6 + 612) = v5; /*0xbc65c*/
+    return CustomSongWidget_updateMultiAssetInfo(v6, 0); /*0xbc664*/
+  }
+  return result; /*0xbc673*/
+}
+
+// [3/3] Address: 0xbc680
+// Method: AudioAssetsPopup::onClose
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall AudioAssetsPopup_onClose(__int64 a1)
+{
+  __int64 v2; // rdi
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  void *v6; // [rsp+30h] [rbp+8h]
+
+  v2 = a1 + 1000; /*0xbc68d*/
+  if ( !a1 ) /*0xbc699*/
+    v2 = 0; /*0xbc699*/
+  v3 = qword_906070; /*0xbc69d*/
+  if ( !qword_906070 ) /*0xbc6a7*/
+  {
+    v6 = operator new(0x3D0u); /*0xbc6b3*/
+    qword_906070 = sub_47C350(v6); /*0xbc6c1*/
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070); /*0xbc6d2*/
+    v3 = qword_906070; /*0xbc6d5*/
+  }
+  MusicDownloadManager_removeMusicDownloadDelegate(v3, v2); /*0xbc6df*/
+  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)a1 + 992LL))(a1, 0); /*0xbc6ec*/
+  LOBYTE(v4) = 1; /*0xbc6f5*/
+  return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 520LL))(a1, v4);
+}
