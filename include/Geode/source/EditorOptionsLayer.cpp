@@ -1,0 +1,37 @@
+
+#include <stdexcept>
+#include <Geode/utils/addresser.hpp>
+#include <Geode/modify/Traits.hpp>
+#include <Geode/loader/Tulip.hpp>
+#include <Geode/binding/EditorOptionsLayer.hpp>
+#include <Geode/cocos/platform/win32/CCFileUtilsWin32.h>
+
+using namespace geode;
+using namespace geode::modifier;
+
+#if !defined(GEODE_WRAP_FUNCTION)
+#define GEODE_WRAP_FUNCTION
+template <class F>
+static auto wrapFunction(uintptr_t address, tulip::hook::TulipConvention convention) {
+	auto wrapped = geode::hook::createWrapper(reinterpret_cast<void*>(address), tulip::hook::WrapperMetadata{
+		.m_convention = geode::hook::createConvention(convention),
+		.m_abstract = tulip::hook::AbstractFunction::from(F(nullptr)),
+	});
+	if (wrapped.isErr()) {
+		throw std::runtime_error(wrapped.unwrapErr());
+	}
+	return wrapped.unwrap();
+}
+#endif
+
+auto EditorOptionsLayer::init() -> decltype(init()) {
+	throw std::runtime_error("EditorOptionsLayer::init not implemented");
+}
+
+auto EditorOptionsLayer::onClose(cocos2d::CCObject* sender) -> decltype(onClose(sender)) {
+	throw std::runtime_error("EditorOptionsLayer::onClose not implemented");
+}
+
+auto EditorOptionsLayer::setupOptions() -> decltype(setupOptions()) {
+	throw std::runtime_error("EditorOptionsLayer::setupOptions not implemented");
+}

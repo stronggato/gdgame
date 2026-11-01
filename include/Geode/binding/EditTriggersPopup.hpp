@@ -1,0 +1,48 @@
+#pragma once
+#include <Geode/platform/platform.hpp>
+#include <Geode/GeneratedPredeclare.hpp>
+#include <Geode/Enums.hpp>
+
+#include <Geode/binding/SetupTriggerPopup.hpp>
+
+class EditTriggersPopup : public SetupTriggerPopup {
+public:
+    static constexpr auto CLASS_NAME = "EditTriggersPopup";
+    GEODE_CUSTOM_CONSTRUCTOR_GD(EditTriggersPopup, SetupTriggerPopup)
+
+    /**
+     * @note[short] Windows: 0x396330
+     * @note[short] Android: Rebinded
+     */
+    virtual  ~EditTriggersPopup();
+
+    /**
+     * @note[short] Android
+     */
+    static EditTriggersPopup* create(EffectGameObject* object, cocos2d::CCArray* objects);
+
+    /**
+     * @note[short] MacOS (ARM): 0x22aab8
+     * @note[short] MacOS (Intel): 0x285c20
+     * @note[short] Windows: 0x3978c0
+     * @note[short] iOS: 0x36ed04
+     * @note[short] Android
+     */
+    virtual void determineStartValues();
+
+    /**
+     * @note[short] MacOS (ARM): 0x22aabc
+     * @note[short] MacOS (Intel): 0x285c30
+     * @note[short] Windows: 0x3978d0
+     * @note[short] iOS: 0x36ed08
+     * @note[short] Android
+     */
+    virtual void onClose(cocos2d::CCObject* sender);
+
+    /**
+     * @note[short] MacOS (ARM): 0x22a7d4
+     * @note[short] iOS: 0x36eaa0
+     * @note[short] Android
+     */
+    bool init(EffectGameObject* object, cocos2d::CCArray* objects);
+};

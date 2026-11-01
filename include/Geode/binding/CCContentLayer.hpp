@@ -1,0 +1,41 @@
+#pragma once
+#include <Geode/platform/platform.hpp>
+#include <Geode/GeneratedPredeclare.hpp>
+#include <Geode/Enums.hpp>
+
+#include <Geode/mapping/CCLayerColor.hpp>
+#include <Geode/mapping/CCPoint.hpp>
+#include <Geode/mapping/ccTypes.hpp>
+
+class CCContentLayer : public cocos2d::CCLayerColor {
+public:
+    static constexpr auto CLASS_NAME = "CCContentLayer";
+    GEODE_CUSTOM_CONSTRUCTOR_CUTOFF(CCContentLayer, cocos2d::CCLayerColor)
+
+    /**
+     * @note[short] MacOS (ARM): Out of line
+     * @note[short] MacOS (Intel): Out of line
+     * @note[short] Windows: Out of line
+     * @note[short] iOS: Out of line
+     * @note[short] Android: Out of line
+     */
+     CCContentLayer();
+
+    /**
+     * @note[short] MacOS (ARM): 0x79abe0
+     * @note[short] MacOS (Intel): 0x8a82b0
+     * @note[short] Windows: Out of line
+     * @note[short] iOS: 0x21fee8
+     * @note[short] Android
+     */
+    static CCContentLayer* create(cocos2d::ccColor4B const& color, float width, float height);
+
+    /**
+     * @note[short] MacOS (ARM): 0x79acc4
+     * @note[short] MacOS (Intel): 0x8a83b0
+     * @note[short] Windows: 0x46c80
+     * @note[short] iOS: 0x21ffbc
+     * @note[short] Android
+     */
+    virtual void setPosition(cocos2d::CCPoint const& position);
+};
