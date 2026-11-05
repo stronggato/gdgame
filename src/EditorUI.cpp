@@ -11269,3 +11269,2597 @@ __int64 __fastcall EditorUI_anchorPointMoved(__int64 a1, __int64 a2)
   cocos2d::CCPoint::operator=(a1 + 384, a2); /*0x200917*/
   return (*(__int64 (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 408) + 184LL))(*(_QWORD *)(a1 + 408), a1 + 384);
 }
+
+// Address: 0x1be150
+// Method: EditorUI::ccTouchEnded
+// Hidden C++ exception states: #wind=2
+double __usercall EditorUI_ccTouchEnded@<xmm0>(
+        __int64 a1@<rdx>,
+        __int64 a2@<rcx>,
+        __int64 a3@<r8>,
+        double result@<xmm0>)
+{
+  int v7; // eax
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  bool GameVariable; // r15
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  const struct cocos2d::CCPoint *v16; // r8
+  const struct cocos2d::CCPoint *v17; // r8
+  float v18; // xmm0_4
+  char v19; // bl
+  float v20; // xmm0_4
+  char v21; // r12
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  float v28; // xmm0_4
+  unsigned __int8 v29; // r15
+  __int64 v30; // rax
+  __int64 v31; // rbx
+  cocos2d::CCPoint *v32; // rax
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  const struct cocos2d::CCPoint *v35; // rax
+  unsigned int i; // ebx
+  struct cocos2d::CCObject *v37; // rsi
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  cocos2d::CCPoint *v42; // rax
+  __int64 v43; // rax
+  struct cocos2d::CCObject *v44; // r14
+  __int64 v45; // rsi
+  unsigned int v46; // ebx
+  cocos2d::CCObject *v47; // rcx
+  __int64 v48; // rbx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  __int64 v51; // rax
+  __int64 v52; // rax
+  const struct cocos2d::CCPoint *v53; // r8
+  __int64 v54; // rbx
+  __int64 v55; // rax
+  cocos2d::CCArray *v56; // r15
+  unsigned int *v57; // rbx
+  unsigned int v58; // r14d
+  struct cocos2d::CCObject *v59; // rax
+  __int64 v60; // rcx
+  unsigned int *v61; // rsi
+  struct cocos2d::CCArray *v62; // rax
+  __int64 v63; // rcx
+  __int64 v64; // rax
+  __int64 v65; // rbx
+  const struct cocos2d::CCRect *v66; // rax
+  float *v67; // rax
+  cocos2d::CCArray *v68; // rbx
+  __int64 v69; // rcx
+  __int64 v70; // rax
+  __int64 v71; // rcx
+  __int64 v72; // rax
+  __int64 v73; // rax
+  __int64 v74; // rax
+  const struct cocos2d::CCPoint *v75; // r8
+  float v76; // xmm0_4
+  __int64 v77; // rbx
+  __int64 v78; // rax
+  cocos2d::CCArray *v79; // r15
+  unsigned int *v80; // rbx
+  unsigned int v81; // r14d
+  struct cocos2d::CCObject *v82; // rax
+  __int64 v83; // rcx
+  unsigned int *v84; // rsi
+  __int64 v85; // rsi
+  __int64 v86; // rcx
+  struct cocos2d::CCObject *Object; // rax
+  struct cocos2d::CCArray *v88; // rax
+  __int64 v89; // rax
+  _BYTE *v90; // rcx
+  __int64 v91; // rcx
+  __int64 v92; // rax
+  char v93; // bl
+  _BYTE v94[8]; // [rsp+30h] [rbp-59h] BYREF
+  float v95; // [rsp+38h] [rbp-51h] BYREF
+  float v96; // [rsp+3Ch] [rbp-4Dh]
+  void *v97; // [rsp+40h] [rbp-49h] BYREF
+  _BYTE v98[8]; // [rsp+48h] [rbp-41h] BYREF
+  _BYTE v99[8]; // [rsp+50h] [rbp-39h] BYREF
+  _BYTE v100[16]; // [rsp+58h] [rbp-31h] BYREF
+  _BYTE v101[16]; // [rsp+68h] [rbp-21h] BYREF
+  _BYTE v102[56]; // [rsp+78h] [rbp-11h] BYREF
+  void *v103; // [rsp+F0h] [rbp+67h] BYREF
+  char v104; // [rsp+F8h] [rbp+6Fh] BYREF
+  float v105; // [rsp+108h] [rbp+7Fh] BYREF
+  float v106; // [rsp+10Ch] [rbp+83h]
+
+  if ( *(_BYTE *)(a2 + 478) && *(_DWORD *)(a2 + 432) == *(_DWORD *)(a1 + 56) )
+  {
+    cocos2d::CCNode::stopActionByTag((cocos2d::CCNode *)(a2 - 320), 128);
+    sub_1BD2F0(a2 - 320);
+  }
+  *(_BYTE *)(a2 + 504) = 0;
+  cocos2d::CCNode::stopActionByTag((cocos2d::CCNode *)(a2 - 320), 123);
+  v7 = *(_DWORD *)(a1 + 56);
+  if ( *(_DWORD *)(a2 + 424) == v7 )
+  {
+    *(_DWORD *)(a2 + 424) = -1;
+    v8 = *(_QWORD *)(a2 + 488);
+LABEL_6:
+    (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(v8 + 320) + 24LL))(v8 + 320, a1, a3);
+    return result;
+  }
+  if ( *(_DWORD *)(a2 + 428) == v7 )
+  {
+    *(_DWORD *)(a2 + 428) = -1;
+    v8 = *(_QWORD *)(a2 + 512);
+    goto LABEL_6;
+  }
+  if ( *(_DWORD *)(a2 + 440) == v7 )
+  {
+    *(_DWORD *)(a2 + 440) = -1;
+    v8 = *(_QWORD *)(a2 + 520);
+    goto LABEL_6;
+  }
+  v9 = *(_QWORD *)(a2 + 1192);
+  if ( *(_DWORD *)(v9 + 2204) == 1 )
+  {
+    v8 = *(_QWORD *)(v9 + 13952);
+    goto LABEL_6;
+  }
+  if ( *(_BYTE *)(a2 + 476) )
+  {
+    *(_DWORD *)(a2 + 444) = -1;
+    *(_DWORD *)(a2 + 432) = -1;
+    *(_BYTE *)(a2 + 476) = 0;
+    *(_BYTE *)(a2 + 1264) = 0;
+    return result;
+  }
+  if ( *(_DWORD *)(a2 + 432) == v7 )
+  {
+    v10 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v103 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v103);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v10 = qword_905FD0;
+    }
+    GameVariable = GameManager_getGameVariable(v10, "0059");
+    cocos2d::CCTouch::getLocationInView(a1, &v104);
+    v13 = cocos2d::CCDirector::sharedDirector(v12);
+    v14 = cocos2d::CCDirector::convertToGL(v13, &v103, &v104);
+    cocos2d::CCPoint::operator=(&v104, v14);
+    cocos2d::CCNode::convertToWorldSpace(a2 - 320, &v103, &v104);
+    cocos2d::CCPoint::operator=(&v104, v15);
+    v18 = cocos2d::ccpDistance((cocos2d *)(a2 + 1200), (const struct cocos2d::CCPoint *)&v104, v16);
+    if ( GameVariable && v18 < 2.0 )
+    {
+      v19 = 1;
+      v20 = cocos2d::ccpDistance((cocos2d *)(a2 + 1224), (const struct cocos2d::CCPoint *)&v104, v17);
+    }
+    else
+    {
+      v20 = cocos2d::ccpDistance((cocos2d *)(a2 + 1224), (const struct cocos2d::CCPoint *)&v104, v17);
+      v19 = 0;
+      if ( !GameVariable )
+        goto LABEL_24;
+    }
+    if ( v20 < 2.0 )
+    {
+      v21 = 1;
+LABEL_25:
+      *(_DWORD *)(a2 + 432) = -1;
+      if ( *(_BYTE *)(a2 + 593) && *(_BYTE *)(a2 + 591) && *(_QWORD *)(a2 + 1256) )
+      {
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v105, (const struct cocos2d::CCPoint *)&unk_904708);
+        cocos2d::CCTouch::getLocationInView(a1, &v103);
+        v23 = cocos2d::CCDirector::sharedDirector(v22);
+        v24 = cocos2d::CCDirector::convertToGL(v23, &v97, &v103);
+        cocos2d::CCPoint::operator=(&v103, v24);
+        cocos2d::CCNode::convertToWorldSpace(a2 - 320, &v97, &v103);
+        cocos2d::CCPoint::operator=(&v103, v25);
+        cocos2d::CCNode::convertToNodeSpace(*(_QWORD *)(*(_QWORD *)(a2 + 1192) + 4360LL), v98, &v103);
+        v26 = qword_905FD0;
+        if ( !qword_905FD0 )
+        {
+          v97 = operator new(0x6E8u);
+          qword_905FD0 = sub_2723A0(v97);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+          v26 = qword_905FD0;
+        }
+        if ( GameManager_getGameVariable(v26, "0008")
+          && (v27 = *(_QWORD *)(a2 + 1256)) != 0
+          && (v28 = (*(float (__fastcall **)(__int64))(*(_QWORD *)v27 + 360LL))(v27), (int)v28 == 90 * ((int)v28 / 90))
+          && !cocos2d::CCPoint::equals((cocos2d::CCPoint *)&v103, (const struct cocos2d::CCPoint *)(a2 + 1200)) )
+        {
+          v29 = 1;
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v94, (const struct cocos2d::CCPoint *)v98);
+          sub_1BCD60(a2 - 320, &v95, v30);
+          v31 = *(_QWORD *)(a2 + 1256);
+          v32 = (cocos2d::CCPoint *)sub_19CE00(v102, *(unsigned int *)(v31 + 1036));
+          GameToolbox_getRelativeOffset((cocos2d::CCPoint *)v94, v31, v32);
+          v33 = *(_QWORD *)(a2 + 1256);
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v100, (const struct cocos2d::CCPoint *)&v95);
+          sub_1FEFA0(a2 - 320, (unsigned int)v99, (unsigned int)v94, v33, v34);
+          cocos2d::CCPoint::operator+(&v95, v94, v99);
+          cocos2d::CCPoint::operator=(&v95, v94);
+          v35 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 1256) + 200LL))(*(_QWORD *)(a2 + 1256));
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v97, v35);
+          (*(void (__fastcall **)(_QWORD, float *))(**(_QWORD **)(a2 + 1256) + 184LL))(*(_QWORD *)(a2 + 1256), &v95);
+          cocos2d::CCPoint::operator-(&v95, v94, &v97);
+          cocos2d::CCPoint::operator=(&v105, v94);
+          if ( cocos2d::CCArray::count(*(cocos2d::CCArray **)(a2 + 624)) )
+          {
+            for ( i = 0; i < cocos2d::CCArray::count(*(cocos2d::CCArray **)(a2 + 624)); ++i )
+            {
+              v37 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a2 + 624), i);
+              if ( *((_DWORD *)v37 + 231) != *(_DWORD *)(*(_QWORD *)(a2 + 1256) + 924LL) )
+              {
+                cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v100, (const struct cocos2d::CCPoint *)&v105);
+                EditorUI_moveObject(a2 - 320, (__int64)v37, v38);
+              }
+            }
+          }
+          cocos2d::CCPoint::operator+(a2 + 496, v94, &v105);
+          cocos2d::CCPoint::operator=(a2 + 496, v94);
+          if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 488) + 344LL))(*(_QWORD *)(a2 + 488)) )
+          {
+            v39 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 488) + 200LL))(*(_QWORD *)(a2 + 488));
+            cocos2d::CCPoint::operator+(v39, v94, &v105);
+            (*(void (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(a2 + 488) + 184LL))(*(_QWORD *)(a2 + 488), v94);
+          }
+          else if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 512) + 344LL))(*(_QWORD *)(a2 + 512)) )
+          {
+            v40 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 512) + 200LL))(*(_QWORD *)(a2 + 512));
+            cocos2d::CCPoint::operator+(v40, v94, &v105);
+            (*(void (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(a2 + 512) + 184LL))(*(_QWORD *)(a2 + 512), v94);
+          }
+          else if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 520) + 344LL))(*(_QWORD *)(a2 + 520)) )
+          {
+            v41 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 520) + 200LL))(*(_QWORD *)(a2 + 520));
+            cocos2d::CCPoint::operator+(v41, v94, &v105);
+            (*(void (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(a2 + 520) + 184LL))(*(_QWORD *)(a2 + 520), v94);
+            sub_1A2C30(*(_QWORD *)(a2 + 520));
+          }
+        }
+        else
+        {
+          v29 = 0;
+        }
+        v42 = (cocos2d::CCPoint *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 1256) + 200LL))(*(_QWORD *)(a2 + 1256));
+        if ( cocos2d::CCPoint::equals(v42, (const struct cocos2d::CCPoint *)(a2 + 616)) )
+          *(_BYTE *)(a2 + 417) = 1;
+        v43 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a2 + 1256) + 200LL))(*(_QWORD *)(a2 + 1256));
+        cocos2d::CCPoint::operator-(v43, v101, a2 + 616);
+        if ( !*(_BYTE *)(a2 + 417) )
+        {
+          v44 = *(struct cocos2d::CCObject **)(a2 + 408);
+          if ( v44 )
+          {
+            v45 = *(_QWORD *)(a2 + 1192);
+            cocos2d::CCArray::removeAllObjects(*(cocos2d::CCArray **)(v45 + 14984));
+            v46 = 1000;
+            if ( !*(_BYTE *)(v45 + 14726) )
+              v46 = 200;
+            if ( cocos2d::CCArray::count(*(cocos2d::CCArray **)(v45 + 14976)) >= v46 )
+              cocos2d::CCArray::removeObjectAtIndex(*(cocos2d::CCArray **)(v45 + 14976), 0, 1);
+            cocos2d::CCArray::addObject(*(cocos2d::CCArray **)(v45 + 14976), v44);
+            v47 = *(cocos2d::CCObject **)(a2 + 408);
+            if ( v47 )
+            {
+              cocos2d::CCObject::release(v47);
+              *(_QWORD *)(a2 + 408) = 0;
+            }
+          }
+        }
+        goto LABEL_99;
+      }
+      if ( !*(_BYTE *)(a2 + 589) || v19 )
+      {
+        if ( *(_BYTE *)(a2 + 1264) )
+        {
+          *(_BYTE *)(a2 + 1264) = 0;
+          goto LABEL_98;
+        }
+        cocos2d::CCTouch::getLocationInView(a1, &v103);
+        v72 = cocos2d::CCDirector::sharedDirector(v71);
+        v73 = cocos2d::CCDirector::convertToGL(v72, &v105, &v103);
+        cocos2d::CCPoint::operator=(&v103, v73);
+        cocos2d::CCNode::convertToWorldSpace(a2 - 320, &v105, &v103);
+        cocos2d::CCPoint::operator=(&v103, v74);
+        v76 = cocos2d::ccpDistance((cocos2d *)(a2 + 1200), (const struct cocos2d::CCPoint *)&v103, v75);
+        if ( !*(_BYTE *)(a2 + 590) || v76 < 20.0 )
+        {
+          if ( *(_DWORD *)(a2 + 1188) != 3 )
+          {
+            if ( !*(_BYTE *)(a2 + 1320) )
+            {
+              cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v103, (const struct cocos2d::CCPoint *)(a2 + 1200));
+              sub_1AAE70(a2 - 320, v89);
+            }
+            goto LABEL_98;
+          }
+          cocos2d::CCNode::convertToNodeSpace(*(_QWORD *)(*(_QWORD *)(a2 + 1192) + 4360LL), &v103, a2 + 1200);
+          if ( !*(_QWORD *)(a2 + 1256) || !*(_BYTE *)(a2 + 418) )
+          {
+            v77 = *(_QWORD *)(a2 + 1192);
+            cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v105, (const struct cocos2d::CCPoint *)&v103);
+            v79 = (cocos2d::CCArray *)sub_3EDA90(v77, v78);
+            v80 = 0;
+            v81 = 0;
+            if ( cocos2d::CCArray::count(v79) )
+            {
+              do
+              {
+                v82 = cocos2d::CCArray::objectAtIndex(v79, v81);
+                v84 = (unsigned int *)v82;
+                if ( !*((_BYTE *)v82 + 1141) )
+                {
+                  if ( !v80 || (v83 = v80[286], *((_DWORD *)v82 + 286) < (int)v83) )
+                  {
+                    if ( (unsigned __int8)sub_1C5720(v83, v82) )
+                      v80 = v84;
+                  }
+                }
+                ++v81;
+              }
+              while ( v81 < cocos2d::CCArray::count(v79) );
+              if ( v80 )
+              {
+                v80[286] = *(_DWORD *)(a2 + 1292);
+                EditorUI_createUndoSelectObject(a2 - 320, 0);
+                if ( *(_BYTE *)(a2 + 589) )
+                {
+                  if ( v21 )
+                  {
+                    if ( *(_QWORD *)(a2 + 1248) )
+                    {
+                      v85 = a2 - 320;
+                      cocos2d::CCNode::stopActionByTag((cocos2d::CCNode *)(a2 - 320), 124);
+                      v86 = *(_QWORD *)(a2 - 320 + 1568);
+                      if ( v86 )
+                      {
+                        *(_BYTE *)(v86 + 1141) = 0;
+                        GameObject_updateObjectEditorColor((_QWORD *)v86);
+                      }
+                      *(_QWORD *)(v85 + 1568) = 0;
+                      EditorUI_toggleEditObjectButton(a2 - 320);
+                      *(_BYTE *)(v85 + 824) = 1;
+                      cocos2d::CCPoint::operator=(v85 + 1544, &unk_904748);
+                    }
+                    else
+                    {
+                      Object = cocos2d::CCArray::lastObject(*(cocos2d::CCArray **)(a2 + 624));
+                      if ( Object )
+                      {
+                        *((_BYTE *)Object + 1141) = 0;
+                        GameObject_updateObjectEditorColor(Object);
+                        cocos2d::CCArray::removeLastObject(*(cocos2d::CCArray **)(a2 + 624), 1);
+                      }
+                    }
+                  }
+                  v88 = cocos2d::CCArray::createWithObject((struct cocos2d::CCObject *)v80);
+                  sub_1C47B0(a2 - 320, v88, 0);
+                  goto LABEL_98;
+                }
+                EditorUI_selectObject(a2 - 320, (int *)v80, 0);
+                goto LABEL_68;
+              }
+            }
+          }
+        }
+      }
+      else
+      {
+        v48 = *(_QWORD *)(*(_QWORD *)(a2 + 1192) + 4360LL);
+        cocos2d::CCNode::convertToNodeSpace(v48, &v95, a2 + 1200);
+        cocos2d::CCNode::convertToNodeSpace(v48, &v105, a2 + 1208);
+        cocos2d::CCRect::CCRect(
+          (cocos2d::CCRect *)v100,
+          fminf(v95, v105),
+          fminf(v96, v106),
+          fabs(v95 - v105),
+          fabs(v96 - v106));
+        cocos2d::CCTouch::getLocationInView(a1, &v103);
+        v50 = cocos2d::CCDirector::sharedDirector(v49);
+        v51 = cocos2d::CCDirector::convertToGL(v50, v101, &v103);
+        cocos2d::CCPoint::operator=(&v103, v51);
+        cocos2d::CCNode::convertToWorldSpace(a2 - 320, v101, &v103);
+        cocos2d::CCPoint::operator=(&v103, v52);
+        if ( cocos2d::ccpDistance((cocos2d *)(a2 + 1200), (const struct cocos2d::CCPoint *)&v103, v53) >= 2.0 )
+        {
+          cocos2d::CCRect::CCRect((cocos2d::CCRect *)v101, (const struct cocos2d::CCRect *)v100);
+          v65 = *(_QWORD *)(a2 + 1192);
+          cocos2d::CCRect::CCRect((cocos2d::CCRect *)v102, v66);
+          v68 = LevelEditorLayer_objectsInRect(v65, v67, 0);
+          if ( cocos2d::CCArray::count(v68) )
+          {
+            v70 = sub_182B60(v69);
+            sub_182FE0(v70, 122);
+            sub_1C6790(a2 - 320, v68);
+          }
+          goto LABEL_98;
+        }
+        v54 = *(_QWORD *)(a2 + 1192);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v103, (const struct cocos2d::CCPoint *)&v105);
+        v56 = (cocos2d::CCArray *)sub_3EDA90(v54, v55);
+        v57 = 0;
+        v58 = 0;
+        if ( cocos2d::CCArray::count(v56) )
+        {
+          do
+          {
+            v59 = cocos2d::CCArray::objectAtIndex(v56, v58);
+            v61 = (unsigned int *)v59;
+            if ( !*((_BYTE *)v59 + 1141) )
+            {
+              if ( !v57 || (v60 = v57[286], *((_DWORD *)v59 + 286) < (int)v60) )
+              {
+                if ( (unsigned __int8)sub_1C5720(v60, v59) )
+                  v57 = v61;
+              }
+            }
+            ++v58;
+          }
+          while ( v58 < cocos2d::CCArray::count(v56) );
+          if ( v57 )
+          {
+            v57[286] = *(_DWORD *)(a2 + 1292);
+            EditorUI_createUndoSelectObject(a2 - 320, 0);
+            v62 = cocos2d::CCArray::createWithObject((struct cocos2d::CCObject *)v57);
+            sub_1C47B0(a2 - 320, v62, 0);
+LABEL_68:
+            v64 = sub_182B60(v63);
+            sub_182FE0(v64, 121);
+          }
+        }
+      }
+LABEL_98:
+      v29 = 0;
+LABEL_99:
+      v90 = *(_BYTE **)(a2 + 1256);
+      if ( v90 )
+      {
+        if ( *(_BYTE *)(a2 + 593) && *(_BYTE *)(a2 + 591) )
+        {
+          if ( v90[1141] )
+          {
+            LOWORD(v103) = -256;
+            BYTE2(v103) = 0;
+            (*(void (__fastcall **)(_BYTE *, void **))(*(_QWORD *)v90 + 1376LL))(v90, &v103);
+          }
+          else
+          {
+            v90[1141] = 0;
+            GameObject_updateObjectEditorColor(v90);
+          }
+          v92 = sub_182B60(v91);
+          sub_182FE0(v92, (unsigned int)v29 + 105);
+        }
+        *(_QWORD *)(a2 + 1256) = 0;
+      }
+      *(_WORD *)(a2 + 589) = 0;
+      *(_BYTE *)(a2 + 593) = 0;
+      *(_BYTE *)(a2 + 417) = 0;
+      cocos2d::CCPoint::operator=(a2 + 600, &unk_904708);
+      *(_BYTE *)(a2 + 591) = 0;
+      *(_BYTE *)(a2 + 418) = 0;
+      cocos2d::CCPoint::operator=(a2 + 1216, a2 + 1200);
+      *(_BYTE *)(a2 + 1265) = 0;
+      v93 = *(_BYTE *)(a2 + 504);
+      EditorUI_updateButtons(a2 - 320);
+      ++*(_DWORD *)(a2 + 1292);
+      cocos2d::CCArray::removeAllObjects(*(cocos2d::CCArray **)(a2 + 608));
+      if ( v93 )
+      {
+        sub_1B0FC0(a2 - 320);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)(a2 + 120) + 96LL))(a2 + 120);
+        *(_BYTE *)(a2 + 504) = 0;
+      }
+      return cocos2d::CCPoint::operator=(a2 + 1224, &v104);
+    }
+LABEL_24:
+    v21 = 0;
+    goto LABEL_25;
+  }
+  return result;
+}
+
+// Address: 0x1f8be0
+// Method: EditorUI::createExtrasForObject
+void __fastcall EditorUI_createExtrasForObject(__int64 a1, int a2, __int64 a3, cocos2d::CCArray *a4)
+{
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  unsigned int v11; // edx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  unsigned int v18; // edx
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  unsigned int v22; // edx
+  cocos2d::CCPoint *v23; // rcx
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  unsigned int v27; // edx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  unsigned int v31; // edx
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rax
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  unsigned int v46; // edx
+  __int64 v47; // rax
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int64 v50; // rax
+  __int64 v51; // rax
+  __int64 v52; // rax
+  __int64 v53; // rax
+  __int64 v54; // rax
+  __int64 v55; // rax
+  __int64 v56; // rax
+  __int64 v57; // rax
+  __int64 v58; // rax
+  cocos2d::CCPoint *v59; // rcx
+  __int64 v60; // rax
+  __int64 v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rax
+  __int64 v64; // rax
+  __int64 v65; // rax
+  __int64 v66; // rax
+  __int64 v67; // rax
+  __int64 v68; // rax
+  __int64 v69; // rax
+  __int64 v70; // rax
+  __int64 v71; // rax
+  __int64 v72; // rax
+  __int64 v73; // rax
+  __int64 v74; // rax
+  __int64 v75; // rax
+  __int64 v76; // rax
+  __int64 v77; // rax
+  cocos2d::CCPoint *v78; // rcx
+  __int64 v79; // rax
+  __int64 v80; // rax
+  __int64 v81; // rax
+  __int64 v82; // rax
+  __int64 v83; // rax
+  __int64 v84; // rax
+  __int64 v85; // rax
+  __int64 v86; // rax
+  __int64 v87; // rax
+  __int64 v88; // rax
+  __int64 v89; // rax
+  __int64 v90; // rax
+  __int64 v91; // rax
+  __int64 v92; // rax
+  __int64 v93; // rax
+  __int64 v94; // rax
+  __int64 v95; // rax
+  __int64 v96; // rax
+  __int64 v97; // rax
+  __int64 v98; // rax
+  __int64 v99; // rax
+  __int64 v100; // rax
+  __int64 v101; // rax
+  __int64 v102; // rax
+  __int64 v103; // rax
+  __int64 v104; // rax
+  __int64 v105; // rax
+  __int64 v106; // rax
+  __int64 v107; // rax
+  __int64 v108; // rax
+  __int64 v109; // rax
+  __int64 v110; // rax
+  __int64 v111; // rax
+  __int64 v112; // rax
+  __int64 v113; // rax
+  __int64 v114; // rax
+  __int64 v115; // rax
+  __int64 v116; // rax
+  __int64 v117; // rax
+  __int64 v118; // rax
+  __int64 v119; // rax
+  __int64 v120; // rax
+  __int64 v121; // rax
+  __int64 v122; // rax
+  __int64 v123; // rax
+  __int64 v124; // rax
+  __int64 v125; // rax
+  __int64 v126; // rax
+  __int64 v127; // rax
+  __int64 v128; // rax
+  __int64 v129; // rax
+  __int64 v130; // rax
+  __int64 v131; // rax
+  __int64 v132; // rax
+  __int64 v133; // rax
+  __int64 v134; // rax
+  __int64 v135; // rax
+  __int64 v136; // rax
+  __int64 v137; // rax
+  __int64 v138; // rax
+  __int64 v139; // rax
+  __int64 v140; // rax
+  __int64 v141; // rax
+  __int64 v142; // rax
+  __int64 v143; // rax
+  __int64 v144; // rax
+  __int64 v145; // rax
+  __int64 v146; // rax
+  __int64 v147; // rax
+  __int64 v148; // rax
+  __int64 v149; // rax
+  __int64 v150; // rax
+  __int64 v151; // rax
+  __int64 v152; // rax
+  __int64 v153; // rax
+  __int64 v154; // rax
+  __int64 v155; // rax
+  __int64 v156; // rax
+  __int64 v157; // rax
+  __int64 v158; // rax
+  __int64 v159; // rax
+  __int64 v160; // rax
+  __int64 v161; // rax
+  __int64 v162; // rax
+  __int64 v163; // rax
+  __int64 v164; // rax
+  __int64 v165; // rax
+  __int64 v166; // rax
+  __int64 v167; // rax
+  __int64 v168; // rax
+  __int64 v169; // rax
+  __int64 v170; // rax
+  __int64 v171; // rax
+  __int64 v172; // rax
+  __int64 v173; // rax
+  __int64 v174; // rax
+  __int64 v175; // rax
+  __int64 v176; // rax
+  __int64 v177; // rax
+  __int64 v178; // rax
+  __int64 v179; // rax
+  __int64 v180; // rax
+  __int64 v181; // rax
+  __int64 v182; // rax
+  __int64 v183; // rax
+  __int64 v184; // rax
+  __int64 v185; // rax
+  __int64 v186; // rax
+  __int64 v187; // rax
+  __int64 v188; // rax
+  __int64 v189; // rax
+  __int64 v190; // rax
+  __int64 v191; // rax
+  __int64 v192; // rax
+  __int64 v193; // rax
+  __int64 v194; // rax
+  __int64 v195; // rax
+  __int64 v196; // rax
+  __int64 v197; // rax
+  __int64 v198; // rax
+  __int64 v199; // rax
+  __int64 v200; // rax
+  __int64 v201; // rax
+  _BYTE v202[8]; // [rsp+40h] [rbp-59h] BYREF
+  _BYTE v203[8]; // [rsp+48h] [rbp-51h] BYREF
+  _BYTE v204[8]; // [rsp+50h] [rbp-49h] BYREF
+  _BYTE v205[8]; // [rsp+58h] [rbp-41h] BYREF
+  _BYTE v206[8]; // [rsp+60h] [rbp-39h] BYREF
+  _BYTE v207[8]; // [rsp+68h] [rbp-31h] BYREF
+  _BYTE v208[8]; // [rsp+70h] [rbp-29h] BYREF
+  _BYTE v209[8]; // [rsp+78h] [rbp-21h] BYREF
+  _BYTE v210[8]; // [rsp+80h] [rbp-19h] BYREF
+  _BYTE v211[8]; // [rsp+88h] [rbp-11h] BYREF
+  _BYTE v212[8]; // [rsp+90h] [rbp-9h] BYREF
+  _BYTE v213[8]; // [rsp+98h] [rbp-1h] BYREF
+  _BYTE v214[8]; // [rsp+A0h] [rbp+7h] BYREF
+  _BYTE v215[8]; // [rsp+A8h] [rbp+Fh] BYREF
+  _BYTE v216[8]; // [rsp+B0h] [rbp+17h] BYREF
+  _BYTE v217[8]; // [rsp+B8h] [rbp+1Fh] BYREF
+
+  switch ( a2 )
+  {
+    case 2808:
+    case 2823:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA99u, v7, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Cu, v8, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA98u, v9, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      v11 = 2715;
+      goto LABEL_40;
+    case 2809:
+    case 2824:
+      goto LABEL_6;
+    case 2810:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC2u, v15, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xACBu, v16, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v18 = 2753;
+      goto LABEL_8;
+    case 2811:
+      goto LABEL_12;
+    case 2812:
+      EditorUI_createExtrasForObject(a1, 2810, a3, a4);
+LABEL_12:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB1u, v24, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB4u, v25, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v27 = 2736;
+      goto LABEL_13;
+    case 2813:
+    case 2828:
+      EditorUI_createExtrasForObject(a1, 2808, a3, a4);
+LABEL_6:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB78u, v12, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v13, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB77u, v14, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      v11 = 2941;
+      goto LABEL_40;
+    case 2814:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v32, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Cu, v33, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC2u, v34, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC8u, v35, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v36, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Bu, v37, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC1u, v38, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v11 = 2759;
+      goto LABEL_40;
+    case 2815:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA99u, v47, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v48, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAAEu, v49, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB4u, v50, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA98u, v51, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v52, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v27 = 2733;
+LABEL_13:
+      EditorUI_createExtraObject(a1, v27, v26, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v11 = 2739;
+      goto LABEL_40;
+    case 2816:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB78u, v60, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v61, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC5u, v62, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xACBu, v63, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB77u, v64, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v65, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v18 = 2756;
+LABEL_8:
+      EditorUI_createExtraObject(a1, v18, v17, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v11 = 2762;
+      goto LABEL_40;
+    case 2817:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v72, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v73, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB1u, v74, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB7u, v75, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v76, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Du, v77, a3, a4, 2, 3);
+      v78 = (cocos2d::CCPoint *)v202;
+      goto LABEL_25;
+    case 2818:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v87, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v88, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC2u, v89, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC8u, v90, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAAEu, v91, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB4u, v92, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v93, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v94, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC1u, v95, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC7u, v96, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAADu, v97, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 30.0, 0.0);
+      v11 = 2739;
+      goto LABEL_40;
+    case 2819:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v109, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v110, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC5u, v111, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xACBu, v112, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB1u, v113, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB7u, v114, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v115, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v116, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC4u, v117, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xACAu, v118, a3, a4, 2, 3);
+      v78 = (cocos2d::CCPoint *)v203;
+LABEL_25:
+      cocos2d::CCPoint::CCPoint(v78, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB0u, v79, a3, a4, 2, 3);
+      goto LABEL_26;
+    case 2820:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v129, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Cu, v130, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB78u, v131, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v132, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC5u, v133, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC8u, v134, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v135, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Bu, v136, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB77u, v137, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v138, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAC4u, v139, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v11 = 2759;
+      goto LABEL_40;
+    case 2821:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA99u, v151, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v152, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v153, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v154, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAAEu, v155, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAB7u, v156, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA98u, v157, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v158, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v159, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Du, v160, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAADu, v161, a3, a4, 2, 3);
+LABEL_26:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v11 = 2742;
+      goto LABEL_40;
+    case 2822:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v173, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v174, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v175, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v176, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADAu, v177, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE3u, v178, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF1u, v179, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF4u, v180, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v181, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v182, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v183, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v184, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v214, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAD9u, v185, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v215, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE2u, v186, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v216, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF0u, v187, a3, a4, 2, 3);
+      v23 = (cocos2d::CCPoint *)v217;
+      goto LABEL_11;
+    case 2825:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF1u, v19, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF4u, v20, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v22 = 2800;
+      goto LABEL_10;
+    case 2826:
+      goto LABEL_14;
+    case 2827:
+      EditorUI_createExtrasForObject(a1, 2825, a3, a4);
+LABEL_14:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADAu, v28, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE3u, v29, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v31 = 2777;
+      goto LABEL_15;
+    case 2829:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v39, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Cu, v40, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF1u, v41, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF7u, v42, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v43, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Bu, v44, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v46 = 2800;
+      goto LABEL_38;
+    case 2830:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA99u, v53, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v54, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADDu, v55, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE3u, v56, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA98u, v57, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v58, a3, a4, 2, 3);
+      v59 = (cocos2d::CCPoint *)v202;
+      goto LABEL_21;
+    case 2831:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB78u, v66, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v67, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAEEu, v68, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF4u, v69, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB77u, v70, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v71, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v22 = 2797;
+LABEL_10:
+      EditorUI_createExtraObject(a1, v22, v21, a3, a4, 2, 3);
+      v23 = (cocos2d::CCPoint *)v202;
+LABEL_11:
+      cocos2d::CCPoint::CCPoint(v23, -30.0, 0.0);
+      v11 = 2803;
+      goto LABEL_40;
+    case 2832:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v80, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v81, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADAu, v82, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE0u, v83, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v84, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Du, v85, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAD9u, v86, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 30.0, 0.0);
+      v11 = 2783;
+      goto LABEL_40;
+    case 2833:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v98, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v99, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF1u, v100, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF7u, v101, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADDu, v102, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE3u, v103, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v104, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v105, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF0u, v106, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF6u, v107, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADCu, v108, a3, a4, 2, 3);
+      goto LABEL_16;
+    case 2834:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v119, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v120, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF1u, v121, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF7u, v122, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADDu, v123, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE3u, v124, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v125, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Du, v126, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF0u, v127, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF6u, v128, a3, a4, 2, 3);
+      v59 = (cocos2d::CCPoint *)v203;
+LABEL_21:
+      cocos2d::CCPoint::CCPoint(v59, 30.0, 0.0);
+      v31 = 2780;
+LABEL_15:
+      EditorUI_createExtraObject(a1, v31, v30, a3, a4, 2, 3);
+LABEL_16:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v11 = 2786;
+      goto LABEL_40;
+    case 2835:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v140, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Cu, v141, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB78u, v142, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v143, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAEEu, v144, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF7u, v145, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v146, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Bu, v147, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB77u, v148, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v149, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAEDu, v150, a3, a4, 2, 3);
+      goto LABEL_39;
+    case 2836:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA99u, v162, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v163, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v164, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Eu, v165, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADDu, v166, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE0u, v167, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA98u, v168, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v169, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v170, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Du, v171, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADCu, v172, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, 30.0, 0.0);
+      v11 = 2783;
+      goto LABEL_40;
+    case 2837:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v217, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA96u, v188, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v216, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Fu, v189, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v215, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Au, v190, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v214, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Cu, v191, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v213, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADDu, v192, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v212, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAE0u, v193, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v211, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAEEu, v194, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v210, -30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xAF7u, v195, a3, a4, 1, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v209, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA95u, v196, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v208, 0.0, 30.0);
+      EditorUI_createExtraObject(a1, 0xA9Eu, v197, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v207, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB79u, v198, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v206, 0.0, -30.0);
+      EditorUI_createExtraObject(a1, 0xB7Bu, v199, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v205, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADCu, v200, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v204, 30.0, 0.0);
+      EditorUI_createExtraObject(a1, 0xADFu, v201, a3, a4, 2, 3);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v203, -30.0, 0.0);
+      v46 = 2797;
+LABEL_38:
+      EditorUI_createExtraObject(a1, v46, v45, a3, a4, 2, 3);
+LABEL_39:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v202, -30.0, 0.0);
+      v11 = 2806;
+LABEL_40:
+      EditorUI_createExtraObject(a1, v11, v10, a3, a4, 2, 3);
+      break;
+    default:
+      return;
+  }
+}
+
+// Address: 0x1b67c0
+// Method: EditorUI::createLoop
+// Hidden C++ exception states: #wind=12
+int __fastcall EditorUI_createLoop(__int64 a1)
+{
+  int v2; // esi
+  __int64 v3; // rax
+  cocos2d::CCArray *v4; // r14
+  struct cocos2d::CCObject *v5; // rdx
+  unsigned int v6; // ebx
+  struct cocos2d::CCObject *v7; // rax
+  __int64 v8; // rcx
+  cocos2d::CCArray *v9; // r13
+  float v10; // xmm6_4
+  float v11; // xmm9_4
+  unsigned int i; // r12d
+  struct cocos2d::CCObject *v13; // rax
+  struct cocos2d::CCObject *v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  cocos2d::CCArray *Object; // rbx
+  struct cocos2d::CCObject *v18; // rax
+  float *v19; // rax
+  struct cocos2d::CCObject *v20; // rdx
+  cocos2d::CCArray *v21; // rcx
+  cocos2d::CCArray *v22; // rbx
+  _QWORD *v23; // rax
+  __int64 v24; // r8
+  __int64 v25; // r9
+  int v26; // r14d
+  __int128 v27; // xmm0
+  __int64 v28; // rax
+  __int64 v29; // rdi
+  int v30; // ecx
+  __int64 v31; // rbx
+  __int64 *v32; // rdi
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  double v35; // xmm0_8
+  float v36; // xmm11_4
+  __int128 v37; // xmm6
+  float v38; // xmm9_4
+  float v39; // xmm8_4
+  int v40; // r12d
+  __int64 v41; // rcx
+  unsigned int v42; // ebx
+  cocos2d::CCArray *v43; // rdi
+  unsigned int v44; // r13d
+  cocos2d::CCArray *v45; // r14
+  cocos2d::CCArray *v46; // rax
+  struct cocos2d::CCObject *v47; // rax
+  float *v48; // rax
+  __int64 *v49; // rdi
+  __int64 v50; // rbx
+  __int64 v51; // rax
+  __int128 v52; // xmm7
+  unsigned int v53; // r14d
+  struct cocos2d::CCObject *v54; // rbx
+  __int64 v55; // rdi
+  float v56; // edi
+  _QWORD *v57; // rax
+  __int64 v58; // r8
+  __int64 v59; // r9
+  float *v60; // rax
+  __int64 v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rdi
+  __int64 v64; // rbx
+  int v65; // eax
+  __int64 v66; // rbx
+  int v68; // [rsp+20h] [rbp-E0h]
+  _BYTE v69[8]; // [rsp+30h] [rbp-D0h] BYREF
+  cocos2d::CCArray *v70; // [rsp+38h] [rbp-C8h]
+  cocos2d::CCArray *v71; // [rsp+40h] [rbp-C0h]
+  int v72; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD *v73; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v74; // [rsp+58h] [rbp-A8h]
+  __int128 v75; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v76; // [rsp+70h] [rbp-90h]
+  __int64 v77; // [rsp+78h] [rbp-88h]
+  __int64 v78; // [rsp+80h] [rbp-80h]
+  _BYTE v79[8]; // [rsp+88h] [rbp-78h] BYREF
+  cocos2d::CCArray *v80; // [rsp+90h] [rbp-70h]
+  _BYTE v81[8]; // [rsp+98h] [rbp-68h] BYREF
+  _BYTE v82[8]; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v83[8]; // [rsp+A8h] [rbp-58h] BYREF
+  _BYTE v84[8]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v85[112]; // [rsp+B8h] [rbp-48h] BYREF
+  float v86; // [rsp+170h] [rbp+70h] BYREF
+  float v87; // [rsp+174h] [rbp+74h]
+  unsigned int v88; // [rsp+178h] [rbp+78h] BYREF
+  int v89; // [rsp+180h] [rbp+80h] BYREF
+  int v90; // [rsp+188h] [rbp+88h]
+
+  v2 = 0;
+  v90 = 0;
+  if ( *(_QWORD *)(a1 + 1568) || (LODWORD(v3) = cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 944)), (_DWORD)v3) )
+  {
+    v4 = (cocos2d::CCArray *)cocos2d::CCArray::create(a1);
+    v5 = *(struct cocos2d::CCObject **)(a1 + 1568);
+    if ( v5 )
+      cocos2d::CCArray::addObject(v4, v5);
+    else
+      cocos2d::CCArray::addObjectsFromArray(v4, *(struct cocos2d::CCArray **)(a1 + 944));
+    v6 = 0;
+    while ( v6 < cocos2d::CCArray::count(v4) )
+    {
+      v7 = cocos2d::CCArray::objectAtIndex(v4, v6);
+      if ( GameObject_isSpawnableTrigger((__int64)v7) )
+        ++v6;
+      else
+        cocos2d::CCArray::removeObjectAtIndex(v4, v6, 1);
+    }
+    qsort(*(void **)(*((_QWORD *)v4 + 7) + 16LL), **((unsigned int **)v4 + 7), 8u, sub_19CB90);
+    v9 = (cocos2d::CCArray *)cocos2d::CCArray::create(v8);
+    v71 = v9;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v79);
+    v10 = 0.0;
+    v11 = 0.0;
+    for ( i = 0; i < cocos2d::CCArray::count(v4); ++i )
+    {
+      v13 = cocos2d::CCArray::objectAtIndex(v4, i);
+      v14 = v13;
+      if ( !i )
+      {
+        v15 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *, unsigned int *))(*(_QWORD *)v13 + 1208LL))(
+                v13,
+                &v88);
+        cocos2d::CCPoint::operator=(v79, v15);
+      }
+      *((_BYTE *)v14 + 1489) = 1;
+      *((_BYTE *)v14 + 1680) = 1;
+      (*(void (__fastcall **)(struct cocos2d::CCObject *, float *))(*(_QWORD *)v14 + 1208LL))(v14, &v86);
+      if ( v10 > v86 || v10 == 0.0 )
+        v10 = v86;
+      if ( v87 > v11 || v11 == 0.0 )
+        v11 = v87;
+      if ( cocos2d::CCArray::count(v9)
+        && (Object = cocos2d::CCArray::lastObject(v9),
+            v18 = cocos2d::CCArray::objectAtIndex(Object, 0),
+            v19 = (float *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *, int *))(*(_QWORD *)v18 + 1208LL))(
+                             v18,
+                             &v89),
+            (float)(v86 - *v19) <= 0.1) )
+      {
+        v20 = v14;
+        v21 = Object;
+      }
+      else
+      {
+        v22 = (cocos2d::CCArray *)cocos2d::CCArray::create(v16);
+        cocos2d::CCArray::addObject(v22, v14);
+        v20 = v22;
+        v21 = v9;
+      }
+      cocos2d::CCArray::addObject(v21, v20);
+    }
+    v74 = 0;
+    v23 = operator new(0x18u);
+    *v23 = v23;
+    v23[1] = v23;
+    v73 = v23;
+    v27 = 0;
+    v75 = 0;
+    v76 = 0;
+    v77 = 7;
+    v78 = 8;
+    v72 = 1065353216;
+    sub_3E200(&v75, 16, v23);
+    v26 = sub_3F41D0(*(_QWORD *)(a1 + 1512), &v72, v24, v25);
+    v89 = v26;
+    sub_3DA90(&v75);
+    sub_3DB00(&v73);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v86, v10, v11 + 90.0);
+    v29 = sub_1B0700(a1, 1268, v28);
+    v30 = v26;
+    if ( v26 < 0 )
+      v30 = 0;
+    if ( v30 > 9999 )
+      v30 = 9999;
+    *(_DWORD *)(v29 + 1480) = v30;
+    v31 = *(_QWORD *)(a1 + 1512);
+    sub_3F1780(v31, v29);
+    sub_3F1070(v31, v29);
+    v32 = *(__int64 **)(a1 + 1512);
+    v33 = *v32;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v86, v10, 0.0);
+    v35 = (*(double (__fastcall **)(__int64 *, __int64, _QWORD, _QWORD, _BYTE, _DWORD))(v33 + 1256))(
+            v32,
+            v34,
+            0,
+            0,
+            0,
+            0);
+    v36 = *(float *)&v35;
+    v37 = 0;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v69);
+    rand();
+    v38 = v11 + 60.0;
+    v39 = 0.0;
+    v40 = v26;
+    v80 = (cocos2d::CCArray *)cocos2d::CCArray::create(v41);
+    *(float *)&v42 = 0.0;
+    v86 = 0.0;
+    if ( cocos2d::CCArray::count(v9) )
+    {
+      do
+      {
+        v88 = cocos2d::CCArray::count(v9) - 1;
+        v43 = cocos2d::CCArray::objectAtIndex(v9, v42);
+        v70 = v43;
+        v44 = v40;
+        v45 = v71;
+        if ( v42 >= cocos2d::CCArray::count(v71) - 1 )
+        {
+          v52 = v37;
+        }
+        else
+        {
+          v46 = cocos2d::CCArray::objectAtIndex(v45, v42 + 1);
+          v47 = cocos2d::CCArray::objectAtIndex(v46, 0);
+          v48 = (float *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *, _BYTE *))(*(_QWORD *)v47 + 1208LL))(
+                           v47,
+                           v81);
+          v49 = *(__int64 **)(a1 + 1512);
+          v50 = *v49;
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v82, *v48, 0.0);
+          LOBYTE(v68) = 0;
+          *(double *)&v27 = (*(double (__fastcall **)(__int64 *, __int64, _QWORD, _QWORD, int, _DWORD))(v50 + 1256))(
+                              v49,
+                              v51,
+                              0,
+                              0,
+                              v68,
+                              0);
+          v52 = v27;
+          *(float *)&v52 = *(float *)&v27 - v36;
+          *(float *)&v42 = v86;
+          v43 = v70;
+        }
+        v53 = 0;
+        if ( cocos2d::CCArray::count(v43) )
+        {
+          do
+          {
+            v54 = cocos2d::CCArray::objectAtIndex(v43, v53);
+            v55 = *(_QWORD *)(a1 + 1512);
+            if ( (*(unsigned int (__fastcall **)(struct cocos2d::CCObject *, _QWORD))(*(_QWORD *)v54 + 1448LL))(
+                   v54,
+                   v44) == 1 )
+              (*(void (__fastcall **)(__int64, struct cocos2d::CCObject *, _QWORD, _QWORD))(*(_QWORD *)v55 + 1200LL))(
+                v55,
+                v54,
+                v44,
+                0);
+            if ( !v53 )
+            {
+              v37 = v52;
+              v56 = v86;
+              if ( LODWORD(v86) == v88 )
+              {
+                v40 = v89;
+              }
+              else
+              {
+                v74 = 0;
+                v57 = operator new(0x18u);
+                *v57 = v57;
+                v57[1] = v57;
+                v73 = v57;
+                v27 = 0;
+                v75 = 0;
+                v76 = 0;
+                v77 = 7;
+                v78 = 8;
+                v72 = 1065353216;
+                sub_3E200(&v75, 16, v57);
+                v2 |= 2u;
+                v90 = v2;
+                v40 = sub_3F41D0(*(_QWORD *)(a1 + 1512), &v72, v58, v59);
+              }
+              if ( (v2 & 2) != 0 )
+              {
+                v2 &= ~2u;
+                sub_3DA90(&v75);
+                sub_3DB00(&v73);
+              }
+              if ( LODWORD(v56) != v88 )
+              {
+                v37 = v52;
+                *(float *)&v37 = *(float *)&v52 - v39;
+              }
+              v60 = (float *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *, _BYTE *))(*(_QWORD *)v54 + 1208LL))(
+                               v54,
+                               v83);
+              cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v84, *v60, v38);
+              cocos2d::CCPoint::operator=(v69, v61);
+              cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v85, (const struct cocos2d::CCPoint *)v69);
+              v63 = sub_1B0700(a1, 1268, v62);
+              cocos2d::CCArray::addObject(v80, (struct cocos2d::CCObject *)v63);
+              v64 = *(_QWORD *)(a1 + 1512);
+              if ( (*(unsigned int (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v63 + 1448LL))(v63, v44) == 1 )
+                (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)v64 + 1200LL))(v64, v63, v44, 0);
+              v65 = v40;
+              if ( v40 < 0 )
+                v65 = 0;
+              if ( v65 > 9999 )
+                v65 = 9999;
+              *(_DWORD *)(v63 + 1480) = v65;
+              *(_DWORD *)(v63 + 1920) = v37;
+              *(_BYTE *)(v63 + 1489) = 1;
+              *(_BYTE *)(v63 + 1680) = 1;
+              v66 = *(_QWORD *)(a1 + 1512);
+              sub_3F1780(v66, v63);
+              sub_3F1070(v66, v63);
+              v39 = v39 + *(float *)&v37;
+            }
+            ++v53;
+            v43 = v70;
+          }
+          while ( v53 < cocos2d::CCArray::count(v70) );
+          *(float *)&v42 = v86;
+        }
+        ++v42;
+        v86 = *(float *)&v42;
+        v9 = v71;
+      }
+      while ( v42 < cocos2d::CCArray::count(v71) );
+    }
+    v3 = *(_QWORD *)(a1 + 1512);
+    *(_DWORD *)(v3 + 14888) = 16843009;
+    *(_BYTE *)(v3 + 14892) = 1;
+  }
+  return v3;
+}
+
+// Address: 0x1a6920
+// Method: EditorUI::init
+// Hidden C++ exception states: #wind=12
+bool __fastcall EditorUI_init(__int64 a1, __int64 a2)
+{
+  bool result; // al
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  cocos2d::CCObject *v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  cocos2d::CCString *v15; // rax
+  int v16; // ebx
+  void *v17; // r8
+  float v18; // xmm0_4
+  __int64 v19; // rcx
+  __int64 v20; // rbx
+  cocos2d::CCString *v21; // rax
+  int v22; // ebx
+  int v23; // r8d
+  void *v24; // r8
+  float v25; // xmm1_4
+  float v26; // xmm1_4
+  __int64 v27; // rax
+  __int64 v28; // rdi
+  __int64 v29; // rcx
+  cocos2d::CCDirector *v30; // rax
+  float v31; // xmm0_4
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  char *v34; // rbx
+  bool (__fastcall *v35)(cocos2d::CCLayer *); // rdx
+  bool v36; // al
+  char *v37; // rbx
+  char *v38; // rbx
+  bool (__fastcall *v39)(__int64); // rdx
+  bool v40; // al
+  __int64 v41; // rdx
+ ... [67478 chars total]
+
+// Address: 0x1abea0
+// Method: EditorUI::updateObjectInfoLabel
+// Hidden C++ exception states: #wind=13
+double __fastcall EditorUI_updateObjectInfoLabel(__int64 a1)
+{
+  __int64 v1; // rdi
+  __int64 v2; // r14
+  __int64 v3; // rcx
+  cocos2d::CCArray *v4; // rcx
+  int v5; // edi
+  int v6; // r15d
+  int v7; // r14d
+  int v8; // esi
+  int v9; // r12d
+  int v10; // r13d
+  unsigned int v11; // ebx
+  struct cocos2d::CCObject *v12; // rax
+  struct cocos2d::CCObject *v13; // rcx
+  __int16 v14; // ax
+  bool v15; // al
+  int v16; // edx
+  int *v17; // rax
+  int v18; // edx
+  int v19; // eax
+  __int16 v20; // ax
+  char v21; // al
+  int *v22; // rax
+  int v23; // edx
+  int v24; // edx
+  int v25; // eax
+  int v26; // eax
+  int v27; // eax
+  __int64 v28; // rcx
+  __int16 v29; // dx
+  char v30; // al
+  int v31; // r8d
+  int *v32; // rax
+  char v33; // al
+  int *v34; // rax
+  int v35; // edx
+  _QWORD *v36; // rax
+  _QWORD *v37; // rax
+  _QWORD *v38; // rax
+  int v39; // r13d
+  cocos2d::CCArray *v40; // rcx
+  _QWORD *v41; // r8
+  __int64 v42; // r9
+  struct cocos2d::CCArray *v43; // rax
+  struct cocos2d::CCObject *v44; // rcx
+  unsigned int *v45; // rcx
+  __int64 v46; // rdx
+  __int64 *v47; // r12
+  __int64 *v48; // rsi
+  __int64 v49; // rdi
+  int v50; // r15d
+  unsigned int v51; // ecx
+  unsigned __int64 v52; // rsi
+  __int64 v53; // rax
+  _DWORD *v54; // rax
+  __int64 v55; // rbx
+  __int64 v56; // rcx
+  cocos2d::CCArray *v57; // rax
+  cocos2d::CCArray *v58; // rbx
+  struct cocos2d::CCObject *v59; // rax
+  _QWORD *v60; // rbx
+  _QWORD *v61; // rdx
+  __int64 v62; // rcx
+  _QWORD *v63; // rax
+  _DWORD *v64; // rax
+  int v65; // ebx
+  __int64 **v66; // rdi
+  __int64 *v67; // rax
+  __int64 v68; // rcx
+  _DWORD *v69; // rax
+  const char *v70; // r12
+  const char *v71; // rdi
+  const char *CString; // rax
+  cocos2d::CCString *v73; // rax
+  __int16 *v74; // rbx
+  const char *v75; // rax
+  cocos2d::CCString *v76; // rax
+  const char *v77; // rsi
+  const char *v78; // r15
+  cocos2d::CCString *v79; // rax
+  unsigned int v80; // edi
+  cocos2d::CCString *v81; // rax
+  cocos2d::CCString *v82; // rax
+  char *v83; // rax
+  size_t v84; // r8
+  size_t v85; // r8
+  int v86; // r14d
+  __int64 *v87; // rbx
+  signed int v88; // esi
+  unsigned int v89; // edi
+  bool v90; // di
+  _QWORD *v91; // rcx
+  __int64 *v92; // rax
+  bool v93; // al
+  char *v94; // rdx
+  __int64 v95; // r8
+  void **v96; // r8
+  const char *v97; // rcx
+  cocos2d::CCString *v98; // rax
+  char *v99; // rax
+  size_t v100; // r8
+  void *v101; // rcx
+  __int64 **v102; // rax
+  __int64 *i; // rax
+  __int64 *j; // rax
+  void *v105; // rcx
+  cocos2d::CCString *v106; // rax
+  char *v107; // rax
+  size_t v108; // r15
+  size_t v109; // r8
+  __int64 v110; // rax
+  cocos2d::CCString *v111; // rax
+  char *v112; // rax
+  size_t v113; // r8
+  cocos2d::CCString *v114; // rax
+  char *v115; // rax
+  size_t v116; // r8
+  const char *v117; // rdx
+  cocos2d::CCString *v118; // rax
+  char *v119; // rax
+  size_t v120; // r8
+  int v121; // r14d
+  __int64 *v122; // rbx
+  unsigned int v123; // esi
+  unsigned int v124; // edi
+  bool v125; // di
+  __int64 v126; // rax
+  __int64 v127; // r8
+  void **v128; // rdx
+  size_t v129; // r8
+  __int64 **v130; // rax
+  __int64 *k; // rax
+  __int64 *m; // rax
+  __int64 v133; // rbx
+  _DWORD *v134; // rdi
+  cocos2d::CCString *v135; // rax
+  char *v136; // rax
+  size_t v137; // r8
+  double v138; // xmm7_8
+  double v139; // xmm8_8
+  double v140; // xmm6_8
+  float *v141; // rax
+  cocos2d::CCString *v142; // rax
+  char *v143; // rax
+  size_t v144; // r8
+  cocos2d::CCString *v145; // rax
+  char *v146; // rax
+  __int128 *p_Src; // rdx
+  double result; // xmm0_8
+  int v149; // [rsp+30h] [rbp-D0h]
+  unsigned int v150; // [rsp+34h] [rbp-CCh]
+  int v151; // [rsp+38h] [rbp-C8h]
+  int v152; // [rsp+3Ch] [rbp-C4h]
+  unsigned int v153; // [rsp+40h] [rbp-C0h]
+  unsigned int v154; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v155; // [rsp+48h] [rbp-B8h]
+  int v156; // [rsp+4Ch] [rbp-B4h]
+  __int64 v157; // [rsp+50h] [rbp-B0h]
+  cocos2d::CCArray *v158; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 **v159; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int64 v160; // [rsp+68h] [rbp-98h]
+  __int64 *v161; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD *v162; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v163; // [rsp+80h] [rbp-80h]
+  __int64 **v164; // [rsp+88h] [rbp-78h] BYREF
+  unsigned __int64 v165; // [rsp+90h] [rbp-70h]
+  _QWORD *v166; // [rsp+98h] [rbp-68h]
+  __int64 v167; // [rsp+A0h] [rbp-60h]
+  __int64 ***v168; // [rsp+A8h] [rbp-58h]
+  __int64 v169; // [rsp+B0h] [rbp-50h]
+  void *v170; // [rsp+B8h] [rbp-48h]
+  void *Block[2]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v172; // [rsp+D0h] [rbp-30h]
+  unsigned __int64 v173; // [rsp+D8h] [rbp-28h]
+  __int128 Src; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v175; // [rsp+F0h] [rbp-10h]
+  unsigned __int64 v176; // [rsp+F8h] [rbp-8h]
+  __int128 v177; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v178; // [rsp+110h] [rbp+10h]
+  unsigned __int64 v179; // [rsp+118h] [rbp+18h]
+  __int128 v180; // [rsp+120h] [rbp+20h] BYREF
+  __int64 v181; // [rsp+130h] [rbp+30h]
+  __int64 v182; // [rsp+138h] [rbp+38h]
+  _BYTE v183[528]; // [rsp+140h] [rbp+40h] BYREF
+
+  v1 = a1;
+  v157 = a1;
+  v2 = 0;
+  v3 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v161 = (__int64 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v161);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v3 = qword_905FD0;
+  }
+  if ( GameManager_getGameVariable(v3, "0041") )
+  {
+    v180 = 0;
+    v181 = 0;
+    v182 = 15;
+    LOBYTE(v180) = 0;
+    v156 = 0;
+    v4 = *(cocos2d::CCArray **)(v1 + 944);
+    if ( v4 && cocos2d::CCArray::count(v4) )
+    {
+      v156 = cocos2d::CCArray::count(*(cocos2d::CCArray **)(v1 + 944));
+      v5 = -2;
+      v151 = -2;
+      v6 = -2;
+      v149 = -2;
+      v7 = -1;
+      v152 = -1;
+      v8 = -1;
+      v153 = -1;
+      v9 = -1;
+      v150 = -1;
+      v10 = -1;
+      v155 = -1;
+      v11 = 0;
+      if ( cocos2d::CCArray::count(*(cocos2d::CCArray **)(v157 + 944)) )
+      {
+        do
+        {
+          v12 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(v157 + 944), v11);
+          v13 = v12;
+          if ( v6 != -10001 )
+          {
+            v14 = *((_WORD *)v12 + 524);
+            v15 = v14 ? v14 == 1 : *((_BYTE *)v13 + 1300);
+            if ( v15 || *((_QWORD *)v13 + 112) || (v16 = *(_DWORD *)(*((_QWORD *)v13 + 138) + 4LL), v16 == 1004) || !v16 )
+            {
+              v17 = (int *)*((_QWORD *)v13 + 138);
+              if ( v17 )
+              {
+                v18 = v17[1];
+                v19 = *v17;
+                if ( v18 == v19 || !v19 )
+                  v19 = v18;
+                if ( v6 == -2 )
+                {
+                  v6 = v19;
+                }
+                else if ( v6 != v19 )
+                {
+                  v6 = -10001;
+                }
+              }
+            }
+          }
+          if ( v5 != -10001 )
+          {
+            v20 = *((_WORD *)v13 + 524);
+            if ( v20 )
+              v21 = v20 == 1;
+            else
+              v21 = *((_BYTE *)v13 + 1300);
+            if ( v21
+              || *((_QWORD *)v13 + 112)
+              || (v22 = (int *)*((_QWORD *)v13 + 138), v23 = v22[1], v23 == 1004)
+              || !v23 )
+            {
+              v22 = (int *)*((_QWORD *)v13 + 139);
+            }
+            if ( v22 )
+            {
+              v24 = v22[1];
+              v25 = *v22;
+              if ( v24 == v25 || !v25 )
+                v25 = v24;
+              if ( v5 == -2 )
+              {
+                v5 = v25;
+              }
+              else if ( v5 != v25 )
+              {
+                v5 = -10001;
+              }
+            }
+          }
+          if ( v7 != -10001 )
+          {
+            v26 = *((_DWORD *)v13 + 283);
+            if ( v7 == -1 )
+            {
+              v7 = *((_DWORD *)v13 + 283);
+              if ( !v26 )
+                v7 = *((_DWORD *)v13 + 281);
+            }
+            else
+            {
+              if ( !v26 )
+                v26 = *((_DWORD *)v13 + 281);
+              if ( v7 != v26 )
+                v7 = -10001;
+            }
+          }
+          if ( v8 != -10001 )
+          {
+            v27 = *((_DWORD *)v13 + 284);
+            if ( v8 == -1 )
+            {
+              v8 = *((_DWORD *)v13 + 284);
+              if ( !v27 )
+                v8 = *((_DWORD *)v13 + 264);
+            }
+            else
+            {
+              if ( !v27 )
+                v27 = *((_DWORD *)v13 + 264);
+              if ( v8 != v27 )
+                v8 = -10001;
+            }
+          }
+          if ( v9 != -10001 )
+          {
+            if ( v9 == -1 )
+            {
+              v9 = *((__int16 *)v13 + 605);
+            }
+            else if ( v9 != *((__int16 *)v13 + 605) )
+            {
+              v9 = -10001;
+            }
+          }
+          if ( v10 != -10001 )
+          {
+            if ( v10 == -1 )
+            {
+              v10 = *((__int16 *)v13 + 606);
+            }
+            else if ( v10 != *((__int16 *)v13 + 606) )
+            {
+              v10 = -10001;
+            }
+          }
+          ++v11;
+        }
+        while ( v11 < cocos2d::CCArray::count(*(cocos2d::CCArray **)(v157 + 944)) );
+        v155 = v10;
+        v150 = v9;
+        v149 = v6;
+        v152 = v7;
+        v153 = v8;
+        v151 = v5;
+      }
+      v1 = v157;
+      v2 = 0;
+    }
+    else
+    {
+      v28 = *(_QWORD *)(v1 + 1568);
+      if ( !v28 )
+      {
+        (**(void (__fastcall ***)(__int64, const char *))(*(_QWORD *)(v1 + 800) + 360LL))(
+          *(_QWORD *)(v1 + 800) + 360LL,
+          " ");
+        return sub_3C310(&v180);
+      }
+      v29 = *(_WORD *)(v28 + 1048);
+      if ( v29 )
+        v30 = v29 == 1;
+      else
+        v30 = *(_BYTE *)(v28 + 1300);
+      if ( (v30 || *(_QWORD *)(v28 + 896) || (v31 = *(_DWORD *)(*(_QWORD *)(v28 + 1104) + 4LL), v31 == 1004) || !v31)
+        && (v32 = *(int **)(v28 + 1104)) != 0 )
+      {
+        v6 = *v32;
+        v149 = *v32;
+        if ( v32[1] == *v32 || !v6 )
+        {
+          v6 = v32[1];
+          v149 = v6;
+        }
+      }
+      else
+      {
+        v6 = -2;
+        v149 = -2;
+      }
+      if ( v29 )
+        v33 = v29 == 1;
+      else
+        v33 = *(_BYTE *)(v28 + 1300);
+      if ( v33 || *(_QWORD *)(v28 + 896) || (v34 = *(int **)(v28 + 1104), v35 = v34[1], v35 == 1004) || !v35 )
+        v34 = *(int **)(v28 + 1112);
+      if ( v34 )
+      {
+        v151 = *v34;
+        if ( v34[1] == *v34 || !*v34 )
+          v151 = v34[1];
+      }
+      else
+      {
+        v151 = -2;
+      }
+      v152 = *(_DWORD *)(v28 + 1132);
+      if ( !v152 )
+        v152 = *(_DWORD *)(v28 + 1124);
+      v153 = *(_DWORD *)(v28 + 1136);
+      if ( !v153 )
+        v153 = *(_DWORD *)(v28 + 1056);
+      v150 = *(__int16 *)(v28 + 1210);
+      v155 = *(__int16 *)(v28 + 1212);
+    }
+    v165 = 0;
+    v36 = operator new(0x28u);
+    *v36 = v36;
+    v36[1] = v36;
+    v36[2] = v36;
+    *((_WORD *)v36 + 12) = 257;
+    v164 = (__int64 **)v36;
+    v163 = 0;
+    v37 = operator new(0x20u);
+    *v37 = v37;
+    v37[1] = v37;
+    v37[2] = v37;
+    *((_WORD *)v37 + 12) = 257;
+    v162 = v37;
+    v160 = 0;
+    v38 = operator new(0x28u);
+    *v38 = v38;
+    v38[1] = v38;
+    v38[2] = v38;
+    *((_WORD *)v38 + 12) = 257;
+    v159 = (__int64 **)v38;
+    v39 = 0;
+    v40 = *(cocos2d::CCArray **)(v1 + 944);
+    if ( v40 && cocos2d::CCArray::count(v40) )
+    {
+      v43 = *(struct cocos2d::CCArray **)(v1 + 944);
+    }
+    else
+    {
+      v44 = *(struct cocos2d::CCObject **)(v1 + 1568);
+      if ( !v44 )
+      {
+        v158 = 0;
+LABEL_147:
+        v70 = "?";
+        if ( v6 == -10001 )
+        {
+          v71 = "?";
+        }
+        else
+        {
+          if ( v6 < 1000 )
+          {
+            v73 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, (unsigned int)v6);
+            CString = cocos2d::CCString::getCString(v73);
+          }
+          else
+          {
+            CString = GJSpecialColorSelect_textForColorIdx(v6);
+          }
+          v71 = CString;
+        }
+        v74 = &word_709BFC;
+        if ( v151 == -10001 )
+        {
+          v75 = "?";
+        }
+        else if ( v151 < 0 )
+        {
+          v75 = (const char *)&word_709BFC;
+        }
+        else if ( v151 < 1000 )
+        {
+          v76 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, (unsigned int)v151);
+          v75 = cocos2d::CCString::getCString(v76);
+        }
+        else
+        {
+          v75 = GJSpecialColorSelect_textForColorIdx(v151);
+        }
+        v77 = (const char *)&word_709BFC;
+        if ( v6 != -2 )
+          v77 = v71;
+        if ( v151 != -2 )
+          v74 = (__int16 *)v75;
+        v78 = "?";
+        switch ( v152 )
+        {
+          case -5:
+            v78 = "B5";
+            break;
+          case -3:
+            v78 = "B4";
+            break;
+          case -1:
+            v78 = "B3";
+            break;
+          case 1:
+            v78 = "B2";
+            break;
+          case 3:
+            v78 = "B1";
+            break;
+          case 5:
+            v78 = "T1";
+            break;
+          case 7:
+            v78 = "T2";
+            break;
+          case 9:
+            v78 = "T3";
+            break;
+          case 11:
+            v78 = "T4";
+            break;
+          default:
+            break;
+        }
+        if ( v153 != -10001 )
+        {
+          v79 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, v153);
+          v70 = cocos2d::CCString::getCString(v79);
+        }
+        v80 = v150;
+        if ( v150 != -10001 )
+        {
+          v81 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, v150);
+          cocos2d::CCString::getCString(v81);
+        }
+        Src = 0;
+        v175 = 0;
+        v176 = 15;
+        LOBYTE(Src) = 0;
+        if ( v151 == -2 || v149 == -2 )
+        {
+          sub_43D80(&Src, "C: ", 3u);
+          if ( v151 == -2 )
+            v74 = (__int16 *)v77;
+          v85 = -1;
+          do
+            ++v85;
+          while ( *((_BYTE *)v74 + v85) );
+          sub_43D80(&Src, v74, v85);
+          v83 = (char *)Delimiter;
+          v84 = 1;
+        }
+        else
+        {
+          v82 = cocos2d::CCString::createWithFormat("C1: %s\nC2: %s\n", v77, (const char *)v74);
+          v83 = (char *)cocos2d::CCString::getCString(v82);
+          v84 = -1;
+          do
+            ++v84;
+          while ( v83[v84] );
+        }
+        sub_43D80(&Src, v83, v84);
+        if ( v39 > 0 )
+        {
+          sub_43D80(&Src, "G: ", 3u);
+          v86 = 0;
+          v87 = *v164;
+          if ( !*((_BYTE *)*v164 + 25) )
+          {
+            while ( 1 )
+            {
+              v88 = *((_DWORD *)v87 + 7);
+              v90 = 0;
+              if ( v158 )
+              {
+                v89 = *((_DWORD *)v87 + 8);
+                if ( v89 >= cocos2d::CCArray::count(v158) )
+                  v90 = 1;
+              }
+              if ( v86 )
+                sub_43D80(&Src, &unk_709CE8, 1u);
+              v91 = v162;
+              v92 = (__int64 *)v162[1];
+              while ( !*((_BYTE *)v92 + 25) )
+              {
+                if ( *((_DWORD *)v92 + 7) >= v88 )
+                {
+                  v91 = v92;
+                  v92 = (__int64 *)*v92;
+                }
+                else
+                {
+                  v92 = (__int64 *)v92[2];
+                }
+              }
+              v93 = !*((_BYTE *)v91 + 25) && v88 >= *((_DWORD *)v91 + 7);
+              v94 = &byte_6E86E0;
+              if ( v93 )
+                v94 = (char *)&unk_74C4D0;
+              *(_OWORD *)Block = 0;
+              v172 = 0;
+              v173 = 0;
+              v95 = -1;
+              do
+                ++v95;
+              while ( v94[v95] );
+              sub_3C230(Block);
+              v96 = Block;
+              v97 = "%i%s";
+              if ( !v90 )
+                v97 = "(%i%s)";
+              if ( v173 > 0xF )
+                v96 = (void **)Block[0];
+              v98 = cocos2d::CCString::createWithFormat(v97, (unsigned int)v88, v96);
+              v99 = (char *)cocos2d::CCString::getCString(v98);
+              v100 = -1;
+              do
+                ++v100;
+              while ( v99[v100] );
+              sub_43D80(&Src, v99, v100);
+              if ( ++v86 >= 5 )
+                break;
+              if ( v173 > 0xF )
+              {
+                v101 = Block[0];
+                if ( v173 + 1 >= 0x1000 )
+                {
+                  v101 = (void *)*((_QWORD *)Block[0] - 1);
+                  if ( (unsigned __int64)((char *)Block[0] - (char *)v101 - 8) > 0x1F )
+                    goto LABEL_233;
+                }
+                j_j_free(v101);
+              }
+              v102 = (__int64 **)v87[2];
+              if ( *((_BYTE *)v102 + 25) )
+              {
+                for ( i = (__int64 *)v87[1]; !*((_BYTE *)i + 25); i = (__int64 *)i[1] )
+                {
+                  if ( v87 != (__int64 *)i[2] )
+                    break;
+                  v87 = i;
+                }
+                v87 = i;
+              }
+              else
+              {
+                v87 = (__int64 *)v87[2];
+                for ( j = *v102; !*((_BYTE *)j + 25); j = (__int64 *)*j )
+                  v87 = j;
+              }
+              if ( *((_BYTE *)v87 + 25) )
+                goto LABEL_235;
+            }
+            if ( v173 > 0xF )
+            {
+              v105 = Block[0];
+              if ( v173 + 1 >= 0x1000 )
+              {
+                v105 = (void *)*((_QWORD *)Block[0] - 1);
+                if ( (unsigned __int64)((char *)Block[0] - (char *)v105 - 8) > 0x1F )
+LABEL_233:
+                  invoke_watson(0, 0, 0, 0, 0);
+              }
+              j_j_free(v105);
+            }
+LABEL_235:
+            v80 = v150;
+          }
+          if ( v165 > 5 )
+            sub_43D80(&Src, "...", 3u);
+          sub_43D80(&Src, (void *)Delimiter, 1u);
+        }
+        v106 = cocos2d::CCString::createWithFormat("Layer: %s\nZ: %s\n", v78, v70);
+        v107 = (char *)cocos2d::CCString::getCString(v106);
+        v108 = -1;
+        v109 = -1;
+        do
+          ++v109;
+        while ( v107[v109] );
+        sub_43D80(&Src, v107, v109);
+        v177 = 0;
+        v110 = 0;
+        v178 = 0;
+        v179 = 15;
+        LOBYTE(v177) = 0;
+        if ( v80 && v80 != -10001 )
+        {
+          v111 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, v80);
+          v112 = (char *)cocos2d::CCString::getCString(v111);
+          v113 = -1;
+          do
+            ++v113;
+          while ( v112[v113] );
+          sub_43D80(&v177, v112, v113);
+          v110 = v178;
+        }
+        if ( v155 && v155 != -10001 )
+        {
+          if ( v110 )
+            v114 = cocos2d::CCString::createWithFormat(", %i", v155);
+          else
+            v114 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, v80);
+          v115 = (char *)cocos2d::CCString::getCString(v114);
+          v116 = -1;
+          do
+            ++v116;
+          while ( v115[v116] );
+          sub_43D80(&v177, v115, v116);
+          v110 = v178;
+        }
+        if ( v110 )
+        {
+          v117 = (const char *)&v177;
+          if ( v179 > 0xF )
+            v117 = (const char *)v177;
+          v118 = cocos2d::CCString::createWithFormat("EL: %s\n", v117);
+          v119 = (char *)cocos2d::CCString::getCString(v118);
+          v120 = -1;
+          do
+            ++v120;
+          while ( v119[v120] );
+          sub_43D80(&Src, v119, v120);
+        }
+        if ( v160 )
+        {
+          sub_43D80(&Src, "CID: ", 5u);
+          v121 = 0;
+          v122 = *v159;
+          while ( !*((_BYTE *)v122 + 25) )
+          {
+            v123 = *((_DWORD *)v122 + 7);
+            v125 = 0;
+            if ( v158 )
+            {
+              v124 = *((_DWORD *)v122 + 8);
+              if ( v124 >= cocos2d::CCArray::count(v158) )
+                v125 = 1;
+            }
+            if ( v121 )
+              sub_43D80(&Src, &unk_709CE8, 1u);
+            if ( !v125 )
+              sub_43D80(&Src, &word_74CA4C, 1u);
+            fmt::BasicWriter<char>::BasicWriter<char>(v183);
+            fmt::BasicWriter<char>::operator<<(v183, v123);
+            v126 = fmt::BasicWriter<char>::c_str(v183);
+            *(_OWORD *)Block = 0;
+            v172 = 0;
+            v173 = 0;
+            v127 = -1;
+            do
+              ++v127;
+            while ( *(_BYTE *)(v126 + v127) );
+            sub_3C230(Block);
+            fmt::BasicWriter<char>::~BasicWriter<char>(v183);
+            v128 = Block;
+            if ( v173 > 0xF )
+              v128 = (void **)Block[0];
+            v129 = -1;
+            do
+              ++v129;
+            while ( *((_BYTE *)v128 + v129) );
+            sub_43D80(&Src, v128, v129);
+            sub_3C310(Block);
+            if ( !v125 )
+              sub_43D80(&Src, ")", 1u);
+            if ( ++v121 >= 5 )
+              break;
+            v130 = (__int64 **)v122[2];
+            if ( *((_BYTE *)v130 + 25) )
+            {
+              for ( k = (__int64 *)v122[1]; !*((_BYTE *)k + 25); k = (__int64 *)k[1] )
+              {
+                if ( v122 != (__int64 *)k[2] )
+                  break;
+                v122 = k;
+              }
+              v122 = k;
+            }
+            else
+            {
+              v122 = (__int64 *)v122[2];
+              for ( m = *v130; !*((_BYTE *)m + 25); m = (__int64 *)*m )
+                v122 = m;
+            }
+          }
+          if ( v160 > 5 )
+            sub_43D80(&Src, "...", 3u);
+          sub_43D80(&Src, (void *)Delimiter, 1u);
+        }
+        v133 = v157;
+        v134 = *(_DWORD **)(v157 + 1568);
+        if ( v134 && v134[314] == 1 )
+        {
+          if ( *(_QWORD *)(v134 + 447) )
+          {
+            v135 = cocos2d::CCString::createWithFormat("Order: %i,%i\n", v134[448], v134[447]);
+            v136 = (char *)cocos2d::CCString::getCString(v135);
+            v137 = -1;
+            do
+              ++v137;
+            while ( v136[v137] );
+            sub_43D80(&Src, v136, v137);
+          }
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v158, (const struct cocos2d::CCPoint *)(v134 + 450));
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v161, (const struct cocos2d::CCPoint *)(v134 + 450));
+          v138 = *((float *)&v161 + 1);
+          v139 = *(float *)&v158;
+          v140 = *(float *)((*(__int64 (__fastcall **)(_DWORD *))(*(_QWORD *)v134 + 200LL))(v134) + 4);
+          v141 = (float *)(*(__int64 (__fastcall **)(_DWORD *))(*(_QWORD *)v134 + 200LL))(v134);
+          v142 = cocos2d::CCString::createWithFormat("%.01f %.01f, %.01f %.01f\n", *v141, v140, v139, v138);
+          v143 = (char *)cocos2d::CCString::getCString(v142);
+          v144 = -1;
+          do
+            ++v144;
+          while ( v143[v144] );
+          sub_43D80(&Src, v143, v144);
+        }
+        if ( v156 > 1 )
+        {
+          v145 = cocos2d::CCString::createWithFormat("Objects: %i", v156);
+          v146 = (char *)cocos2d::CCString::getCString(v145);
+          do
+            ++v108;
+          while ( v146[v108] );
+          sub_43D80(&Src, v146, v108);
+        }
+        p_Src = &Src;
+        if ( v176 > 0xF )
+          p_Src = (__int128 *)Src;
+        (**(void (__fastcall ***)(__int64, __int128 *))(*(_QWORD *)(v133 + 800) + 360LL))(
+          *(_QWORD *)(v133 + 800) + 360LL,
+          p_Src);
+        sub_3C310(&v177);
+        sub_3C310(&Src);
+        sub_7F2E0(&v159);
+        sub_BB6F0(&v162, &v162);
+        sub_7F2E0(&v164);
+        return sub_3C310(&v180);
+      }
+      v43 = cocos2d::CCArray::createWithObject(v44);
+    }
+    v158 = v43;
+    if ( v43 )
+    {
+      v45 = (unsigned int *)*((_QWORD *)v43 + 7);
+      v46 = *v45;
+      if ( (_DWORD)v46 )
+      {
+        v47 = (__int64 *)*((_QWORD *)v45 + 2);
+        v48 = &v47[v46 - 1];
+        v161 = v48;
+        if ( v47 <= v48 )
+        {
+          do
+          {
+            v49 = *v47;
+            if ( !*v47 )
+              break;
+            v50 = 0;
+            if ( *(__int16 *)(v49 + 1176) > 0 )
+            {
+              v51 = 0;
+              v52 = 0;
+              do
+              {
+                if ( v52 <= 9 )
+                {
+                  v53 = *(_QWORD *)(v49 + 1168);
+                  if ( v53 )
+                    v51 = *(__int16 *)(v2 + v53);
+                }
+                v154 = v51;
+                v54 = (_DWORD *)sub_10C920(&v164, &v154);
+                ++*v54;
+                if ( *(_BYTE *)(v49 + 1178) )
+                {
+                  v55 = (int)v154;
+                  v56 = qword_905FD0;
+                  if ( !qword_905FD0 )
+                  {
+                    v170 = operator new(0x6E8u);
+                    qword_905FD0 = sub_2723A0(v170);
+                    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+                    v56 = qword_905FD0;
+                  }
+                  v57 = cocos2d::CCDictionary::objectForKey(
+                          *(cocos2d::CCDictionary **)(*(_QWORD *)(v56 + 568) + 4032LL),
+                          v55);
+                  v58 = v57;
+                  if ( v57 && cocos2d::CCArray::count(v57) )
+                    v59 = cocos2d::CCArray::objectAtIndex(v58, 0);
+                  else
+                    v59 = 0;
+                  if ( (struct cocos2d::CCObject *)v49 == v59 )
+                  {
+                    v60 = v162;
+                    v61 = (_QWORD *)v162[1];
+                    v62 = 0;
+                    v41 = v162;
+                    v63 = v61;
+                    v42 = v154;
+                    while ( !*((_BYTE *)v63 + 25) )
+                    {
+                      v61 = v63;
+                      if ( *((_DWORD *)v63 + 7) >= (signed int)v154 )
+                      {
+                        v62 = 1;
+                        v41 = v63;
+                        v63 = (_QWORD *)*v63;
+                      }
+                      else
+                      {
+                        v62 = 0;
+                        v63 = (_QWORD *)v63[2];
+                      }
+                    }
+                    Block[0] = v61;
+                    LODWORD(Block[1]) = v62;
+                    if ( *((_BYTE *)v41 + 25) || (signed int)v154 < *((_DWORD *)v41 + 7) )
+                    {
+                      if ( v163 == 0x7FFFFFFFFFFFFFFLL )
+                        sub_5AC20(v62, v61, v41, v154);
+                      v166 = &v162;
+                      v167 = 0;
+                      v64 = operator new(0x20u);
+                      v64[7] = v154;
+                      *(_QWORD *)v64 = v60;
+                      *((_QWORD *)v64 + 1) = v60;
+                      *((_QWORD *)v64 + 2) = v60;
+                      *((_WORD *)v64 + 12) = 0;
+                      v167 = 0;
+                      sub_69600(&v162, Block, v64);
+                    }
+                  }
+                }
+                ++v39;
+                ++v50;
+                ++v52;
+                v2 += 2;
+                v51 = 0;
+              }
+              while ( v50 < *(__int16 *)(v49 + 1176) );
+              v48 = v161;
+              v2 = 0;
+            }
+            if ( *(_DWORD *)(v49 + 1256) == 1 )
+            {
+              v65 = *(_DWORD *)(v49 + 1688);
+              if ( v65 > 0 )
+              {
+                v66 = v159;
+                v67 = v159[1];
+                Block[0] = v67;
+                LODWORD(Block[1]) = 0;
+                v68 = (__int64)v159;
+                while ( !*((_BYTE *)v67 + 25) )
+                {
+                  Block[0] = v67;
+                  if ( *((_DWORD *)v67 + 7) >= v65 )
+                  {
+                    LODWORD(Block[1]) = 1;
+                    v68 = (__int64)v67;
+                    v67 = (__int64 *)*v67;
+                  }
+                  else
+                  {
+                    LODWORD(Block[1]) = 0;
+                    v67 = (__int64 *)v67[2];
+                  }
+                }
+                if ( *(_BYTE *)(v68 + 25) || v65 < *(_DWORD *)(v68 + 28) )
+                {
+                  if ( v160 == 0x666666666666666LL )
+                    sub_5AC20(v68, 0x666666666666666LL, v41, v42);
+                  v168 = &v159;
+                  v169 = 0;
+                  v69 = operator new(0x28u);
+                  v69[7] = v65;
+                  v69[8] = 0;
+                  *(_QWORD *)v69 = v66;
+                  *((_QWORD *)v69 + 1) = v66;
+                  *((_QWORD *)v69 + 2) = v66;
+                  *((_WORD *)v69 + 12) = 0;
+                  v169 = 0;
+                  v68 = sub_69600(&v159, Block, v69);
+                }
+                ++*(_DWORD *)(v68 + 32);
+              }
+            }
+            ++v47;
+          }
+          while ( v47 <= v48 );
+          v6 = v149;
+        }
+      }
+    }
+    goto LABEL_147;
+  }
+  return result;
+}

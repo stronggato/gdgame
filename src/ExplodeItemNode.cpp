@@ -181,3 +181,345 @@ unsigned int __fastcall ExplodeItemNode_update(cocos2d::CCNode *a1, float a2)
   }
   return result; /*0x4deffc*/
 }
+
+// Address: 0x4de350
+// Method: ExplodeItemNode::createSprites
+// Hidden C++ exception states: #wind=5
+__int64 __fastcall ExplodeItemNode_createSprites(
+        __int64 a1,
+        int a2,
+        int a3,
+        float a4,
+        float a5,
+        float a6,
+        float a7,
+        float a8,
+        float a9,
+        __int64 a10,
+        __int64 a11,
+        char a12)
+{
+  unsigned __int64 v12; // r13
+  unsigned __int64 v13; // rbx
+  float *v14; // r15
+  __int64 v15; // rax
+  float v16; // xmm15_4
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  float v20; // xmm11_4
+  float v21; // xmm12_4
+  char v22; // r12
+  float v23; // xmm7_4
+  float v24; // xmm6_4
+  float *v25; // rsi
+  __int64 v26; // rdi
+  float *v27; // rbx
+  int v28; // eax
+  float v29; // xmm0_4
+  __int64 v30; // rdi
+  float *v31; // rbx
+  __int64 v32; // r14
+  int v33; // eax
+  float v34; // xmm0_4
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  signed __int64 v38; // rdx
+  float v39; // xmm12_4
+  float v40; // xmm13_4
+  float *v41; // r14
+  __int64 v42; // r13
+  __int64 v43; // r15
+  float v44; // xmm6_4
+  float v45; // xmm8_4
+  cocos2d::CCSprite *v46; // rsi
+  __int64 v47; // rax
+  __int64 v48; // rbx
+  __int64 v49; // rax
+  __int64 v50; // rbx
+  __int64 v51; // rax
+  __int64 v52; // rbx
+  __int64 v53; // rax
+  int v54; // eax
+  int v55; // eax
+  int v56; // eax
+  float v57; // xmm0_4
+  float v58; // xmm0_4
+  struct cocos2d::CCParticleSystemQuad *v59; // rdi
+  __int64 v60; // rbx
+  __int64 v61; // rbx
+  __int64 v62; // rbx
+  __int64 v63; // rbx
+  __int64 v64; // rbx
+  __int64 v65; // rax
+  __int64 v68; // [rsp+30h] [rbp-D0h]
+  char *v69; // [rsp+38h] [rbp-C8h]
+  signed __int64 v70; // [rsp+38h] [rbp-C8h]
+  float v72; // [rsp+4Ch] [rbp-B4h]
+  float *v73; // [rsp+50h] [rbp-B0h]
+  __int128 v74; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v75; // [rsp+68h] [rbp-98h]
+  __int128 v76; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v77; // [rsp+80h] [rbp-80h]
+  __int128 v78; // [rsp+88h] [rbp-78h] BYREF
+  float *v79; // [rsp+98h] [rbp-68h]
+  __int128 v80; // [rsp+A0h] [rbp-60h] BYREF
+  char *v81; // [rsp+B0h] [rbp-50h]
+  __int64 v82; // [rsp+B8h] [rbp-48h]
+  __int64 v83; // [rsp+C0h] [rbp-40h]
+  unsigned __int64 v84; // [rsp+C8h] [rbp-38h]
+  cocos2d::CCSprite *v85; // [rsp+D0h] [rbp-30h]
+  char v86[8]; // [rsp+D8h] [rbp-28h] BYREF
+  char v87[16]; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v88; // [rsp+F0h] [rbp-10h] BYREF
+
+  v12 = a3;
+  v13 = a2;
+  v14 = (float *)a1;
+  v82 = a10;
+  v83 = a11;
+  v15 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 320) + 888LL))(*(_QWORD *)(a1 + 320));
+  v72 = *(float *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v15 + 320LL))(v15);
+  v16 = v72;
+  v20 = v72 / (float)(int)v13;
+  v21 = v72 / (float)(int)v12;
+  v14[84] = fminf(v20, v21);
+  v22 = 0;
+  v23 = 0.0;
+  v24 = 0.0;
+  v80 = 0;
+  v81 = 0;
+  if ( (_DWORD)v13 )
+  {
+    if ( v13 > 0x3FFFFFFFFFFFFFFFLL )
+      sub_59000(0x3FFFFFFFFFFFFFFFLL, v17, v18, v19);
+    v69 = (char *)sub_3C460(4 * v13);
+    *(_QWORD *)&v80 = v69;
+    v81 = &v69[4 * v13];
+    memset(v69, 0, 4 * v13);
+    *((_QWORD *)&v80 + 1) = v81;
+  }
+  else
+  {
+    v69 = (char *)v80;
+  }
+  v74 = 0;
+  v75 = 0;
+  if ( (_DWORD)v12 )
+  {
+    if ( v12 > 0x3FFFFFFFFFFFFFFFLL )
+      sub_59000(0x3FFFFFFFFFFFFFFFLL, v17, v18, v19);
+    *(_QWORD *)&v74 = sub_3C460(4 * v12);
+    v75 = 4 * v12 + v74;
+    memset((void *)v74, 0, 4 * v12);
+    *((_QWORD *)&v74 + 1) = v75;
+  }
+  v78 = 0;
+  v79 = 0;
+  if ( v13 )
+  {
+    v25 = (float *)sub_3C460(4 * v13);
+    v73 = v25;
+    *(_QWORD *)&v78 = v25;
+    v79 = &v25[v13];
+    memset(v25, 0, 4 * v13);
+    *((_QWORD *)&v78 + 1) = v79;
+  }
+  else
+  {
+    v25 = (float *)v78;
+    v73 = (float *)v78;
+  }
+  v76 = 0;
+  v77 = 0;
+  if ( (_DWORD)v12 )
+  {
+    *(_QWORD *)&v76 = sub_3C460(4 * v12);
+    v77 = 4 * v12 + v76;
+    memset((void *)v76, 0, 4 * v12);
+    *((_QWORD *)&v76 + 1) = v77;
+  }
+  v26 = a2 - 1;
+  if ( a2 - 1 > 0 )
+  {
+    v27 = (float *)v69;
+    do
+    {
+      v28 = rand();
+      v29 = roundf(
+              (float)((float)((float)((float)((float)v28 / 32767.0) * 0.44999999)
+                            + (float)((float)((float)v28 / 32767.0) * 0.44999999))
+                    + 0.55000001)
+            * v20);
+      v23 = v23 + v29;
+      *v27 = v29;
+      *(float *)((char *)v27++ + (char *)v25 - v69 + 4) = v23;
+      --v26;
+    }
+    while ( v26 );
+  }
+  v30 = (int)v12 - 1;
+  if ( (int)v12 - 1 > 0 )
+  {
+    v31 = (float *)v74;
+    v32 = v76 - v74;
+    do
+    {
+      v33 = rand();
+      v34 = roundf(
+              (float)((float)((float)((float)((float)v33 / 32767.0) * 0.44999999)
+                            + (float)((float)((float)v33 / 32767.0) * 0.44999999))
+                    + 0.55000001)
+            * v21);
+      v24 = v24 + v34;
+      *v31 = v34;
+      *(float *)((char *)v31++ + v32 + 4) = v24;
+      --v30;
+    }
+    while ( v30 );
+  }
+  v35 = a2;
+  *(float *)&v69[4 * a2 - 4] = v72 - v23;
+  v36 = v74;
+  *(float *)(v74 + 4 * v12 - 4) = v72 - v24;
+  v37 = v12;
+  v84 = v12;
+  v68 = v35;
+  if ( v35 > 0 )
+  {
+    v38 = v69 - (char *)v25;
+    v70 = v69 - (char *)v25;
+    do
+    {
+      v39 = *(float *)((char *)v25 + v38);
+      v40 = *v25;
+      if ( v37 > 0 )
+      {
+        v41 = (float *)v76;
+        v42 = v36 - v76;
+        v43 = v37;
+        do
+        {
+          v44 = *(float *)((char *)v41 + v42);
+          v45 = *v41;
+          ++v22;
+          v46 = (cocos2d::CCSprite *)operator new(0x278u);
+          v85 = v46;
+          cocos2d::CCSprite::CCSprite(v46);
+          *(_QWORD *)v46 = &ExplodeItemSprite::`vftable';
+          *((_QWORD *)v46 + 40) = &ExplodeItemSprite::`vftable';
+          *((_QWORD *)v46 + 43) = &ExplodeItemSprite::`vftable';
+          *((_QWORD *)v46 + 75) = 0;
+          *((_QWORD *)v46 + 76) = 0;
+          *((_DWORD *)v46 + 154) = 0;
+          *((_QWORD *)v46 + 78) = 0;
+          if ( cocos2d::CCSprite::init(v46) )
+          {
+            cocos2d::CCObject::autorelease(v46);
+          }
+          else
+          {
+            (*(void (__fastcall **)(cocos2d::CCSprite *, __int64))(*(_QWORD *)v46 + 8LL))(v46, 1);
+            v46 = 0;
+          }
+          v47 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 320) + 888LL))(*(_QWORD *)(a1 + 320));
+          v48 = *((_QWORD *)v46 + 43);
+          v49 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v47 + 344) + 16LL))(v47 + 344);
+          (*(void (__fastcall **)(__int64, __int64))(v48 + 24))((__int64)v46 + 344, v49);
+          v50 = *(_QWORD *)v46;
+          cocos2d::CCRect::CCRect((cocos2d::CCRect *)v87, v40, v45, v39, v44);
+          (*(void (__fastcall **)(cocos2d::CCSprite *, __int64))(v50 + 992))(v46, v51);
+          v52 = *(_QWORD *)v46;
+          cocos2d::CCPoint::CCPoint(
+            (cocos2d::CCPoint *)v86,
+            (float)((float)(v39 * 0.5) + v40) - (float)(v16 * 0.5),
+            (float)((float)(v44 * 0.5) + v45) - (float)(v16 * 0.5));
+          (*(void (__fastcall **)(cocos2d::CCSprite *, __int64))(v52 + 184))(v46, v53);
+          cocos2d::CCSprite::setFlipY(v46, 1);
+          (*(void (__fastcall **)(__int64, cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v46);
+          v54 = rand();
+          *((float *)v46 + 151) = (float)((float)((float)((float)((float)v54 / 32767.0) + (float)((float)v54 / 32767.0))
+                                                - 1.0)
+                                        * a7)
+                                + a6;
+          v55 = rand();
+          *((float *)v46 + 150) = (float)((float)((float)((float)((float)v55 / 32767.0) + (float)((float)v55 / 32767.0))
+                                                - 1.0)
+                                        * a5)
+                                + a4;
+          v56 = rand();
+          v57 = (float)((float)((float)((float)((float)v56 / 32767.0) + (float)((float)v56 / 32767.0)) - 1.0) * a9) + a8;
+          *((float *)v46 + 152) = v57;
+          *((float *)v46 + 153) = fminf(v57, 0.5);
+          v58 = (float)rand();
+          *((float *)v46 + 154) = (float)((float)((float)((float)(v58 / 32767.0) + (float)(v58 / 32767.0)) - 1.0) * 360.0)
+                                / 60.0;
+          cocos2d::CCArray::addObject(*(cocos2d::CCArray **)(a1 + 328), v46);
+          if ( (v22 & 1) == 0 && !a12 )
+          {
+            v59 = cocos2d::CCParticleSystemQuad::create("fireballEffect.plist", 0);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int64))(*(_QWORD *)v59 + 1496LL))(v59, 10);
+            v60 = *(_QWORD *)v59;
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 1472LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(v60 + 1480))(v59);
+            v61 = *(_QWORD *)v59;
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 1280LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(v61 + 1288))(v59);
+            v62 = *(_QWORD *)v59;
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 1312LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(v62 + 1320))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 1304LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 1336LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int64))(*(_QWORD *)v59 + 1352LL))(
+              v59,
+              v82);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int64))(*(_QWORD *)v59 + 1384LL))(
+              v59,
+              v83);
+            v88 = 0;
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int128 *))(*(_QWORD *)v59 + 1368LL))(
+              v59,
+              &v88);
+            v88 = 0;
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int128 *))(*(_QWORD *)v59 + 1400LL))(
+              v59,
+              &v88);
+            v63 = *(_QWORD *)v59;
+            rand();
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(v63 + 968))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *))(*(_QWORD *)v59 + 984LL))(v59);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int64))(*(_QWORD *)v59 + 1528LL))(v59, 1);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, _QWORD))(*(_QWORD *)v59 + 1544LL))(v59, 0);
+            (*(void (__fastcall **)(__int64, struct cocos2d::CCParticleSystemQuad *, __int64))(*(_QWORD *)a1 + 456LL))(
+              a1,
+              v59,
+              0xFFFFFFFFLL);
+            *((_QWORD *)v46 + 78) = v59;
+            v64 = *(_QWORD *)v59;
+            v65 = (*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v46 + 200LL))(v46);
+            (*(void (__fastcall **)(struct cocos2d::CCParticleSystemQuad *, __int64))(v64 + 184))(v59, v65);
+          }
+          ++v41;
+          --v43;
+        }
+        while ( v43 );
+        v16 = v72;
+        v25 = v73;
+        v38 = v70;
+        v36 = v74;
+        v35 = v68;
+        v37 = v84;
+      }
+      v73 = ++v25;
+      v68 = --v35;
+    }
+    while ( v35 );
+    v14 = (float *)a1;
+  }
+  cocos2d::CCNode::scheduleUpdate((cocos2d::CCNode *)v14);
+  sub_685C0(&v76);
+  sub_685C0(&v78);
+  sub_685C0(&v74);
+  return sub_685C0(&v80);
+}

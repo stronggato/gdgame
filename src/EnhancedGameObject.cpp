@@ -2354,3 +2354,45 @@ LABEL_40:
   *(_BYTE *)(a1 + 1394) = 1; /*0x2a3d43*/
   return result; /*0x2a3c94*/
 }
+
+// Address: 0x2a1c90
+// Method: EnhancedGameObject::updateSyncedAnimation
+// Hidden C++ exception states: #wind=25
+int __fastcall EnhancedGameObject_updateSyncedAnimation(__int64 *a1, float a2, int a3)
+{
+  _UNKNOWN **v3; // rax
+  char v6; // di
+  bool v7; // r15
+  float v8; // xmm8_4
+  char v9; // bl
+  float v10; // xmm3_4
+  float v11; // xmm2_4
+  char v12; // r12
+  int v13; // r14d
+  int v14; // eax
+  int v15; // ecx
+  int v16; // edx
+  unsigned int v17; // r14d
+  __int64 v18; // rcx
+  int v19; // edi
+  __int64 v20; // rcx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  const char *v24; // rdi
+  __int64 v25; // rbx
+  cocos2d::CCSpriteFrameCache *v26; // rax
+  struct cocos2d::CCSpriteFrame *v27; // rax
+  __int64 v28; // rax
+  void (__fastcall *v29)(__int64); // rdx
+  __int64 v30; // rdx
+  __int64 v31; // rdx
+  const char *v32; // r14
+  _QWORD *v33; // rcx
+  __int64 v34; // rdi
+  _QWORD *v35; // rbx
+  cocos2d::CCSpriteFrameCache *v36; // rax
+  struct cocos2d::CCSpriteFrame *v37; // rax
+  const char *v38; // r15
+  _QWORD *v39; // rax
+  _... [55117 chars total]

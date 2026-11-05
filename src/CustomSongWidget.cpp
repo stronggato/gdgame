@@ -1301,3 +1301,1187 @@ void __fastcall CustomSongWidget_onPlayback(__int64 a1)
     j_j_free(v11); /*0x444da1*/
   }
 }
+
+// Address: 0xd73f0
+// Method: CustomSongWidget::init
+// Hidden C++ exception states: #wind=5
+char __fastcall CustomSongWidget_init(__int64 a1, cocos2d::CCObject *a2)
+{
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  __int64 v12; // rbx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  const char *v15; // rcx
+  struct cocos2d::CCLabelBMFont *v16; // rax
+  __int64 v17; // rdi
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  struct cocos2d::CCLabelBMFont *v25; // rdi
+  __int64 v26; // rbx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  struct cocos2d::CCSprite *v31; // rax
+  int v32; // ebx
+  cocos2d::CCObject *v33; // rdi
+  __int64 v34; // rbx
+  __int64 v35; // rax
+  struct cocos2d::CCLabelBMFont *v36; // rbx
+  __int64 v37; // rdx
+  cocos2d::CCObject *v38; // rdi
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  struct cocos2d::CCSprite *v41; // rax
+  int v42; // ebx
+  cocos2d::CCObject *v43; // rdi
+  __int64 v44; // rbx
+  __int64 v45; // rax
+  struct cocos2d::CCSprite *v46; // rax
+  int v47; // ebx
+  cocos2d::CCObject *v48; // rdi
+  __int64 v49; // rbx
+  int v50; // ecx
+  __int64 v51; // rax
+  struct cocos2d::CCSprite *v52; // rax
+  int v53; // ebx
+  cocos2d::CCObject *v54; // rdi
+  __int64 v55; // rbx
+  int v56; // ecx
+  __int64 v57; // rax
+  __int64 v58; // rdx
+  __int64 v59; // rax
+  float v60; // xmm1_4
+  float v61; // xmm2_4
+  __int64 v62; // rax
+  __int64 v63; // rax
+  _QWORD *v64; // rdi
+  __int64 v65; // rdx
+  __int64 v66; // rbx
+  __int64 v67; // rax
+  __int64 v68; // rax
+  __int64 *v69; // rdi
+  __int64 v70; // rbx
+  __int64 v71; // rax
+  __int64 v72; // rbx
+  __int64 v73; // rax
+  __int64 v74; // rdx
+  __int64 v75; // rbx
+  __int64 v76; // rax
+  float v77; // xmm9_4
+  struct cocos2d::CCSprite *v78; // rax
+  int v79; // ebx
+  cocos2d::CCObject *v80; // rax
+  __int64 v81; // rdi
+  __int64 v82; // rbx
+  __int64 v83; // rax
+  __int64 v84; // rax
+  _QWORD *v85; // rbx
+  void *v86; // r8
+  cocos2d::CCObject *v87; // rax
+  __int64 v88; // rdi
+  __int64 v89; // rbx
+  __int64 v90; // rax
+  __int64 v91; // rax
+  _QWORD *v92; // rsi
+  __int64 v93; // rbx
+  __int64 v94; // rax
+  __int64 v95; // rbx
+  __int64 v96; // rax
+  struct cocos2d::CCLabelBMFont *v97; // rax
+  __int64 v98; // rdi
+  __int64 v99; // rbx
+  __int64 v100; // rax
+  __int64 v101; // rdx
+  int v102; // eax
+  cocos2d::CCObject *v103; // rax
+  __int64 v104; // rdx
+  __int64 v105; // rcx
+  char *v106; // rdi
+  __int64 v107; // rbx
+  __int64 v108; // rax
+  __int64 v109; // rcx
+  __int64 v110; // rcx
+  __int64 v111; // rcx
+  __int64 v112; // rax
+  __int64 v113; // rcx
+  __int64 v114; // rdx
+  __int64 v115; // rbx
+  __int64 v116; // rax
+  const struct cocos2d::CCPoint *v117; // rax
+  char *v118; // rbx
+  cocos2d::CCObject *v119; // rbx
+  cocos2d::CCObject *v120; // rax
+  __int64 v121; // rdi
+  __int64 v122; // rbx
+  __int64 v123; // rax
+  __int64 v124; // rcx
+  cocos2d::CCObject *v125; // rax
+  __int64 v126; // rax
+  __int64 v127; // rax
+  int v128; // ebx
+  __int64 v129; // rcx
+  struct cocos2d::CCObject *v130; // rax
+  int v131; // ecx
+  __int64 v132; // rax
+  int v134; // [rsp+50h] [rbp-B0h] BYREF
+  float v135; // [rsp+58h] [rbp-A8h] BYREF
+  float v136; // [rsp+5Ch] [rbp-A4h]
+  __int64 v137[2]; // [rsp+60h] [rbp-A0h] BYREF
+  float v138[2]; // [rsp+70h] [rbp-90h] BYREF
+  void *Block[2]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v140; // [rsp+88h] [rbp-78h]
+  unsigned __int64 v141; // [rsp+90h] [rbp-70h]
+
+  if ( !a2 )
+    return 0;
+  v134 = -1778384896;
+  if ( !cocos2d::CCLayerColor::initWithColor((cocos2d::CCLayerColor *)a1, (const struct cocos2d::_ccColor4B *)&v134) )
+    return 0;
+  *(_QWORD *)(a1 + 744) = a2;
+  cocos2d::CCObject::retain(a2);
+  *(_DWORD *)(a1 + 776) = *(_DWORD *)(*(_QWORD *)(a1 + 744) + 128LL);
+  LOBYTE(v4) = -106;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 + 408) + 40LL))(a1 + 408, v4);
+  sub_5ABA0(a1);
+  *(_BYTE *)(a1 + 596) = 1;
+  LOBYTE(v5) = 1;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 920LL))(a1, v5);
+  LOBYTE(v6) = 1;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 992LL))(a1, v6);
+  v8 = cocos2d::CCDirector::sharedDirector(v7);
+  cocos2d::CCDirector::getWinSize(v8, v138);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v135, v138[0] * 0.5, v138[1] * 0.5);
+  v9 = cocos2d::CCLayer::create();
+  *(_QWORD *)(a1 + 584) = v9;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 464LL))(a1, v9);
+  cocos2d::CCRect::CCRect((cocos2d::CCRect *)v137, 0.0, 0.0, 80.0, 80.0);
+  v11 = cocos2d::extension::CCScale9Sprite::create("GJ_square01.png", v10);
+  v12 = *(_QWORD *)v11;
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v134, 440.0, 290.0);
+  (*(void (__fastcall **)(__int64, __int64))(v12 + 312))(v11, v13);
+  (*(void (__fastcall **)(__int64, float *))(*(_QWORD *)v11 + 184LL))(v11, &v135);
+  (*(void (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    v11,
+    4294967294LL);
+  v14 = *(_QWORD *)(a1 + 744);
+  if ( *(_BYTE *)(v14 + 320) )
+    v15 = (const char *)(v14 + 64);
+  else
+    v15 = (const char *)(v14 + 96);
+  if ( *((_QWORD *)v15 + 3) > 0xFu )
+    v15 = *(const char **)v15;
+  v16 = cocos2d::CCLabelBMFont::create(v15, "goldFont.fnt");
+  *(_QWORD *)(a1 + 880) = v16;
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v16 + 160LL))(v16);
+  v17 = **(_QWORD **)(a1 + 880);
+  v18 = *(_QWORD *)(a1 + 880);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v134, v135, (float)(v136 + 145.0) - 21.0);
+  (*(void (__fastcall **)(__int64, __int64))(v17 + 184))(v18, v19);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 584) + 464LL))(
+    *(_QWORD *)(a1 + 584),
+    *(_QWORD *)(a1 + 880));
+  sub_E0F80(a1);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v134, (float)(v135 - 220.0) + 38.0, (float)(v136 + 145.0) - 21.0);
+  cocos2d::CCPoint::operator=(a1 + 872, v20);
+  if ( *(_BYTE *)(*(_QWORD *)(a1 + 744) + 320LL) )
+  {
+    v25 = cocos2d::CCLabelBMFont::create(&byte_6E86E0, (const char *)&qword_6FFF68);
+    *(_QWORD *)(a1 + 856) = v25;
+    v26 = *(_QWORD *)v25;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v134, 0.0, 0.5);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v26 + 288))(v25, v27);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 856) + 160LL))(*(_QWORD *)(a1 + 856));
+    LOWORD(v134) = -11521;
+    BYTE2(v134) = 60;
+    (**(void (__fastcall ***)(__int64, int *))(*(_QWORD *)(a1 + 856) + 368LL))(*(_QWORD *)(a1 + 856) + 368LL, &v134);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, 3.0, -3.0);
+    cocos2d::CCPoint::operator+(a1 + 872, &v134, v28);
+    (*(void (__fastcall **)(_QWORD, int *))(**(_QWORD **)(a1 + 856) + 184LL))(*(_QWORD *)(a1 + 856), &v134);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 584) + 464LL))(
+      *(_QWORD *)(a1 + 584),
+      *(_QWORD *)(a1 + 856));
+    sub_D8CE0(a1);
+  }
+  v29 = *(_QWORD *)(a1 + 744);
+  if ( *(_BYTE *)(v29 + 320) || *(_DWORD *)(v29 + 324) != 8 )
+  {
+    if ( !*(_BYTE *)(a1 + 783) )
+      cocos2d::CCNode::schedule(a1, sub_DB7A0);
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 932) = 0;
+  }
+  v30 = cocos2d::CCMenu::create(v22, v21, v23, v24);
+  *(_QWORD *)(a1 + 552) = v30;
+  (*(void (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(*(_QWORD *)(a1 + 584), v30, 10);
+  (*(void (__fastcall **)(_QWORD, void *))(**(_QWORD **)(a1 + 552) + 184LL))(*(_QWORD *)(a1 + 552), &unk_904188);
+  *(_DWORD *)(a1 + 640) = -1;
+  v31 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png");
+  v32 = (int)v31;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v31 + 160LL))(v31);
+  v33 = CCMenuItemSpriteExtra_create(v32, 0, a1, (__int64)sub_E0D70);
+  *((_DWORD *)v33 + 93) = 1069547520;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v33);
+  v34 = *(_QWORD *)v33;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 - 220.0) + 8.0, (float)(v136 + 145.0) - 8.0);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v34 + 184))(v33, v35);
+  v36 = cocos2d::CCLabelBMFont::create("...", (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v36 + 160LL))(v36);
+  LOBYTE(v37) = -116;
+  (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v36 + 46) + 40LL))((__int64)v36 + 368, v37);
+  v38 = CCMenuItemSpriteExtra_create((int)v36, 0, a1, (__int64)sub_DA690);
+  *((_DWORD *)v38 + 93) = 1070386381;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v38);
+  v39 = *(_QWORD *)v38;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 + 220.0) - 20.0, (float)(v136 + 145.0) - 21.0);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v39 + 184))(v38, v40);
+  if ( !*(_BYTE *)(*(_QWORD *)(a1 + 744) + 320LL) )
+  {
+    v41 = cocos2d::CCSprite::createWithSpriteFrameName("sideBtn_config_001.png");
+    v42 = (int)v41;
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v41 + 160LL))(v41);
+    v43 = CCMenuItemSpriteExtra_create(v42, 0, a1, (__int64)sub_DAFC0);
+    *((_DWORD *)v43 + 93) = 1067030938;
+    (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v43);
+    v44 = *(_QWORD *)v43;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 + 220.0) - 44.0, (float)(v136 + 145.0) - 21.0);
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v44 + 184))(v43, v45);
+  }
+  v46 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_updateBtn_001.png");
+  v47 = (int)v46;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v46 + 160LL))(v46);
+  v48 = CCMenuItemSpriteExtra_create(v47, 0, a1, (__int64)EndLevelLayer_onReplay);
+  *((_DWORD *)v48 + 93) = 1067030938;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v48);
+  v49 = *(_QWORD *)v48;
+  v50 = 72;
+  if ( *(_BYTE *)(*(_QWORD *)(a1 + 744) + 320LL) )
+    v50 = 44;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 + 220.0) - (float)v50, (float)(v136 + 145.0) - 21.0);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v49 + 184))(v48, v51);
+  v52 = cocos2d::CCSprite::createWithSpriteFrameName("sideBtn_search_001.png");
+  v53 = (int)v52;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v52 + 160LL))(v52);
+  v54 = CCMenuItemSpriteExtra_create(v53, 0, a1, (__int64)LevelInfoLayer_onRateStarsMod);
+  *((_DWORD *)v54 + 93) = 1067030938;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v54);
+  v55 = *(_QWORD *)v54;
+  v56 = 100;
+  if ( *(_BYTE *)(*(_QWORD *)(a1 + 744) + 320LL) )
+    v56 = 72;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 + 220.0) - (float)v56, (float)(v136 + 145.0) - 21.0);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v55 + 184))(v54, v57);
+  v59 = *(_QWORD *)(a1 + 744);
+  LOBYTE(v58) = *(_BYTE *)(v59 + 320) || *(_DWORD *)(v59 + 324) != 8;
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v54 + 336LL))(v54, v58);
+  EndLevelLayer_playStarEffect(a1);
+  v60 = (float)(v136 + 145.0) - 40.0;
+  v61 = (float)(v136 - 145.0) + 46.0;
+  *(float *)(a1 + 1068) = v60;
+  *(_DWORD *)(a1 + 832) = 1137508352;
+  *(float *)(a1 + 836) = v60 - v61;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, v135, (float)(v61 + v60) * 0.5);
+  cocos2d::CCPoint::operator=(a1 + 840, v62);
+  cocos2d::CCRect::CCRect((cocos2d::CCRect *)Block, 0.0, 0.0, 40.0, 40.0);
+  v64 = (_QWORD *)cocos2d::extension::CCScale9Sprite::create("square02_small.png", v63);
+  LOBYTE(v65) = 80;
+  (*(void (__fastcall **)(_QWORD *, __int64))(v64[40] + 40LL))(v64 + 40, v65);
+  LOWORD(v134) = 0;
+  BYTE2(v134) = 0;
+  (*(void (__fastcall **)(_QWORD *, int *))v64[40])(v64 + 40, &v134);
+  v66 = *v64;
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)v137, *(float *)(a1 + 832), *(float *)(a1 + 836));
+  (*(void (__fastcall **)(_QWORD *, __int64))(v66 + 312))(v64, v67);
+  (*(void (__fastcall **)(_QWORD *, __int64))(*v64 + 184LL))(v64, a1 + 840);
+  (*(void (__fastcall **)(_QWORD, _QWORD *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    v64,
+    0xFFFFFFFFLL);
+  *(_QWORD *)(a1 + 1048) = v64;
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)v137, *(float *)(a1 + 832), *(float *)(a1 + 836));
+  v69 = (__int64 *)sub_7FD80(v68);
+  *(_QWORD *)(a1 + 816) = v69;
+  v70 = *v69;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)v137,
+    *(float *)(a1 + 840) - (float)(*(float *)(a1 + 832) * 0.5),
+    *(float *)(a1 + 844) - (float)(*(float *)(a1 + 836) * 0.5));
+  (*(void (__fastcall **)(__int64 *, __int64))(v70 + 184))(v69, v71);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, 2.0, 0.0);
+  v72 = *(_QWORD *)(a1 + 816);
+  cocos2d::CCPoint::operator=(v72 + 500, v73);
+  ShareCommentLayer_updatePercentLabel(v72, v74);
+  v75 = *(_QWORD *)(a1 + 816);
+  sub_81190(v75);
+  sub_82040(v75);
+  *(_QWORD *)(v75 + 576) = a1 + 664;
+  *(_DWORD *)(v75 + 584) = 1119879168;
+  *(_DWORD *)(v75 + 588) = 1086324736;
+  *(_DWORD *)(v75 + 592) = 1086324736;
+  v76 = *(_QWORD *)(v75 + 600);
+  if ( v76 != *(_QWORD *)(v75 + 608) )
+    *(_QWORD *)(v75 + 608) = v76;
+  if ( a1 != -664 )
+    sub_818F0(v75);
+  *(_BYTE *)(*(_QWORD *)(a1 + 816) + 524LL) = 1;
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    *(_QWORD *)(a1 + 816),
+    1);
+  v77 = (float)(v136 - 145.0) + 22.0;
+  v78 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_plusBtn_001.png");
+  v79 = (int)v78;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v78 + 160LL))(v78);
+  v80 = CCMenuItemSpriteExtra_create(v79, 0, a1, (__int64)sub_DA8D0);
+  *(_QWORD *)(a1 + 1224) = v80;
+  *((_DWORD *)v80 + 93) = 1067869798;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 552) + 464LL))(
+    *(_QWORD *)(a1 + 552),
+    *(_QWORD *)(a1 + 1224));
+  v81 = **(_QWORD **)(a1 + 1224);
+  v82 = *(_QWORD *)(a1 + 1224);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)(v135 - 220.0) + 24.0, v77);
+  (*(void (__fastcall **)(__int64, __int64))(v81 + 184))(v82, v83);
+  *(_OWORD *)Block = 0;
+  v140 = 4;
+  v141 = 15;
+  strcpy((char *)Block, "easy");
+  v84 = sub_7DE30(Block);
+  if ( v84 )
+    v85 = (_QWORD *)sub_7DF70(v84);
+  else
+    v85 = 0;
+  if ( v141 > 0xF )
+  {
+    v86 = Block[0];
+    if ( v141 + 1 >= 0x1000 )
+    {
+      v86 = (void *)*((_QWORD *)Block[0] - 1);
+      if ( (unsigned __int64)((char *)Block[0] - (char *)v86 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v86);
+  }
+  GJGroundLayer_scaleGround(v85, 18.0, 0.0);
+  v87 = CCMenuItemSpriteExtra_create((int)v85, 0, a1, (__int64)sub_DC2C0);
+  *(_QWORD *)(a1 + 1232) = v87;
+  *((_DWORD *)v87 + 93) = 1068708659;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 552) + 464LL))(
+    *(_QWORD *)(a1 + 552),
+    *(_QWORD *)(a1 + 1232));
+  v88 = **(_QWORD **)(a1 + 1232);
+  v89 = *(_QWORD *)(a1 + 1232);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)((float)(v135 - 220.0) + 27.0) + 26.0, v77);
+  (*(void (__fastcall **)(__int64, __int64))(v88 + 184))(v89, v90);
+  cocos2d::CCRect::CCRect((cocos2d::CCRect *)Block, 0.0, 0.0, 40.0, 40.0);
+  v92 = (_QWORD *)cocos2d::extension::CCScale9Sprite::create("square02b_small.png", v91);
+  v93 = *v92;
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)v137, 293.0, 28.0);
+  (*(void (__fastcall **)(_QWORD *, __int64))(v93 + 312))(v92, v94);
+  LOWORD(v134) = 13405;
+  BYTE2(v134) = 31;
+  (*(void (__fastcall **)(_QWORD *, int *))v92[40])(v92 + 40, &v134);
+  v95 = *v92;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)((float)(v135 - 27.5) + 13.0) + 13.0, v77);
+  (*(void (__fastcall **)(_QWORD *, __int64))(v95 + 184))(v92, v96);
+  (*(void (__fastcall **)(_QWORD, _QWORD *, _QWORD))(**(_QWORD **)(a1 + 584) + 456LL))(*(_QWORD *)(a1 + 584), v92, 0);
+  *(_QWORD *)(a1 + 1008) = v92;
+  *(float *)(a1 + 1060) = v77 - 14.0;
+  v97 = cocos2d::CCLabelBMFont::create(&byte_6E86E0, "chatFont.fnt");
+  *(_QWORD *)(a1 + 1016) = v97;
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v97 + 160LL))(v97);
+  v98 = **(_QWORD **)(a1 + 1016);
+  v99 = *(_QWORD *)(a1 + 1016);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, 1.0, 1.0);
+  (*(void (__fastcall **)(__int64, __int64))(v98 + 288))(v99, v100);
+  LOBYTE(v101) = -96;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(*(_QWORD *)(a1 + 1016) + 368LL) + 40LL))(
+    *(_QWORD *)(a1 + 1016) + 368LL,
+    v101);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 1016) + 336LL))(*(_QWORD *)(a1 + 1016), 0);
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    *(_QWORD *)(a1 + 1016),
+    6);
+  v102 = (unsigned int)cocos2d::CCSprite::createWithSpriteFrameName("downArrowBtn_001.png");
+  v103 = CCMenuItemSpriteExtra_create(v102, 0, a1, (__int64)sub_DDFB0);
+  *(_QWORD *)(a1 + 1024) = v103;
+  *((_DWORD *)v103 + 93) = 1069547520;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 552) + 464LL))(
+    *(_QWORD *)(a1 + 552),
+    *(_QWORD *)(a1 + 1024));
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 1024) + 336LL))(*(_QWORD *)(a1 + 1024), 0);
+  *(_DWORD *)(a1 + 1064) = 1133281280;
+  v106 = CCTextInputNode_create(v105, v104, (__int64)"Message");
+  *(_QWORD *)(a1 + 920) = v106;
+  v107 = *(_QWORD *)v106;
+  v108 = (*(__int64 (__fastcall **)(_QWORD *))(*v92 + 200LL))(v92);
+  (*(void (__fastcall **)(char *, __int64))(v107 + 184))(v106, v108);
+  v109 = *(_QWORD *)(a1 + 920);
+  *(_BYTE *)(v109 + 649) = 1;
+  sub_3F5A0((void *)(v109 + 488), &byte_6E86E0, 0);
+  SetupSmartBlockLayer_onCreateAll(v110);
+  v111 = (unsigned int)(17 * dword_8F8394 + 500);
+  *(_DWORD *)(*(_QWORD *)(a1 + 920) + 616LL) = v111;
+  SetupSmartBlockLayer_onCreateAll(v111);
+  sub_543F0(*(_QWORD *)(a1 + 920), (unsigned int)dword_8F8394);
+  v112 = *(_QWORD *)(a1 + 920);
+  *(_BYTE *)(v112 + 648) = 1;
+  *(_BYTE *)(*(_QWORD *)(v112 + 600) + 764LL) = 1;
+  *(_QWORD *)(*(_QWORD *)(a1 + 920) + 608LL) = a1 + 544;
+  LOWORD(v134) = 27843;
+  v113 = *(_QWORD *)(a1 + 920);
+  *(_WORD *)(v113 + 580) = 27843;
+  *(_BYTE *)(v113 + 582) = 65;
+  sub_555B0(v113, v114);
+  *(_BYTE *)(*(_QWORD *)(a1 + 920) + 650LL) = 0;
+  v115 = *(_QWORD *)(a1 + 920);
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)v137, 6.0, 4.0);
+  cocos2d::CCSize::operator=(v115 + 652, v116);
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    *(_QWORD *)(a1 + 920),
+    5);
+  v137[0] = (__int64)Block;
+  *(_OWORD *)Block = 0;
+  v140 = 0;
+  v141 = 15;
+  LOBYTE(Block[0]) = 0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v134, 0.0, 1.0);
+  v118 = TextArea_create((__int64)Block, "chatFont.fnt", 1.0, 358.66666, v117, 1101004800, 1, 0);
+  v118[601] = 1;
+  (*(void (__fastcall **)(char *))(*(_QWORD *)v118 + 160LL))(v118);
+  SetupSequenceTriggerPopup_onChangeOrder(*(_QWORD *)(a1 + 920), (__int64)v118);
+  sub_53880(*(_QWORD *)(a1 + 920));
+  v137[0] = (__int64)operator new(0x2C8u);
+  v119 = (cocos2d::CCObject *)ButtonSprite_ButtonSprite(v137[0]);
+  if ( v119 )
+  {
+    if ( ButtonSprite_init(
+           (__int64)v119,
+           (__int64)"Send",
+           45,
+           0,
+           1057803469,
+           1,
+           (const char *)&qword_6FFF68,
+           (__int64)"GJ_button_01.png",
+           1105199104) )
+    {
+      cocos2d::CCObject::autorelease(v119);
+    }
+    else
+    {
+      (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v119 + 8LL))(v119, 1);
+      LODWORD(v119) = 0;
+    }
+  }
+  v120 = CCMenuItemSpriteExtra_create((int)v119, 0, a1, (__int64)sub_DBAA0);
+  *(_QWORD *)(a1 + 904) = v120;
+  *((_DWORD *)v120 + 93) = 1066192077;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 552) + 464LL))(
+    *(_QWORD *)(a1 + 552),
+    *(_QWORD *)(a1 + 904));
+  v121 = **(_QWORD **)(a1 + 904);
+  v122 = *(_QWORD *)(a1 + 904);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (float)((float)(v135 + 220.0) - 15.0) - 22.5, v77);
+  (*(void (__fastcall **)(__int64, __int64))(v121 + 184))(v122, v123);
+  sub_E1930(a1);
+  v125 = (cocos2d::CCObject *)cocos2d::CCArray::create(v124);
+  *(_QWORD *)(a1 + 752) = v125;
+  cocos2d::CCObject::retain(v125);
+  v126 = *(_QWORD *)(a1 + 744);
+  if ( *(int *)(v126 + 128) > 0 && !*(_BYTE *)(v126 + 244) )
+  {
+    v127 = GJAccountManager_sharedState();
+    v128 = *(_DWORD *)(v127 + 360) - *(_DWORD *)(v127 + 364);
+    v129 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v137[0] = (__int64)operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v137[0]);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v129 = *(_QWORD *)&qword_905FB0;
+    }
+    v130 = cocos2d::CCDictionary::objectForKey(*(cocos2d::CCDictionary **)(v129 + 1232), v128);
+    if ( v130 )
+    {
+      v131 = 0;
+      if ( *((_DWORD *)v130 + 191) - *(_DWORD *)(*(_QWORD *)(a1 + 744) + 128LL) >= 0 )
+        v131 = *((_DWORD *)v130 + 191) - *(_DWORD *)(*(_QWORD *)(a1 + 744) + 128LL);
+      *((_DWORD *)v130 + 191) = v131;
+    }
+  }
+  *(_DWORD *)(*(_QWORD *)(a1 + 744) + 128LL) = 0;
+  sub_D8D80(a1);
+  v132 = *(_QWORD *)&qword_905FB0;
+  if ( !*(_QWORD *)&qword_905FB0 )
+  {
+    v137[0] = (__int64)operator new(0x690u);
+    *(_QWORD *)&qword_905FB0 = sub_214250(v137[0]);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+    v132 = *(_QWORD *)&qword_905FB0;
+  }
+  *(_QWORD *)(v132 + 1392) = a1 + 672;
+  if ( !*(_BYTE *)(a1 + 783) || *(__int64 *)(a1 + 784) <= 0 || !(unsigned __int8)sub_D9AD0(a1) )
+  {
+    sub_D94E0(a1);
+    sub_D8710(a1, 0, 0);
+  }
+  return 1;
+}
+
+// Address: 0x169e50
+// Method: CustomSongWidget::updateSongInfo
+// Hidden C++ exception states: #wind=10
+__int64 __fastcall CustomSongWidget_updateSongInfo(__int64 a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rdx
+  _QWORD *v4; // rdx
+  bool v5; // bl
+  size_t v6; // rdi
+  const char *v7; // rdx
+  cocos2d::CCString *v8; // rax
+  char *v9; // rax
+  size_t v10; // r8
+  __int64 v11; // rcx
+  int v12; // eax
+  void **v13; // rdx
+  cocos2d::CCString *v14; // rax
+  char *v15; // rax
+  size_t v16; // r8
+  void **v17; // rdx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  cocos2d::CCString *v20; // rax
+  const char *v21; // rax
+  float v22; // xmm1_4
+  int v23; // ebx
+  float v24; // xmm0_4
+  cocos2d::CCString *v25; // rax
+  char *v26; // rax
+  void **v27; // rdx
+  void *v28; // rcx
+  void *v29; // rcx
+  void **v30; // rdx
+  __int64 v31; // rcx
+  size_t v32; // rdi
+  int ExtraArtistCount; // eax
+  const char *v34; // rdx
+  cocos2d::CCString *v35; // rax
+  char *CString; // rax
+  size_t v37; // r8
+  _QWORD *v38; // rdx
+  __int64 v39; // rdx
+  int v40; // eax
+  double v41; // xmm2_8
+  cocos2d::CCString *v42; // rax
+  char *v43; // rax
+  size_t v44; // rbx
+  void **v45; // rdx
+  void **v46; // rdx
+  __int64 v47; // rdx
+  __int64 v48; // rax
+  unsigned int v49; // ebx
+  __int64 v50; // rcx
+  __int64 v51; // rdx
+  __int64 v52; // rdx
+  __int64 v53; // rdx
+  __int64 *v54; // rdi
+  int v55; // eax
+  __int64 v56; // rdx
+  __int64 *v57; // rcx
+  __int64 v58; // r8
+  __int64 v59; // rbx
+  cocos2d::CCSpriteFrameCache *v60; // rax
+  const char *v61; // rdx
+  struct cocos2d::CCSpriteFrame *v62; // rax
+  __int64 v63; // rcx
+  __int64 v64; // rcx
+  __int64 v65; // rdx
+  char v66; // bl
+  __int64 v67; // rdx
+  __int64 v68; // rdx
+  void *v69; // rdx
+  __int64 v70; // rdx
+  __int64 v71; // rcx
+  __int64 v72; // rcx
+  __int64 *v73; // rsi
+  __int64 v74; // rcx
+  __int64 v75; // rdi
+  const char *v76; // rbx
+  cocos2d::CCSpriteFrameCache *v77; // rax
+  struct cocos2d::CCSpriteFrame *v78; // rax
+  __int64 v79; // rax
+  char v80; // al
+  cocos2d::CCLabelBMFont *v81; // rcx
+  float v82; // xmm6_4
+  float v83; // xmm1_4
+  __int64 v84; // rax
+  float v85; // xmm6_4
+  double v86; // xmm0_8
+  __int64 v87; // rax
+  __int64 *v88; // rcx
+  __int64 v89; // rbx
+  __int64 *v90; // rdi
+  __int64 v91; // rax
+  __int64 v92; // rax
+  __int64 v93; // rdx
+  __int64 v94; // rax
+  char v96; // al
+  int v97; // ecx
+  float v98; // xmm7_4
+  char v99; // al
+  int v100; // ecx
+  float v101; // xmm9_4
+  float v102; // xmm6_4
+  float v103; // xmm0_4
+  int v104; // eax
+  float v105; // xmm6_4
+  double v106; // xmm0_8
+  float v107; // xmm7_4
+  float v108; // xmm6_4
+  double v109; // xmm0_8
+  __int64 v110; // rax
+  __int64 v111; // rbx
+  __int64 v112; // rax
+  __int64 v113; // rsi
+  __int64 v114; // rax
+  __int64 v115; // rax
+  __int64 v116; // rbx
+  __int64 v117; // rdi
+  __int64 v118; // rax
+  __int64 v119; // rax
+  __int64 v120; // rdi
+  __int64 v121; // rbx
+  __int64 v122; // rax
+  __int64 v123; // rdi
+  float v124; // xmm6_4
+  float *v125; // rax
+  __int64 v126; // rbx
+  __int64 v127; // rax
+  void *v128; // [rsp+30h] [rbp-D0h] BYREF
+  int v129; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v130[8]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v131[8]; // [rsp+48h] [rbp-B8h] BYREF
+  void *Block[2]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v133; // [rsp+60h] [rbp-A0h]
+  unsigned __int64 v134; // [rsp+68h] [rbp-98h]
+  void *v135[2]; // [rsp+70h] [rbp-90h] BYREF
+  size_t Size; // [rsp+80h] [rbp-80h]
+  unsigned __int64 v137; // [rsp+88h] [rbp-78h]
+  _QWORD v138[3]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 v139; // [rsp+A8h] [rbp-58h]
+
+  sub_1681C0();
+  sub_168790(a1);
+  v2 = *(_QWORD *)(a1 + 336);
+  if ( v2 )
+  {
+    v3 = v2 + 328;
+    if ( *(_BYTE *)(a1 + 501) )
+    {
+      sub_3E4F0(Block, v3);
+      v30 = Block;
+      if ( v134 > 0xF )
+        v30 = (void **)Block[0];
+      (**(void (__fastcall ***)(__int64, void **))(*(_QWORD *)(a1 + 352) + 360LL))(*(_QWORD *)(a1 + 352) + 360LL, v30);
+      sub_3C310(Block);
+      sub_3E4F0(v138, *(_QWORD *)(a1 + 336) + 360LL);
+      v31 = *(_QWORD *)(a1 + 336);
+      v32 = -1;
+      if ( *(_QWORD *)(v31 + 552) )
+      {
+        ExtraArtistCount = SongInfoObject_getExtraArtistCount(v31);
+        if ( ExtraArtistCount > 0 )
+        {
+          v34 = (const char *)v138;
+          if ( v139 > 0xF )
+            v34 = (const char *)v138[0];
+          v35 = cocos2d::CCString::createWithFormat("%s +%i", v34, ExtraArtistCount);
+          CString = (char *)cocos2d::CCString::getCString(v35);
+          v37 = -1;
+          do
+            ++v37;
+          while ( CString[v37] );
+          sub_3F5A0(v138, CString, v37);
+        }
+      }
+      v38 = v138;
+      if ( v139 > 0xF )
+        v38 = (_QWORD *)v138[0];
+      (**(void (__fastcall ***)(__int64, _QWORD *))(*(_QWORD *)(a1 + 360) + 360LL))(*(_QWORD *)(a1 + 360) + 360LL, v38);
+      if ( !*(_BYTE *)(a1 + 529) )
+      {
+        v39 = *(_QWORD *)(a1 + 336);
+        v40 = *(_DWORD *)(v39 + 480);
+        *(_OWORD *)Block = 0;
+        v133 = 0;
+        v134 = 15;
+        LOBYTE(Block[0]) = 0;
+        v41 = *(float *)(v39 + 428);
+        if ( v40 <= 0 )
+          v42 = cocos2d::CCString::createWithFormat("ID: %i  Size: %.01fMB", *(_DWORD *)(v39 + 320), v41);
+        else
+          v42 = cocos2d::CCString::createWithFormat(
+                  "ID: %i  Size: %.01fMB (%is)",
+                  *(_DWORD *)(v39 + 320),
+                  v41,
+                  *(_DWORD *)(v39 + 480));
+        v43 = (char *)cocos2d::CCString::getCString(v42);
+        do
+          ++v32;
+        while ( v43[v32] );
+        sub_3F5A0(Block, v43, v32);
+        SongInfoObject_getTagsString(*(_QWORD **)(a1 + 336), (__int64)v135, 1);
+        v44 = Size;
+        if ( Size )
+        {
+          sub_43D80(Block, "    ", 4u);
+          v45 = v135;
+          if ( v137 > 0xF )
+            v45 = (void **)v135[0];
+          sub_43D80(Block, v45, v44);
+        }
+        v46 = Block;
+        if ( v134 > 0xF )
+          v46 = (void **)Block[0];
+        (**(void (__fastcall ***)(__int64, void **))(*(_QWORD *)(a1 + 368) + 360LL))(*(_QWORD *)(a1 + 368) + 360LL, v46);
+        sub_3C310(v135);
+        sub_3C310(Block);
+      }
+      sub_3C310(v138);
+    }
+    else
+    {
+      sub_3E4F0(v138, v3);
+      v4 = v138;
+      if ( v139 > 0xF )
+        v4 = (_QWORD *)v138[0];
+      (**(void (__fastcall ***)(__int64, _QWORD *))(*(_QWORD *)(a1 + 352) + 360LL))(*(_QWORD *)(a1 + 352) + 360LL, v4);
+      sub_3C310(v138);
+      *(_OWORD *)v135 = 0;
+      Size = 0;
+      v137 = 15;
+      LOBYTE(v135[0]) = 0;
+      sub_3E4F0(v138, *(_QWORD *)(a1 + 336) + 360LL);
+      v5 = v138[2] != 0;
+      sub_3C310(v138);
+      v6 = -1;
+      if ( v5 )
+      {
+        sub_3E4F0(v138, *(_QWORD *)(a1 + 336) + 360LL);
+        v7 = (const char *)v138;
+        if ( v139 > 0xF )
+          v7 = (const char *)v138[0];
+        v8 = cocos2d::CCString::createWithFormat("By: %s", v7);
+        v9 = (char *)cocos2d::CCString::getCString(v8);
+        v10 = -1;
+        do
+          ++v10;
+        while ( v9[v10] );
+        sub_3F5A0(v135, v9, v10);
+        sub_3C310(v138);
+      }
+      v11 = *(_QWORD *)(a1 + 336);
+      if ( *(_QWORD *)(v11 + 552) )
+      {
+        v12 = SongInfoObject_getExtraArtistCount(v11);
+        if ( v12 > 0 )
+        {
+          v13 = v135;
+          if ( v137 > 0xF )
+            v13 = (void **)v135[0];
+          v14 = cocos2d::CCString::createWithFormat("%s +%i", (const char *)v13, v12);
+          v15 = (char *)cocos2d::CCString::getCString(v14);
+          v16 = -1;
+          do
+            ++v16;
+          while ( v15[v16] );
+          sub_3F5A0(v135, v15, v16);
+        }
+      }
+      v17 = v135;
+      if ( v137 > 0xF )
+        v17 = (void **)v135[0];
+      (**(void (__fastcall ***)(__int64, void **))(*(_QWORD *)(a1 + 360) + 360LL))(*(_QWORD *)(a1 + 360) + 360LL, v17);
+      if ( !*(_BYTE *)(a1 + 529) )
+      {
+        if ( *(_BYTE *)(a1 + 500) )
+        {
+          (**(void (__fastcall ***)(__int64, char *))(*(_QWORD *)(a1 + 368) + 360LL))(
+            *(_QWORD *)(a1 + 368) + 360LL,
+            &byte_6E86E0);
+        }
+        else
+        {
+          v18 = *(_QWORD *)(a1 + 336);
+          v19 = *(unsigned int *)(v18 + 320);
+          if ( *(_BYTE *)(v18 + 472) )
+            v20 = cocos2d::CCString::createWithFormat("SongID: %i", v19);
+          else
+            v20 = cocos2d::CCString::createWithFormat("SongID: %i  Size: %.02fMB", v19, *(float *)(v18 + 428));
+          v21 = cocos2d::CCString::getCString(v20);
+          (**(void (__fastcall ***)(__int64, const char *))(*(_QWORD *)(a1 + 368) + 360LL))(
+            *(_QWORD *)(a1 + 368) + 360LL,
+            v21);
+          if ( *(int *)(*(_QWORD *)(a1 + 336) + 484LL) > 0 )
+          {
+            (**(void (__fastcall ***)(__int64, void *))(*(_QWORD *)(a1 + 376) + 368LL))(
+              *(_QWORD *)(a1 + 376) + 368LL,
+              &unk_6FDF7C);
+            (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 376) + 160LL))(*(_QWORD *)(a1 + 376));
+            *(_OWORD *)Block = 0;
+            v133 = 0;
+            v134 = 15;
+            LOBYTE(Block[0]) = 0;
+            v22 = *(float *)(a1 + 508);
+            if ( v22 <= 0.0 || v22 == 1.0 )
+            {
+              v25 = cocos2d::CCString::createWithFormat("BPM: %i", *(_DWORD *)(*(_QWORD *)(a1 + 336) + 484LL));
+            }
+            else
+            {
+              v23 = *(_DWORD *)(*(_QWORD *)(a1 + 336) + 484LL);
+              v24 = roundf((float)v23 * v22);
+              v25 = cocos2d::CCString::createWithFormat("BPM: %i (%i)", v23, (int)v24);
+            }
+            v26 = (char *)cocos2d::CCString::getCString(v25);
+            do
+              ++v6;
+            while ( v26[v6] );
+            sub_3F5A0(Block, v26, v6);
+            v27 = Block;
+            if ( v134 > 0xF )
+              v27 = (void **)Block[0];
+            (**(void (__fastcall ***)(__int64, void **))(*(_QWORD *)(a1 + 376) + 360LL))(
+              *(_QWORD *)(a1 + 376) + 360LL,
+              v27);
+            sub_16C5A0(a1, 0);
+            if ( v134 > 0xF )
+            {
+              v28 = Block[0];
+              if ( v134 + 1 >= 0x1000 )
+              {
+                v28 = (void *)*((_QWORD *)Block[0] - 1);
+                if ( (unsigned __int64)((char *)Block[0] - (char *)v28 - 8) > 0x1F )
+                  invoke_watson(0, 0, 0, 0, 0);
+              }
+              j_j_free(v28);
+            }
+            v133 = 0;
+            v134 = 15;
+            LOBYTE(Block[0]) = 0;
+          }
+        }
+      }
+      if ( v137 > 0xF )
+      {
+        v29 = v135[0];
+        if ( v137 + 1 >= 0x1000 )
+        {
+          v29 = (void *)*((_QWORD *)v135[0] - 1);
+          if ( (unsigned __int64)((char *)v135[0] - (char *)v29 - 8) > 0x1F )
+            invoke_watson(0, 0, 0, 0, 0);
+        }
+        j_j_free(v29);
+      }
+      Size = 0;
+      v137 = 15;
+      LOBYTE(v135[0]) = 0;
+    }
+  }
+  else
+  {
+    (**(void (__fastcall ***)(__int64, const char *))(*(_QWORD *)(a1 + 352) + 360LL))(
+      *(_QWORD *)(a1 + 352) + 360LL,
+      "No song loaded");
+    (**(void (__fastcall ***)(__int64, char *))(*(_QWORD *)(a1 + 360) + 360LL))(
+      *(_QWORD *)(a1 + 360) + 360LL,
+      &byte_6E86E0);
+    if ( !*(_BYTE *)(a1 + 529) )
+      (**(void (__fastcall ***)(__int64, char *))(*(_QWORD *)(a1 + 368) + 360LL))(
+        *(_QWORD *)(a1 + 368) + 360LL,
+        &byte_6E86E0);
+  }
+  if ( *(_BYTE *)(a1 + 529) )
+  {
+    v47 = *(unsigned __int8 *)(a1 + 545);
+LABEL_120:
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 384) + 336LL))(*(_QWORD *)(a1 + 384), v47);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 392) + 336LL))(*(_QWORD *)(a1 + 392), 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 400) + 336LL))(*(_QWORD *)(a1 + 400), 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 416) + 336LL))(*(_QWORD *)(a1 + 416), 0);
+    v71 = *(_QWORD *)(a1 + 456);
+    goto LABEL_121;
+  }
+  v48 = *(_QWORD *)(a1 + 336);
+  if ( !v48 )
+  {
+    v47 = 0;
+    goto LABEL_120;
+  }
+  v49 = *(_DWORD *)(v48 + 320);
+  v50 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v128 = operator new(0x3D0u);
+    qword_906070 = sub_47C350(v128);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v50 = qword_906070;
+  }
+  if ( (unsigned __int8)sub_4803B0(v50, v49) )
+  {
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 384) + 336LL))(*(_QWORD *)(a1 + 384), 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 392) + 336LL))(*(_QWORD *)(a1 + 392), 0);
+    if ( *(_BYTE *)(*(_QWORD *)(a1 + 336) + 472LL) && *(_BYTE *)(a1 + 498) )
+      LOBYTE(v51) = 1;
+    else
+      v51 = 0;
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 408) + 336LL))(*(_QWORD *)(a1 + 408), v51);
+    if ( !*(_BYTE *)(a1 + 498)
+      || (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 408) + 344LL))(*(_QWORD *)(a1 + 408))
+      || (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 432) + 56LL))(*(_QWORD *)(a1 + 432)) == -999 )
+    {
+      v52 = 0;
+    }
+    else
+    {
+      LOBYTE(v52) = 1;
+    }
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 432) + 336LL))(*(_QWORD *)(a1 + 432), v52);
+    if ( *(_BYTE *)(a1 + 496) && *(_QWORD *)(a1 + 488) )
+    {
+      LOBYTE(v53) = 1;
+      (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 400) + 336LL))(*(_QWORD *)(a1 + 400), v53);
+      (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 432) + 336LL))(*(_QWORD *)(a1 + 432), 0);
+      v54 = (__int64 *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 400) + 952LL))(*(_QWORD *)(a1 + 400));
+      v55 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 488) + 8LL))(*(_QWORD *)(a1 + 488));
+      v57 = *(__int64 **)(a1 + 400);
+      v58 = *v57;
+      if ( v55 == v49 )
+      {
+        (*(void (__fastcall **)(__int64 *, _QWORD))(v58 + 936))(v57, 0);
+        v59 = *v54;
+        v60 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache();
+        v61 = "GJ_selectSongOnBtn_001.png";
+      }
+      else
+      {
+        LOBYTE(v56) = 1;
+        (*(void (__fastcall **)(__int64 *, __int64))(v58 + 936))(v57, v56);
+        v59 = *v54;
+        v60 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache();
+        v61 = "GJ_selectSongBtn_001.png";
+      }
+      v62 = cocos2d::CCSpriteFrameCache::spriteFrameByName(v60, v61);
+      (*(void (__fastcall **)(__int64 *, struct cocos2d::CCSpriteFrame *))(v59 + 1008))(v54, v62);
+    }
+    else
+    {
+      (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 400) + 336LL))(*(_QWORD *)(a1 + 400), 0);
+    }
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 416) + 336LL))(
+      *(_QWORD *)(a1 + 416),
+      *(unsigned __int8 *)(a1 + 497));
+    v63 = *(_QWORD *)(a1 + 456);
+    goto LABEL_122;
+  }
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 400) + 336LL))(*(_QWORD *)(a1 + 400), 0);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 416) + 336LL))(*(_QWORD *)(a1 + 416), 0);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 432) + 336LL))(*(_QWORD *)(a1 + 432), 0);
+  if ( *(_BYTE *)(a1 + 500) )
+  {
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 384) + 336LL))(*(_QWORD *)(a1 + 384), 0);
+    v71 = *(_QWORD *)(a1 + 392);
+LABEL_121:
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v71 + 336LL))(v71, 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 408) + 336LL))(*(_QWORD *)(a1 + 408), 0);
+    v63 = *(_QWORD *)(a1 + 432);
+LABEL_122:
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v63 + 336LL))(v63, 0);
+    goto LABEL_123;
+  }
+  v64 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v128 = operator new(0x3D0u);
+    qword_906070 = sub_47C350(v128);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v64 = qword_906070;
+  }
+  if ( MusicDownloadManager_isRunningActionForSongID(v64, *(_DWORD *)(a1 + 504)) || *(_BYTE *)(a1 + 499) )
+  {
+    v66 = 1;
+  }
+  else
+  {
+    v66 = 0;
+    if ( !*(_BYTE *)(*(_QWORD *)(a1 + 336) + 472LL) && *(_BYTE *)(a1 + 498) )
+    {
+      LOBYTE(v65) = 1;
+      (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 384) + 336LL))(*(_QWORD *)(a1 + 384), v65);
+LABEL_105:
+      v67 = 0;
+      goto LABEL_106;
+    }
+  }
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 384) + 336LL))(*(_QWORD *)(a1 + 384), 0);
+  if ( !v66 || *(_BYTE *)(*(_QWORD *)(a1 + 336) + 472LL) || !*(_BYTE *)(a1 + 498) )
+    goto LABEL_105;
+  LOBYTE(v67) = 1;
+LABEL_106:
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 392) + 336LL))(*(_QWORD *)(a1 + 392), v67);
+  if ( *(_BYTE *)(*(_QWORD *)(a1 + 336) + 472LL) && *(_BYTE *)(a1 + 498) )
+    LOBYTE(v68) = 1;
+  else
+    v68 = 0;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 408) + 336LL))(*(_QWORD *)(a1 + 408), v68);
+  v69 = &unk_6FDF74;
+  if ( !v66 )
+    v69 = &unk_6FDF80;
+  (**(void (__fastcall ***)(__int64, void *))(*(_QWORD *)(a1 + 408) + 320LL))(*(_QWORD *)(a1 + 408) + 320LL, v69);
+  LOBYTE(v70) = v66 == 0;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 408) + 936LL))(*(_QWORD *)(a1 + 408), v70);
+LABEL_123:
+  v72 = *(_QWORD *)(a1 + 448);
+  if ( v72 && *(_QWORD *)(a1 + 336) )
+  {
+    v73 = (__int64 *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v72 + 952LL))(v72);
+    v129 = *(_DWORD *)(*(_QWORD *)(a1 + 336) + 320LL);
+    v74 = qword_906070;
+    if ( !qword_906070 )
+    {
+      v128 = operator new(0x3D0u);
+      qword_906070 = sub_47C350(v128);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+      v74 = qword_906070;
+    }
+    v75 = *v73;
+    v76 = "gj_heartOff_001.png";
+    if ( sub_659E0(v74 + 776, &v129) )
+      v76 = "gj_heartOn_001.png";
+    v77 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache();
+    v78 = cocos2d::CCSpriteFrameCache::spriteFrameByName(v77, v76);
+    (*(void (__fastcall **)(__int64 *, struct cocos2d::CCSpriteFrame *))(v75 + 1008))(v73, v78);
+  }
+  v79 = **(_QWORD **)(a1 + 472);
+  if ( *(_BYTE *)(a1 + 501) )
+  {
+    v96 = (*(__int64 (**)(void))(v79 + 344))();
+    v97 = 140;
+    if ( v96 )
+      v97 = 130;
+    v98 = (float)v97;
+    v99 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 472) + 344LL))(*(_QWORD *)(a1 + 472));
+    v100 = 80;
+    if ( v99 )
+      v100 = 55;
+    v101 = (float)v100;
+    if ( *(_BYTE *)(a1 + 502) )
+    {
+      v98 = v98 + -25.0;
+      v101 = v101 + -15.0;
+    }
+    cocos2d::CCLabelBMFont::limitLabelWidth(*(cocos2d::CCLabelBMFont **)(a1 + 352), v98, 0.5, 0.0);
+    v102 = *(float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 320LL))(*(_QWORD *)(a1 + 352));
+    v103 = (*(float (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 168LL))(*(_QWORD *)(a1 + 352));
+    cocos2d::CCLabelBMFont::limitLabelWidth(
+      *(cocos2d::CCLabelBMFont **)(a1 + 360),
+      fmaxf(0.0, v98 - (float)(v103 * v102)) + v101,
+      0.5,
+      0.0);
+    if ( !*(_BYTE *)(a1 + 529) )
+    {
+      v104 = 220;
+      if ( *(_BYTE *)(a1 + 502) )
+        v104 = 180;
+      cocos2d::CCLabelBMFont::limitLabelWidth(*(cocos2d::CCLabelBMFont **)(a1 + 368), (float)v104, 0.60000002, 0.0);
+    }
+    v105 = *(float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 320LL))(*(_QWORD *)(a1 + 352));
+    v106 = (*(double (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 168LL))(*(_QWORD *)(a1 + 352));
+    v107 = *(float *)&v106 * v105;
+    v108 = *(float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 360) + 320LL))(*(_QWORD *)(a1 + 360));
+    v109 = (*(double (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 360) + 168LL))(*(_QWORD *)(a1 + 360));
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)v130,
+      (float)((float)((float)(*(float *)&v109 * v108) * 0.5) + v107) + 4.0,
+      0.0);
+    v111 = v110;
+    v112 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 200LL))(*(_QWORD *)(a1 + 352));
+    cocos2d::CCPoint::operator+(v112, &v128, v111);
+    v113 = **(_QWORD **)(a1 + 424);
+    v114 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 352) + 504LL))(*(_QWORD *)(a1 + 352));
+    cocos2d::CCNode::convertToWorldSpace(v114, v131, &v128);
+    v116 = v115;
+    v117 = *(_QWORD *)(a1 + 424);
+    v118 = (*(__int64 (**)(void))(*(_QWORD *)v117 + 504LL))();
+    cocos2d::CCNode::convertToNodeSpace(v118, &v129, v116);
+    (*(void (__fastcall **)(__int64, __int64))(v113 + 184))(v117, v119);
+    v120 = **(_QWORD **)(a1 + 360);
+    v121 = *(_QWORD *)(a1 + 360);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v130, 0.5, 0.5);
+    (*(void (__fastcall **)(__int64, __int64))(v120 + 288))(v121, v122);
+    v123 = **(_QWORD **)(a1 + 360);
+    v124 = *(float *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 424) + 320LL))(*(_QWORD *)(a1 + 424)) + 4)
+         * 0.5;
+    v125 = (float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 424) + 320LL))(*(_QWORD *)(a1 + 424));
+    v126 = *(_QWORD *)(a1 + 360);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v130, *v125 * 0.5, v124);
+    return (*(__int64 (__fastcall **)(__int64, __int64))(v123 + 184))(v126, v127);
+  }
+  else
+  {
+    v80 = (*(__int64 (**)(void))(v79 + 344))();
+    v81 = *(cocos2d::CCLabelBMFont **)(a1 + 352);
+    if ( v80 )
+    {
+      v82 = 0.75;
+      cocos2d::CCLabelBMFont::limitLabelWidth(v81, 190.0, 0.75, 0.0);
+      v83 = 165.0;
+    }
+    else
+    {
+      v82 = 0.80000001;
+      cocos2d::CCLabelBMFont::limitLabelWidth(v81, 240.0, 0.80000001, 0.0);
+      v83 = 175.0;
+    }
+    cocos2d::CCLabelBMFont::limitLabelWidth(*(cocos2d::CCLabelBMFont **)(a1 + 360), v83, v82, 0.0);
+    if ( !*(_BYTE *)(a1 + 529) )
+      cocos2d::CCLabelBMFont::limitLabelWidth(*(cocos2d::CCLabelBMFont **)(a1 + 368), 300.0, 0.40000001, 0.0);
+    v84 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 360) + 200LL))(*(_QWORD *)(a1 + 360));
+    cocos2d::CCNode::convertToWorldSpace(a1, &v129, v84);
+    v85 = *(float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 360) + 320LL))(*(_QWORD *)(a1 + 360));
+    v86 = (*(double (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 360) + 128LL))(*(_QWORD *)(a1 + 360));
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v131, (float)(*(float *)&v86 * v85) + 35.0, -2.0);
+    cocos2d::CCPoint::operator+(&v129, &v128, v87);
+    v88 = *(__int64 **)(a1 + 424);
+    v89 = *v88;
+    v90 = v88;
+    v91 = (*(__int64 (**)(void))(*v88 + 504))();
+    cocos2d::CCNode::convertToNodeSpace(v91, v130, &v128);
+    (*(void (__fastcall **)(__int64 *, __int64))(v89 + 184))(v90, v92);
+    v94 = *(_QWORD *)(a1 + 336);
+    if ( !v94 || *(_BYTE *)(v94 + 472) )
+      v93 = 0;
+    else
+      LOBYTE(v93) = 1;
+    return (*(__int64 (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 424) + 336LL))(*(_QWORD *)(a1 + 424), v93);
+  }
+}

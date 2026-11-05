@@ -229,3 +229,141 @@ __int64 __fastcall CustomSongLayer_show(__int64 a1)
   LOBYTE(v9) = 1; /*0x163150*/
   return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 336LL))(a1, v9);
 }
+
+// Address: 0x39d350
+// Method: CustomSongLayer::init
+// Hidden C++ exception states: #wind=2
+char __fastcall CustomSongLayer_init(cocos2d::CCLayerColor *a1, __int64 a2, _QWORD *a3)
+{
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 *v13; // rdi
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int64 v22; // rax
+  _QWORD *v23; // rdx
+  __int64 v24; // r8
+  const struct cocos2d::CCPoint *v25; // rax
+  char *v26; // rax
+  __int64 *v27; // rdi
+  __int64 v28; // rbx
+  __int64 v29; // rax
+  cocos2d::CCLayerColor *v30; // rax
+  __int64 *v31; // rdi
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  struct cocos2d::CCSprite *v34; // rax
+  cocos2d::CCObject *v35; // rax
+  __int64 *v36; // rsi
+  __int64 v37; // rdi
+  __int64 v38; // rbx
+  __int64 v39; // rax
+  __int64 v40; // rax
+  float v41; // [rsp+40h] [rbp-39h] BYREF
+  float v42; // [rsp+44h] [rbp-35h]
+  __int128 *v43; // [rsp+48h] [rbp-31h] BYREF
+  _BYTE v44[16]; // [rsp+50h] [rbp-29h] BYREF
+  __int128 v45; // [rsp+60h] [rbp-19h] BYREF
+  __int64 v46; // [rsp+70h] [rbp-9h]
+  __int64 v47; // [rsp+78h] [rbp-1h]
+  _QWORD *v48; // [rsp+80h] [rbp+7h]
+
+  v48 = a3;
+  LODWORD(v43) = -1778384896;
+  if ( cocos2d::CCLayerColor::initWithColor(a1, (const struct cocos2d::_ccColor4B *)&v43) )
+  {
+    sub_5ABA0(a1);
+    *((_QWORD *)a1 + 83) = a2;
+    LOBYTE(v7) = 1;
+    (*(void (__fastcall **)(cocos2d::CCLayerColor *, __int64))(*(_QWORD *)a1 + 920LL))(a1, v7);
+    LOBYTE(v8) = 1;
+    (*(void (__fastcall **)(cocos2d::CCLayerColor *, __int64))(*(_QWORD *)a1 + 992LL))(a1, v8);
+    v10 = cocos2d::CCDirector::sharedDirector(v9);
+    cocos2d::CCDirector::getWinSize(v10, &v41);
+    v11 = cocos2d::CCLayer::create();
+    *((_QWORD *)a1 + 73) = v11;
+    (*(void (__fastcall **)(cocos2d::CCLayerColor *, __int64))(*(_QWORD *)a1 + 464LL))(a1, v11);
+    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v44, 0.0, 0.0, 80.0, 80.0);
+    v13 = (__int64 *)cocos2d::extension::CCScale9Sprite::create("GJ_square02.png", v12);
+    v14 = *v13;
+    cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v43, 200.0, 100.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v14 + 312))(v13, v15);
+    (*(void (__fastcall **)(_QWORD, __int64 *, __int64))(**((_QWORD **)a1 + 73) + 456LL))(
+      *((_QWORD *)a1 + 73),
+      v13,
+      0xFFFFFFFFLL);
+    v16 = *v13;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v43, v41 * 0.5, v42 * 0.5);
+    (*(void (__fastcall **)(__int64 *, __int64))(v16 + 184))(v13, v17);
+    v22 = cocos2d::CCMenu::create(v19, v18, v20, v21);
+    *((_QWORD *)a1 + 69) = v22;
+    (*(void (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)a1 + 73) + 456LL))(*((_QWORD *)a1 + 73), v22, 10);
+    v43 = &v45;
+    v23 = a3;
+    if ( a3[3] > 0xFu )
+      v23 = (_QWORD *)*a3;
+    v45 = 0;
+    v46 = 0;
+    v47 = 0;
+    v24 = -1;
+    do
+      ++v24;
+    while ( *((_BYTE *)v23 + v24) );
+    sub_3C230(&v45);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v44, 0.5, 1.0);
+    v26 = TextArea_create((__int64)&v45, "chatFont.fnt", 1.0, 400.0, v25, 1101004800, 0, 0);
+    *((_QWORD *)a1 + 84) = v26;
+    (*(void (__fastcall **)(_QWORD, char *))(**((_QWORD **)a1 + 73) + 464LL))(*((_QWORD *)a1 + 73), v26);
+    v27 = (__int64 *)*((_QWORD *)a1 + 84);
+    v28 = *v27;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v44, v41 * 0.5, (float)(v42 * 0.5) - 20.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v28 + 184))(v27, v29);
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)a1 + 84) + 160LL))(*((_QWORD *)a1 + 84));
+    *((_DWORD *)a1 + 160) = -1;
+    v30 = LoadingCircle_create();
+    *((_QWORD *)a1 + 85) = v30;
+    *((_QWORD *)v30 + 69) = *((_QWORD *)a1 + 73);
+    *(_BYTE *)(*((_QWORD *)a1 + 85) + 560LL) = 0;
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)a1 + 85) + 160LL))(*((_QWORD *)a1 + 85));
+    LoadingCircle_show(*((_QWORD *)a1 + 85));
+    v31 = *(__int64 **)(*((_QWORD *)a1 + 85) + 544LL);
+    v32 = *v31;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v44, v41 * 0.5, (float)(v42 * 0.5) + 14.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v32 + 184))(v31, v33);
+    v34 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png");
+    LODWORD(v32) = (_DWORD)v34;
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v34 + 160LL))(v34);
+    v35 = CCMenuItemSpriteExtra_create(v32, 0, (int)a1, (__int64)UploadActionPopup_onClose);
+    *((_QWORD *)a1 + 86) = v35;
+    *((_DWORD *)v35 + 93) = 1070386381;
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)a1 + 69) + 464LL))(
+      *((_QWORD *)a1 + 69),
+      *((_QWORD *)a1 + 86));
+    v36 = (__int64 *)*((_QWORD *)a1 + 86);
+    v37 = *v36;
+    v38 = *((_QWORD *)a1 + 69);
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)v44,
+      (float)((float)(v41 * 0.5) - 100.0) + 5.0,
+      (float)((float)(v42 * 0.5) + 50.0) - 5.0);
+    cocos2d::CCNode::convertToNodeSpace(v38, &v43, v39);
+    (*(void (__fastcall **)(__int64 *, __int64))(v37 + 184))(v36, v40);
+    sub_3C310(a3);
+    return 1;
+  }
+  else
+  {
+    sub_3C310(a3);
+    return 0;
+  }
+}

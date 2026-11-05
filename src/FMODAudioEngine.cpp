@@ -3130,3 +3130,777 @@ __int64 __fastcall FMODAudioEngine_createStream(__int64 a1, __int64 a2)
   }
   return a2; /*0x25c5b0*/
 }
+
+// Address: 0x5d980
+// Method: FMODAudioEngine::loadAudioState
+void __fastcall FMODAudioEngine_loadAudioState(__int64 a1, __int64 a2)
+{
+  __int64 v2; // r14
+  __int64 v3; // r15
+  __int64 *v4; // rax
+  __int64 *v5; // rbx
+  bool v6; // zf
+  int v7; // eax
+  int v8; // r8d
+  int v9; // r9d
+  __int64 v10; // r13
+  __int64 v11; // r9
+  __int64 v12; // r12
+  unsigned int v13; // r15d
+  _QWORD *v14; // rdi
+  __int64 v15; // r14
+  __int64 **v16; // r15
+  __int64 *i; // rbx
+  int v18; // xmm0_4
+  int v19; // xmm1_4
+  char v20; // al
+  int v21; // xmm0_4
+  _QWORD *v22; // rax
+  _QWORD *v23; // rax
+  _QWORD *v24; // rbx
+  __int64 v25; // r15
+  __int64 v26; // r13
+  __int64 v27; // r12
+  _QWORD *v28; // r14
+  _QWORD *v29; // rax
+  _QWORD *v30; // rbx
+  __int64 v31; // r15
+  __int64 v32; // r13
+  __int64 v33; // r12
+  _QWORD *v34; // r14
+  _QWORD v35[2]; // [rsp+A0h] [rbp-80h] BYREF
+  _BYTE v36[16]; // [rsp+B0h] [rbp-70h] BYREF
+  _BYTE v37[16]; // [rsp+C0h] [rbp-60h] BYREF
+  _BYTE v38[16]; // [rsp+D0h] [rbp-50h] BYREF
+  _BYTE v39[16]; // [rsp+E0h] [rbp-40h] BYREF
+  _BYTE v40[32]; // [rsp+F0h] [rbp-30h] BYREF
+  int v41; // [rsp+110h] [rbp-10h]
+  int v42; // [rsp+114h] [rbp-Ch]
+  int v43; // [rsp+118h] [rbp-8h]
+  int v44; // [rsp+11Ch] [rbp-4h]
+  int v45; // [rsp+120h] [rbp+0h]
+  int v46; // [rsp+124h] [rbp+4h]
+  int v47; // [rsp+128h] [rbp+8h]
+  char v48; // [rsp+12Ch] [rbp+Ch]
+  int v49; // [rsp+130h] [rbp+10h]
+  char v50; // [rsp+134h] [rbp+14h]
+  int v51; // [rsp+138h] [rbp+18h]
+  char v52; // [rsp+13Ch] [rbp+1Ch]
+  int v53; // [rsp+140h] [rbp+20h]
+  __int64 v54; // [rsp+148h] [rbp+28h]
+  char v55; // [rsp+150h] [rbp+30h]
+  _BYTE v56[40]; // [rsp+158h] [rbp+38h] BYREF
+  unsigned int v59; // [rsp+1F0h] [rbp+D0h] BYREF
+  __int64 v60; // [rsp+1F8h] [rbp+D8h] BYREF
+
+  v2 = a1;
+  v3 = a2;
+  if ( *(_BYTE *)(a1 + 617) )
+    FMOD::System::lockDSP(*(_QWORD *)(a1 + 560));
+  v4 = *(__int64 **)(v3 + 832);
+  v5 = (__int64 *)*v4;
+  v35[0] = v4;
+  if ( v5 != v4 )
+  {
+    do
+    {
+      v6 = *((_BYTE *)v5 + 204) == 0;
+      v59 = *((_DWORD *)v5 + 4);
+      if ( v6 )
+      {
+        sub_3E4F0(v56, v5 + 3);
+        FMODAudioEngine_playEffectAdvanced(
+          v2,
+          v7,
+          v8,
+          v9,
+          *((_DWORD *)v5 + 16),
+          *((_DWORD *)v5 + 48),
+          *((_BYTE *)v5 + 196),
+          *((_BYTE *)v5 + 197),
+          0,
+          0,
+          0,
+          0,
+          *((_BYTE *)v5 + 68),
+          *((_DWORD *)v5 + 50),
+          0,
+          0,
+          v59,
+          *((_DWORD *)v5 + 46),
+          0,
+          *((_DWORD *)v5 + 47));
+        v10 = sub_5FDE0(v2, v59);
+        if ( v10 )
+        {
+          sub_66DF0(v3 + 120, v38, &v59);
+          sub_66DF0(v3 + 56, v39, &v59);
+          FMOD::ChannelControl::setVolume(v10);
+          sub_66DF0(v3 + 184, v36, &v59);
+          FMOD::ChannelControl::setPitch(v10);
+          if ( *((_BYTE *)v5 + 68) && v5[18] )
+            FMOD::Channel::setLoopPoints(v10, *((unsigned int *)v5 + 36), 1, *((unsigned int *)v5 + 37), 1);
+          FMOD::Channel::setPosition(v10, *((unsigned int *)v5 + 38), 1);
+          FMOD::ChannelControl::getDSPClock(v10, 0, &v60);
+          v12 = v60 - v5[17];
+          v13 = 0;
+          if ( *((_DWORD *)v5 + 20) )
+          {
+            v14 = v5 + 13;
+            v15 = (__int64)v5 + 84;
+            do
+            {
+              FMOD::ChannelControl::addFadePoint(v10, v12 + *v14);
+              ++v13;
+              v15 += 4;
+              ++v14;
+            }
+            while ( v13 < *((_DWORD *)v5 + 20) );
+            v2 = a1;
+          }
+          if ( *((_DWORD *)v5 + 44) )
+          {
+            LOBYTE(v11) = 1;
+            FMOD::ChannelControl::setDelay(v10, v12 + v5[20], v12 + v5[21], v11);
+          }
+          v3 = a2;
+        }
+      }
+      v5 = (__int64 *)*v5;
+    }
+    while ( v5 != (__int64 *)v35[0] );
+  }
+  sub_5D790(v2 + 656, v3);
+  v16 = *(__int64 ***)(v2 + 1360);
+  for ( i = *v16; i != (__int64 *)v16; i = (__int64 *)*i )
+  {
+    FMODAudioEngine_setMusicTimeMS(v2, *((_DWORD *)i + 17), 0, *((_DWORD *)i + 22));
+    if ( *((_BYTE *)i + 100) )
+    {
+      sub_3E4F0(v40, i + 3);
+      v18 = *((_DWORD *)i + 14);
+      v19 = *((_DWORD *)i + 15);
+      v44 = *((_DWORD *)i + 17);
+      v45 = *((_DWORD *)i + 18);
+      v46 = *((_DWORD *)i + 19);
+      v47 = *((_DWORD *)i + 20);
+      v48 = *((_BYTE *)i + 84);
+      v49 = *((_DWORD *)i + 22);
+      v50 = *((_BYTE *)i + 92);
+      v51 = *((_DWORD *)i + 24);
+      v52 = *((_BYTE *)i + 100);
+      v53 = *((_DWORD *)i + 26);
+      v54 = i[14];
+      v20 = *((_BYTE *)i + 120);
+      v41 = v18;
+      v21 = *((_DWORD *)i + 16);
+      v55 = v20;
+      v42 = v19;
+      v43 = v21;
+      sub_634B0(v2, v40);
+    }
+    else
+    {
+      v22 = (_QWORD *)sub_67A00(v2 + 1416, v36, i + 2);
+      sub_5E090(*v22 + 24LL, i + 3);
+    }
+  }
+  sub_66080(v2 + 1352);
+  v23 = *(_QWORD **)(v2 + 2064);
+  v24 = (_QWORD *)*v23;
+  if ( (_QWORD *)*v23 != v23 )
+  {
+    v25 = v2 + 968;
+    v26 = v2 + 904;
+    v27 = v2 + 1032;
+    v28 = *(_QWORD **)(v2 + 2064);
+    do
+    {
+      if ( !sub_659E0(v26, v24 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v26, v36, v24 + 2) + 20LL) = 1065353216;
+      if ( !sub_659E0(v25, v24 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v25, v39, v24 + 2) + 20LL) = 1065353216;
+      if ( !sub_659E0(v27, v24 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v27, v38, v24 + 2) + 20LL) = 1065353216;
+      sub_66DF0(v25, v37, v24 + 2);
+      sub_66DF0(v26, v35, v24 + 2);
+      FMOD::ChannelControl::setVolume(v24[3]);
+      sub_66DF0(v27, v56, v24 + 2);
+      FMOD::ChannelControl::setPitch(v24[3]);
+      v24 = (_QWORD *)*v24;
+    }
+    while ( v24 != v28 );
+    v2 = a1;
+  }
+  v29 = *(_QWORD **)(v2 + 2128);
+  v30 = (_QWORD *)*v29;
+  if ( (_QWORD *)*v29 != v29 )
+  {
+    v31 = v2 + 968;
+    v32 = v2 + 904;
+    v33 = v2 + 1032;
+    v34 = *(_QWORD **)(v2 + 2128);
+    do
+    {
+      if ( !sub_659E0(v32, v30 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v32, v56, v30 + 2) + 20LL) = 1065353216;
+      if ( !sub_659E0(v31, v30 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v31, v36, v30 + 2) + 20LL) = 1065353216;
+      if ( !sub_659E0(v33, v30 + 2) )
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(v33, v39, v30 + 2) + 20LL) = 1065353216;
+      sub_66DF0(v31, v38, v30 + 2);
+      sub_66DF0(v32, v37, v30 + 2);
+      FMOD::ChannelControl::setVolume(v30[3]);
+      sub_66DF0(v33, v35, v30 + 2);
+      FMOD::ChannelControl::setPitch(v30[3]);
+      v30 = (_QWORD *)*v30;
+    }
+    while ( v30 != v34 );
+    v2 = a1;
+  }
+  if ( *(_BYTE *)(v2 + 617) )
+    FMOD::System::unlockDSP(*(_QWORD *)(v2 + 560));
+}
+
+// Address: 0x61d50
+// Method: FMODAudioEngine::loadMusic
+// Hidden C++ exception states: #wind=3
+char __fastcall FMODAudioEngine_loadMusic(
+        __int64 a1,
+        __int64 a2,
+        float a3,
+        float a4,
+        int a5,
+        char a6,
+        unsigned int a7,
+        int a8,
+        char a9)
+{
+  __int64 v11; // rax
+  size_t *v12; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // r9
+  int v17; // eax
+  unsigned int v18; // esi
+  __int64 v19; // rax
+  __int64 v20; // rdi
+  unsigned int v21; // ebx
+  unsigned int v22; // ebx
+  __int64 v23; // r13
+  __int64 v24; // rdx
+  unsigned int v26; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v27; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned int v28; // [rsp+40h] [rbp-C0h] BYREF
+  int v29; // [rsp+44h] [rbp-BCh]
+  _QWORD v30[4]; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE v31[32]; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v32; // [rsp+88h] [rbp-78h]
+  _BYTE v33[32]; // [rsp+90h] [rbp-70h] BYREF
+  float v34; // [rsp+B0h] [rbp-50h]
+  float v35; // [rsp+B4h] [rbp-4Ch]
+  int v36; // [rsp+B8h] [rbp-48h]
+  char v37; // [rsp+BCh] [rbp-44h]
+  unsigned int v38; // [rsp+C0h] [rbp-40h]
+  int v39; // [rsp+C8h] [rbp-38h]
+  __int64 v40; // [rsp+100h] [rbp+0h]
+  __int64 v41; // [rsp+108h] [rbp+8h]
+  int v42; // [rsp+110h] [rbp+10h]
+  __int64 v43; // [rsp+118h] [rbp+18h]
+  __int64 v44; // [rsp+120h] [rbp+20h]
+  int v45; // [rsp+128h] [rbp+28h]
+  char v46; // [rsp+144h] [rbp+44h]
+  unsigned int v47; // [rsp+148h] [rbp+48h]
+
+  v32 = a2;
+  v26 = a7;
+  if ( *(_QWORD *)(a2 + 16) )
+  {
+    if ( !a9 || (sub_3E4F0(v30, a2), !(unsigned __int8)sub_62860(a1, v11, v26)) )
+    {
+      sub_3E4F0(v31, a2);
+      v13 = FMODAudioEngine_preloadMusic(a1, v12, 0, v26);
+      if ( !v13 )
+      {
+LABEL_14:
+        sub_3C310(a2);
+        return 1;
+      }
+      v14 = a1 + 320;
+      v15 = sub_674B0(a1 + 320, v30, &v26);
+      v27 = sub_5FDE0(a1, *(unsigned int *)(*(_QWORD *)v15 + 24LL));
+      if ( v27 )
+      {
+LABEL_8:
+        *(_BYTE *)(*(_QWORD *)sub_674B0(v14, v30, &v26) + 73LL) = a9;
+        v22 = v26;
+        v28 = v26;
+        v29 = 0;
+        sub_66340(a1 + 696, &v28);
+        v28 = v22;
+        v29 = 1;
+        sub_66340(a1 + 696, &v28);
+        *(_DWORD *)(*(_QWORD *)sub_66DF0(a1 + 1096, v30, &v26) + 20LL) = a5;
+        *(float *)(*(_QWORD *)sub_66DF0(a1 + 1224, v30, &v26) + 20LL) = a3;
+        v23 = a1 + 1160;
+        if ( !sub_659E0(v23, &v26) )
+          *(_DWORD *)(*(_QWORD *)sub_66DF0(v23, v30, &v26) + 20LL) = 1065353216;
+        FMOD::ChannelControl::setPitch(v27);
+        sub_66DF0(v23, v30, &v26);
+        FMOD::ChannelControl::setVolume(v27);
+        if ( a6 )
+          v24 = 0xFFFFFFFFLL;
+        else
+          v24 = 0;
+        FMOD::Channel::setLoopCount(v27, v24);
+        goto LABEL_14;
+      }
+      LOBYTE(v16) = 1;
+      v17 = FMOD::System::playSound(*(_QWORD *)(a1 + 560), v13, *(_QWORD *)(a1 + 552), v16, &v27);
+      *(_DWORD *)(a1 + 608) = v17;
+      if ( !v17 )
+      {
+        v18 = FMODAudioEngine_registerChannel(a1, v27, a8, 0);
+        v28 = v18;
+        *(_DWORD *)(*(_QWORD *)sub_674B0(a1 + 320, v30, &v26) + 24LL) = v18;
+        FMOD::ChannelControl::setCallback(v27, sub_5B630);
+        FMOD::ChannelControl::setVolumeRamp(v27, 0);
+        sub_65F10(a1 + 1480, &v28);
+        sub_3E4F0(v31, a2);
+        v20 = v19;
+        v30[0] = v19;
+        v21 = v26;
+        sub_3E4F0(v33, v19);
+        v34 = a3;
+        v35 = a4;
+        v36 = a5;
+        v37 = a6;
+        v38 = v18;
+        v39 = 0;
+        v40 = 0;
+        v41 = 0;
+        v42 = 0;
+        v43 = 0;
+        v44 = 0;
+        v45 = 0;
+        v46 = 1;
+        v47 = v21;
+        sub_3C310(v20);
+        sub_64BF0(a1 + 1480, v30, &v28, v33);
+        sub_3C310(v33);
+        v14 = a1 + 320;
+        goto LABEL_8;
+      }
+    }
+  }
+  sub_3C310(a2);
+  return 0;
+}
+
+// Address: 0x5e980
+// Method: FMODAudioEngine::playEffectAdvanced
+// Hidden C++ exception states: #wind=4
+__int64 __fastcall FMODAudioEngine_playEffectAdvanced(
+        __int64 a1,
+        _QWORD *a2,
+        float a3,
+        float a4,
+        float a5,
+        float a6,
+        char a7,
+        char a8,
+        int a9,
+        int a10,
+        int a11,
+        int a12,
+        char a13,
+        unsigned int a14,
+        char a15,
+        char a16,
+        int a17,
+        int a18,
+        float a19,
+        int a20)
+{
+  float v20; // xmm11_4
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rdi
+  __int64 v27; // rbx
+  int v28; // eax
+  int v29; // r9d
+  unsigned int v30; // ebx
+  float v31; // xmm12_4
+  int v32; // eax
+  __int64 v33; // rax
+  _QWORD *v34; // rax
+  _QWORD *v35; // r8
+  __int64 v36; // r9
+  unsigned __int64 v37; // rdx
+  unsigned __int64 i; // rcx
+  __int64 v40; // rbx
+  __int64 v41; // rdi
+  __int64 ChannelGroup; // rax
+  __int64 v43; // r9
+  int v44; // eax
+  int v45; // ebx
+  unsigned int v46; // r12d
+  __int64 v47; // r9
+  int v48; // eax
+  float v49; // xmm0_4
+  float v50; // xmm1_4
+  unsigned __int64 v51; // rax
+  float v52; // xmm7_4
+  float v53; // xmm1_4
+  float v54; // xmm0_4
+  unsigned __int64 v55; // rax
+  int v56; // eax
+  float v57; // xmm0_4
+  float v58; // xmm1_4
+  unsigned __int64 v59; // rax
+  float v60; // xmm1_4
+  float v61; // xmm0_4
+  unsigned __int64 v62; // rax
+  int v63; // r12d
+  int v64; // eax
+  __int64 v65; // rax
+  __int64 v66; // rcx
+  int v67; // eax
+  size_t *v68; // rbx
+  size_t *v69; // rcx
+  void *v70; // rdx
+  __int64 v71; // rax
+  __int64 v72; // rsi
+  int v73; // edi
+  int v74; // ebx
+  int v75; // [rsp+98h] [rbp-78h] BYREF
+  int v76; // [rsp+A0h] [rbp-70h] BYREF
+  __int64 v77; // [rsp+A8h] [rbp-68h] BYREF
+  char v78; // [rsp+B0h] [rbp-60h]
+  int v79; // [rsp+B8h] [rbp-58h] BYREF
+  int v80; // [rsp+C0h] [rbp-50h]
+  int v81; // [rsp+C8h] [rbp-48h] BYREF
+  __int64 v82; // [rsp+D0h] [rbp-40h] BYREF
+  _QWORD v83[2]; // [rsp+D8h] [rbp-38h] BYREF
+  int v84; // [rsp+E8h] [rbp-28h] BYREF
+  int v85[8]; // [rsp+F0h] [rbp-20h] BYREF
+  _BYTE v86[32]; // [rsp+110h] [rbp+0h] BYREF
+  _QWORD *v87; // [rsp+130h] [rbp+20h]
+  _BYTE v88[32]; // [rsp+140h] [rbp+30h] BYREF
+  float v89; // [rsp+160h] [rbp+50h]
+  float v90; // [rsp+164h] [rbp+54h]
+  float v91; // [rsp+168h] [rbp+58h]
+  char v92; // [rsp+16Ch] [rbp+5Ch]
+  int v93; // [rsp+170h] [rbp+60h]
+  int v94; // [rsp+178h] [rbp+68h]
+  __int64 v95; // [rsp+1B0h] [rbp+A0h]
+  __int64 v96; // [rsp+1B8h] [rbp+A8h]
+  int v97; // [rsp+1C0h] [rbp+B0h]
+  __int64 v98; // [rsp+1C8h] [rbp+B8h]
+  __int64 v99; // [rsp+1D0h] [rbp+C0h]
+  int v100; // [rsp+1D8h] [rbp+C8h]
+  int v101; // [rsp+1E0h] [rbp+D0h]
+  int v102; // [rsp+1E4h] [rbp+D4h]
+  float v103; // [rsp+1E8h] [rbp+D8h]
+  char v104; // [rsp+1ECh] [rbp+DCh]
+  char v105; // [rsp+1EDh] [rbp+DDh]
+  int v106; // [rsp+1F0h] [rbp+E0h]
+  char v107; // [rsp+1F4h] [rbp+E4h]
+  char v108; // [rsp+1FCh] [rbp+ECh]
+
+  v20 = a3;
+  v78 = a7;
+  v87 = a2;
+  v81 = a14;
+  v85[0] = a14;
+  v79 = a18;
+  v80 = a20;
+  if ( *(float *)(a1 + 516) <= 0.0 && !a13 )
+    goto LABEL_25;
+  v75 = 0;
+  if ( sub_659E0(a1 + 320, &v75) )
+    v23 = *(unsigned int *)(*(_QWORD *)sub_674B0(a1 + 320, v83, &v75) + 24LL);
+  else
+    v23 = 0;
+  v24 = sub_5FDE0(a1, v23);
+  v84 = 0;
+  FMOD::Channel::getPosition(v24, &v84, 1);
+  if ( !a16 || (sub_3E4F0(v86, a2), v26 = v25, v27 = sub_65CB0(a1 + 384, v25), sub_3C310(v26), v27) )
+  {
+    if ( a19 > 0.0 )
+    {
+      if ( sub_659E0(a1 + 1288, &v79)
+        && a19 > (float)(*(float *)(a1 + 660) - *(float *)(*(_QWORD *)sub_66DF0(a1 + 1288, v83, &v79) + 20LL)) )
+      {
+        goto LABEL_25;
+      }
+      *(_DWORD *)(*(_QWORD *)sub_66DF0(a1 + 1288, v83, &v79) + 20LL) = *(_DWORD *)(a1 + 660);
+    }
+    v31 = fminf(2.0, a5);
+    v76 = 0;
+    if ( a14 )
+    {
+      v32 = sub_5FD20(a1, a14);
+      v30 = v32;
+      v76 = v32;
+      if ( v32 > 0 )
+      {
+        if ( !a15 )
+          goto LABEL_93;
+        v75 = v32;
+        if ( sub_659E0(a1 + 1704, &v75) )
+        {
+          sub_658F0(a1 + 1776, &v76);
+          sub_658F0(a1 + 1840, v85);
+        }
+        else
+        {
+          v75 = v30;
+          v33 = sub_66670(a1 + 1640, v83, &v75);
+          FMODAudioEngine_stopChannel(a1, *(_QWORD *)(*(_QWORD *)v33 + 24LL), 0, 0.0);
+        }
+        v76 = 0;
+      }
+    }
+    sub_3E4F0(v86, a2);
+    FMODAudioEngine_preloadEffect(a1, v34);
+    v35 = a2;
+    if ( a2[3] > 0xFu )
+      v35 = (_QWORD *)*a2;
+    v36 = 0xCBF29CE484222325uLL;
+    v37 = a2[2];
+    for ( i = 0; i < v37; ++i )
+      v36 = 0x100000001B3LL * (*((unsigned __int8 *)v35 + i) ^ (unsigned __int64)v36);
+    if ( !*(_QWORD *)(sub_665A0(a1 + 384, v83, a2, v36) + 8) )
+    {
+LABEL_25:
+      sub_3C310(a2);
+      return 0;
+    }
+    v83[0] = *(_QWORD *)sub_67240(a1 + 384, v86, a2);
+    v77 = 0;
+    v40 = *(_QWORD *)(v83[0] + 48LL);
+    v41 = *(_QWORD *)(a1 + 560);
+    ChannelGroup = FMODAudioEngine_getChannelGroup((_QWORD *)a1, v80, a8);
+    LOBYTE(v43) = 1;
+    v44 = FMOD::System::playSound(v41, v40, ChannelGroup, v43, &v77);
+    *(_DWORD *)(a1 + 608) = v44;
+    if ( v44 )
+    {
+LABEL_92:
+      v30 = v76;
+      goto LABEL_93;
+    }
+    if ( a3 <= 0.0 )
+      v20 = 1.0;
+    FMOD::ChannelControl::setPitch(v77);
+    FMOD::ChannelControl::setVolume(v77);
+    if ( a13 )
+      FMOD::Channel::setLoopCount(v77, 0xFFFFFFFFLL);
+    v82 = 0;
+    if ( a6 > 0.0 && a6 != 1.0 && *(_QWORD *)(a1 + 1592) < 0x32u )
+    {
+      FMOD::System::createDSPByType(*(_QWORD *)(a1 + 560), 13, &v82);
+      FMOD::DSP::setParameterFloat(v82, 0);
+      FMOD::DSP::setParameterFloat(v82, 1);
+      FMOD::ChannelControl::addDSP(v77, 0, v82);
+    }
+    if ( a9 > 0 )
+      FMOD::Channel::setPosition(v77, (unsigned int)a9, 1);
+    v45 = a10;
+    v46 = a10;
+    if ( a10 <= 0 || (v45 = a10 - a9, a10 - a9 >= 0) )
+    {
+      v75 = v45;
+      if ( v45 > 0 )
+        goto LABEL_43;
+    }
+    else
+    {
+      v45 = 0;
+      v75 = 0;
+    }
+    if ( a11 <= 0 && a12 <= 0 )
+    {
+LABEL_53:
+      if ( !a13 )
+        goto LABEL_85;
+      goto LABEL_54;
+    }
+LABEL_43:
+    FMOD::ChannelControl::getDSPClock(v77, 0, v85);
+    *(_DWORD *)(a1 + 608) = v48;
+    if ( a11 > 0 )
+    {
+      *(_DWORD *)(a1 + 608) = FMOD::ChannelControl::addFadePoint(v77, *(_QWORD *)v85);
+      if ( *(__int64 *)v85 < 0 )
+        v49 = (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1)) + (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1));
+      else
+        v49 = (float)v85[0];
+      v50 = (float)((float)*(int *)(a1 + 612) * (float)((float)a11 / 1000.0)) + v49;
+      v51 = 0;
+      if ( v50 >= 9.223372e18 )
+      {
+        v50 = v50 - 9.223372e18;
+        if ( v50 < 9.223372e18 )
+          v51 = 0x8000000000000000uLL;
+      }
+      *(_DWORD *)(a1 + 608) = FMOD::ChannelControl::addFadePoint(v77, v51 + (unsigned int)(int)v50);
+    }
+    if ( v45 <= 0 )
+    {
+      if ( a12 <= 0 )
+        goto LABEL_53;
+      if ( !v45 )
+        v45 = *(_DWORD *)(v83[0] + 88LL) - a9;
+    }
+    if ( !a13 )
+    {
+      v52 = (float)((float)v45 / v20) / 1000.0;
+      if ( v75 > 0 )
+      {
+        if ( *(__int64 *)v85 < 0 )
+          v53 = (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1)) + (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1));
+        else
+          v53 = (float)v85[0];
+        v54 = (float)((float)*(int *)(a1 + 612) * v52) + v53;
+        v55 = 0;
+        if ( v54 >= 9.223372e18 )
+        {
+          v54 = v54 - 9.223372e18;
+          if ( v54 < 9.223372e18 )
+            v55 = 0x8000000000000000uLL;
+        }
+        LOBYTE(v47) = 1;
+        FMOD::ChannelControl::setDelay(v77, 0, v55 + (unsigned int)(int)v54, v47);
+        *(_DWORD *)(a1 + 608) = v56;
+      }
+      if ( a12 > 0 )
+      {
+        if ( *(__int64 *)v85 < 0 )
+          v57 = (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1)) + (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1));
+        else
+          v57 = (float)v85[0];
+        v58 = (float)((float)(v52 - (float)((float)a12 / 1000.0)) * (float)*(int *)(a1 + 612)) + v57;
+        v59 = 0;
+        if ( v58 >= 9.223372e18 )
+        {
+          v58 = v58 - 9.223372e18;
+          if ( v58 < 9.223372e18 )
+            v59 = 0x8000000000000000uLL;
+        }
+        *(_DWORD *)(a1 + 608) = FMOD::ChannelControl::addFadePoint(v77, v59 + (unsigned int)(int)v58);
+        if ( *(__int64 *)v85 < 0 )
+          v60 = (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1)) + (float)(int)(v85[0] & 1 | (*(_QWORD *)v85 >> 1));
+        else
+          v60 = (float)v85[0];
+        v61 = (float)((float)*(int *)(a1 + 612) * v52) + v60;
+        v62 = 0;
+        if ( v61 >= 9.223372e18 )
+        {
+          v61 = v61 - 9.223372e18;
+          if ( v61 < 9.223372e18 )
+            v62 = 0x8000000000000000uLL;
+        }
+        *(_DWORD *)(a1 + 608) = FMOD::ChannelControl::addFadePoint(v77, v62 + (unsigned int)(int)v61);
+      }
+      goto LABEL_85;
+    }
+LABEL_54:
+    if ( a9 > 0 )
+    {
+      if ( a10 <= 0 )
+      {
+        FMOD::Channel::getLoopPoints(v77, &v75, 1, v85, 1);
+        v46 = v85[0];
+      }
+      goto LABEL_84;
+    }
+    if ( a10 > 0 )
+LABEL_84:
+      FMOD::Channel::setLoopPoints(v77, (unsigned int)a9, 1, v46, 1);
+LABEL_85:
+    FMOD::ChannelControl::setCallback(v77, sub_5B6E0);
+    v63 = v81;
+    v64 = FMODAudioEngine_registerChannel(a1, v77, a17, v81);
+    v76 = v64;
+    if ( v82 )
+    {
+      v65 = sub_66670(a1 + 1576, v85, &v76);
+      *(_QWORD *)(*(_QWORD *)v65 + 24LL) = v82;
+      v64 = v76;
+    }
+    v81 = v64;
+    v66 = v83[0];
+    ++*(_DWORD *)(v83[0] + 92LL);
+    v67 = dword_905F4C;
+    *(_DWORD *)(v66 + 96) = dword_905F4C;
+    dword_905F4C = v67 + 1;
+    v68 = (size_t *)(v66 + 56);
+    v69 = (size_t *)(*(_QWORD *)sub_66BC0(a1 + 1904, v83, &v81) + 24LL);
+    if ( v69 != v68 )
+    {
+      v70 = v68;
+      if ( v68[3] > 0xF )
+        v70 = (void *)*v68;
+      sub_3F5A0(v69, v70, v68[2]);
+    }
+    sub_3E4F0(v85, a2);
+    v72 = v71;
+    v83[0] = v71;
+    v73 = v79;
+    v74 = v76;
+    sub_3E4F0(v88, v71);
+    v89 = v20;
+    v90 = a4;
+    v91 = v31;
+    v92 = a13;
+    v93 = v74;
+    v94 = 0;
+    v95 = 0;
+    v96 = 0;
+    v97 = 0;
+    v98 = 0;
+    v99 = 0;
+    v100 = 0;
+    v101 = v73;
+    v102 = v80;
+    v103 = a6;
+    v104 = v78;
+    v105 = a8;
+    v106 = v63;
+    v107 = 0;
+    v108 = 0;
+    sub_3C310(v72);
+    sub_64BF0(a1 + 1480, v86, &v76, v88);
+    sub_3C310(v88);
+    FMOD::ChannelControl::setVolumeRamp(v77, 0);
+    FMOD::ChannelControl::setPaused(v77, 0);
+    goto LABEL_92;
+  }
+  sub_3E4F0(v86, a2);
+  v30 = FMODAudioEngine_queuePlayEffect(
+          a1,
+          v28,
+          v28,
+          v29,
+          LODWORD(a5),
+          LODWORD(a6),
+          a7,
+          a8,
+          a9,
+          a10,
+          a11,
+          a12,
+          a13,
+          a14,
+          a15,
+          v79,
+          LODWORD(a19),
+          v80);
+LABEL_93:
+  sub_3C310(a2);
+  return v30;
+}

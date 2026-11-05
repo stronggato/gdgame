@@ -1226,3 +1226,254 @@ LABEL_24:
     j_j_free(v11); /*0x213a87*/
   }
 }
+
+// Address: 0x177890
+// Method: EditLevelLayer::setupLevelInfo
+// Hidden C++ exception states: #wind=3
+void __fastcall EditLevelLayer_setupLevelInfo(__int64 *a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct cocos2d::CCObject *v6; // r13
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct cocos2d::CCObject *v9; // r14
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct cocos2d::CCObject *v12; // rbx
+  __int64 v13; // rax
+  struct cocos2d::CCLabelBMFont *v14; // r15
+  _OWORD *SongName; // rax
+  struct cocos2d::CCObject *v16; // r12
+  unsigned __int64 v17; // rdi
+  __int64 v18; // rcx
+  char *v19; // rax
+  char v20; // bl
+  int *v21; // rcx
+  int *v22; // rcx
+  const char *p_Src; // rcx
+  cocos2d::CCLabelBMFont *v24; // rdi
+  __int64 v25; // rax
+  __int64 v26; // rbx
+  __int64 v27; // rax
+  struct cocos2d::CCObject *v28; // rbx
+  struct cocos2d::CCObject *v29; // rdx
+  cocos2d::CCArray *v30; // r15
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rcx
+  cocos2d::CCDirector *v35; // rax
+  float v36; // xmm0_4
+  __int64 v37; // rax
+  cocos2d::CCString *v38; // rax
+  const char *CString; // rax
+  struct cocos2d::CCLabelBMFont *v40; // rdi
+  const char *v41; // rax
+  int v42; // edx
+  cocos2d::CCString *v43; // rax
+  int v44; // r8d
+  cocos2d::CCString *v45; // rax
+  struct cocos2d::CCLabelBMFont *v46; // rbx
+  __int64 v47; // rcx
+  cocos2d::CCDirector *v48; // rax
+  float ScreenBottom; // xmm0_4
+  __int64 v50; // rax
+  __int64 v51; // rax
+  void *v52; // rcx
+  _BYTE v53[8]; // [rsp+30h] [rbp-99h] BYREF
+  struct cocos2d::CCObject *v54; // [rsp+38h] [rbp-91h] BYREF
+  struct cocos2d::CCObject *v55; // [rsp+40h] [rbp-89h] BYREF
+  cocos2d::CCArray *v56; // [rsp+48h] [rbp-81h]
+  struct cocos2d::CCObject *v57; // [rsp+50h] [rbp-79h]
+  struct cocos2d::CCSprite *v58; // [rsp+58h] [rbp-71h]
+  float v59; // [rsp+60h] [rbp-69h] BYREF
+  _BYTE v60[8]; // [rsp+68h] [rbp-61h] BYREF
+  struct cocos2d::CCObject *v61; // [rsp+70h] [rbp-59h]
+  __int128 Src; // [rsp+78h] [rbp-51h] BYREF
+  __int64 v63; // [rsp+88h] [rbp-41h]
+  unsigned __int64 v64; // [rsp+90h] [rbp-39h]
+  _BYTE v65[32]; // [rsp+98h] [rbp-31h] BYREF
+  _OWORD v66[2]; // [rsp+B8h] [rbp-11h] BYREF
+
+  v2 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v2, &v59);
+  v56 = (cocos2d::CCArray *)cocos2d::CCArray::create(v3);
+  v6 = (struct cocos2d::CCObject *)cocos2d::CCNode::create(v5, v4);
+  (*(void (__fastcall **)(__int64 *, struct cocos2d::CCObject *))(*a1 + 464))(a1, v6);
+  v9 = (struct cocos2d::CCObject *)cocos2d::CCNode::create(v8, v7);
+  v55 = v9;
+  (*(void (__fastcall **)(__int64 *, struct cocos2d::CCObject *))(*a1 + 464))(a1, v9);
+  v12 = (struct cocos2d::CCObject *)cocos2d::CCNode::create(v11, v10);
+  v57 = v12;
+  (*(void (__fastcall **)(__int64 *, struct cocos2d::CCObject *))(*a1 + 464))(a1, v12);
+  v61 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_timeIcon_001.png");
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, struct cocos2d::CCObject *))(*(_QWORD *)v6 + 464LL))(v6, v61);
+  v54 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_noteIcon_001.png");
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, struct cocos2d::CCObject *))(*(_QWORD *)v9 + 464LL))(v9, v54);
+  v58 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_infoIcon_001.png");
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, struct cocos2d::CCSprite *))(*(_QWORD *)v12 + 464LL))(v12, v58);
+  v13 = sub_260E90(v65, *(unsigned int *)(a1[59] + 972));
+  if ( *(_QWORD *)(v13 + 24) > 0xFu )
+    v13 = *(_QWORD *)v13;
+  v14 = cocos2d::CCLabelBMFont::create((const char *)v13, (const char *)&qword_6FFF68);
+  sub_3C310(v65);
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 464LL))(v6, v14);
+  fminf(
+    100.0 / *(float *)(*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v14 + 320LL))(v14),
+    0.5);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v14 + 160LL))(v14);
+  SongName = GJGameLevel_getSongName(a1[59], v66);
+  if ( *((_QWORD *)SongName + 3) > 0xFu )
+    SongName = *(_OWORD **)SongName;
+  v16 = cocos2d::CCLabelBMFont::create((const char *)SongName, (const char *)&qword_6FFF68);
+  sub_3C310(v66);
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, struct cocos2d::CCObject *))(*(_QWORD *)v9 + 464LL))(v9, v16);
+  fminf(100.0 / *(float *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v16 + 320LL))(v16), 0.5);
+  (*(void (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v16 + 160LL))(v16);
+  Src = 0;
+  v63 = 0;
+  v17 = 15;
+  v64 = 15;
+  LOBYTE(Src) = 0;
+  v18 = a1[59];
+  if ( *(_BYTE *)(v18 + 857) )
+  {
+    v63 = 8;
+    strcpy((char *)&Src, "Uploaded");
+  }
+  else if ( *(_DWORD *)(v18 + 848) - *(_DWORD *)(v18 + 852) == 1 )
+  {
+    v63 = 8;
+    strcpy((char *)&Src, "Verified");
+  }
+  else
+  {
+    v63 = 10;
+    strcpy((char *)&Src, "Unverified");
+    if ( *(int *)(v18 + 1036) > 0 )
+    {
+      v19 = (char *)sub_3C460(32);
+      v63 = 23;
+      v64 = 31;
+      strcpy(v19, "Unverified\nReq. Coins: ");
+      *(_QWORD *)&Src = v19;
+      v9 = v55;
+      v20 = 1;
+      if ( *(_DWORD *)(a1[59] + 1080) - *(_DWORD *)(a1[59] + 1084) != 1 )
+      {
+        v20 = 0;
+        sub_43D80(&Src, &word_708050, 1u);
+      }
+      v21 = (int *)a1[59];
+      if ( v21[259] >= 2 && v21[273] - v21[274] != 1 )
+      {
+        if ( !v20 )
+          sub_43D80(&Src, ", ", 2u);
+        v20 = 0;
+        sub_43D80(&Src, &word_708048, 1u);
+      }
+      v22 = (int *)a1[59];
+      if ( v22[259] >= 3 && v22[276] - v22[277] != 1 )
+      {
+        if ( !v20 )
+          sub_43D80(&Src, ", ", 2u);
+        sub_43D80(&Src, &word_708044, 1u);
+      }
+      v12 = v57;
+      v17 = v64;
+    }
+  }
+  p_Src = (const char *)&Src;
+  if ( v17 > 0xF )
+    p_Src = (const char *)Src;
+  v24 = cocos2d::CCLabelBMFont::create(p_Src, (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(struct cocos2d::CCObject *, cocos2d::CCLabelBMFont *))(*(_QWORD *)v12 + 464LL))(v12, v24);
+  cocos2d::CCLabelBMFont::limitLabelWidth(v24, 100.0, 0.5, 0.0);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, 0.0, 2.0);
+  v26 = v25;
+  v27 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v58 + 200LL))(v58);
+  cocos2d::CCPoint::operator+(v27, &v55, v26);
+  v28 = v58;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *, struct cocos2d::CCObject **))(*(_QWORD *)v58 + 184LL))(v58, &v55);
+  cocos2d::CCArray::removeAllObjects(v56);
+  cocos2d::CCArray::addObject(v56, v61);
+  v29 = v14;
+  v30 = v56;
+  cocos2d::CCArray::addObject(v56, v29);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, (const struct cocos2d::CCPoint *)&unk_904508);
+  GameToolbox_alignItemsHorisontally((__int64)v30, 4.0, v31, 0);
+  cocos2d::CCArray::removeAllObjects(v30);
+  cocos2d::CCArray::addObject(v30, v54);
+  cocos2d::CCArray::addObject(v30, v16);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, (const struct cocos2d::CCPoint *)&unk_904508);
+  GameToolbox_alignItemsHorisontally((__int64)v30, 4.0, v32, 0);
+  cocos2d::CCArray::removeAllObjects(v30);
+  cocos2d::CCArray::addObject(v30, v28);
+  cocos2d::CCArray::addObject(v30, v24);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, (const struct cocos2d::CCPoint *)&unk_904508);
+  GameToolbox_alignItemsHorisontally((__int64)v30, 4.0, v33, 0);
+  cocos2d::CCArray::removeAllObjects(v30);
+  cocos2d::CCArray::addObject(v30, v6);
+  cocos2d::CCArray::addObject(v30, v9);
+  cocos2d::CCArray::addObject(v30, v57);
+  v35 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v34);
+  v36 = cocos2d::CCDirector::getScreenBottom(v35) + 55.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, v59 * 0.5, v36);
+  GameToolbox_alignItemsHorisontally((__int64)v30, 140.0, v37, 0);
+  v38 = cocos2d::CCString::createWithFormat("Version: %i", *(_DWORD *)(a1[59] + 860));
+  CString = cocos2d::CCString::getCString(v38);
+  v40 = cocos2d::CCLabelBMFont::create(CString, "goldFont.fnt");
+  (*(void (__fastcall **)(__int64 *, struct cocos2d::CCLabelBMFont *))(*a1 + 464))(a1, v40);
+  v41 = "ID: na";
+  v42 = *(_DWORD *)(a1[59] + 328) - *(_DWORD *)(a1[59] + 332);
+  if ( v42 )
+  {
+    v43 = cocos2d::CCString::createWithFormat("ID: %i", v42);
+    v41 = cocos2d::CCString::getCString(v43);
+  }
+  v44 = *(_DWORD *)(a1[59] + 1060) - *(_DWORD *)(a1[59] + 1064);
+  if ( v44 )
+  {
+    v45 = cocos2d::CCString::createWithFormat("%s (%i)", v41, v44);
+    v41 = cocos2d::CCString::getCString(v45);
+  }
+  v46 = cocos2d::CCLabelBMFont::create(v41, "goldFont.fnt");
+  (*(void (__fastcall **)(__int64 *, struct cocos2d::CCLabelBMFont *))(*a1 + 464))(a1, v46);
+  v48 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v47);
+  ScreenBottom = cocos2d::CCDirector::getScreenBottom(v48);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v60, v59 * 0.5, ScreenBottom + 14.0);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, -75.0, 0.0);
+  cocos2d::CCPoint::operator+(v60, &v54, v50);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, struct cocos2d::CCObject **))(*(_QWORD *)v40 + 184LL))(
+    v40,
+    &v54);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, 75.0, 0.0);
+  cocos2d::CCPoint::operator+(v60, &v54, v51);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, struct cocos2d::CCObject **))(*(_QWORD *)v46 + 184LL))(
+    v46,
+    &v54);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v40 + 160LL))(v40);
+  if ( *(float *)(*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 320LL))(v46) > 150.0 )
+  {
+    (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 320LL))(v46);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 160LL))(v46);
+  }
+  fminf(
+    0.60000002,
+    COERCE_FLOAT(COERCE_UNSIGNED_INT64((*(double (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 168LL))(v46))));
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 160LL))(v46);
+  if ( v64 > 0xF )
+  {
+    v52 = (void *)Src;
+    if ( v64 + 1 >= 0x1000 )
+    {
+      v52 = *(void **)(Src - 8);
+      if ( (unsigned __int64)(Src - (_QWORD)v52 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v52);
+  }
+}

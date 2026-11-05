@@ -1252,3 +1252,45 @@ __int64 __fastcall CustomizeObjectLayer_keyBackClicked(__int64 a1)
 {
   return CustomizeObjectLayer_onClose(a1 - 336);
 }
+
+// Address: 0x13cef0
+// Method: CustomizeObjectLayer::init
+// Hidden C++ exception states: #wind=31
+bool __fastcall CustomizeObjectLayer_init(__int64 a1, __int64 a2, cocos2d::CCArray *a3)
+{
+  bool result; // al
+  __int64 v7; // rcx
+  cocos2d::CCObject *v8; // rax
+  unsigned int i; // ebx
+  struct cocos2d::CCObject *v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  __int64 v17; // r12
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  struct cocos2d::CCLabelBMFont *v20; // rdi
+  __int64 v21; // rbx
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  cocos2d::CCObject *v24; // rax
+  __int64 v25; // rcx
+  cocos2d::CCObject *v26; // rax
+  __int64 v27; // rcx
+  cocos2d::CCObject *v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  __int64 v33; // rax
+  __int64 v34; // rdi
+  __int64 v35; // rbx
+  __int64 v36; // rax
+  int v37; // eax
+  cocos2d::CCObject *v38; // rax
+  __int64 v39; // rdi
+  __int64 v40; // rbx
+  __i... [54552 chars total]
