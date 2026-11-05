@@ -149,7 +149,7 @@ public:
      * @note[short] Windows: 0x5a230
      * @note[short] Android
      */
-    virtual TodoReturn ownsTouchPrio();
+    virtual bool ownsTouchPrio();
 
     /**
      * @note[short] MacOS (ARM): 0x3fd348

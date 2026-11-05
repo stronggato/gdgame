@@ -1,0 +1,241 @@
+#pragma once
+
+#include "../detail/config.hpp"
+#include "../detail/Function.hpp"
+#include "../Log.hpp"
+
+#include <memory>
+#include <thread>
+#include <stdexcept>
+#include <string>
+#include <string_view>
+
+namespace asp {
+
+void _setThreadName(const std::string& name);
+
+template <typename... TFuncArgs>
+class Thread {
+public:
+    struct Storage;
+
+    // Stop token
+    class StopToken {
+    public:
+        StopToken(std::shared_ptr<Storage> p) : storage(std::move(p)) {}
+        StopToken(StopToken&&) = default;
+        StopToken& operator=(StopToken&&) = default;
+
+        // Stops the thread (not immediately, but the loop function will never be called again after it returns)
+        void stop() {
+            storage->_stopped.test_and_set();
+        }
+
+    private:
+        std::shared_ptr<Storage> storage;
+    };
+
+    using TFunc = asp::MoveOnlyFunction<void (TFuncArgs&..., StopToken&)>;
+
+    Thread() {
+        _storage = std::make_shared<Storage>();
+        _storage->_stopped.test_and_set();
+    }
+
+    Thread(const Thread&) = delete;
+    Thread& operator=(const Thread&) = delete;
+
+    Thread(Thread&& other) noexcept {
+        _handle = std::move(other._handle);
+        _storage = std::move(other._storage);
+        other.movedFrom = true;
+    }
+
+    Thread& operator=(Thread&& other) noexcept {
+        if (this != &other) {
+            _handle = std::move(other._handle);
+            _storage = std::move(other._storage);
+            other.movedFrom = true;
+        }
+        return *this;
+    }
+
+    Thread(TFunc&& func) {
+        _storage = std::make_shared<Storage>();
+        _storage->_stopped.test_and_set();
+        this->setLoopFunction(std::move(func));
+    }
+
+    void setLoopFunction(TFunc&& func) {
+        _storage->loopFunc = std::move(func);
+    }
+
+    void start(TFuncArgs&&... args) requires (sizeof...(TFuncArgs) > 0) {
+        if (movedFrom) {
+            throw std::runtime_error("Attempting to call start on an asp::Thread that was moved from");
+        }
+
+        _storage->_stopped.clear();
+
+        // prevent crash if the thread is restarted
+        if (_handle.joinable()) _handle.join();
+
+        _handle = std::thread([_storage = _storage](TFuncArgs&&... args) {
+            ::asp::_setThreadName(_storage->name);
+
+            if (_storage->onStart) {
+                _storage->onStart();
+            }
+
+            StopToken stopToken(_storage);
+
+            try {
+                while (!_storage->_stopped.test()) {
+                    _storage->loopFunc(args..., stopToken);
+                }
+            } catch (const std::exception& e) {
+                if (_storage->onException) {
+                    _storage->onException(e);
+                } else {
+                    asp::log(LogLevel::Error, std::string("unhandled exception from a Thread: ") + e.what());
+                    throw;
+                }
+            }
+
+            if (_storage->onTermination) {
+                _storage->onTermination();
+            }
+
+            _storage->_stopped.test_and_set();
+        }, std::forward<TFuncArgs>(args)...);
+    }
+
+    void start(const TFuncArgs&... args) {
+        if (movedFrom) {
+            throw std::runtime_error("Attempting to call start on an asp::Thread that was moved from");
+        }
+
+        _storage->_stopped.clear();
+
+        // prevent crash if the thread is restarted
+        if (_handle.joinable()) _handle.join();
+
+        _handle = std::thread([_storage = _storage](TFuncArgs&&... args) {
+            ::asp::_setThreadName(_storage->name);
+
+            if (_storage->onStart) {
+                _storage->onStart();
+            }
+
+            StopToken stopToken(_storage);
+
+            try {
+                while (!_storage->_stopped.test()) {
+                    _storage->loopFunc(args..., stopToken);
+                }
+            } catch (const std::exception& e) {
+                if (_storage->onException) {
+                    _storage->onException(e);
+                } else {
+                    asp::log(LogLevel::Error, std::string("unhandled exception from a Thread: ") + e.what());
+                    throw;
+                }
+            }
+
+            if (_storage->onTermination) {
+                _storage->onTermination();
+            }
+
+            _storage->_stopped.test_and_set();
+        }, args...);
+    }
+
+    // Request the thread to be stopped as soon as possible
+    void stop() {
+        if (movedFrom) return;
+
+        if (_storage) {
+            _storage->_stopped.test_and_set();
+        } else {
+            asp::log(LogLevel::Error, "tried to stop a detached Thread");
+            throw std::runtime_error("tried to stop a detached Thread");
+        }
+    }
+
+    bool joinable() const {
+        return _handle.joinable();
+    }
+
+    std::thread::native_handle_type nativeHandle() {
+        return _handle.native_handle();
+    }
+
+    // Join the thread if possible, else do nothing
+    void join() {
+        if (_handle.joinable()) _handle.join();
+    }
+
+    // Stop the thread and wait for it to terminate
+    void stopAndWait() {
+        this->stop();
+        this->join();
+    }
+
+    // Detach the thread and let it execute even after this `Thread` object is destructed. This `Thread` instance must not be used afterwards.
+    // NOTE: this intentionally leaks resources. The thread will be impossible to stop unless an exception occurs.
+    void detach() {
+        if (_handle.joinable()) _handle.detach();
+        _handle = {};
+        // release the ownership
+        _storage.reset();
+    }
+
+    // Set the name of the thread
+    void setName(std::string_view name) {
+        _storage->name = name;
+    }
+
+    // Set the function that will be called when the thread is started. It will be called from within the created thread.
+    void setStartFunction(asp::MoveOnlyFunction<void()>&& f) {
+        _storage->onStart = std::move(f);
+    }
+
+    // Set the function that will be called when an exception is thrown. If not set, the exception will be rethrown and the program will be terminated.
+    void setExceptionFunction(asp::MoveOnlyFunction<void(const std::exception&)>&& f) {
+        _storage->onException = std::move(f);
+    }
+
+    // Set the function that will be called when the thread is about to terminate. It will be called from within the created thread.
+    void setTerminationFunction(asp::MoveOnlyFunction<void()>&& f) {
+        _storage->onTermination = std::move(f);
+    }
+
+    bool isStopped() {
+        return !_storage || _storage->_stopped.test();
+    }
+
+    ~Thread() {
+        if (!movedFrom && _storage != nullptr) {
+            this->stopAndWait();
+        }
+    }
+
+    struct Storage {
+        std::atomic_flag _stopped;
+        std::string name = "asp::Thread";
+        TFunc loopFunc;
+        asp::MoveOnlyFunction<void()> onStart;
+        asp::MoveOnlyFunction<void()> onTermination;
+        asp::MoveOnlyFunction<void(const std::exception&)> onException;
+    };
+
+private:
+    std::thread _handle;
+    std::shared_ptr<Storage> _storage = nullptr;
+    bool movedFrom = false;
+};
+
+template <typename... Args>
+using StopToken = Thread<Args...>::StopToken;
+
+}

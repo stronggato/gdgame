@@ -26,7 +26,7 @@ public:
      * @note[short] Windows: 0x385ab0
      * @note[short] Android
      */
-    virtual TodoReturn actionsForKey(cocos2d::enumKeyCodes p0, bool p1, bool p2, bool p3);
+    virtual std::vector<int> actionsForKey(cocos2d::enumKeyCodes p0, bool p1, bool p2, bool p3);
 
     /**
      * @note[short] Windows: 0x385870

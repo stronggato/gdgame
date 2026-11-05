@@ -102,7 +102,7 @@ public:
      * @note[short] Windows: 0x3ff70
      * @note[short] Android
      */
-    virtual TodoReturn ownsTouchPrio();
+    virtual bool ownsTouchPrio();
 
     /**
      * @note[short] Windows: 0x20ebc0
