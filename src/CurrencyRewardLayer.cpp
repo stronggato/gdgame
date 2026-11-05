@@ -468,3 +468,334 @@ struct cocos2d::CCAction *__fastcall CurrencyRewardLayer_pulseSprite(__int64 a1,
   }
   return result; /*0x13af14*/
 }
+
+// Address: 0x13a4b0
+// Method: CurrencyRewardLayer::update
+// Hidden C++ exception states: #wind=1
+unsigned int __fastcall CurrencyRewardLayer_update(
+        __int64 a1,
+        float a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        __int64 a13,
+        __int64 a14)
+{
+  float v15; // xmm9_4
+  __int64 v16; // rax
+  __int64 v17; // rax
+  float v18; // xmm15_4
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  float *v21; // rax
+  float v22; // xmm12_4
+  unsigned int v23; // r15d
+  struct cocos2d::CCObject *v24; // rsi
+  char v25; // r12
+  const struct cocos2d::CCPoint *v26; // rax
+  float v27; // xmm0_4
+  float v28; // xmm2_4
+  __int64 v29; // rax
+  int v30; // eax
+  float v31; // xmm0_4
+  int v32; // eax
+  float v33; // xmm1_4
+  int v34; // eax
+  const struct cocos2d::CCPoint *v35; // r8
+  float v36; // xmm0_4
+  float v37; // xmm4_4
+  float v38; // xmm3_4
+  float v39; // xmm0_4
+  float v40; // xmm1_4
+  float v41; // xmm2_4
+  __int64 v42; // rbx
+  __int64 v43; // rax
+  __int64 *v44; // rdi
+  __int64 v45; // rbx
+  __int64 v46; // rax
+  cocos2d::CCParticleSystem *v47; // rcx
+  int v48; // ebx
+  __int64 v49; // rdi
+  void (__fastcall **v50)(__int64, __int64); // rbx
+  __int64 v51; // rax
+  __int64 v52; // rdi
+  void (__fastcall **v53)(__int64, __int64); // rbx
+  __int64 v54; // rax
+  __int64 v55; // rdi
+  void (__fastcall **v56)(__int64, __int64); // rbx
+  __int64 v57; // rax
+  __int64 v58; // rdi
+  void (__fastcall **v59)(__int64, __int64); // rbx
+  __int64 v60; // rax
+  __int64 v61; // rcx
+  __int64 v62; // rdi
+  void (__fastcall **v63)(__int64, __int64); // rbx
+  __int64 v64; // rax
+  __int64 v65; // rdi
+  void (__fastcall **v66)(__int64, __int64); // rbx
+  __int64 v67; // rax
+  struct cocos2d::CCFiniteTimeAction *v68; // rbx
+  __int64 v69; // rax
+  struct cocos2d::CCAction *v70; // rax
+  struct cocos2d::CCFiniteTimeAction *v71; // rbx
+  __int64 v72; // rax
+  struct cocos2d::CCAction *v73; // rax
+  unsigned int v74; // eax
+  unsigned int result; // eax
+  struct cocos2d::CCActionInterval *v76; // rax
+  struct cocos2d::CCFiniteTimeAction *v77; // rsi
+  struct cocos2d::CCActionInterval *v78; // rax
+  struct cocos2d::CCEaseInOut *v79; // rdi
+  float v80; // xmm6_4
+  const struct cocos2d::CCPoint *v81; // rax
+  struct cocos2d::CCActionInterval *v82; // rax
+  struct cocos2d::CCEaseInOut *v83; // rbx
+  __int64 v84; // rax
+  struct cocos2d::CCAction *v85; // rax
+  __int64 (__fastcall ***v86)(_QWORD, __int64); // rcx
+
+  *(float *)(a1 + 560) = a2 + *(float *)(a1 + 560);
+  *(float *)&a9 = a2;
+  v15 = a2 * 60.0;
+  v16 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v16, &a7);
+  v18 = *(float *)(v17 + 4) - 6.0;
+  v20 = cocos2d::CCDirector::sharedDirector(v19);
+  cocos2d::CCDirector::getWinSize(v20, &a7);
+  v22 = *v21 - 6.0;
+  *((float *)&a9 + 1) = (float)(a2 * 60.0) * 0.40000001;
+  *(float *)&a10 = (float)(a2 * 60.0) * 0.1;
+  v23 = 0;
+  if ( cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 416)) )
+  {
+    while ( 1 )
+    {
+      v24 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 416), v23);
+      v25 = 0;
+      v26 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v24 + 200LL))(v24);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&a8, v26);
+      v27 = *((float *)v24 + 159) - *(float *)&a9;
+      *((float *)v24 + 159) = v27;
+      if ( v27 > 0.0 )
+        break;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&a7, (struct cocos2d::CCObject *)((char *)v24 + 660));
+      v36 = cocos2d::ccpDistance((cocos2d *)&a8, (const struct cocos2d::CCPoint *)&a7, v35);
+      if ( v36 <= 5.0 )
+      {
+        v47 = (cocos2d::CCParticleSystem *)*((_QWORD *)v24 + 81);
+        if ( v47 )
+        {
+          cocos2d::CCParticleSystem::stopSystem(v47);
+          (*(void (__fastcall **)(_QWORD))(**((_QWORD **)v24 + 81) + 528LL))(*((_QWORD *)v24 + 81));
+          *((_QWORD *)v24 + 81) = 0;
+        }
+        v48 = *((_DWORD *)v24 + 164);
+        switch ( v48 )
+        {
+          case 1:
+            if ( *(_QWORD *)(a1 + 424) )
+            {
+              *(_DWORD *)(a1 + 536) += *((_DWORD *)v24 + 160);
+              CurrencyRewardLayer_pulseSprite((__int64)v47, *(cocos2d::CCNode **)(a1 + 472));
+              fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+              fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 536));
+              v49 = *(_QWORD *)(a1 + 424);
+              v50 = *(void (__fastcall ***)(__int64, __int64))(v49 + 360);
+              v51 = fmt::BasicWriter<char>::c_str(&a14);
+              (*v50)(v49 + 360, v51);
+              break;
+            }
+LABEL_58:
+            v68 = cocos2d::CCScaleTo::create(0.1, 0.1);
+            v69 = cocos2d::CCCallFunc::create(v24, sub_3E5B0);
+            v70 = cocos2d::CCSequence::create(v68, v69, 0);
+            cocos2d::CCNode::runAction(v24, v70);
+            if ( *((_QWORD *)v24 + 84) )
+            {
+              v71 = cocos2d::CCScaleTo::create(0.1, 0.1);
+              v72 = cocos2d::CCCallFunc::create(*((_QWORD *)v24 + 84), sub_3E5B0);
+              v73 = cocos2d::CCSequence::create(v71, v72, 0);
+              cocos2d::CCNode::runAction(*((cocos2d::CCNode **)v24 + 84), v73);
+            }
+            cocos2d::CCArray::removeObjectAtIndex(*(cocos2d::CCArray **)(a1 + 416), v23, 1);
+            v25 = 1;
+            goto LABEL_61;
+          case 2:
+            if ( !*(_QWORD *)(a1 + 432) )
+              goto LABEL_58;
+            *(_DWORD *)(a1 + 540) += *((_DWORD *)v24 + 160);
+            CurrencyRewardLayer_pulseSprite((__int64)v47, *(cocos2d::CCNode **)(a1 + 480));
+            fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+            fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 540));
+            v52 = *(_QWORD *)(a1 + 432);
+            v53 = *(void (__fastcall ***)(__int64, __int64))(v52 + 360);
+            v54 = fmt::BasicWriter<char>::c_str(&a14);
+            (*v53)(v52 + 360, v54);
+            break;
+          case 15:
+            if ( !*(_QWORD *)(a1 + 440) )
+              goto LABEL_58;
+            *(_DWORD *)(a1 + 544) += *((_DWORD *)v24 + 160);
+            CurrencyRewardLayer_pulseSprite((__int64)v47, *(cocos2d::CCNode **)(a1 + 488));
+            fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+            fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 544));
+            v55 = *(_QWORD *)(a1 + 440);
+            v56 = *(void (__fastcall ***)(__int64, __int64))(v55 + 360);
+            v57 = fmt::BasicWriter<char>::c_str(&a14);
+            (*v56)(v55 + 360, v57);
+            break;
+          case 3:
+            if ( !*(_QWORD *)(a1 + 448) )
+              goto LABEL_58;
+            *(_DWORD *)(a1 + 548) += *((_DWORD *)v24 + 160);
+            CurrencyRewardLayer_pulseSprite((__int64)v47, *(cocos2d::CCNode **)(a1 + 496));
+            fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+            fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 548));
+            v58 = *(_QWORD *)(a1 + 448);
+            v59 = *(void (__fastcall ***)(__int64, __int64))(v58 + 360);
+            v60 = fmt::BasicWriter<char>::c_str(&a14);
+            (*v59)(v58 + 360, v60);
+            break;
+          default:
+            v61 = *(_QWORD *)(a1 + 464);
+            if ( v61 && (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v61 + 56LL))(v61) == v48 )
+            {
+              if ( !*(_QWORD *)(a1 + 464) )
+                goto LABEL_58;
+              *(_DWORD *)(a1 + 556) += *((_DWORD *)v24 + 160);
+              CurrencyRewardLayer_pulseSprite(v61, *(cocos2d::CCNode **)(a1 + 512));
+              fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+              fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 556));
+              v62 = *(_QWORD *)(a1 + 464);
+              v63 = *(void (__fastcall ***)(__int64, __int64))(v62 + 360);
+              v64 = fmt::BasicWriter<char>::c_str(&a14);
+              (*v63)(v62 + 360, v64);
+            }
+            else
+            {
+              if ( !*(_QWORD *)(a1 + 456) )
+                goto LABEL_58;
+              *(_DWORD *)(a1 + 552) += *((_DWORD *)v24 + 160);
+              CurrencyRewardLayer_pulseSprite(v61, *(cocos2d::CCNode **)(a1 + 504));
+              fmt::BasicWriter<char>::BasicWriter<char>(&a14);
+              fmt::BasicWriter<char>::operator<<(&a14, *(unsigned int *)(a1 + 552));
+              v65 = *(_QWORD *)(a1 + 456);
+              v66 = *(void (__fastcall ***)(__int64, __int64))(v65 + 360);
+              v67 = fmt::BasicWriter<char>::c_str(&a14);
+              (*v66)(v65 + 360, v67);
+            }
+            break;
+        }
+        fmt::BasicWriter<char>::~BasicWriter<char>(&a14);
+        goto LABEL_58;
+      }
+      v37 = *(float *)&a7 - *(float *)&a8;
+      v38 = *((float *)&a7 + 1) - *((float *)&a8 + 1);
+      v39 = (float)((float)(v36 / 10.0) + 10.0) / *((float *)v24 + 158);
+      v40 = (float)((float)(*(float *)&a7 - *(float *)&a8) / v39) * v15;
+      v41 = (float)((float)(*((float *)&a7 + 1) - *((float *)&a8 + 1)) / v39) * v15;
+      if ( (float)(*(float *)&a7 - *(float *)&a8) > 0.0 && v40 > v37 || v37 < 0.0 && v37 > v40 )
+        v40 = *(float *)&a7 - *(float *)&a8;
+      if ( v38 > 0.0 && v41 > v38 || v38 < 0.0 && v38 > v41 )
+        v41 = *((float *)&a7 + 1) - *((float *)&a8 + 1);
+      v42 = *(_QWORD *)v24;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)((char *)&a10 + 4), v40 + *(float *)&a8, v41 + *((float *)&a8 + 1));
+      (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v42 + 184))(v24, v43);
+      *((float *)v24 + 158) = (float)(*(float *)&a10 / *(float *)(a1 + 568)) + *((float *)v24 + 158);
+LABEL_34:
+      if ( v24 )
+      {
+        v44 = (__int64 *)*((_QWORD *)v24 + 81);
+        if ( v44 )
+        {
+          v45 = *v44;
+          v46 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v24 + 200LL))(v24);
+          (*(void (__fastcall **)(__int64 *, __int64))(v45 + 184))(v44, v46);
+        }
+      }
+LABEL_61:
+      v74 = v23 + 1;
+      if ( v25 )
+        v74 = v23;
+      v23 = v74;
+      if ( v74 >= cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 416)) )
+        goto LABEL_64;
+    }
+    v28 = *((float *)v24 + 157) - *((float *)&a9 + 1);
+    *((float *)v24 + 157) = v28;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)((char *)&a11 + 4), v15 * *((float *)v24 + 156), v28 * v15);
+    cocos2d::CCPoint::operator+(&a8, &a6, v29);
+    if ( *((float *)&a6 + 1) <= v18 )
+    {
+      if ( *((float *)&a6 + 1) >= 6.0
+        || ((HIDWORD(a6) = 1086324736, v32 = *((_DWORD *)v24 + 164), v32 == 2) || v32 == 15
+          ? (v33 = *((float *)v24 + 157) * -0.89999998)
+          : (v33 = (float)(-0.60000002 - (float)((float)((float)rand() / 32767.0) * 0.30000001)) * *((float *)v24 + 157)),
+            *((float *)v24 + 157) = v33,
+            v33 >= 4.0) )
+      {
+LABEL_16:
+        if ( *(float *)&a6 >= 6.0 )
+        {
+          if ( *(float *)&a6 <= v22 )
+          {
+LABEL_21:
+            (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64 *))(*(_QWORD *)v24 + 184LL))(v24, &a6);
+            goto LABEL_34;
+          }
+          *(float *)&a6 = v22;
+        }
+        else
+        {
+          LODWORD(a6) = 1086324736;
+        }
+        *((float *)v24 + 156) = *((float *)v24 + 156) * -0.89999998;
+        goto LABEL_21;
+      }
+      v34 = rand();
+      v31 = (float)((float)((float)v34 / 32767.0) + (float)((float)v34 / 32767.0)) + 4.0;
+    }
+    else
+    {
+      *((float *)&a6 + 1) = v18;
+      v30 = *((_DWORD *)v24 + 164);
+      if ( v30 != 2 && v30 != 15 )
+      {
+        *((float *)v24 + 157) = (float)(-0.60000002 - (float)((float)((float)rand() / 32767.0) * 0.30000001))
+                              * *((float *)v24 + 157);
+        goto LABEL_16;
+      }
+      v31 = *((float *)v24 + 157) * -0.89999998;
+    }
+    *((float *)v24 + 157) = v31;
+    goto LABEL_16;
+  }
+LABEL_64:
+  result = cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 416));
+  if ( !result )
+  {
+    cocos2d::CCNode::unscheduleUpdate((cocos2d::CCNode *)a1);
+    v76 = cocos2d::CCScaleTo::create(0.2, 1.2);
+    v77 = cocos2d::CCEaseInOut::create(v76, 2.0);
+    v78 = cocos2d::CCScaleTo::create(0.2, 1.0);
+    v79 = cocos2d::CCEaseInOut::create(v78, 2.0);
+    v80 = (float)((float)((float)(*(_DWORD *)(a1 + 632) - 1) * 0.1) + 0.5) * *(float *)(a1 + 568);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)((char *)&a10 + 4), 0.0, (float)(30 * *(_DWORD *)(a1 + 632) + 20));
+    v82 = cocos2d::CCMoveBy::create(v80, v81);
+    v83 = cocos2d::CCEaseInOut::create(v82, 2.0);
+    v84 = cocos2d::CCCallFunc::create(a1, sub_3E5B0);
+    v85 = cocos2d::CCSequence::create(v77, v79, v83, v84);
+    result = (unsigned int)cocos2d::CCNode::runAction(*(cocos2d::CCNode **)(a1 + 624), v85);
+    v86 = *(__int64 (__fastcall ****)(_QWORD, __int64))(a1 + 408);
+    if ( v86 )
+      return (**v86)(v86, a1);
+  }
+  return result;
+}

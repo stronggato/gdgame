@@ -1075,3 +1075,53 @@ char __fastcall CreatorLayer_keyBackClicked(__int64 a1)
     return (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v1 + 992LL))(v1, 0); /*0x13747a*/
   return result; /*0x137480*/
 }
+
+// Address: 0x132fe0
+// Method: CreatorLayer::scene
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall CreatorLayer_scene(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  _QWORD *v4; // rsi
+  __int64 v5; // rcx
+  char *v6; // rdi
+
+  v4 = (_QWORD *)cocos2d::CCScene::create(a1, a2, a3, a4);
+  *(_QWORD *)(cocos2d::CCApplication::sharedApplication(v5) + 232) = v4;
+  v6 = (char *)operator new(0x1E8u);
+  cocos2d::CCLayer::CCLayer((cocos2d::CCLayer *)v6);
+  cocos2d::CCSceneTransitionDelegate::CCSceneTransitionDelegate((cocos2d::CCSceneTransitionDelegate *)(v6 + 408));
+  *(_QWORD *)v6 = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 40) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 41) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 42) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 43) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 44) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 51) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 52) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 53) = &CreatorLayer::`vftable';
+  *((_QWORD *)v6 + 54) = 0;
+  *((_QWORD *)v6 + 55) = 0;
+  *((_QWORD *)v6 + 56) = 0;
+  *((_QWORD *)v6 + 57) = 0;
+  *((_QWORD *)v6 + 58) = 0;
+  *((_QWORD *)v6 + 59) = 0;
+  *((_DWORD *)v6 + 120) = -1;
+  *((_DWORD *)v6 + 121) = 0;
+  if ( (unsigned __int8)CreatorLayer_init(v6) )
+  {
+    cocos2d::CCObject::autorelease((cocos2d::CCObject *)v6);
+    (*(void (__fastcall **)(_QWORD *, char *))(*v4 + 464LL))(v4, v6);
+    if ( v6 )
+    {
+      v4[40] = v6 + 408;
+      return v4;
+    }
+  }
+  else
+  {
+    (*(void (__fastcall **)(char *, __int64))(*(_QWORD *)v6 + 8LL))(v6, 1);
+    (*(void (__fastcall **)(_QWORD *, _QWORD))(*v4 + 464LL))(v4, 0);
+  }
+  v4[40] = 0;
+  return v4;
+}

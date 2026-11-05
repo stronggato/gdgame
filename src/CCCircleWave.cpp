@@ -180,3 +180,64 @@ void __fastcall CCCircleWave_removeMeAndCleanup(cocos2d::CCNode *a1)
     (**v2)(v2, a1); /*0x45c2b*/
   cocos2d::CCNode::removeMeAndCleanup(a1); /*0x45c35*/
 }
+
+// Address: 0x408b0
+// Method: CCCircleWave::CCCircleWave
+// Hidden C++ exception states: #wind=7
+void __fastcall BoomScrollLayer_moveToPage(__int64 a1, int a2)
+{
+  cocos2d::CCArray *v4; // rcx
+  __int64 v5; // rax
+  float *v6; // rax
+  float v7; // xmm1_4
+  float v8; // xmm0_4
+  float v9; // xmm1_4
+  float v10; // xmm0_4
+  struct cocos2d::CCActionInterval *v11; // rax
+  struct cocos2d::CCFiniteTimeAction *v12; // rbx
+  __int64 v13; // rax
+  struct cocos2d::CCAction *v14; // rbx
+  __int64 v15; // rcx
+  char v16; // [rsp+40h] [rbp+8h] BYREF
+
+  if ( *(_BYTE *)(a1 + 436)
+    || a2 >= 0
+    && (!*(_BYTE *)(a1 + 456) ? (v4 = *(cocos2d::CCArray **)(a1 + 480)) : (v4 = *(cocos2d::CCArray **)(a1 + 448)),
+        a2 < (int)cocos2d::CCArray::count(v4)) )
+  {
+    v5 = *(_QWORD *)a1;
+    *(_BYTE *)(a1 + 552) = 1;
+    v6 = (float *)(*(__int64 (__fastcall **)(__int64))(v5 + 320))(a1);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v16, (float)(*v6 - *(float *)(a1 + 592)) * (float)-a2, 0.0);
+    cocos2d::CCPoint::operator=(a1 + 496, &v16);
+    cocos2d::CCNode::stopActionByTag(*(cocos2d::CCNode **)(a1 + 504), 2);
+    v7 = *(float *)(a1 + 432);
+    v8 = 0.80000001;
+    if ( v7 <= *(float *)(a1 + 532) )
+    {
+      if ( v7 > *(float *)(a1 + 536) )
+        v8 = 0.60000002;
+    }
+    else
+    {
+      v8 = 0.40000001;
+    }
+    v9 = *(float *)(a1 + 540);
+    v10 = v8 * 1.2;
+    if ( v9 > 0.0 )
+      v10 = v10 * v9;
+    *(_DWORD *)(a1 + 432) = 0;
+    v11 = cocos2d::CCMoveTo::create(v10, (const struct cocos2d::CCPoint *)(a1 + 496));
+    v12 = cocos2d::CCEaseElasticOut::create(v11, 0.5);
+    v13 = cocos2d::CCCallFunc::create(a1, BoomScrollLayer_moveToPageEnded);
+    v14 = cocos2d::CCSequence::create(v12, v13, 0);
+    cocos2d::CCNode::runAction(*(cocos2d::CCNode **)(a1 + 504), v14);
+    (*(void (__fastcall **)(struct cocos2d::CCAction *, __int64))(*(_QWORD *)v14 + 64LL))(v14, 2);
+    v15 = *(_QWORD *)(a1 + 544);
+    *(_DWORD *)(a1 + 588) = a2;
+    if ( v15 )
+      (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v15 + 24LL))(v15, a1, (unsigned int)a2);
+    if ( *(_BYTE *)(a1 + 436) )
+      GJBaseGameLayer_checkCollisionBlocks(a1);
+  }
+}

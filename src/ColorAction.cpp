@@ -71,3 +71,160 @@ double __fastcall ColorAction_setupFromString(__int64 a1, __int64 *a2)
   j_j_free(Block[0]); /*0x360321*/
   return sub_3C310(a2); /*0x36032f*/
 }
+
+// Address: 0x250dd0
+// Method: ColorAction::writeSaveString
+// Hidden C++ exception states: #wind=4
+double __fastcall sub_250A50(__int64 a1, unsigned __int8 a2, int a3, int a4, __int64 a5, char a6)
+{
+  int v8; // r14d
+  const char *v10; // rdx
+  const char *v11; // rax
+  cocos2d::CCString *v12; // rax
+  const char *CString; // rsi
+  __int64 v14; // rcx
+  cocos2d::CCString *v15; // rax
+  const char *v16; // rax
+  cocos2d::CCString *v17; // rax
+  char *v18; // rax
+  __int64 v19; // rbx
+  size_t v20; // r8
+  char *v21; // rdx
+  __int64 v22; // rax
+  __int64 v23; // rdi
+  void **v24; // rdx
+  void *v25; // rcx
+  __int64 v26; // r8
+  _QWORD *v27; // rdx
+  double result; // xmm0_8
+  uintptr_t Reserved; // [rsp+20h] [rbp-B9h]
+  __int128 v30; // [rsp+48h] [rbp-91h] BYREF
+  __int64 v31; // [rsp+58h] [rbp-81h]
+  __int64 v32; // [rsp+60h] [rbp-79h]
+  __int128 v33; // [rsp+68h] [rbp-71h] BYREF
+  __int64 v34; // [rsp+78h] [rbp-61h]
+  __int64 v35; // [rsp+80h] [rbp-59h]
+  __int128 *v36; // [rsp+88h] [rbp-51h]
+  void *Block[2]; // [rsp+98h] [rbp-41h] BYREF
+  size_t Size[2]; // [rsp+A8h] [rbp-31h]
+  _QWORD Src[4]; // [rsp+B8h] [rbp-21h] BYREF
+
+  v8 = a2;
+  v10 = "fReq";
+  if ( a6 )
+    v10 = "fReqI";
+  if ( *(_QWORD *)(a5 + 16) )
+  {
+    v11 = (const char *)a5;
+    if ( *(_QWORD *)(a5 + 24) > 0xFu )
+      v11 = *(const char **)a5;
+    v12 = cocos2d::CCString::createWithFormat("%sS_%i_%i_%s", v10, v8, a3, v11);
+  }
+  else
+  {
+    v12 = cocos2d::CCString::createWithFormat("%s_%i_%i", v10, v8, a3);
+  }
+  CString = cocos2d::CCString::getCString(v12);
+  if ( !(unsigned __int8)sub_21E890(a1, CString) )
+  {
+    sub_21E960(a1, CString);
+    GameLevelManager_getBasePostString(v14, Src);
+    LODWORD(Reserved) = 103;
+    v15 = cocos2d::CCString::createWithFormat(
+            "%c%s%s%c%c%s",
+            87,
+            "mfd",
+            "2893",
+            Reserved,
+            98,
+            (const char *)&word_708030);
+    v16 = cocos2d::CCString::getCString(v15);
+    v17 = cocos2d::CCString::createWithFormat("&page=%i&total=%i&secret=%s", a3, a4, v16);
+    v18 = (char *)cocos2d::CCString::getCString(v17);
+    v19 = -1;
+    v20 = -1;
+    do
+      ++v20;
+    while ( v18[v20] );
+    sub_43D80(Src, v18, v20);
+    if ( a6 )
+    {
+      v21 = "&getSent=2";
+    }
+    else
+    {
+      if ( !(_BYTE)v8 )
+      {
+LABEL_16:
+        if ( *(_QWORD *)(a5 + 16) )
+        {
+          sub_43D80(Src, "&search=", 8u);
+          sub_3E4F0(&v30, a5);
+          v23 = v22;
+          if ( *(_QWORD *)(v22 + 16) )
+          {
+            cocos2d::ZipUtils::base64URLEncode(Block, v22);
+          }
+          else
+          {
+            *(_OWORD *)Block = 0;
+            *(_OWORD *)Size = 0;
+            *(_OWORD *)Block = *(_OWORD *)v22;
+            *(_OWORD *)Size = *(_OWORD *)(v22 + 16);
+            *(_QWORD *)(v22 + 16) = 0;
+            *(_QWORD *)(v22 + 24) = 15;
+            *(_BYTE *)v22 = 0;
+          }
+          sub_3C310(v23);
+          v24 = Block;
+          if ( Size[1] > 0xF )
+            v24 = (void **)Block[0];
+          sub_43D80(Src, v24, Size[0]);
+          if ( Size[1] > 0xF )
+          {
+            v25 = Block[0];
+            if ( Size[1] + 1 >= 0x1000 )
+            {
+              v25 = (void *)*((_QWORD *)Block[0] - 1);
+              if ( (unsigned __int64)((char *)Block[0] - (char *)v25 - 8) > 0x1F )
+                invoke_watson(0, 0, 0, 0, 0);
+            }
+            j_j_free(v25);
+          }
+        }
+        v36 = &v30;
+        v33 = 0;
+        v34 = 0;
+        v35 = 0;
+        v26 = -1;
+        do
+          ++v26;
+        while ( CString[v26] );
+        sub_3C230(&v33);
+        v27 = Src;
+        if ( Src[3] > 0xFu )
+          v27 = (_QWORD *)Src[0];
+        v30 = 0;
+        v31 = 0;
+        v32 = 0;
+        do
+          ++v19;
+        while ( *((_BYTE *)v27 + v19) );
+        sub_3C230(&v30);
+        *(_OWORD *)Block = 0;
+        Size[0] = 0;
+        Size[1] = 0;
+        Block[0] = (void *)sub_3C460(64);
+        Size[0] = 60;
+        Size[1] = 63;
+        strcpy((char *)Block[0], "https://www.boomlings.com/database/getGJFriendRequests20.php");
+        sub_216210(a1, Block, &v30, &v33, 34);
+        return sub_3C310(Src);
+      }
+      v21 = "&getSent=1";
+    }
+    sub_43D80(Src, v21, 0xAu);
+    goto LABEL_16;
+  }
+  return result;
+}

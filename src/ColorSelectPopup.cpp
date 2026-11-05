@@ -2283,3 +2283,44 @@ const char *__fastcall ColorSelectPopup_hexToColor(__int64 a1, __int64 a2)
     return "Completed Insane Levels:"; /*0x14d7df*/
   return (const char *)v2; /*0x14d7e6*/
 }
+
+// Address: 0x124610
+// Method: ColorSelectPopup::init
+// Hidden C++ exception states: #wind=7
+char __fastcall ColorSelectPopup_init(__int64 a1, int a2, int a3, cocos2d::CCObject *a4)
+{
+  char result; // al
+  __int64 v7; // rcx
+  cocos2d::CCObject *v8; // rax
+  __int64 v9; // rcx
+  cocos2d::CCObject *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  bool v14; // r13
+  __int64 v15; // rax
+  __int64 v16; // rdi
+  __int64 v17; // rbx
+  __int64 v18; // rax
+  struct cocos2d::CCLabelBMFont *v19; // rdi
+  __int64 v20; // rbx
+  __int64 v21; // rax
+  cocos2d::CCObject *v22; // rbx
+  cocos2d::CCObject *v23; // rax
+  struct cocos2d::CCLabelBMFont *v24; // rdi
+  __int64 v25; // rbx
+  __int64 v26; // rax
+  __int64 v27; // rax
+  _QWORD *v28; // rsi
+  __int64 v29; // rdx
+  void (__fastcall *v30)(_QWORD *, __int64); // r8
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  const char *v34; // r8
+  char *v35; // rax
+  __int64 v36; // rdi
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  __i... [49151 chars total]
