@@ -5488,3 +5488,1625 @@ LABEL_23:
   sub_3C310(a1); /*0x557103*/
   return v15; /*0x55710e*/
 }
+
+// Address: 0x4e54b0
+// Method: GameStatsManager::checkAchievement
+__int64 __fastcall GameStatsManager_checkAchievement(__int64 a1, float a2)
+{
+  char v4; // r14
+  char v5; // si
+  float v6; // xmm0_4
+  int v7; // ebx
+  int v8; // r10d
+  int v9; // r9d
+  float v10; // xmm11_4
+  char v11; // r8
+  __int64 v12; // rdx
+  char v13; // al
+  float v14; // xmm5_4
+  float v15; // xmm0_4
+  float v16; // xmm9_4
+  float v17; // xmm0_4
+  float v18; // xmm7_4
+  char v19; // cl
+  float v20; // xmm7_4
+  char v21; // al
+  char v22; // bl
+  char v23; // cl
+  float v24; // xmm2_4
+  double v25; // xmm1_8
+  double v26; // xmm0_8
+  int v27; // eax
+  int v28; // esi
+  int v29; // eax
+  float v30; // xmm3_4
+  double v31; // xmm4_8
+  float v32; // xmm6_4
+  double v33; // xmm1_8
+  double v34; // xmm2_8
+  float v35; // xmm1_4
+  double v36; // xmm0_8
+  double v37; // xmm1_8
+  double v38; // xmm1_8
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  int v41; // esi
+  double v42; // xmm2_8
+  int v43; // eax
+  __int64 v44; // rcx
+  double v45; // xmm1_8
+  bool v46; // cf
+  bool v47; // zf
+  __int64 v48; // rcx
+  __int64 v49; // rcx
+  int v50; // esi
+  double v51; // xmm1_8
+  double v52; // xmm1_8
+  double v53; // xmm7_8
+  double v54; // xmm0_8
+  bool v55; // cf
+  bool v56; // zf
+  double v57; // xmm1_8
+  bool v58; // cf
+  bool v59; // zf
+  __int64 v60; // rcx
+  float v61; // xmm2_4
+  float v62; // xmm3_4
+  double v63; // xmm4_8
+  double v64; // xmm4_8
+  float v65; // xmm3_4
+  char v66; // dl
+  float v67; // xmm4_4
+  int v68; // esi
+  char v69; // al
+  __int64 v70; // rcx
+  __int64 v71; // r9
+  __int64 v72; // rdx
+  int v73; // esi
+  float v74; // xmm1_4
+  double v75; // xmm1_8
+  bool v76; // cc
+  float v77; // xmm1_4
+  double v78; // xmm6_8
+  __int64 v79; // rbx
+  struct cocos2d::CCFiniteTimeAction *v80; // rax
+  struct cocos2d::CCAction *v81; // rbx
+  __int64 v82; // rcx
+  float v83; // xmm3_4
+  __int64 v84; // rcx
+  float v85; // xmm0_4
+  float v86; // xmm6_4
+  __int64 v87; // rcx
+  float v88; // xmm1_4
+  int v89; // esi
+  int v90; // esi
+  int v91; // eax
+  float v92; // xmm1_4
+  int v93; // eax
+  int v94; // eax
+  char v95; // al
+  double v96; // xmm1_8
+  double v97; // xmm0_8
+  __int64 result; // rax
+  struct __timeb64 Time; // [rsp+20h] [rbp-79h] BYREF
+  __int64 v100; // [rsp+30h] [rbp-69h]
+  __int64 v101; // [rsp+38h] [rbp-61h]
+
+  v4 = *(_BYTE *)(a1 + 2825);
+  v5 = *(_BYTE *)(a1 + 2824);
+  if ( v4 && v5 )
+  {
+    if ( *(_BYTE *)(a1 + 2826) )
+      v5 = 0;
+    else
+      v4 = 0;
+  }
+  if ( *(_BYTE *)(a1 + 2936) )
+  {
+    if ( *(_BYTE *)(a1 + 2488) )
+    {
+      v6 = fabs(*(float *)(a1 + 1696) * 57.29578);
+      if ( v6 >= 80.0 || v6 >= 40.0 && *(_BYTE *)(*(_QWORD *)(a1 + 1664) + 1305LL) )
+        *(_BYTE *)(a1 + 2505) = 0;
+    }
+  }
+  v7 = *(_BYTE *)(a1 + 2505) != 0 ? 0xD5 : 0;
+  *(_DWORD *)(a1 + 2464) = v7;
+  v8 = (int)(float)((float)((float)rand() / 32767.0) * 1000.0);
+  *(_DWORD *)(a1 + 2460) = v8;
+  v9 = v8 + v7;
+  *(_DWORD *)(a1 + 2456) = v8 + v7;
+  v10 = *(double *)(a1 + 2000);
+  v11 = *(_BYTE *)(a1 + 2445);
+  v12 = *(unsigned __int8 *)(a1 + 2501);
+  if ( (_BYTE)v12 )
+    v11 = *(_BYTE *)(a1 + 2446) && v11;
+  v13 = *(_BYTE *)(a1 + 2499);
+  if ( v13
+    || *(_BYTE *)(a1 + 2497)
+    || *(_BYTE *)(a1 + 2498)
+    || *(_BYTE *)(a1 + 2500)
+    || *(_BYTE *)(a1 + 2508)
+    || *(_BYTE *)(a1 + 2502) )
+  {
+    v10 = 0.95819902;
+  }
+  v14 = v10;
+  v15 = *(float *)(a1 + 2956);
+  if ( v15 != 1.0 )
+    v10 = v10 * v15;
+  v16 = 1.0;
+  v17 = *(float *)(a1 + 2552);
+  v18 = 0.80000001;
+  if ( v17 != 1.0 )
+    v16 = 0.80000001;
+  v19 = *(_BYTE *)(a1 + 2497);
+  if ( v19 || *(_BYTE *)(a1 + 2498) || *(_BYTE *)(a1 + 2500) || *(_BYTE *)(a1 + 2508) )
+  {
+    if ( v17 != 1.0 )
+    {
+      v16 = 0.85000002;
+      v19 = *(_BYTE *)(a1 + 2497);
+    }
+    v61 = 8.0 / v16;
+    v62 = -6.4000001 / v16;
+    if ( *(_BYTE *)(a1 + 2503) )
+    {
+      v64 = *(double *)(a1 + 2472);
+      if ( (v64 > 0.0 || v64 <= (float)-v61) && (v64 < 0.0 || (float)-v62 <= v64) )
+      {
+LABEL_204:
+        if ( !v19 )
+        {
+          if ( *(_BYTE *)(a1 + 2498) )
+          {
+            v73 = -1;
+            if ( *(_BYTE *)(a1 + 2446) && *(_BYTE *)(a1 + 2445) )
+            {
+              *(_BYTE *)(a1 + 2446) = 0;
+              v74 = 7.0;
+              if ( *(float *)(a1 + 2552) != 1.0 )
+                v74 = 8.0;
+              if ( *(_BYTE *)(a1 + 2503) )
+              {
+                v75 = (float)((float)((float)-1 * v74) * v16);
+                v76 = *(double *)(a1 + 2472) <= v75;
+              }
+              else
+              {
+                v75 = (float)((float)((float)1 * v74) * v16);
+                v76 = v75 <= *(double *)(a1 + 2472);
+              }
+              if ( !v76 )
+              {
+                PlayerObject_setYVelocity(a1, v75);
+                if ( *(_BYTE *)(a1 + 2489) || *(_BYTE *)(a1 + 2488) )
+                {
+                  v77 = *(float *)(a1 + 2492);
+                  if ( v77 > 0.0 )
+                  {
+                    v78 = *(double *)(a1 + 2472);
+                    PlayerObject_setYVelocity(a1, (float)(v77 * 0.5) + v78);
+                    PlayerObject_setYVelocity(a1, fmin(*(double *)(a1 + 2472), (float)(v78 * 1.399999976158142)));
+                  }
+                }
+              }
+              if ( !PlayerObject_levelFlipping(a1) && !*(_BYTE *)(a1 + 1843) )
+              {
+                cocos2d::CCParticleSystem::resumeSystem(*(cocos2d::CCParticleSystem **)(a1 + 2272));
+                cocos2d::CCNode::stopActionByTag((cocos2d::CCNode *)a1, 7);
+                v79 = cocos2d::CCCallFunc::create(a1, PlayerObject_stopBurstEffect);
+                v80 = cocos2d::CCDelayTime::create(0.12);
+                v81 = cocos2d::CCSequence::create(v80, v79, 0);
+                (*(void (__fastcall **)(struct cocos2d::CCAction *, __int64))(*(_QWORD *)v81 + 64LL))(v81, 7);
+                cocos2d::CCNode::runAction((cocos2d::CCNode *)a1, v81);
+              }
+              v82 = *(_QWORD *)(a1 + 3112);
+              if ( v82 )
+                sub_337190(v82, 15, 0, *(unsigned int *)(a1 + 924));
+            }
+            v83 = 0.80000001;
+            if ( !PlayerObject_playerIsFallingBugged(a1) )
+              v83 = 1.2;
+            if ( !*(_BYTE *)(a1 + 2503) )
+              v73 = 1;
+            v85 = (float)((float)((float)((float)v73 * (float)(a2 * v10)) * v83) * 0.5) / v16;
+          }
+          else
+          {
+            if ( !*(_BYTE *)(a1 + 2508) )
+            {
+              v90 = -1;
+              v91 = -1;
+              if ( !*(_BYTE *)(a1 + 2503) )
+                v91 = 1;
+              v92 = (float)v91 * 8.0;
+              v93 = -1;
+              if ( *(_BYTE *)(a1 + 2445) )
+                v93 = 1;
+              PlayerObject_setYVelocity(a1, (float)(v92 * (float)v93));
+              v94 = -1;
+              if ( !*(_BYTE *)(a1 + 2503) )
+                v94 = 1;
+              if ( *(_BYTE *)(a1 + 2445) )
+                v90 = 1;
+              PlayerObject_setYVelocity(a1, *(float *)(a1 + 2556) * *(double *)(a1 + 1984) * (double)v94 * (double)v90);
+              v70 = *(_QWORD *)(a1 + 3112);
+              if ( !v70 )
+                goto LABEL_281;
+              v95 = *(_BYTE *)(a1 + 2445);
+              if ( *(_BYTE *)(a1 + 2447) == v95 )
+                goto LABEL_281;
+              v71 = *(unsigned int *)(a1 + 924);
+              v72 = 21;
+              if ( !v95 )
+                v72 = 22;
+              goto LABEL_280;
+            }
+            if ( *(_BYTE *)(a1 + 2446) )
+            {
+              if ( *(_BYTE *)(a1 + 2445) )
+              {
+                *(_BYTE *)(a1 + 2446) = 0;
+                v86 = *(double *)(a1 + 2472);
+                PlayerObject_flipGravity(a1, *(_BYTE *)(a1 + 2503) == 0, 1);
+                PlayerObject_setYVelocity(a1, (float)(v86 * 0.80000001));
+                v87 = *(_QWORD *)(a1 + 3112);
+                if ( v87 )
+                  sub_337190(v87, 20, 0, *(unsigned int *)(a1 + 924));
+              }
+            }
+            v16 = 1.0;
+            v18 = 1.0;
+            v88 = 0.40000001;
+            if ( *(float *)(a1 + 2552) != 1.0 )
+              v88 = 0.60000002;
+            v89 = -1;
+            if ( !*(_BYTE *)(a1 + 2503) )
+              v89 = 1;
+            v85 = (float)((float)v89 * (float)(a2 * v10)) * v88;
+            v84 = a1;
+          }
+          PlayerObject_setYVelocity(v84, (float)-v85 + *(double *)(a1 + 2472));
+          if ( *(_BYTE *)(a1 + 2445) )
+            *(_BYTE *)(a1 + 2580) = 0;
+          goto LABEL_281;
+        }
+        v65 = 0.80000001;
+        if ( *(_BYTE *)(a1 + 2445) )
+        {
+          if ( !*(_BYTE *)(a1 + 2394) )
+          {
+            v65 = -1.0;
+            v66 = *(_BYTE *)(a1 + 2445);
+LABEL_217:
+            if ( *(_BYTE *)(a1 + 2936) )
+              v10 = v10 * 0.80000001;
+            if ( v65 >= 0.0 )
+              v14 = v10;
+            v67 = 0.40000001;
+            if ( v66 && PlayerObject_playerIsFallingBugged(a1) )
+              v67 = 0.5;
+            v68 = -1;
+            if ( !*(_BYTE *)(a1 + 2503) )
+              v68 = 1;
+            PlayerObject_setYVelocity(
+              a1,
+              (float)-(float)((float)((float)((float)((float)v68 * (float)(a2 * v14)) * v65) * v67) / v16)
+            + *(double *)(a1 + 2472));
+            v69 = *(_BYTE *)(a1 + 2445);
+            if ( v69 )
+              *(_BYTE *)(a1 + 2580) = 0;
+            v70 = *(_QWORD *)(a1 + 3112);
+            if ( !v70 || *(_BYTE *)(a1 + 2447) == v69 )
+              goto LABEL_281;
+            v71 = *(unsigned int *)(a1 + 924);
+            if ( v69 )
+              v72 = 16;
+            else
+              v72 = 17;
+LABEL_280:
+            sub_337190(v70, v72, 0, v71);
+LABEL_281:
+            if ( !*(_BYTE *)(a1 + 2394) && !*(_BYTE *)(a1 + 2500) )
+            {
+              v96 = *(double *)(a1 + 2472);
+              if ( *(_BYTE *)(a1 + 2503) )
+              {
+                PlayerObject_setYVelocity(a1, fmax(v96, (float)(-8.0 / v16)));
+                v97 = (float)((float)(v18 * 8.0) / v16);
+              }
+              else
+              {
+                PlayerObject_setYVelocity(a1, fmax(v96, (float)((float)(v18 * -8.0) / v16)));
+                v97 = (float)(8.0 / v16);
+              }
+              PlayerObject_setYVelocity(a1, fmin(*(double *)(a1 + 2472), v97));
+            }
+            if ( PlayerObject_playerIsFallingBugged(a1) )
+              *(_BYTE *)(a1 + 2596) = 0;
+            goto LABEL_289;
+          }
+        }
+        else if ( !*(_BYTE *)(a1 + 2394) )
+        {
+          goto LABEL_214;
+        }
+        if ( !*(_BYTE *)(a1 + 2503) )
+        {
+          if ( *(double *)(a1 + 2472) >= 0.0 )
+            goto LABEL_214;
+          goto LABEL_213;
+        }
+        if ( *(double *)(a1 + 2472) > 0.0 )
+LABEL_213:
+          v65 = -1.0;
+LABEL_214:
+        v66 = *(_BYTE *)(a1 + 2445);
+        if ( !v66 && !PlayerObject_playerIsFallingBugged(a1) )
+          v65 = 1.2;
+        goto LABEL_217;
+      }
+    }
+    else
+    {
+      v63 = *(double *)(a1 + 2472);
+      if ( (v63 < 0.0 || v61 <= v63) && (v63 > 0.0 || v63 <= v62) )
+        goto LABEL_204;
+    }
+    *(_BYTE *)(a1 + 2394) = 0;
+    goto LABEL_204;
+  }
+  v20 = 1.0;
+  if ( v13 )
+  {
+    v20 = 0.60000002;
+  }
+  else if ( *(_BYTE *)(a1 + 2502) )
+  {
+    v20 = 0.60000002;
+  }
+  else if ( (_BYTE)v12 )
+  {
+    v20 = 0.89999998;
+  }
+  v21 = *(_BYTE *)(a1 + 2913);
+  if ( (!v21 || v4) && (!*(_BYTE *)(a1 + 2914) || v5) )
+  {
+    LOBYTE(v12) = 0;
+LABEL_48:
+    v22 = 1;
+    goto LABEL_49;
+  }
+  LOBYTE(v12) = 1;
+  if ( *(_BYTE *)(a1 + 2915) != v21 && !*(_BYTE *)(a1 + 1532) )
+    *(_DWORD *)(a1 + 2884) = 0;
+  if ( *(int *)(a1 + 2884) < 2 )
+    goto LABEL_48;
+  v22 = 0;
+LABEL_49:
+  if ( !v11 || !*(_BYTE *)(a1 + 2505) )
+    goto LABEL_117;
+  if ( !*(_BYTE *)(a1 + 2502) )
+  {
+    if ( *(_BYTE *)(a1 + 2540) )
+      goto LABEL_117;
+    v23 = *(_BYTE *)(a1 + 2936);
+    if ( v23 )
+    {
+      if ( !v22 )
+        goto LABEL_117;
+    }
+    *(_BYTE *)(a1 + 2596) = 1;
+    *(_BYTE *)(a1 + 2580) = 0;
+    *(_BYTE *)(a1 + 2505) = 0;
+    *(_BYTE *)(a1 + 2446) = 0;
+    *(_BYTE *)(a1 + 2468) = 0;
+    *(_QWORD *)(a1 + 2104) = 0;
+    if ( !v21 && !*(_BYTE *)(a1 + 2914) && *(int *)(a1 + 2884) > 0 )
+    {
+      *(_DWORD *)(a1 + 2884) = 0;
+      *(_QWORD *)(a1 + 2888) = *(_QWORD *)(a1 + 2728);
+    }
+    v24 = *(double *)(a1 + 1992);
+    if ( *(_BYTE *)(a1 + 2501) )
+      v24 = v24 * 0.5;
+    if ( v9 - v8 != 213 )
+    {
+      v24 = 9999.0;
+      *(_BYTE *)(a1 + 2394) = 1;
+    }
+    if ( v23 && (_BYTE)v12 )
+    {
+      if ( *(_BYTE *)(a1 + 2912)
+        && (v25 = fabs(*(double *)(a1 + 2816)), v26 = *(float *)(a1 + 2556) * *(double *)(a1 + 1984), v25 > v26) )
+      {
+        v24 = v25 / v26 + v24;
+      }
+      else
+      {
+        v27 = *(_DWORD *)(a1 + 2884);
+        if ( v27 > 0 )
+          v24 = v24 * (float)(1.0 - (float)((float)v27 * 0.30000001));
+      }
+      ++*(_DWORD *)(a1 + 2884);
+    }
+    v28 = -1;
+    v29 = -1;
+    if ( !*(_BYTE *)(a1 + 2503) )
+      v29 = 1;
+    PlayerObject_setYVelocity(a1, (float)((float)((float)v29 * v24) * v16));
+    if ( *(_BYTE *)(a1 + 2489) || *(_BYTE *)(a1 + 2488) )
+    {
+      v30 = *(float *)(a1 + 2492);
+      if ( !*(_BYTE *)(a1 + 2503) )
+        v28 = 1;
+      if ( (float)((float)v28 * v30) > 0.0 && (!*(_BYTE *)(a1 + 2936) || fabs(*(double *)(a1 + 2816)) > 4.0) )
+      {
+        v31 = *(double *)(a1 + 2472);
+        v32 = v31 * 1.399999976158142;
+        v33 = *(double *)(a1 + 2728) - *(double *)(a1 + 1432);
+        v34 = 1.0;
+        if ( v33 < 0.1000000014901161 )
+          v34 = fmax(0.4000000059604645, v33 * 10.0);
+        v35 = v30 * v34;
+        if ( *(_BYTE *)(a1 + 2499) )
+          v35 = *(float *)(a1 + 2492);
+        PlayerObject_setYVelocity(a1, (float)(v35 * 0.25) + v31);
+        v36 = v32;
+        v37 = *(double *)(a1 + 2472);
+        if ( *(_BYTE *)(a1 + 2503) )
+          v38 = fmax(v37, v36);
+        else
+          v38 = fmin(v37, v36);
+        PlayerObject_setYVelocity(a1, v38);
+      }
+    }
+    *(_BYTE *)(a1 + 2027) = 1;
+    ftime64(&Time);
+    *(double *)(a1 + 2048) = (double)Time.millitm / 1000.0 + (double)SLODWORD(Time.time);
+    PlayerObject_incrementJumps(a1);
+    if ( *(_BYTE *)(a1 + 2499) )
+    {
+      PlayerObject_flipGravity(a1, *(_BYTE *)(a1 + 2503) == 0, 1);
+      *(double *)(a1 + 2472) = *(double *)(a1 + 2472) * 0.6000000238418579;
+      *(_BYTE *)(a1 + 2032) = 0;
+      *(_BYTE *)(a1 + 2445) = 0;
+    }
+    else
+    {
+      if ( *(_BYTE *)(a1 + 2501) )
+      {
+LABEL_98:
+        *(_QWORD *)&Time.millitm = 112;
+        v100 = 9;
+        v101 = 15;
+        Time.time = 0x6F6F6C5F706D756ALL;
+        sub_43850(*(_QWORD *)(a1 + 2216), &Time);
+LABEL_99:
+        if ( !*(_QWORD *)(a1 + 3112) )
+          goto LABEL_115;
+        if ( !*(_BYTE *)(a1 + 2497)
+          && !*(_BYTE *)(a1 + 2498)
+          && !*(_BYTE *)(a1 + 2500)
+          && !*(_BYTE *)(a1 + 2508)
+          && !*(_BYTE *)(a1 + 2499) )
+        {
+          if ( *(_BYTE *)(a1 + 2501) )
+            goto LABEL_109;
+          if ( !*(_BYTE *)(a1 + 2502) )
+          {
+            v39 = 12;
+            v40 = *(_QWORD *)(a1 + 3112);
+            goto LABEL_114;
+          }
+        }
+        if ( !*(_BYTE *)(a1 + 2501) )
+        {
+          if ( !*(_BYTE *)(a1 + 2499) || (v40 = *(_QWORD *)(a1 + 3112)) == 0 )
+          {
+LABEL_115:
+            if ( *(_BYTE *)(a1 + 2936) )
+              PlayerObject_animatePlatformerJump(a1, 1.0);
+            goto LABEL_289;
+          }
+          v39 = 19;
+LABEL_114:
+          sub_337190(v40, v39, 0, *(unsigned int *)(a1 + 924));
+          goto LABEL_115;
+        }
+LABEL_109:
+        v40 = *(_QWORD *)(a1 + 3112);
+        if ( !v40 )
+          goto LABEL_115;
+        v39 = 13;
+        goto LABEL_114;
+      }
+      if ( !*(_BYTE *)(a1 + 2502) && !*(_BYTE *)(a1 + 2610) && !*(_BYTE *)(a1 + 2540) )
+      {
+        *(_WORD *)(a1 + 1840) = 0;
+        *(_BYTE *)(a1 + 1648) = 0;
+        *(_DWORD *)(a1 + 1832) = 0;
+        PlayerObject_runNormalRotation(a1, 0, 1.0);
+      }
+    }
+    if ( !*(_BYTE *)(a1 + 2501) )
+      goto LABEL_99;
+    goto LABEL_98;
+  }
+  if ( !*(_BYTE *)(a1 + 2540) )
+  {
+    PlayerObject_spiderTestJump(a1);
+    goto LABEL_289;
+  }
+LABEL_117:
+  if ( *(_BYTE *)(a1 + 2596) )
+  {
+    v41 = -1;
+    if ( *(_BYTE *)(a1 + 2501) )
+    {
+      if ( *(_BYTE *)(a1 + 2445) )
+      {
+        if ( !*(_BYTE *)(a1 + 2468) )
+        {
+          v42 = *(double *)(a1 + 2104);
+          if ( v42 < 1.5 )
+          {
+            *(double *)(a1 + 2104) = (float)(a2 * 0.1) + v42;
+            v43 = -1;
+            if ( !*(_BYTE *)(a1 + 2503) )
+              v43 = 1;
+            PlayerObject_setYVelocity(
+              a1,
+              (float)((float)((float)v43 * (float)(a2 * v10)) * v20) + *(double *)(a1 + 2472));
+          }
+        }
+      }
+    }
+    if ( !*(_BYTE *)(a1 + 2503) )
+      v41 = 1;
+    PlayerObject_setYVelocity(a1, *(double *)(a1 + 2472) - (float)((float)((float)v41 * (float)(a2 * v10)) * v20));
+    if ( *(_BYTE *)(a1 + 2501) )
+    {
+      if ( *(_BYTE *)(a1 + 2468) )
+      {
+        if ( !*(_BYTE *)(a1 + 2448) )
+        {
+          v44 = *(_QWORD *)(a1 + 3112);
+          if ( v44 )
+            sub_337190(v44, 14, 0, *(unsigned int *)(a1 + 924));
+        }
+      }
+    }
+    if ( PlayerObject_playerIsFallingBugged(a1)
+      || *(_BYTE *)(a1 + 2936)
+      && ((v45 = *(double *)(a1 + 2472), *(_BYTE *)(a1 + 2503))
+        ? (v46 = v45 > 0.0, v47 = v45 == 0.0)
+        : (v46 = v45 < 0.0, v47 = v45 == 0.0),
+          v46 || v47) )
+    {
+      *(_BYTE *)(a1 + 2596) = 0;
+      *(_BYTE *)(a1 + 2026) = 1;
+      *(_BYTE *)(a1 + 2580) = 0;
+      *(_DWORD *)(a1 + 3140) = *(_DWORD *)((*(__int64 (**)(void))(*(_QWORD *)a1 + 200LL))() + 4);
+      if ( *(_BYTE *)(a1 + 2501) )
+      {
+        *(_QWORD *)&Time.millitm = 112;
+        v100 = 9;
+        v101 = 15;
+        Time.time = 0x6F6F6C5F6C6C6166LL;
+        sub_43850(*(_QWORD *)(a1 + 2216), &Time);
+        if ( !*(_BYTE *)(a1 + 2468) )
+        {
+          v48 = *(_QWORD *)(a1 + 3112);
+          if ( v48 )
+            sub_337190(v48, 14, 0, *(unsigned int *)(a1 + 924));
+        }
+      }
+      else if ( *(_BYTE *)(a1 + 2502) )
+      {
+        *(_QWORD *)&Time.millitm = 112;
+        v100 = 9;
+        v101 = 15;
+        Time.time = 0x6F6F6C5F6C6C6166LL;
+        sub_43850(*(_QWORD *)(a1 + 2224), &Time);
+      }
+    }
+    goto LABEL_289;
+  }
+  if ( *(_BYTE *)(a1 + 2505) )
+    *(_DWORD *)(a1 + 3140) = *(_DWORD *)((*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 200LL))(a1, v12)
+                                       + 4);
+  if ( PlayerObject_playerIsFallingBugged(a1)
+    && (!*(_BYTE *)(a1 + 2936) || *(double *)(a1 + 2728) - *(double *)(a1 + 2584) >= 0.05000000447034836 || !v22) )
+  {
+    *(_BYTE *)(a1 + 2505) = 0;
+  }
+  v50 = -1;
+  if ( !*(_BYTE *)(a1 + 2503) )
+    v50 = 1;
+  PlayerObject_setYVelocity(v49, *(double *)(a1 + 2472) - (float)((float)((float)v50 * (float)(a2 * v10)) * v20));
+  v51 = *(double *)(a1 + 2472);
+  if ( *(_BYTE *)(a1 + 2503) )
+  {
+    v52 = fmin(v51, 15.0);
+    v54 = v52;
+    v53 = (double)(int)v52;
+    if ( v52 == v53 )
+      goto LABEL_159;
+    goto LABEL_157;
+  }
+  v52 = fmax(v51, -15.0);
+  v53 = (double)(int)v52;
+  if ( v52 != v53 )
+LABEL_157:
+    v52 = round((v52 - v53) * 1000.0) / 1000.0 + v53;
+  v54 = v52;
+LABEL_159:
+  *(double *)(a1 + 2472) = v54;
+  if ( *(_BYTE *)(a1 + 2503) )
+  {
+    v55 = v52 < 0.25;
+    v56 = v52 == 0.25;
+  }
+  else
+  {
+    v55 = v52 > -0.25;
+    v56 = v52 == -0.25;
+  }
+  if ( !v55
+    && !v56
+    && !*(_BYTE *)(a1 + 2499)
+    && !*(_BYTE *)(a1 + 2502)
+    && !*(_BYTE *)(a1 + 2501)
+    && !*(_BYTE *)(a1 + 1840)
+    && !*(_BYTE *)(a1 + 2488)
+    && !*(_BYTE *)(a1 + 1632)
+    && (!*(_BYTE *)(a1 + 2936) || !*(_BYTE *)(a1 + 2580))
+    && !*(_BYTE *)(a1 + 2610)
+    && !*(_BYTE *)(a1 + 2540) )
+  {
+    *(_WORD *)(a1 + 1840) = 0;
+    *(_BYTE *)(a1 + 1648) = 0;
+    *(_DWORD *)(a1 + 1832) = 0;
+    if ( *(_BYTE *)(a1 + 2499) )
+      PlayerObject_runBallRotation(a1, 1.0);
+    else
+      PlayerObject_runNormalRotation(a1, 0, 1.0);
+  }
+  if ( PlayerObject_playerIsFallingBugged(a1) )
+  {
+    v57 = *(double *)(a1 + 2472);
+    if ( *(_BYTE *)(a1 + 2503) )
+    {
+      v58 = v57 < 4.0;
+      v59 = v57 == 4.0;
+    }
+    else
+    {
+      v58 = v57 > -4.0;
+      v59 = v57 == -4.0;
+    }
+    if ( !v58 && !v59 )
+    {
+      if ( *(_BYTE *)(a1 + 2501) && *(_BYTE *)(a1 + 2580) && !*(_BYTE *)(a1 + 2232) )
+      {
+        v60 = *(_QWORD *)(a1 + 2216);
+      }
+      else
+      {
+        if ( !*(_BYTE *)(a1 + 2502) || !*(_BYTE *)(a1 + 2580) || *(_BYTE *)(a1 + 2232) )
+          goto LABEL_190;
+        v60 = *(_QWORD *)(a1 + 2224);
+      }
+      *(_QWORD *)&Time.millitm = 112;
+      v100 = 9;
+      v101 = 15;
+      Time.time = 0x6F6F6C5F6C6C6166LL;
+      sub_43850(v60, &Time);
+LABEL_190:
+      *(_BYTE *)(a1 + 2580) = 0;
+    }
+  }
+LABEL_289:
+  *(_BYTE *)(a1 + 2447) = *(_BYTE *)(a1 + 2445);
+  result = *(unsigned __int8 *)(a1 + 2468);
+  *(_BYTE *)(a1 + 2448) = result;
+  return result;
+}
+
+// Address: 0x2f3790
+// Method: GameStatsManager::dataLoaded
+// Hidden C++ exception states: #wind=5
+__int64 __fastcall GameStatsManager_dataLoaded(__int64 a1, DS_Dictionary *a2)
+{
+  DS_Dictionary *v2; // r13
+  int v4; // r12d
+  int IntegerForKey; // r14d
+  char BoolForKey; // al
+  cocos2d::CCDictionary *DictForKey; // rax
+  cocos2d::CCDictionary *v8; // rsi
+  cocos2d::CCObject *v9; // rcx
+  int v10; // r14d
+  signed int j; // esi
+  __int64 v12; // rax
+  int Stat; // ebx
+  int v14; // ebx
+  unsigned int v15; // ebx
+  cocos2d::CCString *v16; // rax
+  const char *CString; // rbx
+  __int64 v18; // r8
+  cocos2d::CCString *v19; // rax
+  void *v20; // r8
+  __int64 v21; // r8
+  cocos2d::CCString *v22; // rax
+  unsigned int v23; // r15d
+  void *v24; // r8
+  __int64 v25; // r8
+  size_t v26; // r14
+  void **v27; // rcx
+  int v28; // esi
+  __int64 v29; // r8
+  __int64 v30; // rbx
+  struct cocos2d::CCString *v31; // rax
+  void *v32; // rcx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  char v35; // si
+  __int64 v36; // r8
+  __int64 v37; // rax
+  cocos2d::CCDictionary *v38; // rax
+  cocos2d::CCDictionary *v39; // rbx
+  cocos2d::CCObject *v40; // rcx
+  cocos2d::CCArray *v41; // r14
+  unsigned int k; // ebx
+  cocos2d::CCString *v43; // rax
+  const char *v44; // rsi
+  cocos2d::CCObject *v45; // rax
+  cocos2d::CCObject *v46; // rbx
+  __int64 v47; // rcx
+  cocos2d::CCObject *v48; // rcx
+  cocos2d::CCObject *v49; // rax
+  cocos2d::CCObject *v50; // rbx
+  cocos2d::CCObject *v51; // rcx
+  cocos2d::CCObject *v52; // rax
+  cocos2d::CCObject *v53; // rbx
+  __int64 v54; // rcx
+  cocos2d::CCObject *v55; // rcx
+  cocos2d::CCObject *v56; // rax
+  cocos2d::CCObject *v57; // rbx
+  __int64 v58; // rcx
+  cocos2d::CCObject *v59; // rcx
+  cocos2d::CCObject *v60; // rax
+  cocos2d::CCObject *v61; // rbx
+  __int64 v62; // rcx
+  cocos2d::CCObject *v63; // rcx
+  cocos2d::CCObject *v64; // rax
+  cocos2d::CCObject *v65; // rbx
+  __int64 v66; // rcx
+  cocos2d::CCObject *v67; // rcx
+  cocos2d::CCObject *v68; // rax
+  cocos2d::CCObject *v69; // rbx
+  __int64 v70; // rcx
+  cocos2d::CCObject *v71; // rcx
+  cocos2d::CCObject *v72; // rax
+  cocos2d::CCObject *v73; // rbx
+  __int64 v74; // rcx
+  cocos2d::CCObject *v75; // rcx
+  cocos2d::CCObject *v76; // rax
+  cocos2d::CCObject *v77; // rbx
+  __int64 v78; // rcx
+  cocos2d::CCObject *v79; // rcx
+  cocos2d::CCObject *v80; // rax
+  cocos2d::CCObject *v81; // rbx
+  __int64 v82; // rcx
+  cocos2d::CCObject *v83; // rcx
+  cocos2d::CCObject *v84; // rax
+  cocos2d::CCObject *v85; // rbx
+  __int64 v86; // rcx
+  cocos2d::CCObject *v87; // rcx
+  cocos2d::CCObject *v88; // rax
+  cocos2d::CCObject *v89; // rbx
+  __int64 v90; // rcx
+  cocos2d::CCObject *v91; // rcx
+  cocos2d::CCObject *v92; // rax
+  cocos2d::CCObject *v93; // rbx
+  __int64 v94; // rcx
+  cocos2d::CCObject *v95; // rcx
+  cocos2d::CCObject *v96; // rax
+  cocos2d::CCObject *v97; // rbx
+  __int64 v98; // rcx
+  cocos2d::CCObject *v99; // rcx
+  cocos2d::CCObject *v100; // rax
+  cocos2d::CCObject *v101; // rbx
+  __int64 v102; // rcx
+  cocos2d::CCObject *v103; // rcx
+  cocos2d::CCObject *v104; // rax
+  cocos2d::CCObject *v105; // rbx
+  __int64 v106; // rcx
+  cocos2d::CCObject *v107; // rcx
+  cocos2d::CCObject *v108; // rax
+  cocos2d::CCObject *v109; // rbx
+  __int64 v110; // rcx
+  cocos2d::CCObject *v111; // rcx
+  cocos2d::CCObject *v112; // rax
+  cocos2d::CCObject *v113; // rbx
+  __int64 v114; // rcx
+  cocos2d::CCObject *v115; // rcx
+  cocos2d::CCDictionary *v116; // rax
+  cocos2d::CCDictionary *v117; // r12
+  cocos2d::CCObject *v118; // rcx
+  struct cocos2d::CCArray *v119; // rax
+  unsigned int *v120; // r15
+  __int64 v121; // rax
+  cocos2d::CCString **v122; // r15
+  cocos2d::CCString **m; // r13
+  const char *v124; // rax
+  __int64 v125; // r8
+  _DWORD *v126; // rsi
+  _DWORD *v127; // rbx
+  int v128; // r14d
+  float v129; // xmm0_4
+  cocos2d::CCObject *v130; // rax
+  cocos2d::CCObject *v131; // rbx
+  cocos2d::CCObject *v132; // rcx
+  cocos2d::CCObject *v133; // rax
+  cocos2d::CCObject *v134; // rbx
+  __int64 v135; // rcx
+  cocos2d::CCObject *v136; // rcx
+  cocos2d::CCObject *v137; // rax
+  cocos2d::CCObject *v138; // rbx
+  __int64 v139; // rcx
+  cocos2d::CCObject *v140; // rcx
+  cocos2d::CCObject *v141; // rax
+  cocos2d::CCObject *v142; // rbx
+  __int64 v143; // rcx
+  cocos2d::CCObject *v144; // rcx
+  cocos2d::CCObject *v145; // rax
+  cocos2d::CCObject *v146; // rbx
+  __int64 v147; // rcx
+  cocos2d::CCObject *v148; // rcx
+  cocos2d::CCObject *v149; // rax
+  cocos2d::CCObject *v150; // rbx
+  __int64 v151; // rcx
+  cocos2d::CCObject *v152; // rcx
+  cocos2d::CCObject *v153; // rax
+  cocos2d::CCObject *v154; // rbx
+  __int64 v155; // rcx
+  cocos2d::CCObject *v156; // rcx
+  cocos2d::CCObject *v157; // rax
+  cocos2d::CCObject *v158; // rbx
+  __int64 v159; // rcx
+  cocos2d::CCObject *v160; // rcx
+  int v161; // ebx
+  int v162; // eax
+  int v163; // esi
+  float v164; // xmm0_4
+  int v165; // eax
+  int v167; // [rsp+30h] [rbp-99h]
+  int v168; // [rsp+34h] [rbp-95h]
+  unsigned int i; // [rsp+38h] [rbp-91h]
+  cocos2d::CCDictionary *v170; // [rsp+40h] [rbp-89h]
+  cocos2d::CCArray *v171; // [rsp+48h] [rbp-81h]
+  void *Buf1[2]; // [rsp+60h] [rbp-69h] BYREF
+  __int128 v174; // [rsp+70h] [rbp-59h]
+  __int128 v175; // [rsp+80h] [rbp-49h] BYREF
+  __int128 v176; // [rsp+90h] [rbp-39h]
+  void *Block[2]; // [rsp+A0h] [rbp-29h] BYREF
+  __int128 v178; // [rsp+B0h] [rbp-19h]
+
+  v2 = a2;
+  v4 = 0;
+  IntegerForKey = DS_Dictionary::getIntegerForKey(a2, "binaryVersion");
+  v167 = IntegerForKey;
+  BoolForKey = *(_BYTE *)(a1 + 992);
+  if ( !BoolForKey )
+  {
+    BoolForKey = DS_Dictionary::getBoolForKey(v2, "GS_29");
+    *(_BYTE *)(a1 + 992) = BoolForKey;
+  }
+  if ( IntegerForKey == 38 && !BoolForKey )
+    *(_BYTE *)(a1 + 993) = 1;
+  DictForKey = DS_Dictionary::getDictForKey(v2, "GS_value", 0);
+  v8 = DictForKey;
+  v170 = DictForKey;
+  if ( *(_QWORD *)(a1 + 576) )
+  {
+    v171 = cocos2d::CCDictionary::allKeys(DictForKey);
+    v15 = 0;
+    for ( i = 0; i < cocos2d::CCArray::count(v171); v15 = i )
+    {
+      v16 = cocos2d::CCArray::stringAtIndex(v171, v15);
+      CString = cocos2d::CCString::getCString(v16);
+      switch ( atoi(CString) )
+      {
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 23:
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+        case 28:
+        case 29:
+        case 40:
+        case 41:
+        case 42:
+        case 43:
+          break;
+        case 30:
+        case 31:
+        case 32:
+        case 33:
+        case 34:
+        case 35:
+        case 36:
+        case 37:
+        case 38:
+        case 39:
+          if ( IntegerForKey != 38 || *(_BYTE *)(a1 + 993) )
+            goto LABEL_22;
+          break;
+        default:
+LABEL_22:
+          *(_OWORD *)Block = 0;
+          v178 = 0;
+          v18 = -1;
+          do
+            ++v18;
+          while ( CString[v18] );
+          sub_3C230(Block);
+          v19 = (cocos2d::CCString *)cocos2d::CCDictionary::valueForKey(v8, Block);
+          v168 = cocos2d::CCString::intValue(v19);
+          if ( *((_QWORD *)&v178 + 1) > 0xFu )
+          {
+            v20 = Block[0];
+            if ( (unsigned __int64)(*((_QWORD *)&v178 + 1) + 1LL) >= 0x1000 )
+            {
+              v20 = (void *)*((_QWORD *)Block[0] - 1);
+              if ( (unsigned __int64)((char *)Block[0] - (char *)v20 - 8) > 0x1F )
+                invoke_watson(0, 0, 0, 0, 0);
+            }
+            j_j_free(v20);
+          }
+          *(_OWORD *)Buf1 = 0;
+          v174 = 0;
+          v21 = -1;
+          do
+            ++v21;
+          while ( CString[v21] );
+          sub_3C230(Buf1);
+          v22 = (cocos2d::CCString *)cocos2d::CCDictionary::valueForKey(*(_QWORD *)(a1 + 576), Buf1);
+          v23 = cocos2d::CCString::intValue(v22);
+          if ( *((_QWORD *)&v174 + 1) > 0xFu )
+          {
+            v24 = Buf1[0];
+            if ( (unsigned __int64)(*((_QWORD *)&v174 + 1) + 1LL) >= 0x1000 )
+            {
+              v24 = (void *)*((_QWORD *)Buf1[0] - 1);
+              if ( (unsigned __int64)((char *)Buf1[0] - (char *)v24 - 8) > 0x1F )
+                invoke_watson(0, 0, 0, 0, 0);
+            }
+            j_j_free(v24);
+          }
+          *(_OWORD *)Buf1 = 0;
+          v174 = 0u;
+          v25 = -1;
+          do
+            ++v25;
+          while ( CString[v25] );
+          sub_3C230(Buf1);
+          v26 = 7;
+          if ( (unsigned __int64)v174 < 7 )
+            v26 = v174;
+          v27 = Buf1;
+          if ( *((_QWORD *)&v174 + 1) > 0xFu )
+            v27 = (void **)Buf1[0];
+          v28 = memcmp(v27, "unique_", v26);
+          if ( !v28 )
+          {
+            if ( v26 >= 7 )
+              v28 = v26 > 7;
+            else
+              v28 = -1;
+          }
+          sub_3C310(Buf1);
+          v29 = -1;
+          do
+            ++v29;
+          while ( CString[v29] );
+          *(_OWORD *)Buf1 = 0;
+          if ( v28 )
+          {
+            v174 = 0;
+            sub_3C230(Buf1);
+            v30 = *(_QWORD *)(a1 + 576);
+            if ( v168 > (int)v23 )
+              v23 = v168;
+            v31 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, v23);
+            cocos2d::CCDictionary::setObject(v30, v31, Buf1);
+            if ( *((_QWORD *)&v174 + 1) > 0xFu )
+            {
+              v32 = Buf1[0];
+              if ( (unsigned __int64)(*((_QWORD *)&v174 + 1) + 1LL) >= 0x1000 )
+              {
+                v32 = (void *)*((_QWORD *)Buf1[0] - 1);
+                if ( (unsigned __int64)((char *)Buf1[0] - (char *)v32 - 8) > 0x1F )
+                  invoke_watson(0, 0, 0, 0, 0);
+              }
+              j_j_free(v32);
+            }
+          }
+          else
+          {
+            v174 = 0u;
+            sub_3C230(Buf1);
+            if ( !(unsigned __int8)sub_2E0120(v33, Buf1) )
+              goto LABEL_61;
+            v175 = 0;
+            v176 = 0;
+            v34 = -1;
+            do
+              ++v34;
+            while ( CString[v34] );
+            sub_3C230(&v175);
+            v4 |= 1u;
+            if ( cocos2d::CCDictionary::objectForKey(*(_QWORD *)(a1 + 576), &v175) )
+LABEL_61:
+              v35 = 0;
+            else
+              v35 = 1;
+            if ( (v4 & 1) != 0 )
+            {
+              v4 &= ~1u;
+              sub_3C310(&v175);
+            }
+            if ( v35 )
+            {
+              v175 = 0;
+              v176 = 0;
+              v36 = -1;
+              do
+                ++v36;
+              while ( CString[v36] );
+              sub_3C230(&v175);
+              cocos2d::CCDictionary::setObject(*(_QWORD *)(a1 + 576), *(_QWORD *)(a1 + 328), &v175);
+              sub_3C310(&v175);
+              GameStatsManager_incrementStat(a1, (const char *)&word_708028, 1u);
+            }
+          }
+          IntegerForKey = v167;
+          v8 = v170;
+          break;
+      }
+      ++i;
+    }
+  }
+  else if ( DictForKey )
+  {
+    cocos2d::CCObject::retain(DictForKey);
+    v9 = *(cocos2d::CCObject **)(a1 + 576);
+    if ( v9 )
+      cocos2d::CCObject::release(v9);
+    *(_QWORD *)(a1 + 576) = v8;
+  }
+  if ( !*(_BYTE *)(a1 + 992) && !*(_BYTE *)(a1 + 993) )
+  {
+    v10 = 0;
+    for ( j = 30; j <= 39; ++j )
+    {
+      v12 = GameToolbox_intToString((__int64)&v175, j);
+      if ( *(_QWORD *)(v12 + 24) > 0xFu )
+        v12 = *(_QWORD *)v12;
+      Stat = GameStatsManager_getStat(a1, (const char *)v12);
+      sub_3C310(&v175);
+      if ( Stat <= 1000 )
+      {
+        v37 = GameToolbox_intToString((__int64)&v175, j);
+        if ( *(_QWORD *)(v37 + 24) > 0xFu )
+          v37 = *(_QWORD *)v37;
+        v14 = GameStatsManager_getStat(a1, (const char *)v37);
+        sub_3C310(&v175);
+      }
+      else
+      {
+        v14 = 1000;
+      }
+      v10 += v14;
+    }
+    if ( v10 > 1000 )
+      *(_BYTE *)(a1 + 992) = 1;
+  }
+  v38 = DS_Dictionary::getDictForKey(v2, "GS_3", 0);
+  v39 = v38;
+  if ( *(_QWORD *)(a1 + 720) )
+  {
+    v41 = cocos2d::CCDictionary::allKeys(v38);
+    for ( k = 0; k < cocos2d::CCArray::count(v41); ++k )
+    {
+      v43 = cocos2d::CCArray::stringAtIndex(v41, k);
+      v44 = cocos2d::CCString::getCString(v43);
+      if ( !(unsigned __int8)sub_2DFCF0(a1, v44) )
+      {
+        GameStatsManager_storeUserCoin(a1, (__int64)v44);
+        GameStatsManager_incrementStat(a1, (const char *)&word_7231BC, 1u);
+      }
+    }
+  }
+  else if ( v38 )
+  {
+    cocos2d::CCObject::retain(v38);
+    v40 = *(cocos2d::CCObject **)(a1 + 720);
+    if ( v40 )
+      cocos2d::CCObject::release(v40);
+    *(_QWORD *)(a1 + 720) = v39;
+  }
+  v45 = DS_Dictionary::getDictForKey(v2, "GS_4", 0);
+  v46 = v45;
+  v47 = *(_QWORD *)(a1 + 728);
+  if ( v47 )
+  {
+    sub_6D950(v47, v45);
+  }
+  else if ( v45 )
+  {
+    cocos2d::CCObject::retain(v45);
+    v48 = *(cocos2d::CCObject **)(a1 + 728);
+    if ( v48 )
+      cocos2d::CCObject::release(v48);
+    *(_QWORD *)(a1 + 728) = v46;
+  }
+  v49 = DS_Dictionary::getDictForKey(v2, "GS_completed", 0);
+  v50 = v49;
+  if ( !*(_QWORD *)(a1 + 712) && v49 )
+  {
+    cocos2d::CCObject::retain(v49);
+    v51 = *(cocos2d::CCObject **)(a1 + 712);
+    if ( v51 )
+      cocos2d::CCObject::release(v51);
+    *(_QWORD *)(a1 + 712) = v50;
+  }
+  v52 = DS_Dictionary::getDictForKey(v2, "GS_5", 0);
+  v53 = v52;
+  v54 = *(_QWORD *)(a1 + 824);
+  if ( v54 )
+  {
+    sub_6D950(v54, v52);
+  }
+  else if ( v52 )
+  {
+    cocos2d::CCObject::retain(v52);
+    v55 = *(cocos2d::CCObject **)(a1 + 824);
+    if ( v55 )
+      cocos2d::CCObject::release(v55);
+    *(_QWORD *)(a1 + 824) = v53;
+  }
+  v56 = DS_Dictionary::getDictForKey(v2, "GS_6", 0);
+  v57 = v56;
+  v58 = *(_QWORD *)(a1 + 736);
+  if ( v58 )
+  {
+    sub_6D950(v58, v56);
+  }
+  else if ( v56 )
+  {
+    cocos2d::CCObject::retain(v56);
+    v59 = *(cocos2d::CCObject **)(a1 + 736);
+    if ( v59 )
+      cocos2d::CCObject::release(v59);
+    *(_QWORD *)(a1 + 736) = v57;
+  }
+  v60 = DS_Dictionary::getDictForKey(v2, "GS_7", 0);
+  v61 = v60;
+  v62 = *(_QWORD *)(a1 + 744);
+  if ( v62 )
+  {
+    sub_6D950(v62, v60);
+  }
+  else if ( v60 )
+  {
+    cocos2d::CCObject::retain(v60);
+    v63 = *(cocos2d::CCObject **)(a1 + 744);
+    if ( v63 )
+      cocos2d::CCObject::release(v63);
+    *(_QWORD *)(a1 + 744) = v61;
+  }
+  v64 = DS_Dictionary::getDictForKey(v2, "GS_23", 0);
+  v65 = v64;
+  v66 = *(_QWORD *)(a1 + 760);
+  if ( v66 )
+  {
+    sub_6D950(v66, v64);
+  }
+  else if ( v64 )
+  {
+    cocos2d::CCObject::retain(v64);
+    v67 = *(cocos2d::CCObject **)(a1 + 760);
+    if ( v67 )
+      cocos2d::CCObject::release(v67);
+    *(_QWORD *)(a1 + 760) = v65;
+  }
+  v68 = DS_Dictionary::getDictForKey(v2, "GS_10", 0);
+  v69 = v68;
+  v70 = *(_QWORD *)(a1 + 752);
+  if ( v70 )
+  {
+    sub_6D950(v70, v68);
+  }
+  else if ( v68 )
+  {
+    cocos2d::CCObject::retain(v68);
+    v71 = *(cocos2d::CCObject **)(a1 + 752);
+    if ( v71 )
+      cocos2d::CCObject::release(v71);
+    *(_QWORD *)(a1 + 752) = v69;
+  }
+  v72 = DS_Dictionary::getDictForKey(v2, "GS_16", 0);
+  v73 = v72;
+  v74 = *(_QWORD *)(a1 + 768);
+  if ( v74 )
+  {
+    sub_6D950(v74, v72);
+  }
+  else if ( v72 )
+  {
+    cocos2d::CCObject::retain(v72);
+    v75 = *(cocos2d::CCObject **)(a1 + 768);
+    if ( v75 )
+      cocos2d::CCObject::release(v75);
+    *(_QWORD *)(a1 + 768) = v73;
+  }
+  v76 = DS_Dictionary::getDictForKey(v2, "GS_9", 0);
+  v77 = v76;
+  v78 = *(_QWORD *)(a1 + 776);
+  if ( v78 )
+  {
+    sub_6D950(v78, v76);
+  }
+  else if ( v76 )
+  {
+    cocos2d::CCObject::retain(v76);
+    v79 = *(cocos2d::CCObject **)(a1 + 776);
+    if ( v79 )
+      cocos2d::CCObject::release(v79);
+    *(_QWORD *)(a1 + 776) = v77;
+  }
+  v80 = DS_Dictionary::getDictForKey(v2, "GS_17", 0);
+  v81 = v80;
+  v82 = *(_QWORD *)(a1 + 784);
+  if ( v82 )
+  {
+    sub_6D950(v82, v80);
+  }
+  else if ( v80 )
+  {
+    cocos2d::CCObject::retain(v80);
+    v83 = *(cocos2d::CCObject **)(a1 + 784);
+    if ( v83 )
+      cocos2d::CCObject::release(v83);
+    *(_QWORD *)(a1 + 784) = v81;
+  }
+  v84 = DS_Dictionary::getDictForKey(v2, "GS_18", 0);
+  v85 = v84;
+  v86 = *(_QWORD *)(a1 + 792);
+  if ( v86 )
+  {
+    sub_6D950(v86, v84);
+  }
+  else if ( v84 )
+  {
+    cocos2d::CCObject::retain(v84);
+    v87 = *(cocos2d::CCObject **)(a1 + 792);
+    if ( v87 )
+      cocos2d::CCObject::release(v87);
+    *(_QWORD *)(a1 + 792) = v85;
+  }
+  v88 = DS_Dictionary::getDictForKey(v2, "GS_24", 0);
+  v89 = v88;
+  v90 = *(_QWORD *)(a1 + 800);
+  if ( v90 )
+  {
+    sub_6D950(v90, v88);
+  }
+  else if ( v88 )
+  {
+    cocos2d::CCObject::retain(v88);
+    v91 = *(cocos2d::CCObject **)(a1 + 800);
+    if ( v91 )
+      cocos2d::CCObject::release(v91);
+    *(_QWORD *)(a1 + 800) = v89;
+  }
+  v92 = DS_Dictionary::getDictForKey(v2, "GS_8", 0);
+  v93 = v92;
+  v94 = *(_QWORD *)(a1 + 808);
+  if ( v94 )
+  {
+    sub_6D950(v94, v92);
+  }
+  else if ( v92 )
+  {
+    cocos2d::CCObject::retain(v92);
+    v95 = *(cocos2d::CCObject **)(a1 + 808);
+    if ( v95 )
+      cocos2d::CCObject::release(v95);
+    *(_QWORD *)(a1 + 808) = v93;
+  }
+  v96 = DS_Dictionary::getDictForKey(v2, "GS_11", 0);
+  v97 = v96;
+  v98 = *(_QWORD *)(a1 + 536);
+  if ( v98 )
+  {
+    sub_6DC20(v98, v96);
+  }
+  else if ( v96 )
+  {
+    cocos2d::CCObject::retain(v96);
+    v99 = *(cocos2d::CCObject **)(a1 + 536);
+    if ( v99 )
+      cocos2d::CCObject::release(v99);
+    *(_QWORD *)(a1 + 536) = v97;
+  }
+  v100 = DS_Dictionary::getDictForKey(v2, "GS_25", 0);
+  v101 = v100;
+  v102 = *(_QWORD *)(a1 + 840);
+  if ( v102 )
+  {
+    sub_6DC20(v102, v100);
+  }
+  else if ( v100 )
+  {
+    cocos2d::CCObject::retain(v100);
+    v103 = *(cocos2d::CCObject **)(a1 + 840);
+    if ( v103 )
+      cocos2d::CCObject::release(v103);
+    *(_QWORD *)(a1 + 840) = v101;
+  }
+  v104 = DS_Dictionary::getDictForKey(v2, "GS_31", 0);
+  v105 = v104;
+  v106 = *(_QWORD *)(a1 + 848);
+  if ( v106 )
+  {
+    sub_6DC20(v106, v104);
+  }
+  else if ( v104 )
+  {
+    cocos2d::CCObject::retain(v104);
+    v107 = *(cocos2d::CCObject **)(a1 + 848);
+    if ( v107 )
+      cocos2d::CCObject::release(v107);
+    *(_QWORD *)(a1 + 848) = v105;
+  }
+  v108 = DS_Dictionary::getDictForKey(v2, "GS_33", 0);
+  v109 = v108;
+  v110 = *(_QWORD *)(a1 + 856);
+  if ( v110 )
+  {
+    sub_6D950(v110, v108);
+  }
+  else if ( v108 )
+  {
+    cocos2d::CCObject::retain(v108);
+    v111 = *(cocos2d::CCObject **)(a1 + 856);
+    if ( v111 )
+      cocos2d::CCObject::release(v111);
+    *(_QWORD *)(a1 + 856) = v109;
+  }
+  v112 = DS_Dictionary::getDictForKey(v2, "GS_22", 0);
+  v113 = v112;
+  v114 = *(_QWORD *)(a1 + 544);
+  if ( v114 )
+  {
+    sub_6DC20(v114, v112);
+  }
+  else if ( v112 )
+  {
+    cocos2d::CCObject::retain(v112);
+    v115 = *(cocos2d::CCObject **)(a1 + 544);
+    if ( v115 )
+      cocos2d::CCObject::release(v115);
+    *(_QWORD *)(a1 + 544) = v113;
+  }
+  v116 = DS_Dictionary::getDictForKey(v2, "GS_12", 0);
+  v117 = v116;
+  if ( *(_QWORD *)(a1 + 552) )
+  {
+    v119 = cocos2d::CCDictionary::allKeys(v116);
+    if ( v119 )
+    {
+      v120 = (unsigned int *)*((_QWORD *)v119 + 7);
+      v121 = *v120;
+      if ( (_DWORD)v121 )
+      {
+        v122 = (cocos2d::CCString **)*((_QWORD *)v120 + 2);
+        for ( m = &v122[v121 - 1]; v122 <= m; ++v122 )
+        {
+          if ( !*v122 )
+            break;
+          v124 = cocos2d::CCString::getCString(*v122);
+          *(_OWORD *)Buf1 = 0;
+          v174 = 0;
+          v125 = -1;
+          do
+            ++v125;
+          while ( v124[v125] );
+          sub_3C230(Buf1);
+          v126 = (_DWORD *)cocos2d::CCDictionary::objectForKey(v117, Buf1);
+          v127 = (_DWORD *)cocos2d::CCDictionary::objectForKey(*(_QWORD *)(a1 + 552), Buf1);
+          if ( v127 )
+          {
+            if ( v127[24] == v126[24] && v127[14] == v126[14] )
+            {
+              v128 = v126[15] - v126[16];
+              if ( v127[15] - v127[16] < v128 )
+              {
+                v127[17] = v128;
+                v129 = (float)((float)rand() / 32767.0) * 1000.0;
+                v127[16] = (int)v129;
+                v127[15] = v128 + (int)v129;
+              }
+            }
+          }
+          else if ( !GameStatsManager_hasCompletedChallenge(a1, (__int64)v126) )
+          {
+            cocos2d::CCDictionary::setObject(*(_QWORD *)(a1 + 552), v126, Buf1);
+          }
+          sub_3C310(Buf1);
+        }
+        v2 = a2;
+      }
+    }
+  }
+  else if ( v116 )
+  {
+    cocos2d::CCObject::retain(v116);
+    v118 = *(cocos2d::CCObject **)(a1 + 552);
+    if ( v118 )
+      cocos2d::CCObject::release(v118);
+    *(_QWORD *)(a1 + 552) = v117;
+  }
+  v130 = DS_Dictionary::getDictForKey(v2, "GS_15", 0);
+  v131 = v130;
+  if ( !*(_QWORD *)(a1 + 560) && v130 )
+  {
+    cocos2d::CCObject::retain(v130);
+    v132 = *(cocos2d::CCObject **)(a1 + 560);
+    if ( v132 )
+      cocos2d::CCObject::release(v132);
+    *(_QWORD *)(a1 + 560) = v131;
+  }
+  v133 = DS_Dictionary::getDictForKey(v2, "GS_14", 0);
+  v134 = v133;
+  v135 = *(_QWORD *)(a1 + 816);
+  if ( v135 )
+  {
+    sub_6D950(v135, v133);
+  }
+  else if ( v133 )
+  {
+    cocos2d::CCObject::retain(v133);
+    v136 = *(cocos2d::CCObject **)(a1 + 816);
+    if ( v136 )
+      cocos2d::CCObject::release(v136);
+    *(_QWORD *)(a1 + 816) = v134;
+  }
+  v137 = DS_Dictionary::getDictForKey(v2, "GS_27", 0);
+  v138 = v137;
+  v139 = *(_QWORD *)(a1 + 832);
+  if ( v139 )
+  {
+    sub_6D950(v139, v137);
+  }
+  else if ( v137 )
+  {
+    cocos2d::CCObject::retain(v137);
+    v140 = *(cocos2d::CCObject **)(a1 + 832);
+    if ( v140 )
+      cocos2d::CCObject::release(v140);
+    *(_QWORD *)(a1 + 832) = v138;
+  }
+  v141 = DS_Dictionary::getDictForKey(v2, "GS_19", 0);
+  v142 = v141;
+  v143 = *(_QWORD *)(a1 + 864);
+  if ( v143 )
+  {
+    sub_6DC20(v143, v141);
+  }
+  else if ( v141 )
+  {
+    cocos2d::CCObject::retain(v141);
+    v144 = *(cocos2d::CCObject **)(a1 + 864);
+    if ( v144 )
+      cocos2d::CCObject::release(v144);
+    *(_QWORD *)(a1 + 864) = v142;
+  }
+  v145 = DS_Dictionary::getDictForKey(v2, "GS_30", 0);
+  v146 = v145;
+  v147 = *(_QWORD *)(a1 + 904);
+  if ( v147 )
+  {
+    sub_6DC20(v147, v145);
+  }
+  else if ( v145 )
+  {
+    cocos2d::CCObject::retain(v145);
+    v148 = *(cocos2d::CCObject **)(a1 + 904);
+    if ( v148 )
+      cocos2d::CCObject::release(v148);
+    *(_QWORD *)(a1 + 904) = v146;
+  }
+  v149 = DS_Dictionary::getDictForKey(v2, "GS_21", 0);
+  v150 = v149;
+  v151 = *(_QWORD *)(a1 + 888);
+  if ( v151 )
+  {
+    sub_6DC20(v151, v149);
+  }
+  else if ( v149 )
+  {
+    cocos2d::CCObject::retain(v149);
+    v152 = *(cocos2d::CCObject **)(a1 + 888);
+    if ( v152 )
+      cocos2d::CCObject::release(v152);
+    *(_QWORD *)(a1 + 888) = v150;
+  }
+  v153 = DS_Dictionary::getDictForKey(v2, "GS_28", 0);
+  v154 = v153;
+  v155 = *(_QWORD *)(a1 + 896);
+  if ( v155 )
+  {
+    sub_6DC20(v155, v153);
+  }
+  else if ( v153 )
+  {
+    cocos2d::CCObject::retain(v153);
+    v156 = *(cocos2d::CCObject **)(a1 + 896);
+    if ( v156 )
+      cocos2d::CCObject::release(v156);
+    *(_QWORD *)(a1 + 896) = v154;
+  }
+  v157 = DS_Dictionary::getDictForKey(v2, "GS_32", 0);
+  v158 = v157;
+  v159 = *(_QWORD *)(a1 + 920);
+  if ( v159 )
+  {
+    sub_6DC20(v159, v157);
+  }
+  else if ( v157 )
+  {
+    cocos2d::CCObject::retain(v157);
+    v160 = *(cocos2d::CCObject **)(a1 + 920);
+    if ( v160 )
+      cocos2d::CCObject::release(v160);
+    *(_QWORD *)(a1 + 920) = v158;
+  }
+  sub_2F4B10(a1);
+  v161 = *(_DWORD *)(a1 + 872) - *(_DWORD *)(a1 + 876);
+  v162 = DS_Dictionary::getIntegerForKey(v2, "GS_20");
+  v163 = v162;
+  if ( v162 > v161 )
+  {
+    *(_DWORD *)(a1 + 880) = v162;
+    v164 = (float)((float)rand() / 32767.0) * 1000.0;
+    *(_DWORD *)(a1 + 876) = (int)v164;
+    *(_DWORD *)(a1 + 872) = v163 + (int)v164;
+  }
+  v165 = DS_Dictionary::getIntegerForKey(v2, "GS_26");
+  if ( (unsigned int)(v165 - 30) > 9 )
+    v165 = 0;
+  *(_DWORD *)(a1 + 996) = v165;
+  return sub_2F4C70(a1);
+}

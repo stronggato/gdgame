@@ -197,3 +197,267 @@ LABEL_26:
   sub_3C310(&v28); /*0x3b87d8*/
   return sub_3C310(v4); /*0x3b87e6*/
 }
+
+// Address: 0x3b8570
+// Method: GJSmartBlockPreview::addTemplateGuide
+// Hidden C++ exception states: #wind=4
+double __fastcall GJSmartBlockPreview_addTemplateGuide_0(__int64 a1, size_t **a2, int a3)
+{
+  size_t *v4; // r14
+  unsigned int v6; // edi
+  void *v7; // rdx
+  cocos2d::CCArray *v8; // rax
+  cocos2d::CCArray *v9; // rsi
+  struct cocos2d::CCObject *v10; // rbx
+  int v11; // eax
+  __int64 v12; // rdx
+  struct cocos2d::CCObject *v13; // rbx
+  int v14; // eax
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v18; // [rsp+28h] [rbp-91h] BYREF
+  char v19[32]; // [rsp+30h] [rbp-89h] BYREF
+  char v20[32]; // [rsp+50h] [rbp-69h] BYREF
+  int v21; // [rsp+70h] [rbp-49h]
+  char v22; // [rsp+74h] [rbp-45h]
+  int v23; // [rsp+78h] [rbp-41h]
+  __int16 v24; // [rsp+7Ch] [rbp-3Dh]
+  char v25; // [rsp+7Eh] [rbp-3Bh]
+  size_t *v26; // [rsp+80h] [rbp-39h]
+  __int64 v27; // [rsp+90h] [rbp-29h]
+  __int128 v28; // [rsp+98h] [rbp-21h] BYREF
+  __int64 v29; // [rsp+A8h] [rbp-11h]
+  __int64 v30; // [rsp+B0h] [rbp-9h]
+  __int128 v31; // [rsp+B8h] [rbp-1h] BYREF
+  __int64 v32; // [rsp+C8h] [rbp+Fh]
+  __int64 v33; // [rsp+D0h] [rbp+17h]
+  int v34; // [rsp+D8h] [rbp+1Fh]
+  char v35; // [rsp+DCh] [rbp+23h]
+  int v36; // [rsp+E0h] [rbp+27h]
+  __int16 v37; // [rsp+E4h] [rbp+2Bh]
+  char v38; // [rsp+E6h] [rbp+2Dh]
+
+  v4 = (size_t *)a2;
+  v26 = (size_t *)a2;
+  v6 = 0;
+  v27 = 0;
+  v28 = 0;
+  v29 = 0;
+  v30 = 15;
+  LOBYTE(v28) = 0;
+  v31 = 0;
+  v32 = 0;
+  v33 = 15;
+  LOBYTE(v31) = 0;
+  v34 = 0;
+  v35 = 0;
+  v36 = 0;
+  v37 = 0;
+  v38 = 0;
+  if ( &v28 != (__int128 *)a2 )
+  {
+    if ( (unsigned __int64)a2[3] > 0xF )
+      a2 = (size_t **)*a2;
+    sub_3F5A0(&v28, a2, v4[2]);
+  }
+  if ( &v31 != (__int128 *)v4 )
+  {
+    v7 = v4;
+    if ( v4[3] > 0xF )
+      v7 = (void *)*v4;
+    sub_3F5A0(&v31, v7, v4[2]);
+  }
+  v18 = v27;
+  sub_3E4F0(v19, &v28);
+  sub_3E4F0(v20, &v31);
+  v21 = v34;
+  v22 = v35;
+  v23 = v36;
+  v24 = v37;
+  v25 = v38;
+  v8 = (cocos2d::CCArray *)GJSmartBlockPreview_addTemplateGuide(a1, &v18);
+  v9 = v8;
+  if ( a3 != 1 )
+  {
+    if ( a3 != 2 || !cocos2d::CCArray::count(v8) )
+      goto LABEL_26;
+    while ( 1 )
+    {
+      v13 = cocos2d::CCArray::objectAtIndex(v9, v6);
+      v14 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v13 + 56LL))(v13);
+      if ( !v14 )
+      {
+        (**((void (__fastcall ***)(__int64, __int16 *))v13 + 40))((__int64)v13 + 320, &word_6FE4C0);
+        LOBYTE(v16) = -1;
+        goto LABEL_24;
+      }
+      v15 = v14 - 1;
+      if ( !v15 )
+        break;
+      if ( v15 == 1 )
+      {
+        (**((void (__fastcall ***)(__int64, void *))v13 + 40))((__int64)v13 + 320, &unk_6FE4BC);
+        LOBYTE(v16) = 100;
+LABEL_24:
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v13 + 40) + 40LL))((__int64)v13 + 320, v16);
+      }
+      if ( ++v6 >= cocos2d::CCArray::count(v9) )
+        goto LABEL_26;
+    }
+    (**((void (__fastcall ***)(__int64, __int16 *))v13 + 40))((__int64)v13 + 320, &word_6FE4C0);
+    LOBYTE(v16) = -56;
+    goto LABEL_24;
+  }
+  if ( cocos2d::CCArray::count(v8) )
+  {
+    do
+    {
+      v10 = cocos2d::CCArray::objectAtIndex(v9, v6);
+      v11 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v10 + 56LL))(v10);
+      if ( !v11 || (unsigned int)(v11 - 1) <= 1 )
+      {
+        LOBYTE(v12) = 50;
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v10 + 40) + 40LL))((__int64)v10 + 320, v12);
+      }
+      (**((void (__fastcall ***)(__int64, void *))v10 + 40))((__int64)v10 + 320, &unk_6FE4BC);
+      ++v6;
+    }
+    while ( v6 < cocos2d::CCArray::count(v9) );
+  }
+LABEL_26:
+  sub_3C310(&v31);
+  sub_3C310(&v28);
+  return sub_3C310(v4);
+}
+
+// Address: 0x3b8570
+// Method: GJSmartBlockPreview::addTemplateGuide
+// Hidden C++ exception states: #wind=4
+double __fastcall GJSmartBlockPreview_addTemplateGuide_0(__int64 a1, size_t ***a2, int a3)
+{
+  size_t **v4; // r14
+  unsigned int v6; // edi
+  void *v7; // rdx
+  cocos2d::CCArray *v8; // rax
+  cocos2d::CCArray *v9; // rsi
+  struct cocos2d::CCObject *v10; // rbx
+  int v11; // eax
+  __int64 v12; // rdx
+  struct cocos2d::CCObject *v13; // rbx
+  int v14; // eax
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v18; // [rsp+28h] [rbp-91h] BYREF
+  char v19[32]; // [rsp+30h] [rbp-89h] BYREF
+  char v20[32]; // [rsp+50h] [rbp-69h] BYREF
+  int v21; // [rsp+70h] [rbp-49h]
+  char v22; // [rsp+74h] [rbp-45h]
+  int v23; // [rsp+78h] [rbp-41h]
+  __int16 v24; // [rsp+7Ch] [rbp-3Dh]
+  char v25; // [rsp+7Eh] [rbp-3Bh]
+  size_t **v26; // [rsp+80h] [rbp-39h]
+  __int64 v27; // [rsp+90h] [rbp-29h]
+  __int128 v28; // [rsp+98h] [rbp-21h] BYREF
+  __int64 v29; // [rsp+A8h] [rbp-11h]
+  __int64 v30; // [rsp+B0h] [rbp-9h]
+  __int128 v31; // [rsp+B8h] [rbp-1h] BYREF
+  __int64 v32; // [rsp+C8h] [rbp+Fh]
+  __int64 v33; // [rsp+D0h] [rbp+17h]
+  int v34; // [rsp+D8h] [rbp+1Fh]
+  char v35; // [rsp+DCh] [rbp+23h]
+  int v36; // [rsp+E0h] [rbp+27h]
+  __int16 v37; // [rsp+E4h] [rbp+2Bh]
+  char v38; // [rsp+E6h] [rbp+2Dh]
+
+  v4 = (size_t **)a2;
+  v26 = (size_t **)a2;
+  v6 = 0;
+  v27 = 0;
+  v28 = 0;
+  v29 = 0;
+  v30 = 15;
+  LOBYTE(v28) = 0;
+  v31 = 0;
+  v32 = 0;
+  v33 = 15;
+  LOBYTE(v31) = 0;
+  v34 = 0;
+  v35 = 0;
+  v36 = 0;
+  v37 = 0;
+  v38 = 0;
+  if ( &v28 != (__int128 *)a2 )
+  {
+    if ( (unsigned __int64)a2[3] > 0xF )
+      a2 = (size_t ***)*a2;
+    sub_3F5A0(&v28, a2, (size_t)v4[2]);
+  }
+  if ( &v31 != (__int128 *)v4 )
+  {
+    v7 = v4;
+    if ( (unsigned __int64)v4[3] > 0xF )
+      v7 = *v4;
+    sub_3F5A0(&v31, v7, (size_t)v4[2]);
+  }
+  v18 = v27;
+  sub_3E4F0(v19, &v28);
+  sub_3E4F0(v20, &v31);
+  v21 = v34;
+  v22 = v35;
+  v23 = v36;
+  v24 = v37;
+  v25 = v38;
+  v8 = (cocos2d::CCArray *)GJSmartBlockPreview_addTemplateGuide(a1, &v18);
+  v9 = v8;
+  if ( a3 != 1 )
+  {
+    if ( a3 != 2 || !cocos2d::CCArray::count(v8) )
+      goto LABEL_26;
+    while ( 1 )
+    {
+      v13 = cocos2d::CCArray::objectAtIndex(v9, v6);
+      v14 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v13 + 56LL))(v13);
+      if ( !v14 )
+      {
+        (**((void (__fastcall ***)(__int64, __int16 *))v13 + 40))((__int64)v13 + 320, &word_6FE4C0);
+        LOBYTE(v16) = -1;
+        goto LABEL_24;
+      }
+      v15 = v14 - 1;
+      if ( !v15 )
+        break;
+      if ( v15 == 1 )
+      {
+        (**((void (__fastcall ***)(__int64, void *))v13 + 40))((__int64)v13 + 320, &unk_6FE4BC);
+        LOBYTE(v16) = 100;
+LABEL_24:
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v13 + 40) + 40LL))((__int64)v13 + 320, v16);
+      }
+      if ( ++v6 >= cocos2d::CCArray::count(v9) )
+        goto LABEL_26;
+    }
+    (**((void (__fastcall ***)(__int64, __int16 *))v13 + 40))((__int64)v13 + 320, &word_6FE4C0);
+    LOBYTE(v16) = -56;
+    goto LABEL_24;
+  }
+  if ( cocos2d::CCArray::count(v8) )
+  {
+    do
+    {
+      v10 = cocos2d::CCArray::objectAtIndex(v9, v6);
+      v11 = (*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v10 + 56LL))(v10);
+      if ( !v11 || (unsigned int)(v11 - 1) <= 1 )
+      {
+        LOBYTE(v12) = 50;
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v10 + 40) + 40LL))((__int64)v10 + 320, v12);
+      }
+      (**((void (__fastcall ***)(__int64, void *))v10 + 40))((__int64)v10 + 320, &unk_6FE4BC);
+      ++v6;
+    }
+    while ( v6 < cocos2d::CCArray::count(v9) );
+  }
+LABEL_26:
+  sub_3C310(&v31);
+  sub_3C310(&v28);
+  return sub_3C310(v4);
+}

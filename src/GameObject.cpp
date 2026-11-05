@@ -6655,3 +6655,127 @@ double __fastcall GameObject_addColorSprite(__int64 *a1, _QWORD *a2)
   sub_74F50(&v43); /*0x525d89*/
   return sub_3C310(v56); /*0x525d98*/
 }
+
+// Address: 0x28a9b0
+// Method: GameObject::customSetup
+char __fastcall GameObject_customSetup(__int64 *a1)
+{
+  int v1; // edx
+  _DWORD *v3; // rax
+  _DWORD *v4; // rax
+  _DWORD *v5; // rax
+  _DWORD *v6; // rax
+  _DWORD *v7; // rax
+  _DWORD *v8; // rax
+  _DWORD *v9; // rax
+  _DWORD *v10; // rax
+  _DWORD *v11; // rax
+  _DWORD *v12; // rax
+  _DWORD *v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  _DWORD *v16; // rax
+  _DWORD *v17; // rax
+  _DWORD *v18; // rax
+  _DWORD *v19; // rax
+  _DWORD *v20; // rax
+  _DWORD *v21; // rax
+  _DWORD *v22; // rax
+  _DWORD *v23; // rax
+  _DWORD *v24; // rax
+  _DWORD *v25; // rax
+  _DWORD *v26; // rax
+  _DWORD *v27; // rax
+  _DWORD *v28; // rax
+  _DWORD *v29; // rax
+  _DWORD *v30; // rax
+  _DWORD *v31; // rax
+  _DWORD *v32; // rax
+  _DWORD *v33; // rax
+  _DWORD *v34; // rax
+  _DWORD *v35; // rax
+  _DWORD *v36; // rax
+  _DWORD *v37; // rax
+  _DWORD *v38; // rax
+  _DWORD *v39; // rax
+  __int64 v40; // rax
+  _DWORD *v41; // rax
+  __int64 v42; // rax
+  _DWORD *v43; // rax
+  _DWORD *v44; // rax
+  __int64... [138805 chars total]
+
+// Address: 0x29a8fb
+// Method: GameObject::editorColorForMode
+__int64 __fastcall GameObject_selectObject(__int64 *a1, unsigned __int8 *a2)
+{
+  __int64 v4; // rax
+  int v5; // r9d
+  int v6; // r10d
+  int v7; // ecx
+  int v8; // eax
+  int v9; // edx
+  int v10; // eax
+  int v11; // r8d
+  int v12; // eax
+  __int64 v13; // rax
+  __int64 result; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int16 v17; // [rsp+40h] [rbp+8h] BYREF
+  char v18; // [rsp+42h] [rbp+Ah]
+
+  if ( !*((_BYTE *)a1 + 1141) )
+  {
+    v4 = (*(__int64 (__fastcall **)(__int64 *))(a1[40] + 8))(a1 + 40);
+    v5 = *a2;
+    v6 = *(unsigned __int8 *)(v4 + 2);
+    v7 = (unsigned __int8)*(_WORD *)v4 - v5;
+    v17 = *(_WORD *)v4;
+    v8 = v5 - (unsigned __int8)v17;
+    if ( v8 < 0 )
+      v8 = v7;
+    if ( (float)v8 < 20.0 )
+    {
+      v9 = a2[1];
+      v10 = v9 - HIBYTE(v17);
+      if ( v10 < 0 )
+        v10 = HIBYTE(v17) - v9;
+      if ( (float)v10 < 20.0 )
+      {
+        v11 = a2[2];
+        v12 = v11 - v6;
+        if ( v11 - v6 < 0 )
+          v12 = v6 - v11;
+        if ( (float)v12 < 20.0 && !(_BYTE)v5 && (_BYTE)v9 == 0xFF && !(_BYTE)v11 )
+        {
+          *(_WORD *)a2 = -106;
+          a2[2] = 0;
+        }
+      }
+    }
+  }
+  v13 = *a1;
+  *((_BYTE *)a1 + 1141) = 1;
+  result = (*(__int64 (__fastcall **)(__int64 *, unsigned __int8 *))(v13 + 1344))(a1, a2);
+  v15 = a1[112];
+  if ( v15 )
+  {
+    LOBYTE(v17) = (int)(float)((float)*a2 * 0.80000001);
+    HIBYTE(v17) = (int)(float)((float)a2[1] * 0.80000001);
+    v18 = (int)(float)((float)a2[2] * 0.80000001);
+    (**(void (__fastcall ***)(__int64, __int16 *))(v15 + 320))(v15 + 320, &v17);
+    v16 = a1[112];
+    LOBYTE(v17) = (int)(float)((float)*a2 * 0.80000001);
+    HIBYTE(v17) = (int)(float)((float)a2[1] * 0.80000001);
+    v18 = (int)(float)((float)a2[2] * 0.80000001);
+    result = (*(__int64 (__fastcall **)(__int64, __int16 *))(*(_QWORD *)v16 + 944LL))(v16, &v17);
+  }
+  if ( *((_BYTE *)a1 + 772) )
+  {
+    result = (*(__int64 (__fastcall **)(__int64 *, __int64))(*a1 + 472))(a1, 999);
+    if ( result )
+      return (**(__int64 (__fastcall ***)(__int64, unsigned __int8 *))(result + 368))(result + 368, a2);
+  }
+  return result;
+}

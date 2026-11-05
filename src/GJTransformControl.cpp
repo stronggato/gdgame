@@ -1002,3 +1002,565 @@ LABEL_17:
     goto LABEL_16; /*0x1a5250*/
   }
 }
+
+// Address: 0x1a33a0
+// Method: GJTransformControl::updateButtons
+// Hidden C++ exception states: #wind=8
+__int64 __fastcall GJTransformControl_updateButtons(__int64 a1, char a2, char a3)
+{
+  __int64 *v6; // rcx
+  float v7; // xmm8_4
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  cocos2d::CCArray *v10; // rcx
+  struct cocos2d::CCArray *v11; // rdi
+  struct cocos2d::CCObject *v12; // rcx
+  int v13; // xmm6_4
+  int v14; // xmm7_4
+  int v15; // eax
+  int v16; // r9d
+  __int64 v17; // rax
+  __int64 v18; // rax
+  const struct cocos2d::CCPoint *v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  float v22; // xmm9_4
+  float v23; // xmm10_4
+  float v24; // xmm11_4
+  float v25; // xmm12_4
+  cocos2d::CCArray *v26; // rcx
+  unsigned int i; // edi
+  float *v28; // rbx
+  float v29; // xmm6_4
+  float v30; // xmm7_4
+  char v31; // al
+  float v32; // xmm3_4
+  float v33; // xmm0_4
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  const struct cocos2d::CCPoint *v39; // rax
+  float v40; // xmm4_4
+  float v41; // xmm3_4
+  float v42; // xmm2_4
+  float v43; // xmm3_4
+  float v44; // xmm1_4
+  float v45; // xmm6_4
+  float v46; // xmm0_4
+  float v47; // xmm6_4
+  __int64 v48; // rbx
+  __int64 v49; // rax
+  __int64 v50; // rbx
+  __int64 v51; // rax
+  __int64 *v52; // rcx
+  __int64 v53; // rax
+  __int64 v54; // rax
+  float *v55; // rbx
+  float *v56; // rdi
+  float v57; // xmm9_4
+  float v58; // xmm7_4
+  float v59; // xmm1_4
+  float v60; // xmm0_4
+  float v61; // xmm12_4
+  __int64 v62; // rax
+  __int64 v63; // rax
+  float *v64; // rax
+  float v65; // xmm11_4
+  float v66; // xmm6_4
+  float v67; // xmm10_4
+  float v68; // xmm7_4
+  float v69; // xmm9_4
+  struct cocos2d::CCObject *v70; // rdi
+  __int64 v71; // rbx
+  __int64 v72; // rax
+  struct cocos2d::CCObject *v73; // rdi
+  __int64 v74; // rbx
+  __int64 v75; // rax
+  struct cocos2d::CCObject *v76; // rdi
+  __int64 v77; // rbx
+  __int64 v78; // rax
+  struct cocos2d::CCObject *v79; // rdi
+  __int64 v80; // rbx
+  __int64 v81; // rax
+  struct cocos2d::CCObject *v82; // rdi
+  __int64 v83; // rbx
+  __int64 v84; // rax
+  struct cocos2d::CCObject *v85; // rdi
+  __int64 v86; // rbx
+  __int64 v87; // rax
+  struct cocos2d::CCObject *v88; // rdi
+  __int64 v89; // rbx
+  __int64 v90; // rax
+  struct cocos2d::CCObject *v91; // rdi
+  __int64 v92; // rbx
+  __int64 v93; // rax
+  float v94; // xmm6_4
+  struct cocos2d::CCObject *v95; // rax
+  struct cocos2d::CCObject *v96; // rdi
+  __int64 v97; // rbx
+  __int64 v98; // rax
+  struct cocos2d::CCObject *v99; // rax
+  struct cocos2d::CCObject *v100; // rdi
+  __int64 v101; // rbx
+  __int64 v102; // rax
+  __int64 *v103; // rdi
+  __int64 v104; // rbx
+  __int64 v105; // rax
+  __int64 v106; // rax
+  __int64 v107; // rax
+  __int64 v108; // rax
+  __int64 v109; // rax
+  __int64 v110; // rax
+  struct cocos2d::CCObject *v111; // rdi
+  __int64 v112; // rbx
+  __int64 v113; // rax
+  __int64 v114; // rax
+  __int64 v115; // rax
+  __int64 v116; // rax
+  void (__fastcall *v117)(__int64); // rdx
+  void *v119; // [rsp+50h] [rbp-B0h] BYREF
+  void *v120; // [rsp+58h] [rbp-A8h] BYREF
+  float v121; // [rsp+60h] [rbp-A0h] BYREF
+  float v122; // [rsp+64h] [rbp-9Ch]
+  void *v123; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v124[8]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v125[8]; // [rsp+78h] [rbp-88h] BYREF
+  float v126; // [rsp+80h] [rbp-80h] BYREF
+  float v127; // [rsp+84h] [rbp-7Ch]
+  float v128; // [rsp+88h] [rbp-78h] BYREF
+  float v129; // [rsp+8Ch] [rbp-74h]
+  float v130; // [rsp+90h] [rbp-70h] BYREF
+  float v131; // [rsp+94h] [rbp-6Ch]
+  float v132; // [rsp+98h] [rbp-68h] BYREF
+  float v133; // [rsp+9Ch] [rbp-64h]
+  _BYTE v134[8]; // [rsp+A0h] [rbp-60h] BYREF
+  float v135; // [rsp+A8h] [rbp-58h]
+  float v136; // [rsp+ACh] [rbp-54h]
+  _BYTE v137[8]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v138[8]; // [rsp+B8h] [rbp-48h] BYREF
+  _BYTE v139[8]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v140[8]; // [rsp+C8h] [rbp-38h] BYREF
+  _BYTE v141[8]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v142[8]; // [rsp+D8h] [rbp-28h] BYREF
+  _BYTE v143[8]; // [rsp+E0h] [rbp-20h] BYREF
+  void *v144; // [rsp+E8h] [rbp-18h] BYREF
+  _BYTE v145[8]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v146[8]; // [rsp+F8h] [rbp-8h] BYREF
+  _BYTE v147[176]; // [rsp+100h] [rbp+0h] BYREF
+  float v148; // [rsp+1E0h] [rbp+E0h] BYREF
+  float v149; // [rsp+1E4h] [rbp+E4h]
+  float v150; // [rsp+1F8h] [rbp+F8h] BYREF
+  float v151; // [rsp+1FCh] [rbp+FCh]
+
+  v6 = *(__int64 **)(a1 + 440);
+  v7 = 0.0;
+  if ( v6 )
+  {
+    v8 = *v6;
+    if ( a3 )
+    {
+      v9 = (*(__int64 (**)(void))(v8 + 120))();
+      v10 = *(cocos2d::CCArray **)(v9 + 944);
+      if ( v10 && cocos2d::CCArray::count(v10) )
+      {
+        v11 = *(struct cocos2d::CCArray **)(v9 + 944);
+      }
+      else
+      {
+        v12 = *(struct cocos2d::CCObject **)(v9 + 1568);
+        if ( !v12 )
+          goto LABEL_11;
+        v11 = cocos2d::CCArray::createWithObject(v12);
+      }
+      if ( v11 )
+      {
+        v13 = *(_DWORD *)(v9 + 548);
+        v14 = *(_DWORD *)(v9 + 544);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v120, (const struct cocos2d::CCPoint *)(v9 + 816));
+        sub_1FDCB0(v9, (_DWORD)v11, v15, v16, 1065353216, 0, 0, v14, v13);
+      }
+    }
+    else
+    {
+      (*(void (**)(void))(v8 + 48))();
+    }
+  }
+LABEL_11:
+  v17 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v123 = operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v123);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v17 = qword_905FD0;
+  }
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v17 + 568) + 4360LL) + 168LL))(*(_QWORD *)(*(_QWORD *)(v17 + 568) + 4360LL));
+  v18 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v120 = operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v120);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v18 = qword_905FD0;
+  }
+  v19 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v18 + 568)
+                                                                                         + 4360LL)
+                                                                           + 200LL))(*(_QWORD *)(*(_QWORD *)(v18 + 568)
+                                                                                               + 4360LL));
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v138, v19);
+  v20 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v120 = operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v120);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v20 = qword_905FD0;
+  }
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v20 + 568) + 4360LL) + 160LL))(*(_QWORD *)(*(_QWORD *)(v20 + 568) + 4360LL));
+  v21 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v120 = operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v120);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v21 = qword_905FD0;
+  }
+  (*(void (__fastcall **)(_QWORD, void *))(**(_QWORD **)(*(_QWORD *)(v21 + 568) + 4360LL) + 184LL))(
+    *(_QWORD *)(*(_QWORD *)(v21 + 568) + 4360LL),
+    &unk_9046C8);
+  v22 = -9999999.0;
+  v23 = 9999999.0;
+  v24 = -9999999.0;
+  v25 = 9999999.0;
+  v26 = *(cocos2d::CCArray **)(a1 + 424);
+  if ( v26 )
+  {
+    if ( cocos2d::CCArray::count(v26) )
+    {
+      for ( i = 0; i < cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 424)); ++i )
+      {
+        v28 = (float *)cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 424), i);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v121, (const struct cocos2d::CCPoint *)(v28 + 111));
+        v29 = v28[191];
+        v30 = v28[192];
+        v31 = (*(__int64 (__fastcall **)(float *))(*(_QWORD *)v28 + 1584LL))(v28);
+        v32 = v121;
+        if ( v31 )
+        {
+          v29 = fmaxf(v29, v30);
+          v30 = v29;
+          v32 = fmaxf(v121, v122);
+          v121 = v32;
+          v33 = v32;
+          v122 = v32;
+        }
+        else
+        {
+          v33 = v122;
+        }
+        cocos2d::CCRect::CCRect((cocos2d::CCRect *)v134, 0.0, 0.0, v32 + v29, v33 + v30);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v146, 0.0, 0.0);
+        cocos2d::CCNode::convertToWorldSpace(v28, v124, v34);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v147, (float)-v135 * 0.5, v136 * 0.5);
+        cocos2d::CCNode::convertToWorldSpace(v28, &v126, v35);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v144, v135 * 0.5, v136 * 0.5);
+        cocos2d::CCNode::convertToWorldSpace(v28, &v128, v36);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v145, (float)-v135 * 0.5, (float)-v136 * 0.5);
+        cocos2d::CCNode::convertToWorldSpace(v28, &v130, v37);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v135 * 0.5, (float)-v136 * 0.5);
+        cocos2d::CCNode::convertToWorldSpace(v28, &v132, v38);
+        v39 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(float *))(*(_QWORD *)v28 + 200LL))(v28);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v125, v39);
+        cocos2d::CCPoint::operator-(&v126, v139, v124);
+        cocos2d::CCPoint::operator+(v125, v140, v139);
+        cocos2d::CCPoint::operator=(&v126, v140);
+        cocos2d::CCPoint::operator-(&v128, v141, v124);
+        cocos2d::CCPoint::operator+(v125, v142, v141);
+        cocos2d::CCPoint::operator=(&v128, v142);
+        cocos2d::CCPoint::operator-(&v130, v143, v124);
+        cocos2d::CCPoint::operator+(v125, v137, v143);
+        cocos2d::CCPoint::operator=(&v130, v137);
+        cocos2d::CCPoint::operator-(&v132, &v123, v124);
+        cocos2d::CCPoint::operator+(v125, &v120, &v123);
+        cocos2d::CCPoint::operator=(&v132, &v120);
+        v40 = fmaxf(v126, v128);
+        if ( v40 <= v130 )
+          v41 = v130;
+        else
+          v41 = v40;
+        if ( v41 <= v132 )
+        {
+          v40 = v132;
+        }
+        else if ( v40 <= v130 )
+        {
+          v40 = v130;
+        }
+        v42 = fminf(v126, v128);
+        if ( v130 <= v42 )
+          v43 = v130;
+        else
+          v43 = v42;
+        if ( v132 <= v43 )
+        {
+          v42 = v132;
+        }
+        else if ( v130 <= v42 )
+        {
+          v42 = v130;
+        }
+        v44 = fmaxf(v127, v129);
+        if ( v44 <= v131 )
+          v45 = v131;
+        else
+          v45 = v44;
+        if ( v45 <= v133 )
+        {
+          v44 = v133;
+        }
+        else if ( v44 <= v131 )
+        {
+          v44 = v131;
+        }
+        v46 = fminf(v127, v129);
+        if ( v131 <= v46 )
+          v47 = v131;
+        else
+          v47 = v46;
+        if ( v133 <= v47 )
+        {
+          v46 = v133;
+        }
+        else if ( v131 <= v46 )
+        {
+          v46 = v131;
+        }
+        v22 = fmaxf(v40, v22);
+        v23 = fminf(v42, v23);
+        v24 = fmaxf(v44, v24);
+        v25 = fminf(v46, v25);
+      }
+    }
+  }
+  v48 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 200LL))(a1);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v22, v24);
+  cocos2d::CCPoint::operator-(v49, &v150, v48);
+  v50 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 200LL))(a1);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v23, v25);
+  cocos2d::CCPoint::operator-(v51, &v148, v50);
+  v52 = *(__int64 **)(a1 + 440);
+  if ( v52 )
+  {
+    v53 = *v52;
+    if ( a3 )
+    {
+      v54 = (*(__int64 (**)(void))(v53 + 120))();
+      sub_1FDB70(v54);
+      goto LABEL_64;
+    }
+    (*(void (**)(void))(v53 + 56))();
+LABEL_58:
+    if ( a2 )
+    {
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v120, (const struct cocos2d::CCPoint *)&v150);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v137, (const struct cocos2d::CCPoint *)&v148);
+      cocos2d::CCPoint::operator-(&v150, &v123, &v120);
+      cocos2d::CCPoint::operator=(a1 + 496, &v123);
+      cocos2d::CCPoint::operator-(&v148, &v123, v137);
+      cocos2d::CCPoint::operator=(a1 + 504, &v123);
+      cocos2d::CCPoint::operator=(a1 + 456, &v150);
+      cocos2d::CCPoint::operator=(a1 + 464, &v148);
+      v55 = (float *)(a1 + 560);
+      *(_DWORD *)(a1 + 560) = 1065353216;
+      v56 = (float *)(a1 + 564);
+      *(_DWORD *)(a1 + 564) = 1065353216;
+      *(_QWORD *)(a1 + 572) = 0;
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 352LL))(*(_QWORD *)(a1 + 416));
+      v57 = v151;
+      v58 = v150;
+      v59 = v148;
+    }
+    else
+    {
+      v55 = (float *)(a1 + 560);
+      if ( *(float *)(a1 + 496) <= 0.0 )
+      {
+        v58 = v150;
+      }
+      else
+      {
+        v58 = *v55;
+        v150 = *v55;
+      }
+      if ( *(float *)(a1 + 504) >= 0.0 )
+      {
+        v59 = v148;
+      }
+      else
+      {
+        v59 = *v55 * -1.0;
+        v148 = v59;
+      }
+      v56 = (float *)(a1 + 564);
+      if ( *(float *)(a1 + 500) <= 0.0 )
+      {
+        v64 = (float *)(a1 + 560);
+        v57 = v151;
+      }
+      else
+      {
+        v57 = *v56;
+        v151 = *v56;
+        v64 = (float *)(a1 + 560);
+      }
+      if ( *(float *)(a1 + 508) < 0.0 )
+      {
+        v60 = *v56 * -1.0;
+        v149 = v60;
+        v55 = v64;
+LABEL_61:
+        if ( *v55 >= 0.0 )
+          v61 = v59;
+        else
+          v61 = v58;
+        if ( *v55 >= 0.0 )
+          v65 = v58;
+        else
+          v65 = v59;
+        if ( *v56 >= 0.0 )
+          v66 = v57;
+        else
+          v66 = v60;
+        if ( *v56 >= 0.0 )
+          v67 = v60;
+        else
+          v67 = v57;
+        v68 = (float)(v58 - v59) * 0.5;
+        v69 = (float)(v57 - v60) * 0.5;
+        v70 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 2u);
+        v71 = *(_QWORD *)v70;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v65, v69 + v149);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v71 + 184))(v70, v72);
+        v73 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 1u);
+        v74 = *(_QWORD *)v73;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v61, v69 + v149);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v74 + 184))(v73, v75);
+        v76 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 3u);
+        v77 = *(_QWORD *)v76;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v68 + v148, v66);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v77 + 184))(v76, v78);
+        v79 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 4u);
+        v80 = *(_QWORD *)v79;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v68 + v148, v67);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v80 + 184))(v79, v81);
+        v82 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 5u);
+        v83 = *(_QWORD *)v82;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v61, v66);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v83 + 184))(v82, v84);
+        v85 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 6u);
+        v86 = *(_QWORD *)v85;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v65, v66);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v86 + 184))(v85, v87);
+        v88 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 7u);
+        v89 = *(_QWORD *)v88;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v61, v67);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v89 + 184))(v88, v90);
+        v91 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 8u);
+        v92 = *(_QWORD *)v91;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v65, v67);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v92 + 184))(v91, v93);
+        if ( a2 )
+        {
+          v94 = 0.0;
+        }
+        else
+        {
+          v95 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 9u);
+          v94 = *(float *)(*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v95 + 200LL))(v95);
+        }
+        v96 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 9u);
+        v97 = *(_QWORD *)v96;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v94, v151 + 30.0);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v97 + 184))(v96, v98);
+        if ( !a2 )
+        {
+          v99 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 0xAu);
+          v7 = *(float *)((*(__int64 (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v99 + 200LL))(v99) + 4);
+        }
+        v100 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 0xAu);
+        v101 = *(_QWORD *)v100;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v150 + 30.0, v7);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v101 + 184))(v100, v102);
+        v103 = (__int64 *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 528) + 504LL))(*(_QWORD *)(a1 + 528));
+        v104 = *v103;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v68 + v148, v151 + 60.0);
+        (*(void (__fastcall **)(__int64 *, __int64))(v104 + 184))(v103, v105);
+        v106 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 528) + 952LL))(*(_QWORD *)(a1 + 528));
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v106 + 352LL))(v106);
+        v107 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 536) + 952LL))(*(_QWORD *)(a1 + 536));
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v107 + 352LL))(v107);
+        v108 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 544) + 952LL))(*(_QWORD *)(a1 + 544));
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v108 + 352LL))(v108);
+        v109 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 552) + 952LL))(*(_QWORD *)(a1 + 552));
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v109 + 352LL))(v109);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v119, v150 + 60.0, v69 + v67);
+        cocos2d::CCPoint::operator=(a1 + 520, v110);
+        *(float *)(a1 + 580) = (float)((float)-(float)(atan2f(*(float *)(a1 + 524), *(float *)(a1 + 520)) * 57.29578)
+                                     * 100.0)
+                             / 100.0;
+        v111 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 512), 0xBu);
+        v112 = *(_QWORD *)v111;
+        cocos2d::CCNode::convertToWorldSpace(*(_QWORD *)(a1 + 408), &v119, a1 + 520);
+        cocos2d::CCNode::convertToNodeSpace(a1, v145, v113);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v112 + 184))(v111, v114);
+        v115 = qword_905FD0;
+        if ( !qword_905FD0 )
+        {
+          v144 = operator new(0x6E8u);
+          qword_905FD0 = sub_2723A0(v144);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+          v115 = qword_905FD0;
+        }
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v115 + 568) + 4360LL) + 160LL))(*(_QWORD *)(*(_QWORD *)(v115 + 568) + 4360LL));
+        v63 = qword_905FD0;
+        if ( !qword_905FD0 )
+          goto LABEL_97;
+        return (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(*(_QWORD *)(v63 + 568) + 4360LL) + 184LL))(
+                 *(_QWORD *)(*(_QWORD *)(v63 + 568) + 4360LL),
+                 v138);
+      }
+    }
+    v60 = v149;
+    goto LABEL_61;
+  }
+  if ( !a3 )
+    goto LABEL_58;
+LABEL_64:
+  cocos2d::CCPoint::operator=(a1 + 456, &v150);
+  cocos2d::CCPoint::operator=(a1 + 464, &v148);
+  v62 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v119 = operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v119);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v62 = qword_905FD0;
+  }
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v62 + 568) + 4360LL) + 160LL))(*(_QWORD *)(*(_QWORD *)(v62 + 568) + 4360LL));
+  v63 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+LABEL_97:
+    v119 = operator new(0x6E8u);
+    v116 = sub_2723A0(v119);
+    v117 = *(void (__fastcall **)(__int64))(*(_QWORD *)v116 + 72LL);
+    qword_905FD0 = v116;
+    v117(v116);
+    v63 = qword_905FD0;
+  }
+  return (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(*(_QWORD *)(v63 + 568) + 4360LL) + 184LL))(
+           *(_QWORD *)(*(_QWORD *)(v63 + 568) + 4360LL),
+           v138);
+}

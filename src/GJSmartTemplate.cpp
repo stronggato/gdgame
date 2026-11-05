@@ -1900,3 +1900,131 @@ void __fastcall GJSmartTemplate_encodeWithCoder(__int64 a1, DS_Dictionary *a2)
   DS_Dictionary::setIntegerForKey(a2, (const char *)&word_708030, *(unsigned __int8 *)(a1 + 131)); /*0x3b831e*/
   DS_Dictionary::setDictForKey(a2, (const char *)&word_708044, *(struct cocos2d::CCDictionary **)(a1 + 56)); /*0x3b833c*/
 }
+
+// Address: 0x3b6530
+// Method: GJSmartTemplate::keyFromNeighbors
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall GJSmartTemplate_keyFromNeighbors(
+        _QWORD *a1,
+        const struct cocos2d::CCPoint *a2,
+        _DWORD *a3,
+        _DWORD *a4,
+        _DWORD *a5,
+        _DWORD *a6,
+        _DWORD *a7,
+        _DWORD *a8,
+        _DWORD *a9,
+        _DWORD *a10,
+        _DWORD *a11)
+{
+  float v12; // xmm7_4
+  float v13; // xmm9_4
+  __int64 v14; // rcx
+  float v15; // xmm8_4
+  float v16; // xmm9_4
+  float v17; // xmm9_4
+  float v18; // xmm9_4
+  float v19; // xmm9_4
+  float v20; // xmm9_4
+  float v21; // xmm9_4
+  float *v22; // rax
+  _BYTE v25[8]; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v26[8]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v27[8]; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE v28[8]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v29[8]; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v30[8]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v31[8]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v32[8]; // [rsp+70h] [rbp-90h] BYREF
+  float v33; // [rsp+78h] [rbp-88h] BYREF
+  float v34; // [rsp+80h] [rbp-80h] BYREF
+  float v35; // [rsp+88h] [rbp-78h] BYREF
+  float v36; // [rsp+90h] [rbp-70h] BYREF
+  float v37; // [rsp+98h] [rbp-68h] BYREF
+  float v38; // [rsp+A0h] [rbp-60h] BYREF
+  float v39; // [rsp+A8h] [rbp-58h] BYREF
+  float v40; // [rsp+B0h] [rbp-50h] BYREF
+  _DWORD *v41; // [rsp+B8h] [rbp-48h]
+  const struct cocos2d::CCPoint *v42; // [rsp+C0h] [rbp-40h]
+  _DWORD *v43; // [rsp+C8h] [rbp-38h]
+  _QWORD *v44; // [rsp+D0h] [rbp-30h]
+  _BYTE v45[96]; // [rsp+D8h] [rbp-28h] BYREF
+
+  v41 = a4;
+  v43 = a3;
+  v42 = a2;
+  v44 = a1;
+  v12 = 30.0;
+  v13 = 30.0;
+  ObjectToolbox_sharedState();
+  v15 = ObjectToolbox_gridNodeSizeForKey(v14, 0);
+  if ( v15 == 15.0 )
+    v13 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v25, v13, -v13);
+  cocos2d::CCPoint::operator+(a2, &v33, v25);
+  v16 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v16 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v26, -v16, -v16);
+  cocos2d::CCPoint::operator+(a2, &v34, v26);
+  v17 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v17 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v27, v17, v17);
+  cocos2d::CCPoint::operator+(a2, &v35, v27);
+  v18 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v18 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v28, -v18, v18);
+  cocos2d::CCPoint::operator+(a2, &v36, v28);
+  v19 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v19 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v29, v19, 0.0);
+  cocos2d::CCPoint::operator+(a2, &v37, v29);
+  v20 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v20 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v30, -v20, 0.0);
+  cocos2d::CCPoint::operator+(a2, &v38, v30);
+  v21 = 30.0;
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v21 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v31, 0.0, -v21);
+  cocos2d::CCPoint::operator+(a2, &v39, v31);
+  ObjectToolbox_sharedState();
+  if ( v15 == 15.0 )
+    v12 = 15.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v32, 0.0, v12);
+  cocos2d::CCPoint::operator+(a2, &v40, v32);
+  GJSmartTemplate_smartObjectToType(a11, &v33);
+  GJSmartTemplate_smartObjectToType(a10, &v34);
+  GJSmartTemplate_smartObjectToType(a9, &v35);
+  GJSmartTemplate_smartObjectToType(a8, &v36);
+  GJSmartTemplate_smartObjectToType(a7, &v37);
+  GJSmartTemplate_smartObjectToType(a6, &v38);
+  GJSmartTemplate_smartObjectToType(a5, &v39);
+  GJSmartTemplate_smartObjectToType(v41, &v40);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v45, v42);
+  GJSmartTemplate_smartObjectToType(v43, v22);
+  *(_OWORD *)a1 = 0;
+  a1[2] = 0;
+  a1[3] = 15;
+  *(_BYTE *)a1 = 0;
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  sub_3CBD0(a1);
+  return a1;
+}

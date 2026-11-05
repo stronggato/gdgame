@@ -2986,3 +2986,696 @@ double __fastcall LevelBrowserLayer_onDeleteSelected(__int64 *a1)
   }
   return result; /*0x44db70*/
 }
+
+// Address: 0x3e07d0
+// Method: LevelBrowserLayer::loadPage
+// Hidden C++ exception states: #wind=20
+double __fastcall LevelBrowserLayer_loadPage(__int64 a1, unsigned int *a2)
+{
+  __int64 v4; // rcx
+  cocos2d::CCObject *v5; // rcx
+  __int64 Key; // rax
+  __int64 v7; // r15
+  __int64 v8; // r8
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
+  __int64 v13; // r13
+  unsigned int v14; // r14d
+  __int64 v15; // rax
+  __int64 v16; // rdi
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  const char *SearchKey; // rbx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  __int128 *v23; // rbx
+  __int64 v24; // rcx
+  __int64 v25; // rdi
+  __int128 *v26; // rbx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // r8
+  __int128 *v30; // r8
+  __int128 *v31; // r8
+  __int64 v32; // rcx
+  __int64 v33; // rcx
+  __int128 *v34; // rdx
+  __int64 v35; // r8
+  __int64 v36; // rax
+  void **v37; // rdx
+  __int128 *v38; // rdx
+  __int64 v39; // rax
+  void **v40; // rdx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rcx
+  __int64 v45; // r13
+  cocos2d::CCArray *v46; // rdi
+  __int64 v47; // rax
+  unsigned int *v48; // rbx
+  __int64 v49; // rax
+  struct cocos2d::CCObject **v50; // rbx
+  struct cocos2d::CCObject **v51; // r13
+  struct cocos2d::CCObject *v52; // rdx
+  __int64 v53; // rax
+  __int64 v54; // rcx
+  __int64 v55; // r13
+  __int64 v56; // rax
+  unsigned int *v57; // rbx
+  __int64 v58; // rax
+  struct cocos2d::CCObject **v59; // rbx
+  struct cocos2d::CCObject **v60; // r13
+  struct cocos2d::CCObject *v61; // rdx
+  __int64 v62; // rbx
+  __int64 v63; // rcx
+  __int64 v64; // rax
+  bool v65; // bl
+  __int64 v66; // rcx
+  __int64 v67; // rdx
+  cocos2d::CCArray *v68; // r13
+  __int64 v69; // rcx
+  int v70; // ebx
+  signed int v71; // r12d
+  int v72; // eax
+  unsigned int v73; // ebx
+  struct cocos2d::CCObject *v74; // rax
+  unsigned int v75; // ebx
+  __int64 v76; // rdx
+  cocos2d::CCString *v77; // rax
+  const char *CString; // rax
+  __int64 v79; // r8
+  __int128 *v80; // r8
+  __int128 *v81; // r8
+  __int64 v82; // rdx
+  __int64 v83; // rcx
+  __int64 v84; // rax
+  const struct cocos2d::CCPoint *v85; // rax
+  char *v86; // rdi
+  __int64 v87; // rbx
+  const struct cocos2d::CCPoint *v88; // rax
+  const struct cocos2d::CCPoint *v89; // rax
+  const struct cocos2d::CCPoint *v90; // rax
+  __int64 v91; // rax
+  void **v93; // [rsp+B0h] [rbp-80h] BYREF
+  void **v94; // [rsp+B8h] [rbp-78h] BYREF
+  int v95; // [rsp+C0h] [rbp-70h]
+  __int128 v96; // [rsp+C8h] [rbp-68h] BYREF
+  __int64 v97; // [rsp+D8h] [rbp-58h]
+  __int64 v98; // [rsp+E0h] [rbp-50h]
+  void *v99; // [rsp+E8h] [rbp-48h] BYREF
+  void *Src[2]; // [rsp+F0h] [rbp-40h] BYREF
+  size_t Size; // [rsp+100h] [rbp-30h]
+  unsigned __int64 v102; // [rsp+108h] [rbp-28h]
+  void *v103[2]; // [rsp+110h] [rbp-20h] BYREF
+  size_t v104; // [rsp+120h] [rbp-10h]
+  unsigned __int64 v105; // [rsp+128h] [rbp-8h]
+  char v106[32]; // [rsp+130h] [rbp+0h] BYREF
+  __int128 v107; // [rsp+150h] [rbp+20h] BYREF
+  __int64 v108; // [rsp+160h] [rbp+30h]
+  __int64 v109; // [rsp+168h] [rbp+38h]
+  __int128 v110; // [rsp+170h] [rbp+40h] BYREF
+  __int64 v111; // [rsp+180h] [rbp+50h]
+  unsigned __int64 v112; // [rsp+188h] [rbp+58h]
+
+  v4 = *(_QWORD *)(a1 + 664);
+  if ( (unsigned int *)v4 != a2 )
+  {
+    if ( a2 )
+      cocos2d::CCObject::retain((cocos2d::CCObject *)a2);
+    v5 = *(cocos2d::CCObject **)(a1 + 664);
+    if ( v5 )
+      cocos2d::CCObject::release(v5);
+    *(_QWORD *)(a1 + 664) = a2;
+    v4 = (__int64)a2;
+  }
+  Key = GJSearchObject_getKey(v4);
+  v110 = 0;
+  v111 = 0;
+  v112 = 0;
+  v7 = -1;
+  v8 = -1;
+  do
+    ++v8;
+  while ( *(_BYTE *)(Key + v8) );
+  sub_3C230(&v110);
+  LOBYTE(v9) = 1;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 736) + 336LL))(*(_QWORD *)(a1 + 736), v9);
+  v11 = *(_QWORD *)(a1 + 648);
+  if ( v11 )
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v11 + 336LL))(v11, 0);
+  v12 = *(_QWORD *)(a1 + 640);
+  if ( v12 )
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v12 + 336LL))(v12, 0);
+  if ( !*(_BYTE *)(a1 + 764) )
+  {
+    if ( *(int *)(*(_QWORD *)(a1 + 664) + 424LL) <= 0 )
+      v10 = 0;
+    else
+      LOBYTE(v10) = 1;
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 624) + 336LL))(*(_QWORD *)(a1 + 624), v10);
+  }
+  v13 = *(_QWORD *)(a1 + 664);
+  v14 = *(_DWORD *)(v13 + 320);
+  switch ( v14 )
+  {
+    case 'c':
+      v42 = *(_QWORD *)&qword_905FB0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v93 = (void **)operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v42 = *(_QWORD *)&qword_905FB0;
+      }
+      v10 = 0;
+      goto LABEL_121;
+    case 'b':
+      v95 = *(_DWORD *)(v13 + 452);
+      v53 = sub_466AC0(v12, v10);
+      v55 = v53;
+      if ( v95 <= 0 )
+      {
+        v46 = *(cocos2d::CCArray **)(v53 + 368);
+        goto LABEL_123;
+      }
+      v46 = (cocos2d::CCArray *)cocos2d::CCArray::create(v54);
+      v56 = *(_QWORD *)(v55 + 368);
+      if ( !v56 )
+        goto LABEL_123;
+      v57 = *(unsigned int **)(v56 + 56);
+      v58 = *v57;
+      if ( !(_DWORD)v58 )
+        goto LABEL_123;
+      v59 = (struct cocos2d::CCObject **)*((_QWORD *)v57 + 2);
+      v60 = &v59[v58 - 1];
+      if ( v59 > v60 )
+        goto LABEL_123;
+      while ( 1 )
+      {
+        v61 = *v59;
+        if ( !*v59 )
+          break;
+        if ( *((_DWORD *)v61 + 247) == v95 )
+          cocos2d::CCArray::addObject(v46, v61);
+        if ( ++v59 > v60 )
+        {
+          v7 = -1;
+          goto LABEL_123;
+        }
+      }
+LABEL_100:
+      v7 = -1;
+      goto LABEL_123;
+    case 'f':
+      v95 = *(_DWORD *)(v13 + 452);
+      v43 = sub_466AC0(v12, v10);
+      v45 = v43;
+      if ( v95 <= 0 )
+      {
+        v46 = *(cocos2d::CCArray **)(v43 + 376);
+        goto LABEL_123;
+      }
+      v46 = (cocos2d::CCArray *)cocos2d::CCArray::create(v44);
+      v47 = *(_QWORD *)(v45 + 376);
+      if ( !v47 )
+        goto LABEL_123;
+      v48 = *(unsigned int **)(v47 + 56);
+      v49 = *v48;
+      if ( !(_DWORD)v49 )
+        goto LABEL_123;
+      v50 = (struct cocos2d::CCObject **)*((_QWORD *)v48 + 2);
+      v51 = &v50[v49 - 1];
+      if ( v50 > v51 )
+        goto LABEL_123;
+      do
+      {
+        v52 = *v50;
+        if ( !*v50 )
+          break;
+        if ( *((_DWORD *)v52 + 92) == v95 )
+          cocos2d::CCArray::addObject(v46, v52);
+        ++v50;
+      }
+      while ( v50 <= v51 );
+      goto LABEL_100;
+  }
+  if ( v14 != 100 )
+  {
+    if ( v14 == 101 )
+    {
+      v62 = *(_QWORD *)&qword_905FB0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v93 = (void **)operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v62 = *(_QWORD *)&qword_905FB0;
+      }
+      v46 = (cocos2d::CCArray *)cocos2d::CCArray::create(v12);
+      cocos2d::CCArray::addObjectsFromArray(v46, *(struct cocos2d::CCArray **)(v62 + 1656));
+      goto LABEL_123;
+    }
+    if ( v14 != 103 )
+    {
+      if ( !*(_BYTE *)(a1 + 764) )
+      {
+        v93 = (void **)&v107;
+        v94 = (void **)&v96;
+        sub_3E4F0(&v107, v13 + 392);
+        v16 = v15;
+        sub_3E4F0(&v96, v13 + 360);
+        v18 = v17;
+        sub_3E4F0(v106, v13 + 328);
+        SearchKey = GJSearchObject_getSearchKey(
+                      *(_DWORD *)(v13 + 320),
+                      v19,
+                      v18,
+                      v16,
+                      *(_DWORD *)(v13 + 424) + 1,
+                      *(_BYTE *)(v13 + 428),
+                      *(_BYTE *)(v13 + 436),
+                      *(_BYTE *)(v13 + 438),
+                      *(_DWORD *)(v13 + 456),
+                      *(_BYTE *)(v13 + 439),
+                      *(_BYTE *)(v13 + 440),
+                      *(_BYTE *)(v13 + 460),
+                      *(_BYTE *)(v13 + 461),
+                      *(_BYTE *)(v13 + 429),
+                      *(_BYTE *)(v13 + 441),
+                      *(_BYTE *)(v13 + 442),
+                      *(_BYTE *)(v13 + 443),
+                      *(_BYTE *)(v13 + 444),
+                      *(_BYTE *)(v13 + 437),
+                      *(_DWORD *)(v13 + 448),
+                      *(_DWORD *)(v13 + 452),
+                      *(_DWORD *)(v13 + 464));
+        v21 = *(_QWORD *)&qword_905FB0;
+        if ( !*(_QWORD *)&qword_905FB0 )
+        {
+          v93 = (void **)operator new(0x690u);
+          *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+          (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+          v21 = *(_QWORD *)&qword_905FB0;
+        }
+        if ( sub_21E690(v21, SearchKey) )
+          LOBYTE(v22) = 1;
+        else
+          v22 = 0;
+        (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 616) + 336LL))(*(_QWORD *)(a1 + 616), v22);
+      }
+      v23 = &v110;
+      if ( v112 > 0xF )
+        v23 = (__int128 *)v110;
+      v24 = *(_QWORD *)&qword_905FB0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v93 = (void **)operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v24 = *(_QWORD *)&qword_905FB0;
+      }
+      v25 = sub_21E690(v24, v23);
+      if ( v25 )
+      {
+        v26 = &v110;
+        if ( v112 > 0xF )
+          v26 = (__int128 *)v110;
+        v27 = *(_QWORD *)&qword_905FB0;
+        if ( !*(_QWORD *)&qword_905FB0 )
+        {
+          v93 = (void **)operator new(0x690u);
+          *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+          (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+          v27 = *(_QWORD *)&qword_905FB0;
+        }
+        v28 = sub_21E790(v27, v26);
+        v107 = 0;
+        v108 = 0;
+        v109 = 0;
+        v29 = -1;
+        do
+          ++v29;
+        while ( *(_BYTE *)(v28 + v29) );
+        sub_3C230(&v107);
+        v30 = &v110;
+        if ( v112 > 0xF )
+          v30 = (__int128 *)v110;
+        (*(void (__fastcall **)(__int64, __int128 *, __int128 *))(*(_QWORD *)(a1 + 544) + 32LL))(a1 + 544, &v107, v30);
+        v31 = &v110;
+        if ( v112 > 0xF )
+          v31 = (__int128 *)v110;
+        (**(void (__fastcall ***)(__int64, __int64, __int128 *, _QWORD))(a1 + 544))(a1 + 544, v25, v31, v14);
+      }
+      else
+      {
+        if ( !*(_BYTE *)(a1 + 792) )
+          sub_3E1980(a1, 0);
+        v32 = *(_QWORD *)&qword_905FB0;
+        if ( !*(_QWORD *)&qword_905FB0 )
+        {
+          v93 = (void **)operator new(0x690u);
+          *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+          (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+          v32 = *(_QWORD *)&qword_905FB0;
+        }
+        *(_QWORD *)(v32 + 1352) = a1 + 544;
+        if ( v14 == 14 )
+        {
+          GameLevelManager_getUsers(v32, (__int64)a2);
+        }
+        else if ( v14 == 9 )
+        {
+          GameLevelManager_getMapPacks(v32, (__int64)a2);
+        }
+        else if ( *(_DWORD *)(*(_QWORD *)(a1 + 664) + 464LL) == 1 )
+        {
+          sub_22A840(v32, a2);
+        }
+        else
+        {
+          sub_2278C0(v32, a2);
+        }
+        v33 = *(_QWORD *)(a1 + 672);
+        if ( v33 )
+          (**(void (__fastcall ***)(__int64, const char *))(v33 + 360))(v33 + 360, " ");
+      }
+      goto LABEL_60;
+    }
+    v63 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v93 = (void **)operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v63 = *(_QWORD *)&qword_905FB0;
+    }
+    v64 = sub_21BFE0(v63, a2[113]);
+    goto LABEL_122;
+  }
+  v42 = *(_QWORD *)&qword_905FB0;
+  if ( !*(_QWORD *)&qword_905FB0 )
+  {
+    v93 = (void **)operator new(0x690u);
+    *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+    v42 = *(_QWORD *)&qword_905FB0;
+  }
+  LOBYTE(v10) = 1;
+LABEL_121:
+  v64 = sub_21BE00(v42, v10, a2[113]);
+LABEL_122:
+  v46 = (cocos2d::CCArray *)v64;
+LABEL_123:
+  sub_3E4F0(&v107, *(_QWORD *)(a1 + 664) + 328LL);
+  v65 = v108 != 0;
+  sub_3C310(&v107);
+  if ( v65 )
+  {
+    sub_3E4F0(&v107, a2 + 82);
+    v46 = (cocos2d::CCArray *)sub_3E5700(a1, v46, &v107);
+    v66 = *(_QWORD *)(a1 + 640);
+    if ( v66 )
+    {
+      LOBYTE(v67) = 1;
+      (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v66 + 336LL))(v66, v67);
+    }
+  }
+  v68 = (cocos2d::CCArray *)cocos2d::CCArray::create(v66);
+  v93 = (void **)v68;
+  LODWORD(v99) = *(_DWORD *)(*(_QWORD *)(a1 + 664) + 424LL);
+  v69 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v94 = (void **)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v94);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v69 = qword_905FD0;
+  }
+  v70 = 10;
+  if ( GameManager_getGameVariable(v69, "0093") )
+    v70 = 20;
+  v95 = v70;
+  LODWORD(v94) = cocos2d::CCArray::count(v46);
+  v71 = (_DWORD)v99 * v70;
+  v72 = cocos2d::CCArray::count(v46);
+  *(_DWORD *)(a1 + 744) = (int)(float)(ceilf((float)v72 / (float)v70) - 1.0);
+  if ( v46 && cocos2d::CCArray::count(v46) )
+  {
+    v73 = v71;
+    if ( v71 < v71 + v95 )
+    {
+      do
+      {
+        if ( v73 > cocos2d::CCArray::count(v46) - 1 )
+          break;
+        v74 = cocos2d::CCArray::objectAtIndex(v46, v73);
+        cocos2d::CCArray::addObject((cocos2d::CCArray *)v93, v74);
+        ++v73;
+      }
+      while ( (int)v73 < v71 + v95 );
+      v7 = -1;
+    }
+    v68 = (cocos2d::CCArray *)v93;
+  }
+  if ( !*(_BYTE *)(a1 + 764) )
+  {
+    v75 = cocos2d::CCArray::count(v68) + v71;
+    if ( v75 >= cocos2d::CCArray::count(v46) )
+      v76 = 0;
+    else
+      LOBYTE(v76) = 1;
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 616) + 336LL))(*(_QWORD *)(a1 + 616), v76);
+  }
+  if ( !*(_QWORD *)&qword_905FB0 )
+  {
+    v93 = (void **)operator new(0x690u);
+    *(_QWORD *)&qword_905FB0 = sub_214250(v93);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+  }
+  v77 = cocos2d::CCString::createWithFormat(
+          "%i%s%i%s%i",
+          (_DWORD)v94,
+          (const char *)&word_7222A8,
+          v71,
+          (const char *)&word_7222A8,
+          v95);
+  CString = cocos2d::CCString::getCString(v77);
+  v107 = 0;
+  v108 = 0;
+  v109 = 0;
+  v79 = -1;
+  do
+    ++v79;
+  while ( CString[v79] );
+  sub_3C230(&v107);
+  v80 = &v110;
+  if ( v112 > 0xF )
+    v80 = (__int128 *)v110;
+  (*(void (__fastcall **)(__int64, __int128 *, __int128 *))(*(_QWORD *)(a1 + 544) + 32LL))(a1 + 544, &v107, v80);
+  v81 = &v110;
+  if ( v112 > 0xF )
+    v81 = (__int128 *)v110;
+  (**(void (__fastcall ***)(__int64, cocos2d::CCArray *, __int128 *, _QWORD))(a1 + 544))(a1 + 544, v68, v81, v14);
+  v83 = *(_QWORD *)(a1 + 672);
+  if ( *(_DWORD *)(a1 + 720) )
+  {
+    if ( v83 )
+    {
+      LOBYTE(v82) = 1;
+      (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v83 + 336LL))(v83, v82);
+    }
+  }
+  else
+  {
+    if ( v83 )
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v83 + 336LL))(v83, 0);
+    v84 = cocos2d::CCDirector::sharedDirector(v83);
+    cocos2d::CCDirector::getWinSize(v84, &v94);
+    if ( v14 == 99 )
+    {
+      v93 = (void **)&v107;
+      v107 = 0;
+      v108 = 1;
+      v109 = 15;
+      LOWORD(v107) = (unsigned __int8)asc_6E86E4[0];
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, 0.5, 1.0);
+      v86 = TextArea_create((__int64)&v107, &qword_6FFF68, 1.0, 600.0, v85, 1101004800, 0, 0);
+      *((_DWORD *)v86 + 166) = 1109393408;
+      v96 = 0;
+      v97 = 0;
+      v98 = 0;
+      *(_QWORD *)&v96 = sub_3C460(64);
+      v97 = 55;
+      v98 = 63;
+      strcpy((char *)v96, "You have not <cg>downloaded</c> any <cl>levels</c> yet!");
+      TextArea_setString((__int64 *)v86, (const void **)&v96);
+      v87 = *(_QWORD *)v86;
+    }
+    else if ( v14 == 103 )
+    {
+      v93 = (void **)&v107;
+      v107 = 0;
+      v108 = 1;
+      v109 = 15;
+      LOWORD(v107) = (unsigned __int8)asc_6E86E4[0];
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, 0.5, 1.0);
+      v86 = TextArea_create((__int64)&v107, &qword_6FFF68, 1.0, 600.0, v88, 1101004800, 0, 0);
+      *((_DWORD *)v86 + 166) = 1109393408;
+      v96 = 0;
+      v97 = 0;
+      v98 = 0;
+      *(_QWORD *)&v96 = sub_3C460(64);
+      v97 = 53;
+      v98 = 63;
+      strcpy((char *)v96, "You have not <cg>favorited</c>\nany <cl>lists</c> yet!");
+      TextArea_setString((__int64 *)v86, (const void **)&v96);
+      v87 = *(_QWORD *)v86;
+    }
+    else if ( v14 == 100 )
+    {
+      v93 = (void **)&v107;
+      v107 = 0;
+      v108 = 1;
+      v109 = 15;
+      LOWORD(v107) = (unsigned __int8)asc_6E86E4[0];
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, 0.5, 1.0);
+      v86 = TextArea_create((__int64)&v107, &qword_6FFF68, 1.0, 600.0, v89, 1101004800, 0, 0);
+      *((_DWORD *)v86 + 166) = 1109393408;
+      v96 = 0;
+      v97 = 0;
+      v98 = 0;
+      *(_QWORD *)&v96 = sub_3C460(64);
+      v97 = 52;
+      v98 = 63;
+      strcpy((char *)v96, "Levels marked as <cg>Favorite</c> will show up here!");
+      TextArea_setString((__int64 *)v86, (const void **)&v96);
+      v87 = *(_QWORD *)v86;
+    }
+    else
+    {
+      if ( v14 == 98 )
+      {
+        v93 = (void **)&v96;
+        v96 = 0;
+        v97 = 0;
+        v98 = 0;
+        *(_QWORD *)&v96 = sub_3C460(48);
+        v97 = 42;
+        v98 = 47;
+        strcpy((char *)v96, "Tap <cg>New</c> to create a <cl>level</c>!");
+      }
+      else
+      {
+        v93 = (void **)&v96;
+        v96 = 0;
+        v97 = 0;
+        v98 = 0;
+        *(_QWORD *)&v96 = sub_3C460(48);
+        if ( v14 == 102 )
+        {
+          v97 = 41;
+          v98 = 47;
+          strcpy((char *)v96, "Tap <cg>New</c> to create a <cl>list</c>!");
+        }
+        else
+        {
+          v97 = 45;
+          v98 = 47;
+          strcpy((char *)v96, "Tap <cg>New</c> to create a <cl>Template</c>!");
+        }
+      }
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, 0.5, 1.0);
+      v86 = TextArea_create((__int64)&v96, &qword_6FFF68, 1.0, 600.0, v90, 1101004800, 0, 0);
+      v87 = *(_QWORD *)v86;
+    }
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)&v93,
+      *(float *)&v94 * 0.5,
+      (float)(*((float *)&v94 + 1) * 0.5) + 10.0);
+    (*(void (__fastcall **)(char *, __int64))(v87 + 184))(v86, v91);
+    (*(void (__fastcall **)(char *))(*(_QWORD *)v86 + 160LL))(v86);
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 464LL))(a1, v86);
+  }
+LABEL_60:
+  if ( !*(_BYTE *)(a1 + 748) )
+  {
+    v93 = Src;
+    v34 = &v110;
+    if ( v112 > 0xF )
+      v34 = (__int128 *)v110;
+    *(_OWORD *)Src = 0;
+    Size = 0;
+    v102 = 0;
+    v35 = -1;
+    do
+      ++v35;
+    while ( *((_BYTE *)v34 + v35) );
+    sub_3C230(Src);
+    v94 = Src;
+    v36 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v99 = operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v99);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v36 = *(_QWORD *)&qword_905FB0;
+    }
+    if ( (void **)(v36 + 1272) != Src )
+    {
+      v37 = Src;
+      if ( v102 > 0xF )
+        v37 = (void **)Src[0];
+      sub_3F5A0((void *)(v36 + 1272), v37, Size);
+    }
+    sub_3C310(Src);
+  }
+  if ( *(_DWORD *)(*(_QWORD *)(a1 + 664) + 320LL) == 9 )
+  {
+    v93 = v103;
+    v38 = &v110;
+    if ( v112 > 0xF )
+      v38 = (__int128 *)v110;
+    *(_OWORD *)v103 = 0;
+    v104 = 0;
+    v105 = 0;
+    do
+      ++v7;
+    while ( *((_BYTE *)v38 + v7) );
+    sub_3C230(v103);
+    v94 = v103;
+    v39 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v99 = operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v99);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v39 = *(_QWORD *)&qword_905FB0;
+    }
+    if ( (void **)(v39 + 1304) != v103 )
+    {
+      v40 = v103;
+      if ( v105 > 0xF )
+        v40 = (void **)v103[0];
+      sub_3F5A0((void *)(v39 + 1304), v40, v104);
+    }
+    sub_3C310(v103);
+  }
+  if ( !*(_BYTE *)(a1 + 764) )
+  {
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 616) + 344LL))(*(_QWORD *)(a1 + 616))
+      || (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 624) + 344LL))(*(_QWORD *)(a1 + 624)) )
+    {
+      LOBYTE(v41) = 1;
+    }
+    else
+    {
+      v41 = 0;
+    }
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 688) + 336LL))(*(_QWORD *)(a1 + 688), v41);
+  }
+  return sub_3C310(&v110);
+}

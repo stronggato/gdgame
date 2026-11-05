@@ -765,3 +765,985 @@ __int64 __fastcall GauntletNode_frameForType(__int64 a1, int a2)
   }
   return result; /*0x2ff664*/
 }
+
+// Address: 0x2fd940
+// Method: GauntletNode::generateNode
+// Hidden C++ exception states: #wind=7
+double __fastcall GauntletNode_generateNode(_QWORD *a1)
+{
+  __int64 v2; // rbx
+  int v3; // ebx
+  float v4; // xmm7_4
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  float v10; // xmm6_4
+  char v11; // dl
+  __int16 v12; // cx
+  __int64 v13; // rax
+  _QWORD *v14; // rdi
+  void (__fastcall ***v15)(_QWORD, _QWORD); // r13
+  __int64 v16; // rdx
+  __int64 v17; // rbx
+  __int64 v18; // rax
+  __int64 v19; // r12
+  const char *v20; // rcx
+  struct cocos2d::CCLabelBMFont *v21; // rsi
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  struct cocos2d::CCLabelBMFont *v24; // r14
+  __int64 v25; // rax
+  __int64 v26; // rbx
+  __int64 v27; // rax
+  const char *v28; // rcx
+  struct cocos2d::CCLabelBMFont *v29; // rdi
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  struct cocos2d::CCLabelBMFont *v32; // rsi
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rdx
+  const char *v37; // rcx
+  struct cocos2d::CCSprite *v38; // r14
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  const char *v41; // rcx
+  struct cocos2d::CCSprite *v42; // rdi
+  __int64 v43; // rax
+  __int64 v44; // rbx
+  __int64 v45; // rax
+  __int64 v46; // rdx
+  int v47; // eax
+  cocos2d::CCString *v48; // rax
+  const char *CString; // rax
+  signed int v50; // r13d
+  const char *v51; // rcx
+  struct cocos2d::CCLabelBMFont *v52; // rsi
+  __int64 v53; // rax
+  __int64 v54; // rbx
+  __int64 v55; // rax
+  const char *v56; // rcx
+  struct cocos2d::CCLabelBMFont *v57; // rdi
+  __int64 v58; // rbx
+  __int64 v59; // rdx
+  __int64 v60; // rax
+  __int64 v61; // rbx
+  cocos2d::CCArray *v62; // rcx
+  signed int v63; // edi
+  cocos2d::CCArray *v64; // rcx
+  struct cocos2d::CCSprite *v65; // rdi
+  __int64 v66; // rbx
+  __int64 v67; // rax
+  struct cocos2d::CCSprite *v68; // rbx
+  __int64 v69; // rax
+  __int64 v70; // rdx
+  __int64 v71; // rcx
+  _QWORD *v72; // rax
+  _QWORD *v73; // rbx
+  __int64 v74; // rcx
+  __int64 v75; // rdx
+  struct cocos2d::CCLabelBMFont *v76; // r14
+  __int64 v77; // rbx
+  __int64 v78; // rax
+  struct cocos2d::CCLabelBMFont *v79; // rdi
+  __int64 v80; // rbx
+  __int64 v81; // rax
+  __int64 v82; // rdx
+  cocos2d::CCSprite *v83; // rsi
+  __int64 v84; // rbx
+  __int64 v85; // rax
+  __int64 v86; // rax
+  cocos2d::CCSprite *v87; // rdi
+  __int64 v88; // rbx
+  __int64 v89; // rax
+  cocos2d::CCArray *v90; // rax
+  struct cocos2d::CCObject *v91; // rax
+  cocos2d::CCArray *v92; // rax
+  struct cocos2d::CCObject *v93; // rax
+  __int64 v94; // rdx
+  struct cocos2d::CCLabelBMFont *v95; // rdi
+  __int64 v96; // rbx
+  __int64 v97; // rax
+  struct cocos2d::CCLabelBMFont *v98; // rbx
+  __int64 v99; // rax
+  __int64 v100; // rdx
+  cocos2d::CCSprite *v101; // rsi
+  __int64 v102; // rbx
+  __int64 v103; // rax
+  __int64 v104; // rax
+  cocos2d::CCSprite *v105; // rdi
+  __int64 v106; // rbx
+  __int64 v107; // rax
+  cocos2d::CCArray *v108; // rax
+  struct cocos2d::CCObject *v109; // rax
+  cocos2d::CCArray *v110; // rax
+  struct cocos2d::CCObject *v111; // rax
+  __int64 v112; // rdx
+  struct cocos2d::CCSprite *v113; // rdi
+  __int64 v114; // rbx
+  __int64 v115; // rax
+  struct cocos2d::CCSprite *v116; // rdi
+  __int64 v117; // rbx
+  __int64 v118; // rax
+  struct cocos2d::CCSprite *v119; // rsi
+  __int64 v120; // rax
+  __int64 v121; // rbx
+  __int64 v122; // rax
+  struct cocos2d::CCLabelBMFont *v123; // rdi
+  __int64 v124; // rax
+  __int64 v125; // rbx
+  __int64 v126; // rax
+  double result; // xmm0_8
+  __int16 v128; // [rsp+30h] [rbp-D0h] BYREF
+  char v129; // [rsp+32h] [rbp-CEh]
+  _WORD v130[4]; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned int v131; // [rsp+3Ch] [rbp-C4h] BYREF
+  _BYTE v132[8]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE *v133; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE v134[8]; // [rsp+50h] [rbp-B0h] BYREF
+  void (__fastcall ***v135)(void *, __int16 *); // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v136[8]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v137[32]; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v138; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v139; // [rsp+98h] [rbp-68h]
+  unsigned __int64 v140; // [rsp+A0h] [rbp-60h]
+  _QWORD v141[3]; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned __int64 v142; // [rsp+C0h] [rbp-40h]
+  _QWORD v143[3]; // [rsp+C8h] [rbp-38h] BYREF
+  unsigned __int64 v144; // [rsp+E0h] [rbp-20h]
+  _BYTE v145[32]; // [rsp+E8h] [rbp-18h] BYREF
+
+  (*(void (__fastcall **)(_QWORD *, _QWORD))(*a1 + 576LL))(a1, 0);
+  v2 = a1[43];
+  if ( v2 )
+  {
+    v3 = *(_DWORD *)(v2 + 328);
+    v131 = v3;
+    SetGroupIDLayer_onArrow((__int64)v143, v3);
+    GauntletNode_frameForType((__int64)v141, v3);
+    v130[0] = -1;
+    LOBYTE(v130[1]) = -1;
+    v130[2] = -1;
+    LOBYTE(v130[3]) = -1;
+    v4 = 0.69999999;
+    v6 = cocos2d::CCNode::create(0xFFFF, v5);
+    a1[40] = v6;
+    (*(void (__fastcall **)(__int64, void *))(*(_QWORD *)v6 + 312LL))(v6, &unk_904A28);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64))(*a1 + 456LL))(a1, a1[40], 1);
+    v9 = cocos2d::CCNode::create(v8, v7);
+    a1[41] = v9;
+    (*(void (__fastcall **)(__int64, void *))(*(_QWORD *)v9 + 312LL))(v9, &unk_904A28);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64))(*a1 + 456LL))(a1, a1[41], 2);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)a1[41] + 336LL))(a1[41], 0);
+    v10 = 0.0;
+    switch ( v3 )
+    {
+      case 1:
+        v11 = 0;
+        v12 = 25855;
+        v130[0] = 25855;
+        LOBYTE(v130[1]) = 0;
+        v128 = -14081;
+        v130[2] = -14081;
+        LOBYTE(v130[3]) = 0;
+        break;
+      case 2:
+        v11 = -1;
+        v12 = 32000;
+        v130[0] = 32000;
+        LOBYTE(v130[1]) = -1;
+        v128 = -106;
+        v130[2] = -106;
+        LOBYTE(v130[3]) = -1;
+        break;
+      case 3:
+        v11 = 0;
+        v12 = -20736;
+        v130[0] = -20736;
+        LOBYTE(v130[1]) = 0;
+        v128 = -156;
+        v130[2] = -156;
+        LOBYTE(v130[3]) = 50;
+        v4 = 0.62;
+        break;
+      case 4:
+        v11 = -56;
+        v12 = 100;
+        strcpy((char *)v130, "d");
+        LOBYTE(v130[1]) = -56;
+        v128 = 13020;
+        v130[2] = 13020;
+        LOBYTE(v130[3]) = -1;
+        v4 = 0.62;
+        break;
+      case 5:
+        v11 = 0;
+        v12 = 200;
+        v130[0] = 200;
+        LOBYTE(v130[1]) = 0;
+        v128 = 23295;
+        v130[2] = 23295;
+        LOBYTE(v130[3]) = 0;
+        break;
+      case 6:
+        v128 = 25675;
+        v11 = -1;
+        v12 = 25675;
+        v130[0] = 25675;
+        LOBYTE(v130[1]) = -1;
+        break;
+      case 7:
+        v128 = 25700;
+        v11 = 100;
+        goto LABEL_10;
+      case 8:
+      case 15:
+        v128 = 12850;
+        v11 = 50;
+        goto LABEL_10;
+      case 9:
+        v11 = -1;
+        v12 = 25600;
+        v130[0] = 25600;
+        LOBYTE(v130[1]) = -1;
+        v128 = -256;
+        v130[2] = -256;
+        LOBYTE(v130[3]) = -1;
+        break;
+      case 10:
+        v11 = -106;
+        v12 = 13055;
+        v130[0] = 13055;
+        LOBYTE(v130[1]) = -106;
+        v128 = -14081;
+        v130[2] = -14081;
+        LOBYTE(v130[3]) = -1;
+        v4 = 0.60000002;
+        break;
+      case 11:
+        v128 = 12800;
+        v11 = 125;
+        goto LABEL_15;
+      case 12:
+        v11 = 0;
+        v12 = 25750;
+        v130[0] = 25750;
+        LOBYTE(v130[1]) = 0;
+        v128 = -14081;
+        v130[2] = -14081;
+        LOBYTE(v130[3]) = 50;
+        break;
+      case 13:
+        v11 = 0;
+        v12 = 19200;
+        v130[0] = 19200;
+        LOBYTE(v130[1]) = 0;
+        v128 = -206;
+        v130[2] = -206;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.55000001;
+        break;
+      case 14:
+        v128 = 19300;
+        v11 = 50;
+LABEL_10:
+        v12 = v128;
+        v130[0] = v128;
+        LOBYTE(v130[1]) = v11;
+        v128 = 6655;
+        v130[2] = 6655;
+        LOBYTE(v130[3]) = 25;
+        break;
+      case 16:
+        v11 = 0;
+        v12 = 25600;
+        v130[0] = 25600;
+        LOBYTE(v130[1]) = 0;
+        v128 = -206;
+        v130[2] = -206;
+        LOBYTE(v130[3]) = 0;
+        v10 = 2.0;
+        break;
+      case 17:
+        v11 = 0;
+        v12 = 25750;
+        v130[0] = 25750;
+        LOBYTE(v130[1]) = 0;
+        v128 = -14081;
+        v130[2] = -14081;
+        LOBYTE(v130[3]) = 50;
+        v10 = 1.0;
+        break;
+      case 18:
+        v11 = -71;
+        v12 = 95;
+        strcpy((char *)v130, "_");
+        LOBYTE(v130[1]) = -71;
+        v128 = 32255;
+        v130[2] = 32255;
+        LOBYTE(v130[3]) = -1;
+        break;
+      case 19:
+        v11 = 75;
+        v12 = 19200;
+        v130[0] = 19200;
+        LOBYTE(v130[1]) = 75;
+        v128 = -14336;
+        v130[2] = -14336;
+        LOBYTE(v130[3]) = -56;
+        v10 = -2.0;
+        break;
+      case 20:
+        v11 = 0;
+        v12 = 110;
+        strcpy((char *)v130, "n");
+        LOBYTE(v130[1]) = 0;
+        v128 = 19455;
+        v130[2] = 19455;
+        LOBYTE(v130[3]) = 0;
+        v10 = 3.0;
+        break;
+      case 21:
+        v11 = -1;
+        v12 = 32050;
+        v130[0] = 32050;
+        LOBYTE(v130[1]) = -1;
+        v128 = -156;
+        v130[2] = -156;
+        LOBYTE(v130[3]) = -1;
+        v10 = 3.0;
+        break;
+      case 22:
+        v11 = 48;
+        v12 = 11300;
+        qmemcpy(v130, "$,0", 3);
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = 110;
+        v4 = 0.55000001;
+        break;
+      case 23:
+        v11 = 80;
+        v12 = 23130;
+        qmemcpy(v130, "ZZP", 3);
+        v128 = -96;
+        v130[2] = -96;
+        LOBYTE(v130[3]) = 13;
+        break;
+      case 24:
+        v11 = 61;
+        v12 = 15907;
+        qmemcpy(v130, "#>=", 3);
+        v128 = -2929;
+        v130[2] = -2929;
+        LOBYTE(v130[3]) = -1;
+        break;
+      case 25:
+        v11 = 40;
+        v12 = 11325;
+        qmemcpy(v130, "=,(", 3);
+        v128 = -6401;
+        v130[2] = -6401;
+        LOBYTE(v130[3]) = -86;
+        v10 = 2.0;
+        break;
+      case 26:
+        v11 = 60;
+        v12 = 9050;
+        qmemcpy(v130, "Z#<", 3);
+        v128 = -26881;
+        v130[2] = -26881;
+        LOBYTE(v130[3]) = -1;
+        break;
+      case 27:
+        v11 = 104;
+        v12 = 10293;
+        qmemcpy(v130, "5(h", 3);
+        v128 = -19201;
+        v130[2] = -19201;
+        LOBYTE(v130[3]) = 114;
+        break;
+      case 28:
+        v128 = 6483;
+        v11 = 96;
+        goto LABEL_33;
+      case 29:
+        v11 = 0;
+        v12 = 7751;
+        v130[0] = 7751;
+        LOBYTE(v130[1]) = 0;
+        v128 = -32001;
+        v130[2] = -32001;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.47999999;
+        v10 = 3.0;
+        break;
+      case 30:
+        v11 = 45;
+        v12 = 14125;
+        qmemcpy(v130, "-7-", 3);
+        v128 = -8961;
+        v130[2] = -8961;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.55000001;
+        v10 = 3.0;
+        break;
+      case 31:
+        v11 = 80;
+        v12 = 12800;
+        v128 = -1;
+        goto LABEL_16;
+      case 32:
+        v11 = 63;
+        v12 = 9522;
+        v128 = 24746;
+        goto LABEL_16;
+      case 33:
+        v11 = 125;
+        v12 = 17920;
+        v130[0] = 17920;
+        LOBYTE(v130[1]) = 125;
+        v128 = -6631;
+        v130[2] = -6631;
+        LOBYTE(v130[3]) = -1;
+        v10 = 2.0;
+        break;
+      case 34:
+        v11 = 76;
+        v12 = 76;
+        strcpy((char *)v130, "L");
+        LOBYTE(v130[1]) = 76;
+        v128 = -29441;
+        v130[2] = -29441;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.60000002;
+        v10 = 6.0;
+        break;
+      case 35:
+        v11 = 105;
+        v12 = 7218;
+        v130[0] = 7218;
+        LOBYTE(v130[1]) = 105;
+        v128 = -256;
+        v130[2] = -256;
+        LOBYTE(v130[3]) = -1;
+        v10 = 5.0;
+        break;
+      case 36:
+        v11 = -106;
+        v12 = 94;
+        strcpy((char *)v130, "^");
+        LOBYTE(v130[1]) = -106;
+        v128 = -132;
+        v130[2] = -132;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.55000001;
+        v10 = -4.0;
+        break;
+      case 37:
+        v12 = 25660;
+        v128 = -39;
+        goto LABEL_44;
+      case 38:
+        v11 = -1;
+        v12 = -28416;
+        v130[0] = -28416;
+        LOBYTE(v130[1]) = -1;
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = -1;
+        v4 = 0.5;
+        break;
+      case 39:
+        v11 = 0;
+        v12 = 14197;
+        strcpy((char *)v130, "u7");
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = -1;
+        v4 = 0.55000001;
+        break;
+      case 40:
+        v12 = 12825;
+        v128 = -1;
+LABEL_44:
+        v11 = 0;
+        LOBYTE(v130[1]) = 0;
+        v130[0] = v12;
+        v130[2] = v128;
+        LOBYTE(v130[3]) = 0;
+        v4 = 0.60000002;
+        break;
+      case 41:
+        v128 = 76;
+        v11 = 50;
+LABEL_33:
+        v12 = v128;
+        v128 = -256;
+        goto LABEL_34;
+      case 42:
+        v11 = 50;
+        v12 = 12850;
+        v128 = -256;
+        goto LABEL_16;
+      case 43:
+        v11 = -1;
+        v12 = 25600;
+        v130[0] = 25600;
+        LOBYTE(v130[1]) = -1;
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = -1;
+        v10 = -2.0;
+        break;
+      case 44:
+        v11 = 50;
+        v12 = 12800;
+        v130[0] = 12800;
+        LOBYTE(v130[1]) = 50;
+        v128 = -370;
+        v130[2] = -370;
+        LOBYTE(v130[3]) = -78;
+        break;
+      case 45:
+        v11 = 0;
+        v12 = 18176;
+        v130[0] = 18176;
+        LOBYTE(v130[1]) = 0;
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = -96;
+        break;
+      case 46:
+        v11 = -46;
+        v12 = 26147;
+        v128 = -1;
+        goto LABEL_16;
+      case 47:
+        v11 = 77;
+        v12 = 10048;
+        v128 = -16905;
+        goto LABEL_16;
+      case 48:
+        v11 = 78;
+        v12 = 7196;
+        v128 = -256;
+        goto LABEL_16;
+      case 49:
+        v11 = 70;
+        v12 = 10522;
+        v128 = -106;
+        goto LABEL_16;
+      case 50:
+        v11 = 69;
+        v12 = 1605;
+        v130[0] = 1605;
+        LOBYTE(v130[1]) = 69;
+        v128 = -21761;
+        v130[2] = -21761;
+        LOBYTE(v130[3]) = -12;
+        break;
+      case 51:
+        v11 = 70;
+        v12 = 15640;
+        v128 = -226;
+        goto LABEL_16;
+      case 52:
+        v11 = 68;
+        v12 = 8768;
+        v128 = -20481;
+        goto LABEL_16;
+      case 53:
+        v128 = 13340;
+        v11 = 66;
+LABEL_15:
+        v12 = v128;
+        v128 = -206;
+        goto LABEL_16;
+      case 54:
+        v11 = 45;
+        v12 = 11575;
+        v128 = -14081;
+        goto LABEL_34;
+      case 55:
+        v11 = 19;
+        v12 = 22163;
+        v128 = -10241;
+        goto LABEL_34;
+      case 56:
+        v11 = 105;
+        v12 = 12852;
+        v128 = -256;
+        goto LABEL_16;
+      case 57:
+        v11 = 37;
+        v12 = 19493;
+        v128 = -130;
+LABEL_34:
+        LOBYTE(v130[1]) = v11;
+        v130[0] = v12;
+        v130[2] = v128;
+        LOBYTE(v130[3]) = 0;
+        break;
+      case 58:
+        v11 = 57;
+        v12 = 7204;
+        v128 = -16696;
+        goto LABEL_16;
+      case 59:
+        v11 = 42;
+        v12 = 12863;
+        qmemcpy(v130, "?2*", 3);
+        v128 = -1;
+        v130[2] = -1;
+        LOBYTE(v130[3]) = -36;
+        break;
+      case 60:
+        v11 = 92;
+        v12 = 12428;
+        v128 = -21761;
+        goto LABEL_16;
+      case 61:
+        v11 = 65;
+        v12 = 16705;
+        v128 = -1;
+        goto LABEL_16;
+      case 62:
+        v11 = 60;
+        v12 = 8983;
+        v128 = -7911;
+LABEL_16:
+        LOBYTE(v130[1]) = v11;
+        v130[0] = v12;
+        v130[2] = v128;
+        LOBYTE(v130[3]) = -1;
+        break;
+      default:
+        v11 = v130[1];
+        v12 = v130[0];
+        break;
+    }
+    *((_WORD *)a1 + 168) = v130[2];
+    *((_BYTE *)a1 + 338) = v130[3];
+    *(_WORD *)((char *)a1 + 339) = v12;
+    *((_BYTE *)a1 + 341) = v11;
+    cocos2d::CCRect::CCRect((cocos2d::CCRect *)&v138, 0.0, 0.0, 86.0, 86.0);
+    v14 = (_QWORD *)cocos2d::extension::CCScale9Sprite::create("GJ_squareB_01.png", v13);
+    v15 = (void (__fastcall ***)(_QWORD, _QWORD))(v14 + 40);
+    LOBYTE(v16) = -1;
+    (*(void (__fastcall **)(_QWORD *, __int64))(v14[40] + 40LL))(v14 + 40, v16);
+    v17 = *v14;
+    cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v133, 110.0, 234.0);
+    (*(void (__fastcall **)(_QWORD *, __int64))(v17 + 312))(v14, v18);
+    v19 = -1;
+    (*(void (__fastcall **)(_QWORD *, _QWORD *, __int64))(*a1 + 456LL))(a1, v14, 0xFFFFFFFFLL);
+    (**v15)(v15, v130);
+    v20 = (const char *)v143;
+    if ( v144 > 0xF )
+      v20 = (const char *)v143[0];
+    v21 = cocos2d::CCLabelBMFont::create(v20, (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCLabelBMFont *, __int64))(*a1 + 456LL))(a1, v21, 2);
+    cocos2d::CCLabelBMFont::limitLabelWidth(v21, 75.0, v4, 0.0);
+    v22 = *(_QWORD *)v21;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, 94.0);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v22 + 184))(v21, v23);
+    v135 = (void (__fastcall ***)(void *, __int16 *))((char *)v21 + 368);
+    (**((void (__fastcall ***)(__int64, _WORD *))v21 + 46))((__int64)v21 + 368, &v130[2]);
+    v24 = cocos2d::CCLabelBMFont::create("Gauntlet", (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCLabelBMFont *, __int64))(*a1 + 456LL))(a1, v24, 2);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v24 + 160LL))(v24);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, -19.0);
+    v26 = v25;
+    v27 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v21 + 200LL))(v21);
+    cocos2d::CCPoint::operator+(v27, v132, v26);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v24 + 184LL))(v24, v132);
+    v133 = (char *)v24 + 368;
+    (**((void (__fastcall ***)(__int64, _WORD *))v24 + 46))((__int64)v24 + 368, &v130[2]);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v134, 2.0, -3.0);
+    v28 = (const char *)v143;
+    if ( v144 > 0xF )
+      v28 = (const char *)v143[0];
+    v29 = cocos2d::CCLabelBMFont::create(v28, (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCLabelBMFont *, __int64))(*a1 + 456LL))(a1, v29, 1);
+    v30 = *(_QWORD *)v29;
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v21 + 168LL))(v21);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(v30 + 160))(v29);
+    v31 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v21 + 200LL))(v21);
+    cocos2d::CCPoint::operator+(v31, v132, v134);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v29 + 184LL))(v29, v132);
+    v32 = cocos2d::CCLabelBMFont::create("Gauntlet", (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCLabelBMFont *, __int64))(*a1 + 456LL))(a1, v32, 1);
+    v33 = *(_QWORD *)v32;
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v24 + 168LL))(v24);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(v33 + 160))(v32);
+    v34 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v24 + 200LL))(v24);
+    cocos2d::CCPoint::operator+(v34, v132, v134);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v32 + 184LL))(v32, v132);
+    (**((void (__fastcall ***)(__int64, void *))v29 + 46))((__int64)v29 + 368, &unk_6FE440);
+    (**((void (__fastcall ***)(__int64, void *))v32 + 46))((__int64)v32 + 368, &unk_6FE440);
+    LOBYTE(v35) = 60;
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v29 + 46) + 40LL))((__int64)v29 + 368, v35);
+    LOBYTE(v36) = 60;
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v32 + 46) + 40LL))((__int64)v32 + 368, v36);
+    if ( *((_BYTE *)a1 + 352) )
+    {
+      v128 = 20560;
+      memset(&v131, 80, 3);
+      (**v15)(v15, &v131);
+      LOWORD(v131) = -20561;
+      v128 = -20561;
+      v129 = -81;
+      (**v135)(v135, &v128);
+      (**(void (__fastcall ***)(_BYTE *, __int16 *))v133)(v133, &v128);
+      v113 = cocos2d::CCSprite::createWithSpriteFrameName((const char *)&xmmword_7178B0);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v113 + 160LL))(v113);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v113, 2);
+      v114 = *(_QWORD *)v113;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, v10 + 16.0);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v114 + 184))(v113, v115);
+      v116 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_unlockBtn_001.png");
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v116, 2);
+      v117 = *(_QWORD *)v116;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v135, 0.0, -41.0);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v117 + 184))(v116, v118);
+      v119 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_adVideoBtn_001.png");
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v119, 2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v132, 0.0, -31.0);
+      v121 = v120;
+      v122 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v116 + 200LL))(v116);
+      cocos2d::CCPoint::operator+(v122, &v133, v121);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *, _BYTE **))(*(_QWORD *)v119 + 184LL))(v119, &v133);
+      v123 = cocos2d::CCLabelBMFont::create("View Ad", (const char *)&qword_6FFF68);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v123 + 160LL))(v123);
+      LOWORD(v131) = -30841;
+      BYTE2(v131) = -121;
+      (**((void (__fastcall ***)(__int64, unsigned int *))v123 + 46))((__int64)v123 + 368, &v131);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[40] + 456LL))(
+        a1[40],
+        v123,
+        2);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v136, 0.0, -25.0);
+      v125 = v124;
+      v126 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v119 + 200LL))(v119);
+      cocos2d::CCPoint::operator+(v126, &v133, v125);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE **))(*(_QWORD *)v123 + 184LL))(v123, &v133);
+    }
+    else
+    {
+      v37 = (const char *)v141;
+      if ( v142 > 0xF )
+        v37 = (const char *)v141[0];
+      v38 = cocos2d::CCSprite::createWithSpriteFrameName(v37);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v38, 2);
+      v39 = *(_QWORD *)v38;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, v10 + 16.0);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v39 + 184))(v38, v40);
+      v41 = (const char *)v141;
+      if ( v142 > 0xF )
+        v41 = (const char *)v141[0];
+      v42 = cocos2d::CCSprite::createWithSpriteFrameName(v41);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v42, 1);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, -10.0);
+      v44 = v43;
+      v45 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v38 + 200LL))(v38);
+      cocos2d::CCPoint::operator+(v45, v132, v44);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *, _BYTE *))(*(_QWORD *)v42 + 184LL))(v42, v132);
+      (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v42 + 136LL))(v42);
+      (**((void (__fastcall ***)(__int64, void *))v42 + 40))((__int64)v42 + 320, &unk_6FE440);
+      LOBYTE(v46) = 50;
+      (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v42 + 40) + 40LL))((__int64)v42 + 320, v46);
+      v47 = GJMapPack_completedMaps(a1[43]);
+      v48 = cocos2d::CCString::createWithFormat("%i/5", v47);
+      CString = cocos2d::CCString::getCString(v48);
+      v138 = 0;
+      v50 = 0;
+      v139 = 0;
+      v140 = 0;
+      do
+        ++v19;
+      while ( CString[v19] );
+      sub_3C230(&v138);
+      v51 = (const char *)&v138;
+      if ( v140 > 0xF )
+        v51 = (const char *)v138;
+      v52 = cocos2d::CCLabelBMFont::create(v51, (const char *)&qword_6FFF68);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[40] + 456LL))(
+        a1[40],
+        v52,
+        2);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v52 + 160LL))(v52);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, -40.0 - v10);
+      v54 = v53;
+      v55 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v38 + 200LL))(v38);
+      cocos2d::CCPoint::operator+(v55, v132, v54);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v52 + 184LL))(v52, v132);
+      v56 = (const char *)&v138;
+      if ( v140 > 0xF )
+        v56 = (const char *)v138;
+      v57 = cocos2d::CCLabelBMFont::create(v56, (const char *)&qword_6FFF68);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[40] + 456LL))(
+        a1[40],
+        v57,
+        1);
+      v58 = *(_QWORD *)v57;
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v52 + 168LL))(v52);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(v58 + 160))(v57);
+      (**((void (__fastcall ***)(__int64, void *))v57 + 46))((__int64)v57 + 368, &unk_6FE440);
+      LOBYTE(v59) = 60;
+      (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v57 + 46) + 40LL))((__int64)v57 + 368, v59);
+      v60 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v52 + 200LL))(v52);
+      cocos2d::CCPoint::operator+(v60, v132, v134);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v57 + 184LL))(v57, v132);
+      v61 = a1[43];
+      v62 = *(cocos2d::CCArray **)(v61 + 320);
+      if ( !v62 || !cocos2d::CCArray::count(v62) )
+        goto LABEL_98;
+      v63 = GJMapPack_completedMaps(v61);
+      v64 = *(cocos2d::CCArray **)(v61 + 320);
+      if ( v64 )
+        v50 = cocos2d::CCArray::count(v64);
+      if ( v63 >= v50 )
+      {
+        v65 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png");
+        (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCSprite *, __int64))(*a1 + 456LL))(a1, v65, 5);
+        (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v65 + 160LL))(v65);
+        v66 = *(_QWORD *)v65;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, -72.0);
+        (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v66 + 184))(v65, v67);
+        v68 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png");
+        (*(void (__fastcall **)(_QWORD *, struct cocos2d::CCSprite *, __int64))(*a1 + 456LL))(a1, v68, 1);
+        (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v68 + 160LL))(v68);
+        v69 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v65 + 200LL))(v65);
+        cocos2d::CCPoint::operator+(v69, v132, v134);
+        (*(void (__fastcall **)(struct cocos2d::CCSprite *, _BYTE *))(*(_QWORD *)v68 + 184LL))(v68, v132);
+        (**((void (__fastcall ***)(__int64, void *))v68 + 40))((__int64)v68 + 320, &unk_6FE440);
+        LOBYTE(v70) = 60;
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v68 + 40) + 40LL))((__int64)v68 + 320, v70);
+        if ( !qword_905FE0 )
+        {
+          v133 = operator new(0x3E8u);
+          qword_905FE0 = sub_2D2B40(v133);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FE0 + 72LL))(qword_905FE0);
+        }
+        sub_2EAB20(v71, v145, v131);
+        v133 = v137;
+        sub_3E4F0(v137, v145);
+        v73 = v72;
+        v74 = qword_905FE0;
+        if ( !qword_905FE0 )
+        {
+          v135 = (void (__fastcall ***)(void *, __int16 *))operator new(0x3E8u);
+          qword_905FE0 = sub_2D2B40(v135);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FE0 + 72LL))(qword_905FE0);
+          v74 = qword_905FE0;
+        }
+        if ( !GameStatsManager_isSpecialChestUnlocked(v74, v73) )
+        {
+          (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)a1[40] + 336LL))(a1[40], 0);
+          LOBYTE(v75) = 1;
+          (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)a1[41] + 336LL))(a1[41], v75);
+          v76 = cocos2d::CCLabelBMFont::create("Reward", "goldFont.fnt");
+          (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v76 + 160LL))(v76);
+          (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[41] + 456LL))(
+            a1[41],
+            v76,
+            2);
+          v77 = *(_QWORD *)v76;
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, 43.0);
+          (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v77 + 184))(v76, v78);
+          v79 = cocos2d::CCLabelBMFont::create("Reward", "goldFont.fnt");
+          v80 = *(_QWORD *)v79;
+          (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v76 + 168LL))(v76);
+          (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(v80 + 160))(v79);
+          (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[41] + 456LL))(
+            a1[41],
+            v79,
+            1);
+          v81 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v76 + 200LL))(v76);
+          cocos2d::CCPoint::operator+(v81, v132, v134);
+          (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v79 + 184LL))(v79, v132);
+          (**((void (__fastcall ***)(__int64, void *))v79 + 46))((__int64)v79 + 368, &unk_6FE440);
+          LOBYTE(v82) = 60;
+          (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v79 + 46) + 40LL))((__int64)v79 + 368, v82);
+          v83 = GJChestSprite_create(2);
+          (*(void (__fastcall **)(_QWORD, cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[41] + 456LL))(a1[41], v83, 2);
+          (*(void (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v83 + 160LL))(v83);
+          v84 = *(_QWORD *)v83;
+          v85 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v76 + 200LL))(v76);
+          cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, *(float *)(v85 + 4) - 46.0);
+          (*(void (__fastcall **)(cocos2d::CCSprite *, __int64))(v84 + 184))(v83, v86);
+          v87 = GJChestSprite_create(2);
+          (*(void (__fastcall **)(_QWORD, cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[41] + 456LL))(a1[41], v87, 1);
+          v88 = *(_QWORD *)v87;
+          (*(void (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v83 + 168LL))(v83);
+          (*(void (__fastcall **)(cocos2d::CCSprite *))(v88 + 160))(v87);
+          v89 = (*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v83 + 200LL))(v83);
+          cocos2d::CCPoint::operator+(v89, v132, v134);
+          (*(void (__fastcall **)(cocos2d::CCSprite *, _BYTE *))(*(_QWORD *)v87 + 184LL))(v87, v132);
+          v90 = (cocos2d::CCArray *)(*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v87 + 480LL))(v87);
+          v91 = cocos2d::CCArray::objectAtIndex(v90, 0);
+          (**((void (__fastcall ***)(__int64, void *))v91 + 40))((__int64)v91 + 320, &unk_6FE440);
+          v92 = (cocos2d::CCArray *)(*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v87 + 480LL))(v87);
+          v93 = cocos2d::CCArray::objectAtIndex(v92, 0);
+          LOBYTE(v94) = 60;
+          (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v93 + 40) + 40LL))((__int64)v93 + 320, v94);
+        }
+        sub_3C310(v145);
+      }
+      else
+      {
+LABEL_98:
+        v95 = cocos2d::CCLabelBMFont::create("Reward", "goldFont.fnt");
+        (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v95 + 160LL))(v95);
+        (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[40] + 456LL))(
+          a1[40],
+          v95,
+          2);
+        v96 = *(_QWORD *)v95;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, -47.0);
+        (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v96 + 184))(v95, v97);
+        v98 = cocos2d::CCLabelBMFont::create("Reward", "goldFont.fnt");
+        (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v98 + 160LL))(v98);
+        (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)a1[40] + 456LL))(
+          a1[40],
+          v98,
+          1);
+        v99 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v95 + 200LL))(v95);
+        cocos2d::CCPoint::operator+(v99, v132, v134);
+        (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, _BYTE *))(*(_QWORD *)v98 + 184LL))(v98, v132);
+        (**((void (__fastcall ***)(__int64, void *))v98 + 46))((__int64)v98 + 368, &unk_6FE440);
+        LOBYTE(v100) = 60;
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v98 + 46) + 40LL))((__int64)v98 + 368, v100);
+        v101 = GJChestSprite_create(2);
+        (*(void (__fastcall **)(_QWORD, cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v101, 2);
+        (*(void (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v101 + 160LL))(v101);
+        v102 = *(_QWORD *)v101;
+        v103 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v95 + 200LL))(v95);
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v133, 0.0, *(float *)(v103 + 4) - 31.5);
+        (*(void (__fastcall **)(cocos2d::CCSprite *, __int64))(v102 + 184))(v101, v104);
+        v105 = GJChestSprite_create(2);
+        (*(void (__fastcall **)(_QWORD, cocos2d::CCSprite *, __int64))(*(_QWORD *)a1[40] + 456LL))(a1[40], v105, 1);
+        v106 = *(_QWORD *)v105;
+        (*(void (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v101 + 168LL))(v101);
+        (*(void (__fastcall **)(cocos2d::CCSprite *))(v106 + 160))(v105);
+        v107 = (*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v101 + 200LL))(v101);
+        cocos2d::CCPoint::operator+(v107, v132, v134);
+        (*(void (__fastcall **)(cocos2d::CCSprite *, _BYTE *))(*(_QWORD *)v105 + 184LL))(v105, v132);
+        v108 = (cocos2d::CCArray *)(*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v105 + 480LL))(v105);
+        v109 = cocos2d::CCArray::objectAtIndex(v108, 0);
+        (**((void (__fastcall ***)(__int64, void *))v109 + 40))((__int64)v109 + 320, &unk_6FE440);
+        v110 = (cocos2d::CCArray *)(*(__int64 (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v105 + 480LL))(v105);
+        v111 = cocos2d::CCArray::objectAtIndex(v110, 0);
+        LOBYTE(v112) = 60;
+        (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v111 + 40) + 40LL))((__int64)v111 + 320, v112);
+      }
+      sub_3C310(&v138);
+    }
+    sub_3C310(v141);
+    return sub_3C310(v143);
+  }
+  return result;
+}
