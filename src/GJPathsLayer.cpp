@@ -105,3 +105,178 @@ void __fastcall GJPathsLayer_onExit(cocos2d::CCLayer *a1)
     cocos2d::CCTextureCache::removeTextureForKey(v5, "GJ_PathSheet.png"); /*0x38f3f3*/
   }
 }
+
+// Address: 0x38ee70
+// Method: GJPathsLayer::init
+// Hidden C++ exception states: #wind=2
+bool __fastcall GJPathsLayer_init(__int64 a1, __int64 a2)
+{
+  cocos2d::CCTextureCache *v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  cocos2d::CCSpriteFrameCache *v6; // rax
+  __int64 v7; // rcx
+  bool result; // al
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  struct cocos2d::CCSprite *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  struct cocos2d::CCSprite *v17; // rax
+  cocos2d::CCObject *v18; // rax
+  struct cocos2d::CCMenu *v19; // rax
+  __int64 v20; // rdi
+  struct cocos2d::CCMenu *v21; // rbx
+  __int64 v22; // rax
+  struct cocos2d::CCSprite *v23; // rdi
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  struct cocos2d::CCSprite *v26; // rdi
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  struct cocos2d::CCSprite *v29; // rdi
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  int v32; // ebx
+  int v33; // r14d
+  _DWORD *v34; // r15
+  __int64 v35; // rax
+  cocos2d::CCObject *v36; // rdi
+  float v37; // xmm6_4
+  float v38; // xmm7_4
+  float v39; // xmm0_4
+  __int64 v40; // rax
+  __int64 v41; // rbx
+  __int64 v42; // rax
+  _BYTE v43[8]; // [rsp+30h] [rbp-49h] BYREF
+  _BYTE v44[8]; // [rsp+38h] [rbp-41h] BYREF
+  void *v45; // [rsp+E0h] [rbp+67h] BYREF
+  float v46; // [rsp+E8h] [rbp+6Fh] BYREF
+  float v47; // [rsp+ECh] [rbp+73h]
+  char v48; // [rsp+F0h] [rbp+77h] BYREF
+  void *v49; // [rsp+F8h] [rbp+7Fh]
+
+  v3 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(a1, a2);
+  cocos2d::CCTextureCache::addImage(v3, "GJ_PathSheet.png", 0);
+  v6 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v5, v4);
+  cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v6, "GJ_PathSheet.plist");
+  *(_BYTE *)(a1 + 680) = 1;
+  v7 = qword_905FE0;
+  if ( !qword_905FE0 )
+  {
+    v45 = operator new(0x3E8u);
+    qword_905FE0 = sub_2D2B40(v45);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FE0 + 72LL))(qword_905FE0);
+    v7 = qword_905FE0;
+  }
+  sub_2D6CB0(v7);
+  sub_5ABA0(a1);
+  LODWORD(v45) = -1358954496;
+  result = cocos2d::CCLayerColor::initWithColor((cocos2d::CCLayerColor *)a1, (const struct cocos2d::_ccColor4B *)&v45);
+  if ( result )
+  {
+    LOBYTE(v9) = 1;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 920LL))(a1, v9);
+    LOBYTE(v10) = 1;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 992LL))(a1, v10);
+    v12 = cocos2d::CCDirector::sharedDirector(v11);
+    cocos2d::CCDirector::getWinSize(v12, &v46);
+    v13 = cocos2d::CCLayer::create();
+    *(_QWORD *)(a1 + 584) = v13;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 464LL))(a1, v13);
+    v14 = cocos2d::CCSprite::createWithSpriteFrameName("pathSelectBG_001.png");
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v14,
+      0xFFFFFFFFLL);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v14 + 160LL))(v14);
+    v15 = *(_QWORD *)v14;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v46 * 0.5, v47 * 0.5);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v15 + 184))(v14, v16);
+    *(_DWORD *)(a1 + 640) = -1;
+    v17 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png");
+    *(_QWORD *)(a1 + 672) = v17;
+    v18 = CCMenuItemSpriteExtra_create((int)v17, 0, a1, (__int64)GJPromoPopup_onClose);
+    *((_DWORD *)v18 + 93) = 1070386381;
+    v19 = cocos2d::CCMenu::create(v18, 0);
+    *(_QWORD *)(a1 + 552) = v19;
+    v20 = *(_QWORD *)v19;
+    v21 = v19;
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)&v45,
+      (float)((float)(v46 * 0.5) - 130.0) + 10.0,
+      (float)((float)(v47 * 0.5) + 130.0) - 10.0);
+    (*(void (__fastcall **)(struct cocos2d::CCMenu *, __int64))(v20 + 184))(v21, v22);
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      *(_QWORD *)(a1 + 552),
+      10);
+    v23 = cocos2d::CCSprite::createWithSpriteFrameName("label_paths_001.png");
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v23,
+      20);
+    v24 = *(_QWORD *)v23;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v46 * 0.5, (float)(v47 * 0.5) + 29.0);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v24 + 184))(v23, v25);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v23 + 160LL))(v23);
+    v26 = cocos2d::CCSprite::createWithSpriteFrameName("label_of_001.png");
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v26,
+      20);
+    v27 = *(_QWORD *)v26;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v46 * 0.5, v47 * 0.5);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v27 + 184))(v26, v28);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v26 + 160LL))(v26);
+    v29 = cocos2d::CCSprite::createWithSpriteFrameName("label_power_001.png");
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v29,
+      20);
+    v30 = *(_QWORD *)v29;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v46 * 0.5, (float)(v47 * 0.5) - 34.0);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v30 + 184))(v29, v31);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v29 + 160LL))(v29);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v48, v46 * 0.5, v47 * 0.5);
+    v32 = 0;
+    while ( 1 )
+    {
+      v33 = v32 + 1;
+      v34 = GJPathSprite_create(v32 + 1);
+      GJPathSprite_updateState(v34);
+      v49 = operator new(0x208u);
+      v35 = CCMenuItemSpriteExtra_CCMenuItemSpriteExtra((__int64)v49);
+      v36 = (cocos2d::CCObject *)v35;
+      if ( !v35 )
+        goto LABEL_9;
+      if ( !(unsigned __int8)sub_47940(v35, (_DWORD)v34, 0, a1, (__int64)sub_38F400) )
+        break;
+      cocos2d::CCObject::autorelease(v36);
+LABEL_10:
+      (*(void (__fastcall **)(cocos2d::CCObject *, _QWORD))(*(_QWORD *)v36 + 64LL))(v36, (unsigned int)v33);
+      (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(
+        *(_QWORD *)(a1 + 552),
+        v36);
+      v37 = (float)(90.0 - (float)((float)v32 * 36.0)) * 0.0174532925199433;
+      v38 = sinf(v37) * 100.0;
+      v39 = cosf(v37) * 100.0;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v43, v39, v38);
+      cocos2d::CCPoint::operator+(&v48, &v45, v40);
+      v41 = *(_QWORD *)v36;
+      cocos2d::CCNode::convertToNodeSpace(*(_QWORD *)(a1 + 552), v44, &v45);
+      (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v41 + 184))(v36, v42);
+      v32 = v33;
+      if ( v33 >= 10 )
+        return 1;
+    }
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v36 + 8LL))(v36, 1);
+LABEL_9:
+    v36 = 0;
+    goto LABEL_10;
+  }
+  return result;
+}

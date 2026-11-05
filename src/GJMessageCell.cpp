@@ -218,3 +218,291 @@ __int64 __fastcall GJMessageCell_onClosePopup(__int64 a1, __int64 a2)
   *(_QWORD *)(a1 + 24) = 0; /*0x15b671*/
   return result; /*0x15b66c*/
 }
+
+// Address: 0x15a570
+// Method: GJMessageCell::loadFromMessage
+// Hidden C++ exception states: #wind=5
+double __fastcall GJMessageCell_loadFromMessage(__int64 a1, cocos2d::CCObject *a2)
+{
+  cocos2d::CCObject *v2; // rbx
+  cocos2d::CCObject *v4; // rcx
+  const char *v5; // rcx
+  cocos2d::CCLabelBMFont *v6; // r15
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  cocos2d::CCObject *v11; // rdi
+  cocos2d::CCObject *v12; // rax
+  struct cocos2d::CCMenu *v13; // r12
+  __int64 v14; // rbx
+  float v15; // xmm6_4
+  float *v16; // rax
+  __int64 v17; // rax
+  cocos2d::CCObject *v18; // r14
+  __int64 v19; // rdi
+  __int64 v20; // rax
+  __int64 v21; // rbx
+  __int64 v22; // rax
+  cocos2d::CCObject *v23; // rdi
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  __int64 v26; // rax
+  const char *v27; // rdx
+  __int64 v28; // r8
+  const char *v29; // r8
+  const char *v30; // rdx
+  cocos2d::CCString *v31; // rax
+  const char *CString; // rbx
+  cocos2d::CCLabelBMFont *v33; // rdi
+  float v34; // xmm6_4
+  double v35; // xmm0_8
+  __int64 v36; // rax
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  cocos2d::CCObject *v39; // rdi
+  __int64 v40; // rbx
+  __int64 v41; // rax
+  const char *v42; // rdx
+  cocos2d::CCString *v43; // rax
+  const char *v44; // rax
+  struct cocos2d::CCLabelBMFont *v45; // rdi
+  __int64 v46; // rbx
+  __int64 v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rbx
+  float *v50; // rax
+  __int64 v51; // rax
+  struct cocos2d::CCSprite *v52; // rdi
+  struct cocos2d::CCSprite *v53; // rbx
+  cocos2d::CCMenuItem *v54; // rax
+  __int64 v55; // rdi
+  __int64 v56; // rbx
+  __int64 v57; // rax
+  __int64 v58; // rax
+  __int64 v59; // rcx
+  __int64 v60; // rax
+  struct cocos2d::CCLabelBMFont *v61; // rdi
+  __int64 v62; // rbx
+  __int64 v63; // rax
+  float v64; // xmm6_4
+  double v65; // xmm0_8
+  __int64 v66; // rax
+  __int64 v67; // rbx
+  __int64 v68; // rax
+  double result; // xmm0_8
+  void *v70; // [rsp+50h] [rbp-79h] BYREF
+  _BYTE v71[8]; // [rsp+58h] [rbp-71h] BYREF
+  _BYTE v72[8]; // [rsp+60h] [rbp-69h] BYREF
+  _QWORD v73[3]; // [rsp+68h] [rbp-61h] BYREF
+  unsigned __int64 v74; // [rsp+80h] [rbp-49h]
+  __int128 v75; // [rsp+88h] [rbp-41h] BYREF
+  __int64 v76; // [rsp+98h] [rbp-31h]
+  unsigned __int64 v77; // [rsp+A0h] [rbp-29h]
+  _QWORD v78[4]; // [rsp+A8h] [rbp-21h] BYREF
+
+  v2 = a2;
+  LOBYTE(a2) = 1;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 544) + 576LL))(*(_QWORD *)(a1 + 544), a2);
+  if ( v2 )
+  {
+    v4 = *(cocos2d::CCObject **)(a1 + 584);
+    if ( v4 )
+      cocos2d::CCObject::release(v4);
+    *(_QWORD *)(a1 + 584) = v2;
+    cocos2d::CCObject::retain(v2);
+    sub_3E4F0(v78, *(_QWORD *)(a1 + 584) + 336LL);
+    v5 = (const char *)v78;
+    if ( v78[3] > 0xFu )
+      v5 = (const char *)v78[0];
+    v6 = cocos2d::CCLabelBMFont::create(v5, (const char *)&qword_6FFF68);
+    sub_3C310(v78);
+    (*(void (__fastcall **)(_QWORD, cocos2d::CCLabelBMFont *))(**(_QWORD **)(a1 + 544) + 464LL))(
+      *(_QWORD *)(a1 + 544),
+      v6);
+    v7 = *(_QWORD *)v6;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v70, 0.0, 0.5);
+    (*(void (__fastcall **)(cocos2d::CCLabelBMFont *, __int64))(v7 + 288))(v6, v8);
+    (*(void (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 160LL))(v6);
+    v9 = *(_QWORD *)v6;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v70, 38.0, (float)(*(float *)(a1 + 532) * 0.5) + 14.0);
+    (*(void (__fastcall **)(cocos2d::CCLabelBMFont *, __int64))(v9 + 184))(v6, v10);
+    cocos2d::CCLabelBMFont::limitLabelWidth(v6, 180.0, 0.5, 0.0);
+    v70 = operator new(0x2C8u);
+    v11 = (cocos2d::CCObject *)ButtonSprite_ButtonSprite((__int64)v70);
+    if ( v11 )
+    {
+      if ( ButtonSprite_init(
+             (__int64)v11,
+             (__int64)"View",
+             50,
+             0,
+             1058642330,
+             0,
+             (const char *)&qword_6FFF68,
+             (__int64)"GJ_button_01.png",
+             1103626240) )
+      {
+        cocos2d::CCObject::autorelease(v11);
+      }
+      else
+      {
+        (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v11 + 8LL))(v11, 1);
+        v11 = 0;
+      }
+    }
+    v12 = CCMenuItemSpriteExtra_create((int)v11, 0, a1, (__int64)sub_15AE90);
+    *((_DWORD *)v12 + 93) = 1066192077;
+    v13 = cocos2d::CCMenu::create(v12, 0);
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCMenu *))(**(_QWORD **)(a1 + 544) + 464LL))(
+      *(_QWORD *)(a1 + 544),
+      v13);
+    v14 = *(_QWORD *)v13;
+    v15 = *(float *)(a1 + 532) * 0.5;
+    v16 = (float *)(*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v11 + 320LL))(v11);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v70, (float)(*(float *)(a1 + 528) - (float)(*v16 * 0.5)) - 45.0, v15);
+    (*(void (__fastcall **)(struct cocos2d::CCMenu *, __int64))(v14 + 184))(v13, v17);
+    v70 = operator new(0x2C8u);
+    v18 = (cocos2d::CCObject *)ButtonSprite_ButtonSprite((__int64)v70);
+    if ( v18 )
+    {
+      if ( ButtonSprite_init(
+             (__int64)v18,
+             (__int64)"X",
+             50,
+             0,
+             1058642330,
+             0,
+             (const char *)&qword_6FFF68,
+             (__int64)"GJ_button_06.png",
+             1106903040) )
+      {
+        cocos2d::CCObject::autorelease(v18);
+      }
+      else
+      {
+        (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v18 + 8LL))(v18, 1);
+        v18 = 0;
+      }
+    }
+    (*(void (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v18 + 160LL))(v18);
+    v19 = *((_QWORD *)v18 + 79);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, 1.5, -0.5);
+    v21 = v20;
+    v22 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 200LL))(v19);
+    cocos2d::CCPoint::operator+(v22, &v70, v21);
+    (*(void (__fastcall **)(__int64, void **))(*(_QWORD *)v19 + 184LL))(v19, &v70);
+    v23 = CCMenuItemSpriteExtra_create((int)v18, 0, a1, (__int64)sub_15B050);
+    *((_DWORD *)v23 + 93) = 1066192077;
+    (*(void (__fastcall **)(struct cocos2d::CCMenu *, cocos2d::CCObject *))(*(_QWORD *)v13 + 464LL))(v13, v23);
+    v24 = *(_QWORD *)v23;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, *(float *)(a1 + 528) - 22.0, *(float *)(a1 + 532) * 0.5);
+    cocos2d::CCNode::convertToNodeSpace(v13, &v70, v25);
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v24 + 184))(v23, v26);
+    v27 = "From:";
+    if ( *(_BYTE *)(*(_QWORD *)(a1 + 584) + 465LL) )
+      v27 = "To:";
+    v75 = 0;
+    v76 = 0;
+    v77 = 0;
+    v28 = -1;
+    do
+      ++v28;
+    while ( v27[v28] );
+    sub_3C230(&v75);
+    sub_3E4F0(v73, *(_QWORD *)(a1 + 584) + 400LL);
+    v29 = (const char *)v73;
+    if ( v74 > 0xF )
+      v29 = (const char *)v73[0];
+    v30 = (const char *)&v75;
+    if ( v77 > 0xF )
+      v30 = (const char *)v75;
+    v31 = cocos2d::CCString::createWithFormat("%s %s", v30, v29);
+    CString = cocos2d::CCString::getCString(v31);
+    sub_3C310(v73);
+    v33 = cocos2d::CCLabelBMFont::create(CString, "goldFont.fnt");
+    (*(void (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v33 + 160LL))(v33);
+    cocos2d::CCLabelBMFont::limitLabelWidth(v33, 140.0, 0.5, 0.0);
+    v34 = *(float *)(*(__int64 (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v33 + 320LL))(v33) * 0.5;
+    v35 = (*(double (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v33 + 168LL))(v33);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, (float)(*(float *)&v35 * v34) + 1.0, -15.0);
+    v37 = v36;
+    v38 = (*(__int64 (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 200LL))(v6);
+    cocos2d::CCPoint::operator+(v38, v72, v37);
+    v39 = CCMenuItemSpriteExtra_create((int)v33, 0, a1, (__int64)sub_15B010);
+    (*(void (__fastcall **)(struct cocos2d::CCMenu *, cocos2d::CCObject *))(*(_QWORD *)v13 + 464LL))(v13, v39);
+    v40 = *(_QWORD *)v39;
+    cocos2d::CCNode::convertToNodeSpace(v13, v71, v72);
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v40 + 184))(v39, v41);
+    sub_3E4F0(v73, *(_QWORD *)(a1 + 584) + 432LL);
+    LOBYTE(v40) = v73[2] != 0;
+    sub_3C310(v73);
+    if ( (_BYTE)v40 )
+    {
+      sub_3E4F0(v73, *(_QWORD *)(a1 + 584) + 432LL);
+      v42 = (const char *)v73;
+      if ( v74 > 0xF )
+        v42 = (const char *)v73[0];
+      v43 = cocos2d::CCString::createWithFormat("%s ago", v42);
+      v44 = cocos2d::CCString::getCString(v43);
+      v45 = cocos2d::CCLabelBMFont::create(v44, "chatFont.fnt");
+      sub_3C310(v73);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(**(_QWORD **)(a1 + 544) + 456LL))(
+        *(_QWORD *)(a1 + 544),
+        v45,
+        1);
+      v46 = *(_QWORD *)v45;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, 0.0, 0.5);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v46 + 288))(v45, v47);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v45 + 160LL))(v45);
+      (**((void (__fastcall ***)(__int64, __int16 *))v45 + 46))((__int64)v45 + 368, &word_6FDF60);
+      LOBYTE(v48) = 125;
+      (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v45 + 46) + 40LL))((__int64)v45 + 368, v48);
+      v49 = *(_QWORD *)v45;
+      v50 = (float *)(*(__int64 (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 200LL))(v6);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, *v50 + 3.0, 10.0);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v49 + 184))(v45, v51);
+    }
+    v52 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_checkOn_001.png");
+    v53 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_checkOff_001.png");
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v52 + 160LL))(v52);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v53 + 160LL))(v53);
+    v54 = CCMenuItemToggler_create((__int64)v53, (__int64)v52, a1, (__int64)sub_15B1F0);
+    *(_QWORD *)(a1 + 600) = v54;
+    CCMenuItemToggler_toggle((__int64)v54, *(unsigned __int8 *)(*(_QWORD *)(a1 + 584) + 466LL));
+    (*(void (__fastcall **)(struct cocos2d::CCMenu *, _QWORD))(*(_QWORD *)v13 + 464LL))(v13, *(_QWORD *)(a1 + 600));
+    v55 = **(_QWORD **)(a1 + 600);
+    v56 = *(_QWORD *)(a1 + 600);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, 20.0, *(float *)(a1 + 532) * 0.5);
+    cocos2d::CCNode::convertToNodeSpace(v13, &v70, v57);
+    (*(void (__fastcall **)(__int64, __int64))(v55 + 184))(v56, v58);
+    v59 = *(_QWORD *)(a1 + 600);
+    *(_DWORD *)(*(_QWORD *)(v59 + 376) + 372LL) = 1067030938;
+    *(_DWORD *)(*(_QWORD *)(v59 + 384) + 372LL) = 1067030938;
+    CCMenuItemToggler_toggle(v59, *(unsigned __int8 *)(v59 + 392));
+    v60 = *(_QWORD *)(a1 + 584);
+    if ( !*(_BYTE *)(v60 + 464) && !*(_BYTE *)(v60 + 465) )
+    {
+      v61 = cocos2d::CCLabelBMFont::create("!", (const char *)&qword_6FFF68);
+      (**((void (__fastcall ***)(__int64, void *))v61 + 46))((__int64)v61 + 368, &unk_6FDF64);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v61 + 160LL))(v61);
+      v62 = *(_QWORD *)v61;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, 0.0, 0.5);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v62 + 288))(v61, v63);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(**(_QWORD **)(a1 + 544) + 456LL))(
+        *(_QWORD *)(a1 + 544),
+        v61,
+        10);
+      v64 = *(float *)(*(__int64 (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 320LL))(v6);
+      v65 = (*(double (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 168LL))(v6);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, (float)(*(float *)&v65 * v64) + 5.0, 0.0);
+      v67 = v66;
+      v68 = (*(__int64 (__fastcall **)(cocos2d::CCLabelBMFont *))(*(_QWORD *)v6 + 200LL))(v6);
+      cocos2d::CCPoint::operator+(v68, &v70, v67);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, void **))(*(_QWORD *)v61 + 184LL))(v61, &v70);
+      (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(*(_QWORD *)v61 + 64LL))(v61, 100);
+    }
+    return sub_3C310(&v75);
+  }
+  return result;
+}

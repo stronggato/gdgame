@@ -211,3 +211,176 @@ void __fastcall FriendRequestPopup_FLAlert_Clicked(__int64 a1, __int64 a2, char 
     }
   }
 }
+
+// Address: 0x62c5f0
+// Method: FriendRequestPopup::loadFromGJFriendRequest
+// Hidden C++ exception states: #wind=2
+double __fastcall FriendRequestPopup_loadFromGJFriendRequest(__int64 a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  cocos2d::CCObject *v4; // rax
+  __int64 v5; // rcx
+  __int64 v6; // r12
+  __int64 v7; // rcx
+  __int64 v8; // r13
+  unsigned int i; // edi
+  __int64 v10; // r14
+  cocos2d::CCString *v11; // rax
+  const char *CString; // r15
+  cocos2d::CCObject *v13; // rbx
+  struct cocos2d::CCObject *v14; // rbx
+  cocos2d::CCArray *v15; // rcx
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  const char *v21; // rdx
+  __int64 v22; // r8
+  const char *v23; // rcx
+  struct cocos2d::CCLabelBMFont *v24; // rbx
+  __int64 v25; // rax
+  struct cocos2d::CCSprite *v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  float v29; // xmm6_4
+  __int64 v30; // rbx
+  __int64 v31; // rdi
+  __int64 v32; // rax
+  _OWORD *v33; // rax
+  __int128 v34; // xmm1
+  __int128 v35; // xmm2
+  __int128 v36; // xmm3
+  void *v38; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v39[4]; // [rsp+58h] [rbp-A8h] BYREF
+  float v40; // [rsp+5Ch] [rbp-A4h]
+  _BYTE v41[8]; // [rsp+60h] [rbp-A0h] BYREF
+  float v42[2]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v43[8]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v44[8]; // [rsp+78h] [rbp-88h] BYREF
+  char v45; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v46; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v47; // [rsp+D0h] [rbp-30h]
+  unsigned __int64 v48; // [rsp+D8h] [rbp-28h]
+
+  v2 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v2, v42);
+  v4 = (cocos2d::CCObject *)cocos2d::CCArray::create(v3);
+  *(_QWORD *)(a1 + 680) = v4;
+  cocos2d::CCObject::retain(v4);
+  v6 = cocos2d::CCArray::create(v5);
+  v8 = cocos2d::CCArray::create(v7);
+  for ( i = 1; (int)i <= 10; ++i )
+  {
+    v10 = *(_QWORD *)(a1 + 552);
+    v11 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, i);
+    CString = cocos2d::CCString::getCString(v11);
+    v38 = operator new(0x2C8u);
+    v13 = (cocos2d::CCObject *)ButtonSprite_ButtonSprite((__int64)v38);
+    if ( v13 )
+    {
+      if ( ButtonSprite_init(
+             (__int64)v13,
+             (__int64)CString,
+             20,
+             0,
+             1056964608,
+             1,
+             (const char *)&qword_6FFF68,
+             (__int64)"GJ_button_01.png",
+             1106247680) )
+      {
+        cocos2d::CCObject::autorelease(v13);
+      }
+      else
+      {
+        (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v13 + 8LL))(v13, 1);
+        LODWORD(v13) = 0;
+      }
+    }
+    v14 = CCMenuItemSpriteExtra_create((int)v13, 0, a1, (__int64)ShareLevelLayer_selectRating);
+    (*(void (__fastcall **)(struct cocos2d::CCObject *))(*(_QWORD *)v14 + 160LL))(v14);
+    *((_DWORD *)v14 + 101) = 1061997773;
+    if ( v10 )
+      (*(void (__fastcall **)(__int64, struct cocos2d::CCObject *))(*(_QWORD *)v10 + 464LL))(v10, v14);
+    cocos2d::CCArray::addObject(*(cocos2d::CCArray **)(a1 + 680), v14);
+    (*(void (__fastcall **)(struct cocos2d::CCObject *, _QWORD))(*(_QWORD *)v14 + 64LL))(v14, i);
+    v15 = (cocos2d::CCArray *)v6;
+    if ( i > 5 )
+      v15 = (cocos2d::CCArray *)v8;
+    cocos2d::CCArray::addObject(v15, v14);
+  }
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)v39,
+    v42[0] * 0.5,
+    (float)((float)((float)(v42[1] * 0.5) - 50.0) + 35.0) + 2.0);
+  v16 = *(_QWORD *)(a1 + 552);
+  cocos2d::CCNode::convertToWorldSpace(*(_QWORD *)(a1 + 584), &v38, v39);
+  cocos2d::CCNode::convertToNodeSpace(v16, v43, v17);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v38, (const struct cocos2d::CCPoint *)v43);
+  GameToolbox_alignItemsHorisontally(v6, 17.0, v18, 0);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v41, 0.0, -35.0);
+  cocos2d::CCPoint::operator+(v43, &v38, v19);
+  GameToolbox_alignItemsHorisontally(v8, 17.0, (__int64)&v38, 0);
+  v20 = *(_QWORD *)(a1 + 664);
+  *(_DWORD *)(a1 + 672) = *(_DWORD *)(v20 + 1116);
+  v21 = "Request Stars";
+  if ( *(_DWORD *)(v20 + 972) == 5 )
+    v21 = "Request Moons";
+  v46 = 0;
+  v47 = 0;
+  v48 = 0;
+  v22 = -1;
+  do
+    ++v22;
+  while ( v21[v22] );
+  sub_3C230(&v46);
+  v23 = (const char *)&v46;
+  if ( v48 > 0xF )
+    v23 = (const char *)v46;
+  v24 = cocos2d::CCLabelBMFont::create(v23, (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v24 + 160LL))(v24);
+  (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    v24,
+    2);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v41, 0.0, 30.0);
+  cocos2d::CCPoint::operator+(v39, &v38, v25);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, void **))(*(_QWORD *)v24 + 184LL))(v24, &v38);
+  v26 = cocos2d::CCSprite::createWithSpriteFrameName("difficulty_00_btn_001.png");
+  *(_QWORD *)(a1 + 688) = v26;
+  (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    v26,
+    3);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v41, 155.0, -18.0);
+  cocos2d::CCPoint::operator+(v39, &v38, v27);
+  (*(void (__fastcall **)(_QWORD, void **))(**(_QWORD **)(a1 + 688) + 184LL))(*(_QWORD *)(a1 + 688), &v38);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v41, -170.0, -8.0);
+  cocos2d::CCPoint::operator+(v39, &v38, v28);
+  v29 = v40 + 30.0;
+  v30 = *(_QWORD *)(a1 + 552);
+  v31 = *(_QWORD *)(a1 + 584);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v44, (const struct cocos2d::CCPoint *)&v38);
+  v33 = (_OWORD *)sub_6CAA0(
+                    (unsigned int)&v45,
+                    v31,
+                    v30,
+                    a1,
+                    (__int64)sub_62CBD0,
+                    (__int64)sub_62CBF0,
+                    v32,
+                    1109393408,
+                    LODWORD(v29));
+  v34 = v33[1];
+  v35 = v33[2];
+  v36 = v33[3];
+  *(_OWORD *)(a1 + 696) = *v33;
+  *(_OWORD *)(a1 + 712) = v34;
+  *(_OWORD *)(a1 + 728) = v35;
+  *(_OWORD *)(a1 + 744) = v36;
+  sub_62CAF0(a1);
+  ShareLevelLayer_selectRating(a1, 0);
+  return sub_3C310(&v46);
+}

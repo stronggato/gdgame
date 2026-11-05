@@ -628,3 +628,283 @@ __int64 __fastcall GJLevelList_parseListLevels(__int64 a1, __int64 a2)
   sub_3C310(v19); /*0x51d96e*/
   return fmt::BasicWriter<char>::~BasicWriter<char>(v18); /*0x51d97d*/
 }
+
+// Address: 0x26f790
+// Method: GJLevelList::getListLevelsArray
+// Hidden C++ exception states: #wind=9
+cocos2d::CCArray *__fastcall GJLevelList_getListLevelsArray(_QWORD *a1, __int64 a2)
+{
+  _QWORD *v4; // rdi
+  _QWORD *v5; // rbx
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
+  unsigned int *v8; // rdi
+  __int64 v9; // rax
+  __int64 *v10; // rdi
+  __int64 *i; // rsi
+  __int64 v12; // rbx
+  __int64 v13; // rax
+  cocos2d::CCArray *v14; // rbx
+  int v15; // r12d
+  unsigned __int8 *v16; // r15
+  _QWORD *v17; // r13
+  _QWORD *v18; // r14
+  __int64 v19; // rcx
+  __int64 v20; // rdi
+  unsigned int v21; // ebx
+  __int64 v22; // rax
+  __int64 v23; // r8
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  void *v26; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // rdi
+  unsigned int v29; // ebx
+  __int64 v30; // rax
+  __int64 v31; // r8
+  __int64 v32; // rbx
+  void *v33; // rcx
+  __int64 v34; // rax
+  unsigned int v35; // ebx
+  float v36; // xmm0_4
+  unsigned int v37; // ebx
+  __int64 v38; // rax
+  __int64 v39; // r8
+  void **v40; // rdx
+  cocos2d::CCArray *v42; // [rsp+30h] [rbp-D0h] BYREF
+  void *Src[2]; // [rsp+38h] [rbp-C8h] BYREF
+  size_t Size; // [rsp+48h] [rbp-B8h]
+  unsigned __int64 v45; // [rsp+50h] [rbp-B0h]
+  int v46; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v47[2]; // [rsp+68h] [rbp-98h] BYREF
+  void *Block[3]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v49; // [rsp+90h] [rbp-70h]
+  __int64 v50; // [rsp+98h] [rbp-68h]
+  unsigned __int8 *v51; // [rsp+A0h] [rbp-60h]
+  void **v52; // [rsp+A8h] [rbp-58h] BYREF
+  void *v53; // [rsp+B8h] [rbp-48h]
+  void *v54; // [rsp+C0h] [rbp-40h]
+  _BYTE v55[16]; // [rsp+C8h] [rbp-38h] BYREF
+  __int128 v56; // [rsp+D8h] [rbp-28h] BYREF
+  __int64 v57; // [rsp+E8h] [rbp-18h]
+  unsigned __int64 v58; // [rsp+F0h] [rbp-10h]
+  __int128 v59; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 v60; // [rsp+108h] [rbp+8h]
+  unsigned __int64 v61; // [rsp+110h] [rbp+10h]
+  _BYTE v62[528]; // [rsp+120h] [rbp+20h] BYREF
+
+  v47[1] = 0;
+  v4 = operator new(0x20u);
+  *v4 = v4;
+  v4[1] = v4;
+  v47[0] = v4;
+  v49 = 7;
+  v50 = 8;
+  v46 = 1065353216;
+  v5 = operator new(0x80u);
+  v6 = 0;
+  Block[0] = v5;
+  v7 = v5 + 16;
+  Block[1] = v5 + 16;
+  Block[2] = v5 + 16;
+  do
+    *v5++ = v4;
+  while ( v5 != v7 );
+  if ( a2 )
+  {
+    v8 = *(unsigned int **)(a2 + 56);
+    v9 = *v8;
+    if ( (_DWORD)v9 )
+    {
+      v10 = (__int64 *)*((_QWORD *)v8 + 2);
+      for ( i = &v10[v9 - 1]; v10 <= i; ++v10 )
+      {
+        v12 = *v10;
+        if ( !*v10 )
+          break;
+        LODWORD(v42) = *(_DWORD *)(v12 + 328) - *(_DWORD *)(v12 + 332);
+        v13 = sub_66670(&v46, &v52, &v42);
+        v6 = *(_QWORD *)v13;
+        *(_QWORD *)(*(_QWORD *)v13 + 24LL) = v12;
+      }
+    }
+  }
+  v14 = (cocos2d::CCArray *)cocos2d::CCArray::create(v6);
+  v42 = v14;
+  v15 = 1;
+  v16 = (unsigned __int8 *)a1[40];
+  v51 = (unsigned __int8 *)a1[41];
+  if ( v16 != v51 )
+  {
+    v17 = a1 + 72;
+    v18 = a1 + 72;
+    do
+    {
+      v19 = *((_QWORD *)Block[0]
+            + 2
+            * (v49
+             & (0x100000001B3LL
+              * (v16[3]
+               ^ (0x100000001B3LL
+                * (v16[2] ^ (0x100000001B3LL * (v16[1] ^ (0x100000001B3LL * (*v16 ^ 0xCBF29CE484222325uLL)))))))))
+            + 1);
+      if ( v19 == v47[0] )
+      {
+        v19 = 0;
+      }
+      else
+      {
+        if ( *(_DWORD *)v16 != *(_DWORD *)(v19 + 16) )
+        {
+          while ( v19 != *((_QWORD *)Block[0]
+                         + 2
+                         * (v49
+                          & (0x100000001B3LL
+                           * (v16[3]
+                            ^ (0x100000001B3LL
+                             * (v16[2]
+                              ^ (0x100000001B3LL * (v16[1] ^ (0x100000001B3LL * (*v16 ^ 0xCBF29CE484222325uLL)))))))))) )
+          {
+            v19 = *(_QWORD *)(v19 + 8);
+            if ( *(_DWORD *)v16 == *(_DWORD *)(v19 + 16) )
+              goto LABEL_15;
+          }
+          v19 = 0;
+        }
+LABEL_15:
+        v18 = v17;
+      }
+      if ( v19 )
+      {
+        v20 = *(_QWORD *)(*(_QWORD *)sub_66670(&v46, v55, v16) + 24LL);
+        v21 = *(_DWORD *)(v20 + 328) - *(_DWORD *)(v20 + 332);
+        fmt::BasicWriter<char>::BasicWriter<char>(v62);
+        fmt::BasicWriter<char>::operator<<(v62, v21);
+        v22 = fmt::BasicWriter<char>::c_str(v62);
+        v56 = 0;
+        v57 = 0;
+        v58 = 0;
+        v23 = -1;
+        do
+          ++v23;
+        while ( *(_BYTE *)(v22 + v23) );
+        sub_3C230(&v56);
+        fmt::BasicWriter<char>::~BasicWriter<char>(v62);
+        v24 = *v18;
+        v25 = sub_264050(v20);
+        cocos2d::CCDictionary::setObject(v24, v25, &v56);
+        if ( v58 > 0xF )
+        {
+          v26 = (void *)v56;
+          if ( v58 + 1 >= 0x1000 )
+          {
+            v26 = *(void **)(v56 - 8);
+            if ( (unsigned __int64)(v56 - (_QWORD)v26 - 8) > 0x1F )
+              invoke_watson(0, 0, 0, 0, 0);
+          }
+          j_j_free(v26);
+        }
+        v57 = 0;
+        v58 = 15;
+        LOBYTE(v56) = 0;
+      }
+      v27 = *(_QWORD *)&qword_905FB0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v53 = operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v53);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v27 = *(_QWORD *)&qword_905FB0;
+      }
+      v28 = sub_21D5C0(v27, *(unsigned int *)v16);
+      v29 = *(_DWORD *)v16;
+      fmt::BasicWriter<char>::BasicWriter<char>(v62);
+      fmt::BasicWriter<char>::operator<<(v62, v29);
+      v30 = fmt::BasicWriter<char>::c_str(v62);
+      v59 = 0;
+      v60 = 0;
+      v61 = 0;
+      v31 = -1;
+      do
+        ++v31;
+      while ( *(_BYTE *)(v30 + v31) );
+      sub_3C230(&v59);
+      fmt::BasicWriter<char>::~BasicWriter<char>(v62);
+      v32 = cocos2d::CCDictionary::objectForKey(*v18, &v59);
+      if ( v61 > 0xF )
+      {
+        v33 = (void *)v59;
+        if ( v61 + 1 >= 0x1000 )
+        {
+          v33 = *(void **)(v59 - 8);
+          if ( (unsigned __int64)(v59 - (_QWORD)v33 - 8) > 0x1F )
+            invoke_watson(0, 0, 0, 0, 0);
+        }
+        j_j_free(v33);
+      }
+      v60 = 0;
+      v61 = 15;
+      LOBYTE(v59) = 0;
+      if ( !v28 || *(_BYTE *)(v28 + 1185) )
+      {
+        if ( v32 )
+        {
+          v28 = v32;
+        }
+        else if ( !v28 )
+        {
+          v54 = operator new(0x840u);
+          v34 = GJGameLevel_GJGameLevel((__int64)v54);
+          v28 = v34;
+          if ( v34 )
+          {
+            if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v34 + 72LL))(v34) )
+            {
+              cocos2d::CCObject::autorelease((cocos2d::CCObject *)v28);
+            }
+            else
+            {
+              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v28 + 8LL))(v28, 1);
+              v28 = 0;
+            }
+          }
+          v35 = *(_DWORD *)v16;
+          *(_DWORD *)(v28 + 336) = *(_DWORD *)v16;
+          v36 = (float)((float)rand() / 32767.0) * 1000.0;
+          *(_DWORD *)(v28 + 332) = (int)v36;
+          *(_DWORD *)(v28 + 328) = v35 + (int)v36;
+          v37 = *(_DWORD *)v16;
+          fmt::BasicWriter<char>::BasicWriter<char>(v62);
+          fmt::BasicWriter<char>::operator<<(v62, v37);
+          v38 = fmt::BasicWriter<char>::c_str(v62);
+          *(_OWORD *)Src = 0;
+          Size = 0;
+          v45 = 0;
+          v39 = -1;
+          do
+            ++v39;
+          while ( *(_BYTE *)(v38 + v39) );
+          sub_3C230(Src);
+          fmt::BasicWriter<char>::~BasicWriter<char>(v62);
+          v52 = Src;
+          if ( (void **)(v28 + 344) != Src )
+          {
+            v40 = Src;
+            if ( v45 > 0xF )
+              v40 = (void **)Src[0];
+            sub_3F5A0((void *)(v28 + 344), v40, Size);
+          }
+          sub_3C310(Src);
+        }
+      }
+      *(_DWORD *)(v28 + 1340) = v15++;
+      v14 = v42;
+      cocos2d::CCArray::addObject(v42, (struct cocos2d::CCObject *)v28);
+      v16 += 4;
+    }
+    while ( v16 != v51 );
+  }
+  sub_3DA90(Block);
+  sub_65440(v47);
+  return v14;
+}

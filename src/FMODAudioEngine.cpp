@@ -3904,3 +3904,246 @@ LABEL_93:
   sub_3C310(a2);
   return v30;
 }
+
+// Address: 0x5f390
+// Method: FMODAudioEngine::queuePlayEffect
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall FMODAudioEngine_queuePlayEffect(
+        __int64 a1,
+        _QWORD *a2,
+        float a3,
+        float a4,
+        unsigned int a5,
+        unsigned int a6,
+        char a7,
+        char a8,
+        unsigned int a9,
+        unsigned int a10,
+        unsigned int a11,
+        unsigned int a12,
+        char a13,
+        int a14,
+        char a15,
+        unsigned int a16,
+        unsigned int a17,
+        int a18)
+{
+  _QWORD *v18; // rdi
+  int v20; // ecx
+  _QWORD *v21; // rax
+  unsigned int v22; // ebx
+  char v24[40]; // [rsp+28h] [rbp-C1h] BYREF
+  _OWORD v25[2]; // [rsp+50h] [rbp-99h] BYREF
+  __m128i si128; // [rsp+70h] [rbp-79h]
+  __int16 v27; // [rsp+80h] [rbp-69h]
+  unsigned __int64 v28; // [rsp+84h] [rbp-65h]
+  unsigned __int64 v29; // [rsp+8Ch] [rbp-5Dh]
+  char v30; // [rsp+94h] [rbp-55h]
+  int v31; // [rsp+98h] [rbp-51h]
+  __int16 v32; // [rsp+9Ch] [rbp-4Dh]
+  int v33; // [rsp+A0h] [rbp-49h]
+  __int64 v34; // [rsp+A8h] [rbp-41h]
+  unsigned __int64 v35; // [rsp+B0h] [rbp-39h]
+  int v36; // [rsp+B8h] [rbp-31h]
+  _QWORD *v37; // [rsp+C0h] [rbp-29h]
+
+  v18 = a2;
+  v37 = a2;
+  v25[0] = 0;
+  v25[1] = _mm_load_si128((const __m128i *)&Size);
+  LOBYTE(v25[0]) = 0;
+  si128 = _mm_load_si128((const __m128i *)&xmmword_8310F0);
+  v27 = 0;
+  v28 = 0;
+  v29 = 0;
+  v30 = 0;
+  v31 = 0;
+  v32 = 0;
+  v33 = 0;
+  v34 = 0;
+  v35 = 0;
+  v36 = 0;
+  if ( v25 != (_OWORD *)a2 )
+  {
+    if ( a2[3] > 0xFu )
+      a2 = (_QWORD *)*a2;
+    sub_3F5A0(v25, a2, v18[2]);
+  }
+  si128.m128i_i64[0] = __PAIR64__(LODWORD(a4), LODWORD(a3));
+  si128.m128i_i64[1] = __PAIR64__(a6, a5);
+  LOBYTE(v27) = a7;
+  HIBYTE(v27) = a8;
+  v28 = __PAIR64__(a10, a9);
+  v29 = __PAIR64__(a12, a11);
+  v30 = a13;
+  v31 = a14;
+  LOBYTE(v32) = a15;
+  v20 = dword_8F835C++;
+  v33 = v20;
+  v35 = __PAIR64__(a17, a16);
+  v36 = a18;
+  sub_3E4F0(v24, v18);
+  v34 = FMODAudioEngine_preloadEffectAsync(a1, v21);
+  if ( *(_QWORD *)(a1 + 1976) == *(_QWORD *)(a1 + 1984) )
+  {
+    sub_68630(a1 + 1968, *(_QWORD *)(a1 + 1976), v25);
+  }
+  else
+  {
+    sub_62E80(*(_QWORD *)(a1 + 1976), v25);
+    *(_QWORD *)(a1 + 1976) += 112LL;
+  }
+  v22 = v33;
+  sub_3C310(v25);
+  sub_3C310(v18);
+  return v22;
+}
+
+// Address: 0x62580
+// Method: FMODAudioEngine::queueStartMusic
+// Hidden C++ exception states: #wind=2
+double __fastcall FMODAudioEngine_queueStartMusic(
+        __int64 a1,
+        size_t *a2,
+        float a3,
+        float a4,
+        unsigned int a5,
+        char a6,
+        unsigned int a7,
+        unsigned int a8,
+        unsigned int a9,
+        int a10,
+        unsigned int a11,
+        int a12,
+        unsigned int a13,
+        char a14,
+        char a15)
+{
+  float v15; // xmm7_4
+  float v16; // xmm6_4
+  unsigned int v19; // r14d
+  __int64 v20; // rax
+  int v21; // edi
+  void *v22; // rdx
+  int v23; // xmm8_4
+  unsigned int v24; // r12d
+  int v25; // r13d
+  size_t *v26; // rax
+  __int64 v27; // rbx
+  void **v28; // rdx
+  unsigned int v29; // ecx
+  unsigned int v30; // eax
+  unsigned int v32; // [rsp+20h] [rbp-E0h] BYREF
+  unsigned int v33; // [rsp+28h] [rbp-D8h]
+  _BYTE v34[32]; // [rsp+30h] [rbp-D0h] BYREF
+  char v35[32]; // [rsp+50h] [rbp-B0h] BYREF
+  void *Src[2]; // [rsp+70h] [rbp-90h] BYREF
+  size_t Size[2]; // [rsp+80h] [rbp-80h]
+  unsigned __int64 v38; // [rsp+90h] [rbp-70h]
+  unsigned __int64 v39; // [rsp+98h] [rbp-68h]
+  unsigned __int64 v40; // [rsp+A0h] [rbp-60h]
+  int v41; // [rsp+A8h] [rbp-58h]
+  char v42; // [rsp+ACh] [rbp-54h]
+  unsigned int v43; // [rsp+B0h] [rbp-50h]
+  char v44; // [rsp+B4h] [rbp-4Ch]
+  unsigned int v45; // [rsp+B8h] [rbp-48h]
+  char v46; // [rsp+BCh] [rbp-44h]
+  int v47; // [rsp+C0h] [rbp-40h]
+  __int64 v48; // [rsp+C8h] [rbp-38h]
+  char v49; // [rsp+D0h] [rbp-30h]
+  size_t *v50; // [rsp+E0h] [rbp-20h]
+
+  v15 = a4;
+  v16 = a3;
+  v50 = a2;
+  v32 = a11;
+  sub_3E4F0(v34, a2);
+  v19 = a13;
+  if ( !(unsigned __int8)sub_62860(a1, v20, a13) )
+  {
+    *(_OWORD *)Src = 0;
+    *(__m128i *)Size = _mm_load_si128((const __m128i *)&::Size);
+    LOBYTE(Src[0]) = 0;
+    v38 = 1065353216;
+    v39 = 1065353216;
+    v21 = 0;
+    v40 = 0;
+    v41 = 0;
+    v42 = 0;
+    v43 = 0;
+    v44 = 0;
+    v45 = 0;
+    v46 = 0;
+    v47 = 0;
+    v48 = 0;
+    v49 = 0;
+    if ( Src != (void **)a2 )
+    {
+      v22 = a2;
+      if ( a2[3] > 0xF )
+        v22 = (void *)*a2;
+      sub_3F5A0(Src, v22, a2[2]);
+    }
+    v38 = __PAIR64__(LODWORD(a4), LODWORD(a3));
+    v23 = a5;
+    v39 = __PAIR64__(a7, a5);
+    v24 = a7;
+    v25 = a8;
+    v40 = __PAIR64__(a9, a8);
+    v41 = a10;
+    v42 = a6;
+    v33 = v32;
+    v43 = v32;
+    v44 = 1;
+    v45 = a13;
+    v46 = a14;
+    v47 = 0;
+    v49 = a15;
+    sub_3E4F0(v35, a2);
+    v48 = FMODAudioEngine_preloadMusic(a1, v26, 1, v32);
+    v27 = *(_QWORD *)sub_67A00(a1 + 1352, v34, &v32) + 24LL;
+    if ( (void **)v27 == Src )
+    {
+      v30 = a9;
+      v29 = v33;
+    }
+    else
+    {
+      v28 = Src;
+      if ( Size[1] > 0xF )
+        v28 = (void **)Src[0];
+      sub_3F5A0((void *)v27, v28, Size[0]);
+      a15 = v49;
+      v21 = v47;
+      a14 = v46;
+      v19 = v45;
+      v29 = v43;
+      a6 = v42;
+      a10 = v41;
+      v30 = HIDWORD(v40);
+      v25 = v40;
+      v24 = HIDWORD(v39);
+      v23 = v39;
+      v15 = *((float *)&v38 + 1);
+      v16 = *(float *)&v38;
+    }
+    *(float *)(v27 + 32) = v16;
+    *(float *)(v27 + 36) = v15;
+    *(_DWORD *)(v27 + 40) = v23;
+    *(_DWORD *)(v27 + 44) = v24;
+    *(_DWORD *)(v27 + 48) = v25;
+    *(_DWORD *)(v27 + 52) = v30;
+    *(_DWORD *)(v27 + 56) = a10;
+    *(_BYTE *)(v27 + 60) = a6;
+    *(_DWORD *)(v27 + 64) = v29;
+    *(_BYTE *)(v27 + 68) = v44;
+    *(_DWORD *)(v27 + 72) = v19;
+    *(_BYTE *)(v27 + 76) = a14;
+    *(_DWORD *)(v27 + 80) = v21;
+    *(_QWORD *)(v27 + 88) = v48;
+    *(_BYTE *)(v27 + 96) = a15;
+    sub_66150(a1 + 1416, &v32);
+    sub_3C310(Src);
+  }
+  return sub_3C310(a2);
+}

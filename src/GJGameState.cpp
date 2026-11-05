@@ -183,3 +183,42 @@ void __fastcall GJGameState_processStateTriggers(__int64 a1)
     while ( j != *(_QWORD **)(a1 + 840) ); /*0x307db6*/
   }
 }
+
+// Address: 0x203510
+// Method: GJGameState::GJGameState
+// Hidden C++ exception states: #wind=2
+void __fastcall EndLevelLayer_onEdit(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  struct cocos2d::CCFiniteTimeAction *v5; // rax
+  struct cocos2d::CCAction *v6; // rax
+  void *v7; // [rsp+30h] [rbp+8h]
+
+  if ( !*(_BYTE *)(a1 + 619) )
+  {
+    *(_BYTE *)(a1 + 619) = 1;
+    cocos2d::CCNode::stopAllActions(*(cocos2d::CCNode **)(a1 + 608));
+    cocos2d::CCNode::unscheduleAllSelectors(*(cocos2d::CCNode **)(a1 + 608));
+    v2 = qword_905F60;
+    if ( !qword_905F60 )
+    {
+      v7 = operator new(0x8A8u);
+      qword_905F60 = sub_5AE20(v7);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+      v2 = qword_905F60;
+    }
+    v3 = *(_QWORD *)(v2 + 552);
+    if ( v3 )
+      FMOD::ChannelControl::stop(v3);
+    sub_3DB60(v2 + 1096);
+    sub_3DB60(v2 + 1160);
+    sub_3DB60(v2 + 1224);
+    PlayLayer_removeAllObjects(*(_QWORD *)(a1 + 608));
+    v4 = cocos2d::CCCallFunc::create(a1, sub_203580);
+    v5 = cocos2d::CCDelayTime::create(0.0);
+    v6 = cocos2d::CCSequence::create(v5, v4, 0);
+    cocos2d::CCNode::runAction((cocos2d::CCNode *)a1, v6);
+  }
+}
