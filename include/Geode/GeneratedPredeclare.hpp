@@ -1119,8 +1119,10 @@ class WorldSelectLayer;
 class WriteArchive;
 
 struct TodoReturnPlaceholder {
-private:
+public:
     TodoReturnPlaceholder() = default;
+    template <typename T>
+    TodoReturnPlaceholder(const T&) {}
     TodoReturnPlaceholder(TodoReturnPlaceholder const&) = default;
     TodoReturnPlaceholder(TodoReturnPlaceholder&&) = default;
     ~TodoReturnPlaceholder() = default;

@@ -1,55 +1,77 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/BoomListView.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub CCScrollLayerExt_CCScrollLayerExt;
+inline GDStub SmartTemplateCell_loadFromObject;
+inline GDStub TableView_reloadData;
 using namespace cocos2d;
 
 // [1/9] Address: 0x3e5d0
 // Method: BoomListView::BoomListView
-__int64 __fastcall BoomListView_BoomListView(__int64 a1)
+BoomListView::BoomListView()
 {
-  cocos2d::CCLayer::CCLayer((cocos2d::CCLayer *)a1); /*0x3e5d9*/
-  *(_QWORD *)a1 = &BoomListView::`vftable'; /*0x3e5e6*/
-  *(_QWORD *)(a1 + 320) = &BoomListView::`vftable'; /*0x3e5f0*/
-  *(_QWORD *)(a1 + 328) = &BoomListView::`vftable'; /*0x3e5fe*/
-  *(_QWORD *)(a1 + 336) = &BoomListView::`vftable'; /*0x3e60c*/
-  *(_QWORD *)(a1 + 344) = &BoomListView::`vftable'; /*0x3e61a*/
-  *(_QWORD *)(a1 + 352) = &BoomListView::`vftable'; /*0x3e628*/
-  *(_QWORD *)(a1 + 408) = &BoomListView::`vftable'; /*0x3e636*/
-  *(_QWORD *)(a1 + 416) = &BoomListView::`vftable'; /*0x3e644*/
-  *(_QWORD *)(a1 + 424) = 0; /*0x3e64d*/
-  *(_QWORD *)(a1 + 432) = 0; /*0x3e654*/
-  *(_QWORD *)(a1 + 440) = 0; /*0x3e65b*/
-  *(_QWORD *)(a1 + 448) = 0; /*0x3e662*/
-  *(_DWORD *)(a1 + 456) = 0; /*0x3e669*/
-  *(_BYTE *)(a1 + 460) = 0; /*0x3e66f*/
-  return a1; /*0x3e678*/
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   cocos2d::CCLayer::CCLayer((cocos2d::CCLayer *)a1); /*0x3e5d9*/ // cleaned base ctor/dtor
+//   *(_QWORD *)a1   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e5e6*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 320)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e5f0*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 328)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e5fe*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 336)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e60c*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 344)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e61a*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 352)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e628*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 408)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e636*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 416)   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e644*/ // cleaned vftable
+  *(_QWORD *)(a1 + 424)   = (uintptr_t)((uintptr_t)(0)); /*0x3e64d*/
+  *(_QWORD *)(a1 + 432)   = (uintptr_t)((uintptr_t)(0)); /*0x3e654*/
+  *(_QWORD *)(a1 + 440)   = (uintptr_t)((uintptr_t)(0)); /*0x3e65b*/
+  *(_QWORD *)(a1 + 448)   = (uintptr_t)((uintptr_t)(0)); /*0x3e662*/
+  *(_DWORD *)(a1 + 456)  = (uintptr_t)(0); /*0x3e669*/
+  *(_BYTE *)(a1 + 460)  = (uintptr_t)(0); /*0x3e66f*/
+  return; /*0x3e678*/
 }
 
 // [2/9] Address: 0x3e6c0
 // Method: BoomListView::~BoomListView
-void __fastcall BoomListView__dtor_BoomListView(cocos2d::CCLayer *a1)
+BoomListView::~BoomListView()
 {
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   cocos2d::CCObject *v2; // rcx
 
-  *(_QWORD *)a1 = &BoomListView::`vftable'; /*0x3e6d0*/
-  *((_QWORD *)a1 + 40) = &BoomListView::`vftable'; /*0x3e6da*/
-  *((_QWORD *)a1 + 41) = &BoomListView::`vftable'; /*0x3e6e8*/
-  *((_QWORD *)a1 + 42) = &BoomListView::`vftable'; /*0x3e6f6*/
-  *((_QWORD *)a1 + 43) = &BoomListView::`vftable'; /*0x3e704*/
-  *((_QWORD *)a1 + 44) = &BoomListView::`vftable'; /*0x3e712*/
-  *((_QWORD *)a1 + 51) = &BoomListView::`vftable'; /*0x3e720*/
-  *((_QWORD *)a1 + 52) = &BoomListView::`vftable'; /*0x3e72e*/
-  v2 = (cocos2d::CCObject *)*((_QWORD *)a1 + 54); /*0x3e735*/
+//   *(_QWORD *)a1   = (uintptr_t)((uintptr_t)(&BoomListView::`vftable')); /*0x3e6d0*/ // cleaned vftable
+//   *((_QWORD *)a1 + 40)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e6da*/ // cleaned vftable
+//   *((_QWORD *)a1 + 41)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e6e8*/ // cleaned vftable
+//   *((_QWORD *)a1 + 42)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e6f6*/ // cleaned vftable
+//   *((_QWORD *)a1 + 43)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e704*/ // cleaned vftable
+//   *((_QWORD *)a1 + 44)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e712*/ // cleaned vftable
+//   *((_QWORD *)a1 + 51)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e720*/ // cleaned vftable
+//   *((_QWORD *)a1 + 52)  = (uintptr_t)(&BoomListView::`vftable'); /*0x3e72e*/ // cleaned vftable
+  v2 = (decltype(v2))((cocos2d::CCObject *)*((_QWORD *)a1 + 54)); /*0x3e735*/
   if ( v2 ) /*0x3e73f*/
-    cocos2d::CCObject::release(v2); /*0x3e741*/
-  cocos2d::CCLayer::~CCLayer(a1); /*0x3e74f*/
+    CCObject_release(v2); /*0x3e741*/
+//   cocos2d::CCLayer::~CCLayer(a1); /*0x3e74f*/ // cleaned base ctor/dtor
 }
 
 // [3/9] Address: 0x3e760
 // Method: BoomListView::init
-// Hidden C++ exception states: #wind=2
-bool __fastcall BoomListView_init(__int64 a1, cocos2d::CCObject *a2, __int64 a3, float a4, int a5, int a6, int a7)
+bool BoomListView::init(cocos2d::CCArray* entries, BoomListType type, float width, float height)
 {
+  __int64 a1 = (__int64)this;
+  cocos2d::CCObject* a2 = (decltype(a2))((cocos2d::CCObject*)to_gd_arg(entries));
+  __int64 a3 = (__int64)to_gd_arg(type);
+  float a4 = (float)to_gd_arg(width);
+  int a5 = (int)to_gd_arg(height);
+  int a6 = (int)to_gd_arg(0);
+  int a7 = (int)to_gd_arg(0);
+  uint64_t a8 = 0;
+
   bool result; // al
   __int64 v11; // rcx
   __int64 v12; // rdx
@@ -72,75 +94,75 @@ bool __fastcall BoomListView_init(__int64 a1, cocos2d::CCObject *a2, __int64 a3,
   char v29[16]; // [rsp+50h] [rbp-48h] BYREF
   char v30[16]; // [rsp+60h] [rbp-38h] BYREF
 
-  result = cocos2d::CCLayer::init((cocos2d::CCLayer *)a1); /*0x3e792*/
+  result = (((cocos2d::CCLayer*)((cocos2d::CCLayer *)a1))->init()); /*0x3e792*/
   if ( result ) /*0x3e79a*/
   {
     if ( !a2 ) /*0x3e7a3*/
-      a2 = (cocos2d::CCObject *)cocos2d::CCArray::create(v11); /*0x3e7ab*/
-    *(_QWORD *)(a1 + 432) = a2; /*0x3e7ae*/
-    cocos2d::CCObject::retain(a2); /*0x3e7b8*/
+      a2 = (decltype(a2))((cocos2d::CCObject *)cocos2d::CCArray::createWithCapacity((unsigned int)(v11))); /*0x3e7ab*/
+    *(_QWORD *)(a1 + 432)   = (uintptr_t)((uintptr_t)(a2)); /*0x3e7ae*/
+    CCObject_retain(a2); /*0x3e7b8*/
     *(float *)(a1 + 444) = a4; /*0x3e7be*/
-    *(_DWORD *)(a1 + 448) = a5; /*0x3e7d0*/
-    *(_DWORD *)(a1 + 456) = 0; /*0x3e7dc*/
+    *(_DWORD *)(a1 + 448)  = (uintptr_t)(a5); /*0x3e7d0*/
+    *(_DWORD *)(a1 + 456)  = (uintptr_t)(0); /*0x3e7dc*/
     LOBYTE(v12) = 1; /*0x3e7e6*/
     (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 920LL))(a1, v12); /*0x3e7eb*/
-    cocos2d::CCSize::CCSize((cocos2d::CCSize *)v26, *(float *)(a1 + 448), *(float *)(a1 + 444)); /*0x3e808*/
+//     new ((cocos2d::CCSize*)v26) cocos2d::CCSize(*(float *)(a1 + 448), *(float *)(a1 + 444)); /*0x3e808*/ // cleaned base ctor/dtor
     (*(void (__fastcall **)(__int64, float *))(*(_QWORD *)a1 + 312LL))(a1, v26); /*0x3e819*/
-    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v28, 0.0, 0.0, v26[0], v26[1]); /*0x3e84a*/
-    v14 = v13; /*0x3e850*/
+//     new ((cocos2d::CCRect*)v28) cocos2d::CCRect(0.0, 0.0, v26[0], v26[1]); /*0x3e84a*/ // cleaned base ctor/dtor
+    v14 = (decltype(v14))v13; /*0x3e850*/
     v15 = (char *)operator new(0x298u); /*0x3e85d*/
     v27 = v15; /*0x3e860*/
-    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v29, v14); /*0x3e86d*/
-    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v30, v16); /*0x3e87b*/
-    CCScrollLayerExt_CCScrollLayerExt((__int64)v15, v17); /*0x3e887*/
-    *(_QWORD *)v15 = &TableView::`vftable'; /*0x3e89b*/
-    *((_QWORD *)v15 + 40) = &TableView::`vftable'; /*0x3e8a5*/
-    *((_QWORD *)v15 + 41) = &TableView::`vftable'; /*0x3e8b3*/
-    *((_QWORD *)v15 + 42) = &TableView::`vftable'; /*0x3e8c1*/
-    *((_QWORD *)v15 + 43) = &TableView::`vftable'; /*0x3e8cf*/
-    *((_QWORD *)v15 + 44) = &TableView::`vftable'; /*0x3e8dd*/
-    *((_QWORD *)v15 + 51) = &TableView::`vftable'; /*0x3e8eb*/
-    *((_QWORD *)v15 + 65) = &TableView::`vftable'; /*0x3e8f9*/
-    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 544)); /*0x3e903*/
-    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 552)); /*0x3e910*/
-    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 560)); /*0x3e91d*/
-    *((_QWORD *)v15 + 76) = 0; /*0x3e923*/
-    *((_QWORD *)v15 + 77) = 0; /*0x3e92a*/
-    *((_QWORD *)v15 + 78) = 0; /*0x3e931*/
+//     new ((cocos2d::CCRect*)v29) cocos2d::CCRect(v14); /*0x3e86d*/ // cleaned base ctor/dtor
+//     new ((cocos2d::CCRect*)v30) cocos2d::CCRect(v16); /*0x3e87b*/ // cleaned base ctor/dtor
+//     CCScrollLayerExt_CCScrollLayerExt((__int64)v15, v17); /*0x3e887*/ // cleaned base ctor
+//     *(_QWORD *)v15   = (uintptr_t)((uintptr_t)(&TableView::`vftable')); /*0x3e89b*/ // cleaned vftable
+//     *((_QWORD *)v15 + 40)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8a5*/ // cleaned vftable
+//     *((_QWORD *)v15 + 41)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8b3*/ // cleaned vftable
+//     *((_QWORD *)v15 + 42)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8c1*/ // cleaned vftable
+//     *((_QWORD *)v15 + 43)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8cf*/ // cleaned vftable
+//     *((_QWORD *)v15 + 44)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8dd*/ // cleaned vftable
+//     *((_QWORD *)v15 + 51)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8eb*/ // cleaned vftable
+//     *((_QWORD *)v15 + 65)  = (uintptr_t)(&TableView::`vftable'); /*0x3e8f9*/ // cleaned vftable
+//     cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 544)); /*0x3e903*/ // cleaned base ctor/dtor
+//     cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 552)); /*0x3e910*/ // cleaned base ctor/dtor
+//     cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)(v15 + 560)); /*0x3e91d*/ // cleaned base ctor/dtor
+    *((_QWORD *)v15 + 76)  = (uintptr_t)(0); /*0x3e923*/
+    *((_QWORD *)v15 + 77)  = (uintptr_t)(0); /*0x3e92a*/
+    *((_QWORD *)v15 + 78)  = (uintptr_t)(0); /*0x3e931*/
     v15[632] = 1; /*0x3e938*/
-    cocos2d::CCLayer::setTouchEnabled((cocos2d::CCLayer *)v15, 1); /*0x3e945*/
-    cocos2d::CCLayer::setMouseEnabled((cocos2d::CCLayer *)v15, 1); /*0x3e950*/
-    *(_WORD *)(v15 + 489) = 0; /*0x3e956*/
+    (((cocos2d::CCLayer*)((cocos2d::CCLayer *)v15))->setTouchEnabled((bool)(1))); /*0x3e945*/
+    // cleaned setMouseEnabled /*0x3e950*/
+    *(_WORD *)(v15 + 489)  = (uintptr_t)(0); /*0x3e956*/
     v15[491] = 1; /*0x3e95e*/
-    *((_QWORD *)v15 + 80) = 0; /*0x3e966*/
-    *((_QWORD *)v15 + 59) = v15 + 520; /*0x3e96d*/
+    *((_QWORD *)v15 + 80)  = (uintptr_t)(0); /*0x3e966*/
+    *((_QWORD *)v15 + 59)  = (uintptr_t)(v15 + 520); /*0x3e96d*/
     v15[528] = 0; /*0x3e974*/
-    v19 = (cocos2d::CCObject *)cocos2d::CCArray::create(v18); /*0x3e97b*/
-    *((_QWORD *)v15 + 74) = v19; /*0x3e981*/
-    cocos2d::CCObject::retain(v19); /*0x3e98b*/
-    v21 = (cocos2d::CCObject *)cocos2d::CCArray::create(v20); /*0x3e991*/
-    *((_QWORD *)v15 + 73) = v21; /*0x3e997*/
-    cocos2d::CCObject::retain(v21); /*0x3e9a1*/
-    v23 = (cocos2d::CCObject *)cocos2d::CCArray::create(v22); /*0x3e9a7*/
-    *((_QWORD *)v15 + 75) = v23; /*0x3e9ad*/
-    cocos2d::CCObject::retain(v23); /*0x3e9b7*/
-    *((_DWORD *)v15 + 163) = 0; /*0x3e9bd*/
-    *((_WORD *)v15 + 328) = 0; /*0x3e9c4*/
-    *((_QWORD *)v15 + 76) = a1 + 408; /*0x3e9cc*/
-    *((_QWORD *)v15 + 77) = a1 + 416; /*0x3e9d3*/
-    *((_QWORD *)v15 + 78) = a3; /*0x3e9da*/
+    v19 = (decltype(v19))((cocos2d::CCObject *)cocos2d::CCArray::createWithCapacity((unsigned int)(v18))); /*0x3e97b*/
+    *((_QWORD *)v15 + 74)  = (uintptr_t)(v19); /*0x3e981*/
+    CCObject_retain(v19); /*0x3e98b*/
+    v21 = (decltype(v21))((cocos2d::CCObject *)cocos2d::CCArray::createWithCapacity((unsigned int)(v20))); /*0x3e991*/
+    *((_QWORD *)v15 + 73)  = (uintptr_t)(v21); /*0x3e997*/
+    CCObject_retain(v21); /*0x3e9a1*/
+    v23 = (decltype(v23))((cocos2d::CCObject *)cocos2d::CCArray::createWithCapacity((unsigned int)(v22))); /*0x3e9a7*/
+    *((_QWORD *)v15 + 75)  = (uintptr_t)(v23); /*0x3e9ad*/
+    CCObject_retain(v23); /*0x3e9b7*/
+    *((_DWORD *)v15 + 163)  = (uintptr_t)(0); /*0x3e9bd*/
+    *((_WORD *)v15 + 328)  = (uintptr_t)(0); /*0x3e9c4*/
+    *((_QWORD *)v15 + 76)  = (uintptr_t)(a1 + 408); /*0x3e9cc*/
+    *((_QWORD *)v15 + 77)  = (uintptr_t)(a1 + 416); /*0x3e9d3*/
+    *((_QWORD *)v15 + 78)  = (uintptr_t)(a3); /*0x3e9da*/
     v24 = *(_QWORD *)v15; /*0x3e9e1*/
-    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v27, 0.0, 0.0); /*0x3e9ef*/
+//     new ((cocos2d::CCPoint*)&v27) cocos2d::CCPoint(0.0, 0.0); /*0x3e9ef*/ // cleaned base ctor/dtor
     (*(void (__fastcall **)(char *, __int64))(v24 + 184))(v15, v25); /*0x3e9fb*/
-    cocos2d::CCObject::autorelease((cocos2d::CCObject *)v15); /*0x3ea04*/
-    *(_QWORD *)(a1 + 424) = v15; /*0x3ea0a*/
+    CCObject_autorelease((cocos2d::CCObject *)v15); /*0x3ea04*/
+    *(_QWORD *)(a1 + 424)   = (uintptr_t)((uintptr_t)(v15)); /*0x3ea0a*/
     (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 464LL))(a1, v15); /*0x3ea1a*/
-    *(_DWORD *)(a1 + 440) = a7; /*0x3ea27*/
+    *(_DWORD *)(a1 + 440)  = (uintptr_t)(a7); /*0x3ea27*/
     (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 1032LL))(a1); /*0x3ea3d*/
-    if ( *(float *)(a1 + 444) > (float)((float)(int)cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 432)) /*0x3ea6f*/
+    if ( *(float *)(a1 + 444) > (float)((float)(int)(((cocos2d::CCArray*)(*(cocos2d::CCArray **)(a1 + 432)))->count()) /*0x3ea6f*/
                                       * *(float *)(a1 + 452)) )
     {
-      *(_BYTE *)(a1 + 460) = 1; /*0x3ea71*/
+      *(_BYTE *)(a1 + 460)  = (uintptr_t)(1); /*0x3ea71*/
       (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 424) + 920LL))(*(_QWORD *)(a1 + 424), 0); /*0x3ea85*/
       (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 424) + 1024LL))(*(_QWORD *)(a1 + 424), 0); /*0x3ea97*/
       (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 424) + 1008LL))(*(_QWORD *)(a1 + 424), 0); /*0x3eaa9*/
@@ -152,8 +174,11 @@ bool __fastcall BoomListView_init(__int64 a1, cocos2d::CCObject *a2, __int64 a3,
 
 // [4/9] Address: 0x3ec20
 // Method: BoomListView::setupList
-__int64 __fastcall BoomListView_setupList(__int64 a1)
+void BoomListView::setupList(float yOffset)
 {
+  __int64 a1 = (__int64)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v2; // rcx
   unsigned int v3; // eax
   __int64 v4; // rcx
@@ -161,95 +186,113 @@ __int64 __fastcall BoomListView_setupList(__int64 a1)
   v2 = *(_QWORD *)(a1 + 424); /*0x3ec29*/
   if ( *(_DWORD *)(a1 + 440) == 10 ) /*0x3ec37*/
   {
-    *(_DWORD *)(a1 + 452) = 1117782016; /*0x3ec39*/
+    *(_DWORD *)(a1 + 452)  = (uintptr_t)(1117782016); /*0x3ec39*/
     TableView_reloadData(v2); /*0x3ec43*/
-    *(_DWORD *)(*(_QWORD *)(a1 + 424) + 496LL) = 1084227584; /*0x3ec4f*/
+    *(_DWORD *)(*(_QWORD *)(a1 + 424) + 496LL)   = (uintptr_t)((uintptr_t)(1084227584)); /*0x3ec4f*/
   }
   else
   {
-    *(_DWORD *)(a1 + 452) = 1109393408; /*0x3ec5b*/
+    *(_DWORD *)(a1 + 452)  = (uintptr_t)(1109393408); /*0x3ec5b*/
     TableView_reloadData(v2); /*0x3ec65*/
-    *(_DWORD *)(*(_QWORD *)(a1 + 424) + 496LL) = 1106247680; /*0x3ec71*/
+    *(_DWORD *)(*(_QWORD *)(a1 + 424) + 496LL)   = (uintptr_t)((uintptr_t)(1106247680)); /*0x3ec71*/
   }
-  v3 = cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 432)); /*0x3ec82*/
+  v3 = (((cocos2d::CCArray*)(*(cocos2d::CCArray **)(a1 + 432)))->count()); /*0x3ec82*/
   v4 = *(_QWORD *)(a1 + 424); /*0x3ec88*/
   if ( v3 == 1 ) /*0x3ec92*/
-    return sub_49D80(v4); /*0x3eca1*/
+    { sub_49D80(v4); return; } /*0x3eca1*/
   else
-    return sub_49E30(v4); /*0x3ecab*/
+    { sub_49E30(v4); return; } /*0x3ecab*/
 }
 
 // [5/9] Address: 0x3ecb0
 // Method: BoomListView::cellHeightForRowAtIndexPath
-float __fastcall BoomListView_cellHeightForRowAtIndexPath(__int64 a1)
+float BoomListView::cellHeightForRowAtIndexPath(CCIndexPath& indexPath, TableView* tableView)
 {
+  __int64 a1 = (__int64)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   return *(float *)(a1 + 44); /*0x3ecb5*/
 }
 
 // [6/9] Address: 0x3ecc0
 // Method: BoomListView::numberOfRowsInSection
-unsigned int __fastcall BoomListView_numberOfRowsInSection(__int64 a1)
+int BoomListView::numberOfRowsInSection(unsigned int section, TableView* tableView)
 {
-  return cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 16));
+  __int64 a1 = (__int64)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+  return (((cocos2d::CCArray*)(*(cocos2d::CCArray **)(a1 + 16)))->count());
 }
 
 // [7/9] Address: 0x3ece0
 // Method: BoomListView::cellForRowAtIndexPath
-__int64 __fastcall BoomListView_cellForRowAtIndexPath(__int64 a1, __int64 a2)
+TableViewCell* BoomListView::cellForRowAtIndexPath(CCIndexPath& indexPath, TableView* tableView)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(indexPath);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   unsigned int v3; // esi
   __int64 v4; // rbx
 
   v3 = *(_DWORD *)(a2 + 56); /*0x3ecff*/
-  v4 = (*(__int64 (__fastcall **)(__int64, const char *))(*(_QWORD *)(a1 - 416) + 1040LL))(a1 - 416, "cell-identifier"); /*0x3ed19*/
-  cocos2d::CCObject::autorelease((cocos2d::CCObject *)v4); /*0x3ed1c*/
-  *(_QWORD *)(v4 + 416) = *(_QWORD *)(a1 + 8); /*0x3ed2d*/
-  *(_DWORD *)(v4 + 552) = *(_DWORD *)(a1 + 24); /*0x3ed3a*/
-  (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)(a1 - 416) + 1048LL))(a1 - 416, v4, v3); /*0x3ed51*/
-  return v4; /*0x3ed54*/
+  v4 = (*(__int64 (__fastcall **)(__int64, const char *))(*(_QWORD *)(((uintptr_t)a1 - 416)) + 1040LL))(((uintptr_t)a1 - 416), "cell-identifier"); /*0x3ed19*/
+  CCObject_autorelease((cocos2d::CCObject *)v4); /*0x3ed1c*/
+  *(_QWORD *)(v4 + 416)   = (uintptr_t)((uintptr_t)(*(_QWORD *)(a1 + 8))); /*0x3ed2d*/
+  *(_DWORD *)(v4 + 552)  = (uintptr_t)(*(_DWORD *)(a1 + 24)); /*0x3ed3a*/
+  (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)(((uintptr_t)a1 - 416)) + 1048LL))(((uintptr_t)a1 - 416), v4, v3); /*0x3ed51*/
+  return (TableViewCell*)v4; /*0x3ed54*/
 }
 
 // [8/9] Address: 0x3ed70
 // Method: BoomListView::getListCell
-// Hidden C++ exception states: #wind=2
-char *__fastcall BoomListView_getListCell(__int64 a1, __int64 a2)
+TableViewCell* BoomListView::getListCell(char const* identifier)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(identifier);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   char *v4; // [rsp+30h] [rbp+8h]
 
   if ( *(_DWORD *)(a1 + 440) == 10 ) /*0x3ed8c*/
   {
     v4 = (char *)operator new(0x258u); /*0x3ed9f*/
     SmartTemplateCell_loadFromObject(v4, a2); /*0x3edba*/
-    *(_QWORD *)v4 = &GameCell::`vftable'; /*0x3edc6*/
-    *((_QWORD *)v4 + 40) = &GameCell::`vftable'; /*0x3edd0*/
-    *((_QWORD *)v4 + 41) = &GameCell::`vftable'; /*0x3edde*/
-    *((_QWORD *)v4 + 42) = &GameCell::`vftable'; /*0x3edec*/
-    *((_QWORD *)v4 + 43) = &GameCell::`vftable'; /*0x3edfa*/
-    *((_QWORD *)v4 + 44) = &GameCell::`vftable'; /*0x3ee08*/
-    *(_OWORD *)(v4 + 568) = 0; /*0x3ee12*/
-    *((_QWORD *)v4 + 73) = 0; /*0x3ee1b*/
-    *((_QWORD *)v4 + 74) = 15; /*0x3ee22*/
+//     *(_QWORD *)v4   = (uintptr_t)((uintptr_t)(&GameCell::`vftable')); /*0x3edc6*/ // cleaned vftable
+//     *((_QWORD *)v4 + 40)  = (uintptr_t)(&GameCell::`vftable'); /*0x3edd0*/ // cleaned vftable
+//     *((_QWORD *)v4 + 41)  = (uintptr_t)(&GameCell::`vftable'); /*0x3edde*/ // cleaned vftable
+//     *((_QWORD *)v4 + 42)  = (uintptr_t)(&GameCell::`vftable'); /*0x3edec*/ // cleaned vftable
+//     *((_QWORD *)v4 + 43)  = (uintptr_t)(&GameCell::`vftable'); /*0x3edfa*/ // cleaned vftable
+//     *((_QWORD *)v4 + 44)  = (uintptr_t)(&GameCell::`vftable'); /*0x3ee08*/ // cleaned vftable
+    *(_OWORD *)(v4 + 568)  = (uintptr_t)(0); /*0x3ee12*/
+    *((_QWORD *)v4 + 73)  = (uintptr_t)(0); /*0x3ee1b*/
+    *((_QWORD *)v4 + 74)  = (uintptr_t)(15); /*0x3ee22*/
     v4[568] = 0; /*0x3ee2d*/
-    *((_QWORD *)v4 + 70) = 0; /*0x3ee33*/
+    *((_QWORD *)v4 + 70)  = (uintptr_t)(0); /*0x3ee33*/
   }
   else
   {
     v4 = (char *)operator new(0x238u); /*0x3ee5a*/
     SmartTemplateCell_loadFromObject(v4, a2); /*0x3ee75*/
-    *(_QWORD *)v4 = &ListCell::`vftable'; /*0x3ee81*/
-    *((_QWORD *)v4 + 40) = &ListCell::`vftable'; /*0x3ee8b*/
-    *((_QWORD *)v4 + 41) = &ListCell::`vftable'; /*0x3ee99*/
-    *((_QWORD *)v4 + 42) = &ListCell::`vftable'; /*0x3eea7*/
-    *((_QWORD *)v4 + 43) = &ListCell::`vftable'; /*0x3eeb5*/
-    *((_QWORD *)v4 + 44) = &ListCell::`vftable'; /*0x3eec3*/
+//     *(_QWORD *)v4   = (uintptr_t)((uintptr_t)(&ListCell::`vftable')); /*0x3ee81*/ // cleaned vftable
+//     *((_QWORD *)v4 + 40)  = (uintptr_t)(&ListCell::`vftable'); /*0x3ee8b*/ // cleaned vftable
+//     *((_QWORD *)v4 + 41)  = (uintptr_t)(&ListCell::`vftable'); /*0x3ee99*/ // cleaned vftable
+//     *((_QWORD *)v4 + 42)  = (uintptr_t)(&ListCell::`vftable'); /*0x3eea7*/ // cleaned vftable
+//     *((_QWORD *)v4 + 43)  = (uintptr_t)(&ListCell::`vftable'); /*0x3eeb5*/ // cleaned vftable
+//     *((_QWORD *)v4 + 44)  = (uintptr_t)(&ListCell::`vftable'); /*0x3eec3*/ // cleaned vftable
   }
-  return v4; /*0x3ee3d*/
+  return (TableViewCell*)v4; /*0x3ee3d*/
 }
 
 // [9/9] Address: 0x3eee0
 // Method: BoomListView::loadCell
-struct cocos2d::CCObject *__fastcall BoomListView_loadCell(__int64 a1, __int64 a2, unsigned int a3)
+void BoomListView::loadCell(TableViewCell* cell, int index)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(cell);
+  unsigned int a3 = (unsigned int)to_gd_arg(index);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   bool v4; // zf
   cocos2d::CCArray *v5; // rcx
   cocos2d::CCString *v6; // rax
@@ -262,9 +305,9 @@ struct cocos2d::CCObject *__fastcall BoomListView_loadCell(__int64 a1, __int64 a
   v4 = *(_DWORD *)(a1 + 440) == 10; /*0x3eef0*/
   v5 = *(cocos2d::CCArray **)(a1 + 432); /*0x3eefa*/
   if ( !v4 ) /*0x3eefd*/
-    return cocos2d::CCArray::objectAtIndex(v5, a3); /*0x3ef5e*/
-  v6 = cocos2d::CCArray::objectAtIndex(v5, a3); /*0x3eeff*/
-  CString = cocos2d::CCString::getCString(v6); /*0x3ef08*/
+    { (((cocos2d::CCArray*)(v5))->objectAtIndex(a3)); return; } /*0x3ef5e*/
+  v6 = (decltype(v6))((((cocos2d::CCArray*)(v5))->objectAtIndex(a3))); /*0x3eeff*/
+  CString = (((cocos2d::CCString*)(v6))->getCString()); /*0x3ef08*/
   v10 = 0; /*0x3ef13*/
   v11 = 0; /*0x3ef18*/
   v8 = -1; /*0x3ef1d*/
@@ -273,5 +316,5 @@ struct cocos2d::CCObject *__fastcall BoomListView_loadCell(__int64 a1, __int64 a
     ++v8; /*0x3ef30*/
   while ( CString[v8] ); /*0x3ef33*/
   sub_3C230(&v10); /*0x3ef41*/
-  return (struct cocos2d::CCObject *)sub_3F0D0(a2, &v10); /*0x3ef53*/
+  { (struct cocos2d::CCObject *)sub_3F0D0(a2, &v10); return; } /*0x3ef53*/
 }

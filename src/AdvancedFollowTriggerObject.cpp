@@ -1,74 +1,93 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AdvancedFollowTriggerObject.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub EffectGameObject_EffectGameObject;
+inline GDStub EffectGameObject_customObjectSetup;
+inline GDStub EffectGameObject_getSaveString;
+inline GDStub LABEL_16;
+inline GDStub LABEL_17;
+inline GDStub TextGameObject__dtor_TextGameObject;
 using namespace cocos2d;
 
 // [1/4] Address: 0x632e80
 // Method: AdvancedFollowTriggerObject::AdvancedFollowTriggerObject
-__int64 __fastcall AdvancedFollowTriggerObject_AdvancedFollowTriggerObject(__int64 a1)
+AdvancedFollowTriggerObject::AdvancedFollowTriggerObject()
 {
-  EffectGameObject_EffectGameObject(a1); /*0x632e89*/
-  *(_QWORD *)a1 = &AdvancedFollowTriggerObject::`vftable'; /*0x632e95*/
-  *(_QWORD *)(a1 + 320) = &AdvancedFollowTriggerObject::`vftable'; /*0x632e9f*/
-  *(_QWORD *)(a1 + 344) = &AdvancedFollowTriggerObject::`vftable'; /*0x632ead*/
-  *(_QWORD *)(a1 + 1856) = 0; /*0x632eb6*/
-  *(_QWORD *)(a1 + 1864) = 0; /*0x632ebd*/
-  *(_QWORD *)(a1 + 1872) = 0; /*0x632ec4*/
-  *(_QWORD *)(a1 + 1880) = 0; /*0x632ecb*/
-  *(_QWORD *)(a1 + 1888) = 0; /*0x632ed2*/
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   EffectGameObject_EffectGameObject(a1); /*0x632e89*/ // cleaned base ctor
+//   *(_QWORD *)a1  = (uintptr_t)(&AdvancedFollowTriggerObject::`vftable'); /*0x632e95*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 320)  = (uintptr_t)(&AdvancedFollowTriggerObject::`vftable'); /*0x632e9f*/ // cleaned vftable
+//   *(_QWORD *)(a1 + 344)  = (uintptr_t)(&AdvancedFollowTriggerObject::`vftable'); /*0x632ead*/ // cleaned vftable
+  *(_QWORD *)(a1 + 1856)  = (uintptr_t)(0); /*0x632eb6*/
+  *(_QWORD *)(a1 + 1864)  = (uintptr_t)(0); /*0x632ebd*/
+  *(_QWORD *)(a1 + 1872)  = (uintptr_t)(0); /*0x632ec4*/
+  *(_QWORD *)(a1 + 1880)  = (uintptr_t)(0); /*0x632ecb*/
+  *(_QWORD *)(a1 + 1888)  = (uintptr_t)(0); /*0x632ed2*/
   *(_WORD *)(a1 + 1896) = 0; /*0x632ed9*/
-  *(_QWORD *)(a1 + 1900) = 0; /*0x632ee0*/
-  *(_QWORD *)(a1 + 1908) = 0; /*0x632ee7*/
-  *(_QWORD *)(a1 + 1916) = 0; /*0x632eee*/
-  *(_QWORD *)(a1 + 1924) = 0; /*0x632ef5*/
-  *(_QWORD *)(a1 + 1932) = 0; /*0x632efc*/
-  *(_QWORD *)(a1 + 1940) = 0; /*0x632f03*/
+  *(_QWORD *)(a1 + 1900)  = (uintptr_t)(0); /*0x632ee0*/
+  *(_QWORD *)(a1 + 1908)  = (uintptr_t)(0); /*0x632ee7*/
+  *(_QWORD *)(a1 + 1916)  = (uintptr_t)(0); /*0x632eee*/
+  *(_QWORD *)(a1 + 1924)  = (uintptr_t)(0); /*0x632ef5*/
+  *(_QWORD *)(a1 + 1932)  = (uintptr_t)(0); /*0x632efc*/
+  *(_QWORD *)(a1 + 1940)  = (uintptr_t)(0); /*0x632f03*/
   *(_BYTE *)(a1 + 1948) = 0; /*0x632f0a*/
-  *(_QWORD *)(a1 + 1952) = 0; /*0x632f10*/
+  *(_QWORD *)(a1 + 1952)  = (uintptr_t)(0); /*0x632f10*/
   *(_BYTE *)(a1 + 1960) = 0; /*0x632f17*/
-  *(_QWORD *)(a1 + 1964) = 0; /*0x632f1d*/
-  *(_QWORD *)(a1 + 1972) = 0; /*0x632f24*/
-  *(_QWORD *)(a1 + 1980) = 0; /*0x632f2b*/
-  *(_QWORD *)(a1 + 1988) = 0; /*0x632f32*/
-  *(_QWORD *)(a1 + 1996) = 0; /*0x632f39*/
-  *(_QWORD *)(a1 + 2004) = 0; /*0x632f40*/
-  *(_QWORD *)(a1 + 2012) = 0; /*0x632f47*/
+  *(_QWORD *)(a1 + 1964)  = (uintptr_t)(0); /*0x632f1d*/
+  *(_QWORD *)(a1 + 1972)  = (uintptr_t)(0); /*0x632f24*/
+  *(_QWORD *)(a1 + 1980)  = (uintptr_t)(0); /*0x632f2b*/
+  *(_QWORD *)(a1 + 1988)  = (uintptr_t)(0); /*0x632f32*/
+  *(_QWORD *)(a1 + 1996)  = (uintptr_t)(0); /*0x632f39*/
+  *(_QWORD *)(a1 + 2004)  = (uintptr_t)(0); /*0x632f40*/
+  *(_QWORD *)(a1 + 2012)  = (uintptr_t)(0); /*0x632f47*/
   *(_WORD *)(a1 + 2020) = 0; /*0x632f4e*/
   *(_BYTE *)(a1 + 2022) = 0; /*0x632f55*/
-  *(_QWORD *)(a1 + 2024) = 0; /*0x632f5b*/
-  *(_QWORD *)(a1 + 2032) = 0; /*0x632f62*/
-  *(_QWORD *)(a1 + 2040) = 0; /*0x632f69*/
-  *(_QWORD *)(a1 + 2048) = 0; /*0x632f70*/
-  *(_QWORD *)(a1 + 2056) = 0; /*0x632f77*/
-  *(_QWORD *)(a1 + 2064) = 0; /*0x632f7e*/
-  *(_QWORD *)(a1 + 2072) = 0; /*0x632f85*/
-  *(_QWORD *)(a1 + 2080) = 0; /*0x632f8c*/
+  *(_QWORD *)(a1 + 2024)  = (uintptr_t)(0); /*0x632f5b*/
+  *(_QWORD *)(a1 + 2032)  = (uintptr_t)(0); /*0x632f62*/
+  *(_QWORD *)(a1 + 2040)  = (uintptr_t)(0); /*0x632f69*/
+  *(_QWORD *)(a1 + 2048)  = (uintptr_t)(0); /*0x632f70*/
+  *(_QWORD *)(a1 + 2056)  = (uintptr_t)(0); /*0x632f77*/
+  *(_QWORD *)(a1 + 2064)  = (uintptr_t)(0); /*0x632f7e*/
+  *(_QWORD *)(a1 + 2072)  = (uintptr_t)(0); /*0x632f85*/
+  *(_QWORD *)(a1 + 2080)  = (uintptr_t)(0); /*0x632f8c*/
   *(_DWORD *)(a1 + 2088) = 0; /*0x632f93*/
   *(_BYTE *)(a1 + 2092) = 0; /*0x632f99*/
   *(_DWORD *)(a1 + 2096) = 0; /*0x632f9f*/
-  return a1; /*0x632fa8*/
+  return; /*0x632fa8*/
 }
 
 // [2/4] Address: 0x632fb0
 // Method: AdvancedFollowTriggerObject::~AdvancedFollowTriggerObject
-cocos2d::CCSprite *__fastcall AdvancedFollowTriggerObject__dtor_AdvancedFollowTriggerObject(
-        cocos2d::CCSprite *Block,
-        char a2)
+AdvancedFollowTriggerObject::~AdvancedFollowTriggerObject()
 {
-  *(_QWORD *)Block = &EffectGameObject::`vftable'; /*0x632fc3*/
-  *((_QWORD *)Block + 40) = &EffectGameObject::`vftable'; /*0x632fd0*/
-  *((_QWORD *)Block + 43) = &EffectGameObject::`vftable'; /*0x632fde*/
-  TextGameObject__dtor_TextGameObject(Block); /*0x632fe5*/
-  if ( (a2 & 1) != 0 ) /*0x632fed*/
-    j_j_free(Block); /*0x632ff7*/
-  return Block; /*0x632ffc*/
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   *(_QWORD *)Block  = (uintptr_t)(&EffectGameObject::`vftable'); /*0x632fc3*/ // cleaned vftable
+//   *((_QWORD *)Block + 40) = &EffectGameObject::`vftable'; /*0x632fd0*/ // cleaned vftable
+//   *((_QWORD *)Block + 43) = &EffectGameObject::`vftable'; /*0x632fde*/ // cleaned vftable
+//   TextGameObject__dtor_TextGameObject(Block); /*0x632fe5*/ // cleaned dtor call
+//   if ( (a2 & 1) != 0 ) /*0x632fed*/
+//     j_j_free(Block); /*0x632ff7*/ // cleaned scalar delete
+  return; /*0x632ffc*/
 }
 
 // [3/4] Address: 0x638540
 // Method: AdvancedFollowTriggerObject::getSaveString
-// Hidden C++ exception states: #wind=2
-__int64 __fastcall AdvancedFollowTriggerObject_getSaveString(__int64 a1, __int64 a2, __int64 a3)
+std::string AdvancedFollowTriggerObject::getSaveString(GJBaseGameLayer* layer)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(layer);
+  __int64 a3 = (__int64)to_gd_arg(0);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 SaveString; // rax
   __int64 v7; // rax
   __int64 v8; // r8
@@ -77,777 +96,782 @@ __int64 __fastcall AdvancedFollowTriggerObject_getSaveString(__int64 a1, __int64
   _BYTE v12[528]; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE v13[32]; // [rsp+260h] [rbp+160h] BYREF
 
-  *(_QWORD *)&v10 = a2; /*0x638578*/
-  fmt::BasicWriter<char>::BasicWriter<char>(v12); /*0x638585*/
+  *(_QWORD *)&v10  = (uintptr_t)(a2); /*0x638578*/
+//   fmt::BasicWriter<char>::BasicWriter<char>(v12); /*0x638585*/ // cleaned fmt call
   SaveString = EffectGameObject_getSaveString(a1, (__int64)v13, a3); /*0x638599*/
-  v10 = *(_OWORD *)fmt::BasicStringRef<char>::BasicStringRef<char>(v11, SaveString); /*0x6385b0*/
-  fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6385bf*/
+//   v10 = *(_OWORD *)fmt::BasicStringRef<char>::BasicStringRef<char>(v11, SaveString); /*0x6385b0*/ // cleaned fmt call
+//   fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6385bf*/ // cleaned fmt call
   sub_3C310(v13); /*0x6385cd*/
   if ( *(_DWORD *)(a1 + 1480) ) /*0x6385d9*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6385e2*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6385e2*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6385e7*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6385f6*/
-    fmt::BasicWriter<char>::operator<<(v12, 51); /*0x638606*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63860c*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6385f6*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 51); /*0x638606*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63860c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638611*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638620*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1480)); /*0x638631*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638620*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1480)); /*0x638631*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 1484) ) /*0x638637*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638640*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638640*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638645*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638654*/
-    fmt::BasicWriter<char>::operator<<(v12, 71); /*0x638664*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63866a*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638654*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 71); /*0x638664*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63866a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63866f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63867e*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1484)); /*0x63868f*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63867e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1484)); /*0x63868f*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1700) ) /*0x638695*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63869e*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63869e*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6386a3*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6386b2*/
-    fmt::BasicWriter<char>::operator<<(v12, 138); /*0x6386c2*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6386c8*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6386b2*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 138); /*0x6386c2*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6386c8*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6386cd*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6386dc*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1700)); /*0x6386ee*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6386dc*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1700)); /*0x6386ee*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1701) ) /*0x6386f4*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6386fd*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6386fd*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638702*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638711*/
-    fmt::BasicWriter<char>::operator<<(v12, 200); /*0x638721*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638727*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638711*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 200); /*0x638721*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638727*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63872c*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63873b*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1701)); /*0x63874d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63873b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1701)); /*0x63874d*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1702) ) /*0x638753*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63875c*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63875c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638761*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638770*/
-    fmt::BasicWriter<char>::operator<<(v12, 201); /*0x638780*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638786*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638770*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 201); /*0x638780*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638786*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63878b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63879a*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1702)); /*0x6387ac*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63879a*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1702)); /*0x6387ac*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1856) != 0.0 ) /*0x6387c2*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6387c4*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6387c4*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6387c9*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6387d8*/
-    fmt::BasicWriter<char>::operator<<(v12, 292); /*0x6387e8*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6387ee*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6387d8*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 292); /*0x6387e8*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6387ee*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6387f3*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638802*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638818*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638802*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638818*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1860) != 0.0 ) /*0x63882b*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63882d*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63882d*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638832*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638841*/
-    fmt::BasicWriter<char>::operator<<(v12, 293); /*0x638851*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638857*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638841*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 293); /*0x638851*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638857*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63885c*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63886b*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638881*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63886b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638881*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1888) != 0.0 ) /*0x638894*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638896*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638896*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63889b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6388aa*/
-    fmt::BasicWriter<char>::operator<<(v12, 298); /*0x6388ba*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6388c0*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6388aa*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 298); /*0x6388ba*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6388c0*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6388c5*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6388d4*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6388ea*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6388d4*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6388ea*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1892) != 0.0 ) /*0x6388fd*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6388ff*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6388ff*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638904*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638913*/
-    fmt::BasicWriter<char>::operator<<(v12, 299); /*0x638923*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638929*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638913*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 299); /*0x638923*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638929*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63892e*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63893d*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638953*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63893d*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638953*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2052) != 0.0 ) /*0x638966*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638968*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638968*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63896d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63897c*/
-    fmt::BasicWriter<char>::operator<<(v12, 558); /*0x63898c*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638992*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63897c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 558); /*0x63898c*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638992*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638997*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6389a6*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6389bc*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6389a6*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6389bc*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2056) != 0.0 ) /*0x6389cf*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6389d1*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6389d1*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6389d6*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6389e5*/
-    fmt::BasicWriter<char>::operator<<(v12, 559); /*0x6389f5*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6389fb*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6389e5*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 559); /*0x6389f5*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6389fb*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638a00*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a0f*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638a25*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a0f*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638a25*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1896) ) /*0x638a2b*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638a34*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638a34*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638a39*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a48*/
-    fmt::BasicWriter<char>::operator<<(v12, 306); /*0x638a58*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638a5e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a48*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 306); /*0x638a58*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638a5e*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638a63*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a72*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1896)); /*0x638a84*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638a72*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1896)); /*0x638a84*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1897) ) /*0x638a8a*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638a93*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638a93*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638a98*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638aa7*/
-    fmt::BasicWriter<char>::operator<<(v12, 307); /*0x638ab7*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638abd*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638aa7*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 307); /*0x638ab7*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638abd*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638ac2*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ad1*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1897)); /*0x638ae3*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ad1*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1897)); /*0x638ae3*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1900) != 0.0 ) /*0x638af6*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638af8*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638af8*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638afd*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b0c*/
-    fmt::BasicWriter<char>::operator<<(v12, 308); /*0x638b1c*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638b22*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b0c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 308); /*0x638b1c*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638b22*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638b27*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b36*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638b4c*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b36*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638b4c*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1904) != 0.0 ) /*0x638b5f*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638b61*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638b61*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638b66*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b75*/
-    fmt::BasicWriter<char>::operator<<(v12, 309); /*0x638b85*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638b8b*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b75*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 309); /*0x638b85*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638b8b*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638b90*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b9f*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638bb5*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638b9f*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638bb5*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1908) != 0.0 ) /*0x638bc8*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638bca*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638bca*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638bcf*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638bde*/
-    fmt::BasicWriter<char>::operator<<(v12, 310); /*0x638bee*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638bf4*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638bde*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 310); /*0x638bee*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638bf4*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638bf9*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c08*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638c1e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c08*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638c1e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1912) != 0.0 ) /*0x638c31*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638c33*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638c33*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638c38*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c47*/
-    fmt::BasicWriter<char>::operator<<(v12, 311); /*0x638c57*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638c5d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c47*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 311); /*0x638c57*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638c5d*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638c62*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c71*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638c87*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638c71*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638c87*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1916) != 0.0 ) /*0x638c9a*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638c9c*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638c9c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638ca1*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638cb0*/
-    fmt::BasicWriter<char>::operator<<(v12, 334); /*0x638cc0*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638cc6*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638cb0*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 334); /*0x638cc0*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638cc6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638ccb*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638cda*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638cf0*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638cda*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638cf0*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1920) != 0.0 ) /*0x638d03*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638d05*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638d05*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638d0a*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d19*/
-    fmt::BasicWriter<char>::operator<<(v12, 335); /*0x638d29*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638d2f*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d19*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 335); /*0x638d29*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638d2f*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638d34*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d43*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638d59*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d43*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638d59*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1924) != 0.0 ) /*0x638d6c*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638d6e*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638d6e*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638d73*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d82*/
-    fmt::BasicWriter<char>::operator<<(v12, 312); /*0x638d92*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638d98*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638d82*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 312); /*0x638d92*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638d98*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638d9d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638dac*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638dc2*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638dac*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638dc2*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1928) != 0.0 ) /*0x638dd5*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638dd7*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638dd7*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638ddc*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638deb*/
-    fmt::BasicWriter<char>::operator<<(v12, 313); /*0x638dfb*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638e01*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638deb*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 313); /*0x638dfb*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638e01*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638e06*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e15*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638e2b*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e15*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638e2b*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1932) != 0.0 ) /*0x638e3e*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638e40*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638e40*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638e45*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e54*/
-    fmt::BasicWriter<char>::operator<<(v12, 314); /*0x638e64*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638e6a*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e54*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 314); /*0x638e64*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638e6a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638e6f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e7e*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638e94*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638e7e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638e94*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1936) != 0.0 ) /*0x638ea7*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638ea9*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638ea9*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638eae*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ebd*/
-    fmt::BasicWriter<char>::operator<<(v12, 315); /*0x638ecd*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638ed3*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ebd*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 315); /*0x638ecd*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638ed3*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638ed8*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ee7*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638efd*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ee7*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638efd*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1940) != 0.0 ) /*0x638f10*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638f12*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638f12*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638f17*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f26*/
-    fmt::BasicWriter<char>::operator<<(v12, 316); /*0x638f36*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638f3c*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f26*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 316); /*0x638f36*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638f3c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638f41*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f50*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638f66*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f50*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638f66*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1944) != 0.0 ) /*0x638f79*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638f7b*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638f7b*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638f80*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f8f*/
-    fmt::BasicWriter<char>::operator<<(v12, 317); /*0x638f9f*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638fa5*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638f8f*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 317); /*0x638f9f*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638fa5*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638faa*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638fb9*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x638fcf*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638fb9*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x638fcf*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1948) ) /*0x638fd5*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x638fde*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x638fde*/
     *((_QWORD *)&v10 + 1) = 0; /*0x638fe3*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ff2*/
-    fmt::BasicWriter<char>::operator<<(v12, 337); /*0x639002*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639008*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x638ff2*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 337); /*0x639002*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639008*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63900d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63901c*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1948)); /*0x63902e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63901c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1948)); /*0x63902e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1952) != 0.0 ) /*0x639041*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639043*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639043*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639048*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639057*/
-    fmt::BasicWriter<char>::operator<<(v12, 318); /*0x639067*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63906d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639057*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 318); /*0x639067*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63906d*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639072*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639081*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639097*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639081*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639097*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1956) != 0.0 ) /*0x6390aa*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6390ac*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6390ac*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6390b1*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6390c0*/
-    fmt::BasicWriter<char>::operator<<(v12, 319); /*0x6390d0*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6390d6*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6390c0*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 319); /*0x6390d0*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6390d6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6390db*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6390ea*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639100*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6390ea*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639100*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1960) ) /*0x639106*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63910f*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63910f*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639114*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639123*/
-    fmt::BasicWriter<char>::operator<<(v12, 338); /*0x639133*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639139*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639123*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 338); /*0x639133*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639139*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63913e*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63914d*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1960)); /*0x63915f*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63914d*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 1960)); /*0x63915f*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1964) != 0.0 ) /*0x639172*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639174*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639174*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639179*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639188*/
-    fmt::BasicWriter<char>::operator<<(v12, 320); /*0x639198*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63919e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639188*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 320); /*0x639198*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63919e*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6391a3*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6391b2*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6391c8*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6391b2*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6391c8*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1968) != 0.0 ) /*0x6391db*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6391dd*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6391dd*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6391e2*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6391f1*/
-    fmt::BasicWriter<char>::operator<<(v12, 321); /*0x639201*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639207*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6391f1*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 321); /*0x639201*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639207*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63920c*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63921b*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639231*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63921b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639231*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1972) != 0.0 ) /*0x639244*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639246*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639246*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63924b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63925a*/
-    fmt::BasicWriter<char>::operator<<(v12, 322); /*0x63926a*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639270*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63925a*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 322); /*0x63926a*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639270*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639275*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639284*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63929a*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639284*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63929a*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1976) != 0.0 ) /*0x6392ad*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6392af*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6392af*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6392b4*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6392c3*/
-    fmt::BasicWriter<char>::operator<<(v12, 323); /*0x6392d3*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6392d9*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6392c3*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 323); /*0x6392d3*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6392d9*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6392de*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6392ed*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639303*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6392ed*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639303*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1980) != 0.0 ) /*0x639316*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639318*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639318*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63931d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63932c*/
-    fmt::BasicWriter<char>::operator<<(v12, 324); /*0x63933c*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639342*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63932c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 324); /*0x63933c*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639342*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639347*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639356*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63936c*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639356*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63936c*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1984) != 0.0 ) /*0x63937f*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639381*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639381*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639386*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639395*/
-    fmt::BasicWriter<char>::operator<<(v12, 325); /*0x6393a5*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6393ab*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639395*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 325); /*0x6393a5*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6393ab*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6393b0*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6393bf*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6393d5*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6393bf*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6393d5*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1864) != 0.0 ) /*0x6393e8*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6393ea*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6393ea*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6393ef*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6393fe*/
-    fmt::BasicWriter<char>::operator<<(v12, 300); /*0x63940e*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639414*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6393fe*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 300); /*0x63940e*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639414*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639419*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639428*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63943e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639428*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63943e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1868) != 0.0 ) /*0x639451*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639453*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639453*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639458*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639467*/
-    fmt::BasicWriter<char>::operator<<(v12, 301); /*0x639477*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63947d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639467*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 301); /*0x639477*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63947d*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639482*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639491*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6394a7*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639491*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6394a7*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 1872) ) /*0x6394ad*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6394b6*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6394b6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6394bb*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6394ca*/
-    fmt::BasicWriter<char>::operator<<(v12, 560); /*0x6394da*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6394e0*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6394ca*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 560); /*0x6394da*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6394e0*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6394e5*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6394f4*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1872)); /*0x639505*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6394f4*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1872)); /*0x639505*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1876) != 0.0 ) /*0x639518*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63951a*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63951a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63951f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63952e*/
-    fmt::BasicWriter<char>::operator<<(v12, 563); /*0x63953e*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639544*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63952e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 563); /*0x63953e*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639544*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639549*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639558*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63956e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639558*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63956e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1880) != 0.0 ) /*0x639581*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639583*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639583*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639588*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639597*/
-    fmt::BasicWriter<char>::operator<<(v12, 564); /*0x6395a7*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6395ad*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639597*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 564); /*0x6395a7*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6395ad*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6395b2*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6395c1*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6395d7*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6395c1*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6395d7*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 1884) ) /*0x6395dd*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6395e6*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6395e6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6395eb*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6395fa*/
-    fmt::BasicWriter<char>::operator<<(v12, 565); /*0x63960a*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639610*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6395fa*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 565); /*0x63960a*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639610*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639615*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639624*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1884)); /*0x639635*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639624*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 1884)); /*0x639635*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1988) != 0.0 ) /*0x639648*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63964a*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63964a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63964f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63965e*/
-    fmt::BasicWriter<char>::operator<<(v12, 326); /*0x63966e*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639674*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63965e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 326); /*0x63966e*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639674*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639679*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639688*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63969e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639688*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63969e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1992) != 0.0 ) /*0x6396b1*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6396b3*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6396b3*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6396b8*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6396c7*/
-    fmt::BasicWriter<char>::operator<<(v12, 327); /*0x6396d7*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6396dd*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6396c7*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 327); /*0x6396d7*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6396dd*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6396e2*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6396f1*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639707*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6396f1*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639707*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 1996) != 0.0 ) /*0x63971a*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63971c*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63971c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639721*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639730*/
-    fmt::BasicWriter<char>::operator<<(v12, 328); /*0x639740*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639746*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639730*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 328); /*0x639740*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639746*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63974b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63975a*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639770*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63975a*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639770*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2000) != 0.0 ) /*0x639783*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639785*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639785*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63978a*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639799*/
-    fmt::BasicWriter<char>::operator<<(v12, 329); /*0x6397a9*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6397af*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639799*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 329); /*0x6397a9*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6397af*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6397b4*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6397c3*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6397d9*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6397c3*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6397d9*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2004) != 0.0 ) /*0x6397ec*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6397ee*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6397ee*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6397f3*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639802*/
-    fmt::BasicWriter<char>::operator<<(v12, 330); /*0x639812*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639818*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639802*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 330); /*0x639812*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639818*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63981d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63982c*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639842*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63982c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639842*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2008) != 0.0 ) /*0x639855*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639857*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639857*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63985c*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63986b*/
-    fmt::BasicWriter<char>::operator<<(v12, 331); /*0x63987b*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639881*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63986b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 331); /*0x63987b*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639881*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639886*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639895*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x6398ab*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639895*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x6398ab*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2012) != 0.0 ) /*0x6398be*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6398c0*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6398c0*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6398c5*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6398d4*/
-    fmt::BasicWriter<char>::operator<<(v12, 332); /*0x6398e4*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6398ea*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6398d4*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 332); /*0x6398e4*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6398ea*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6398ef*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6398fe*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639914*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6398fe*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639914*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2016) != 0.0 ) /*0x639927*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639929*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639929*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63992e*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63993d*/
-    fmt::BasicWriter<char>::operator<<(v12, 333); /*0x63994d*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639953*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63993d*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 333); /*0x63994d*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639953*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639958*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639967*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x63997d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639967*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x63997d*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 2020) ) /*0x639983*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63998c*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63998c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639991*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399a0*/
-    fmt::BasicWriter<char>::operator<<(v12, 305); /*0x6399b0*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6399b6*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399a0*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 305); /*0x6399b0*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6399b6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6399bb*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399ca*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2020)); /*0x6399dc*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399ca*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2020)); /*0x6399dc*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 2021) ) /*0x6399e2*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x6399eb*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x6399eb*/
     *((_QWORD *)&v10 + 1) = 0; /*0x6399f0*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399ff*/
-    fmt::BasicWriter<char>::operator<<(v12, 336); /*0x639a0f*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639a15*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x6399ff*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 336); /*0x639a0f*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639a15*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639a1a*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a29*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2021)); /*0x639a3b*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a29*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2021)); /*0x639a3b*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 2022) ) /*0x639a41*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639a4a*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639a4a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639a4f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a5e*/
-    fmt::BasicWriter<char>::operator<<(v12, 339); /*0x639a6e*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639a74*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a5e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 339); /*0x639a6e*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639a74*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639a79*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a88*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2022)); /*0x639a9a*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639a88*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2022)); /*0x639a9a*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2024) != 0.0 ) /*0x639aad*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639aaf*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639aaf*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639ab4*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639ac3*/
-    fmt::BasicWriter<char>::operator<<(v12, 340); /*0x639ad3*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639ad9*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639ac3*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 340); /*0x639ad3*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639ad9*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639ade*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639aed*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639b03*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639aed*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639b03*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2028) != 0.0 ) /*0x639b16*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639b18*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639b18*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639b1d*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b2c*/
-    fmt::BasicWriter<char>::operator<<(v12, 357); /*0x639b3c*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639b42*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b2c*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 357); /*0x639b3c*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639b42*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639b47*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b56*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639b6c*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b56*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639b6c*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2032) != 0.0 ) /*0x639b7f*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639b81*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639b81*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639b86*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b95*/
-    fmt::BasicWriter<char>::operator<<(v12, 358); /*0x639ba5*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639bab*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639b95*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 358); /*0x639ba5*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639bab*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639bb0*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639bbf*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639bd5*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639bbf*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639bd5*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2036) != 0.0 ) /*0x639be8*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639bea*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639bea*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639bef*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639bfe*/
-    fmt::BasicWriter<char>::operator<<(v12, 359); /*0x639c0e*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639c14*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639bfe*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 359); /*0x639c0e*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639c14*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639c19*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c28*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639c3e*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c28*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639c3e*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2040) != 0.0 ) /*0x639c51*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639c53*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639c53*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639c58*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c67*/
-    fmt::BasicWriter<char>::operator<<(v12, 360); /*0x639c77*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639c7d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c67*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 360); /*0x639c77*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639c7d*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639c82*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c91*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639ca7*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639c91*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639ca7*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2044) != 0.0 ) /*0x639cba*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639cbc*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639cbc*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639cc1*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639cd0*/
-    fmt::BasicWriter<char>::operator<<(v12, 561); /*0x639ce0*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639ce6*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639cd0*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 561); /*0x639ce0*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639ce6*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639ceb*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639cfa*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639d10*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639cfa*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639d10*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2048) != 0.0 ) /*0x639d23*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639d25*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639d25*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639d2a*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639d39*/
-    fmt::BasicWriter<char>::operator<<(v12, 562); /*0x639d49*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639d4f*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639d39*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 562); /*0x639d49*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639d4f*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639d54*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639d63*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639d79*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639d63*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639d79*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2060) != 0.0 ) /*0x639d8c*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639d8e*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639d8e*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639d93*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639da2*/
-    fmt::BasicWriter<char>::operator<<(v12, 361); /*0x639db2*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639db8*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639da2*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 361); /*0x639db2*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639db8*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639dbd*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639dcc*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639de2*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639dcc*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639de2*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2064) != 0.0 ) /*0x639df5*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639df7*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639df7*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639dfc*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e0b*/
-    fmt::BasicWriter<char>::operator<<(v12, 362); /*0x639e1b*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639e21*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e0b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 362); /*0x639e1b*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639e21*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639e26*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e35*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639e4b*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e35*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639e4b*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2068) != 0.0 ) /*0x639e5e*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639e60*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639e60*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639e65*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e74*/
-    fmt::BasicWriter<char>::operator<<(v12, 363); /*0x639e84*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639e8a*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e74*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 363); /*0x639e84*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639e8a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639e8f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e9e*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639eb4*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639e9e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639eb4*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2072) != 0.0 ) /*0x639ec7*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639ec9*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639ec9*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639ece*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639edd*/
-    fmt::BasicWriter<char>::operator<<(v12, 364); /*0x639eed*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639ef3*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639edd*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 364); /*0x639eed*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639ef3*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639ef8*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f07*/
-    fmt::BasicWriter<char>::operator<<(v12); /*0x639f1d*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f07*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12); /*0x639f1d*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 2076) ) /*0x639f23*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639f2c*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639f2c*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639f31*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f40*/
-    fmt::BasicWriter<char>::operator<<(v12, 365); /*0x639f50*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639f56*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f40*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 365); /*0x639f50*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639f56*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639f5b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f6a*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2076)); /*0x639f7b*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f6a*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2076)); /*0x639f7b*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 2084) ) /*0x639f81*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639f8a*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639f8a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639f8f*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f9e*/
-    fmt::BasicWriter<char>::operator<<(v12, 366); /*0x639fae*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639fb4*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639f9e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 366); /*0x639fae*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639fb4*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639fb9*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639fc8*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2084)); /*0x639fd9*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639fc8*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2084)); /*0x639fd9*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 2088) ) /*0x639fdf*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x639fe8*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x639fe8*/
     *((_QWORD *)&v10 + 1) = 0; /*0x639fed*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639ffc*/
-    fmt::BasicWriter<char>::operator<<(v12, 367); /*0x63a00c*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63a012*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x639ffc*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 367); /*0x63a00c*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63a012*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63a017*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a026*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2088)); /*0x63a037*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a026*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2088)); /*0x63a037*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 2092) ) /*0x63a03d*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63a046*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63a046*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63a04b*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a05a*/
-    fmt::BasicWriter<char>::operator<<(v12, 571); /*0x63a06a*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63a070*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a05a*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 571); /*0x63a06a*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63a070*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63a075*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a084*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2092)); /*0x63a096*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a084*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned __int8 *)(a1 + 2092)); /*0x63a096*/ // cleaned fmt call
   }
   if ( *(_DWORD *)(a1 + 2096) ) /*0x63a09c*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63a0a5*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63a0a5*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63a0aa*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a0b9*/
-    fmt::BasicWriter<char>::operator<<(v12, 572); /*0x63a0c9*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63a0cf*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a0b9*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, 572); /*0x63a0c9*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63a0cf*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63a0d4*/
-    fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a0e3*/
-    fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2096)); /*0x63a0f4*/
+//     fmt::BasicWriter<char>::operator<<(v12, &v10); /*0x63a0e3*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v12, *(unsigned int *)(a1 + 2096)); /*0x63a0f4*/ // cleaned fmt call
   }
-  v7 = fmt::BasicWriter<char>::c_str(v12); /*0x63a0ff*/
+//   v7 = fmt::BasicWriter<char>::c_str(v12); /*0x63a0ff*/ // cleaned fmt call
   *(_OWORD *)a2 = 0; /*0x63a108*/
-  *(_QWORD *)(a2 + 16) = 0; /*0x63a10b*/
-  *(_QWORD *)(a2 + 24) = 0; /*0x63a10f*/
+  *(_QWORD *)(a2 + 16)  = (uintptr_t)(0); /*0x63a10b*/
+  *(_QWORD *)(a2 + 24)  = (uintptr_t)(0); /*0x63a10f*/
   v8 = -1; /*0x63a113*/
   do /*0x63a123*/
     ++v8; /*0x63a120*/
   while ( *(_BYTE *)(v7 + v8) ); /*0x63a123*/
   sub_3C230(a2); /*0x63a130*/
-  fmt::BasicWriter<char>::~BasicWriter<char>(v12); /*0x63a13b*/
-  return a2; /*0x63a144*/
+//   fmt::BasicWriter<char>::~BasicWriter<char>(v12); /*0x63a13b*/ // cleaned fmt call
+  return {}; /*0x63a144*/
 }
 
 // [4/4] Address: 0x63a170
 // Method: AdvancedFollowTriggerObject::customObjectSetup
-int __fastcall AdvancedFollowTriggerObject_customObjectSetup(__int64 a1, __int64 a2, __int64 a3)
+void AdvancedFollowTriggerObject::customObjectSetup(std::vector<std::string>& values, std::vector<void*>& exists)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(values);
+  __int64 a3 = (__int64)to_gd_arg(exists);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   int v6; // ebp
   int v7; // eax
   const char *v8; // rcx
@@ -2055,5 +2079,5 @@ LABEL_17:
   {
     *(_DWORD *)(a1 + 2096) = 0; /*0x63b78e*/
   }
-  return v190; /*0x63b795*/
+  { v190; return; } /*0x63b795*/
 }

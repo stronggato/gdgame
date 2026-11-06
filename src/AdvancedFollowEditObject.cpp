@@ -1,28 +1,41 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AdvancedFollowEditObject.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub AdvancedFollowTriggerObject_customObjectSetup;
+inline GDStub AdvancedFollowTriggerObject_getSaveString;
+inline GDStub TextGameObject__dtor_TextGameObject;
 using namespace cocos2d;
 
 // [1/3] Address: 0x633010
 // Method: AdvancedFollowEditObject::~AdvancedFollowEditObject
-cocos2d::CCSprite *__fastcall AdvancedFollowEditObject__dtor_AdvancedFollowEditObject(
-        cocos2d::CCSprite *Block,
-        char a2)
+AdvancedFollowEditObject::~AdvancedFollowEditObject()
 {
-  *(_QWORD *)Block = &EffectGameObject::`vftable'; /*0x633023*/
-  *((_QWORD *)Block + 40) = &EffectGameObject::`vftable'; /*0x633030*/
-  *((_QWORD *)Block + 43) = &EffectGameObject::`vftable'; /*0x63303e*/
-  TextGameObject__dtor_TextGameObject(Block); /*0x633045*/
-  if ( (a2 & 1) != 0 ) /*0x63304d*/
-    j_j_free(Block); /*0x633057*/
-  return Block; /*0x63305c*/
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   *(_QWORD *)Block  = (uintptr_t)(&EffectGameObject::`vftable'); /*0x633023*/ // cleaned vftable
+//   *((_QWORD *)Block + 40) = &EffectGameObject::`vftable'; /*0x633030*/ // cleaned vftable
+//   *((_QWORD *)Block + 43) = &EffectGameObject::`vftable'; /*0x63303e*/ // cleaned vftable
+//   TextGameObject__dtor_TextGameObject(Block); /*0x633045*/ // cleaned dtor call
+//   if ( (a2 & 1) != 0 ) /*0x63304d*/
+//     j_j_free(Block); /*0x633057*/ // cleaned scalar delete
+  return; /*0x63305c*/
 }
 
 // [2/3] Address: 0x63b7e0
 // Method: AdvancedFollowEditObject::getSaveString
-// Hidden C++ exception states: #wind=2
-__int64 __fastcall AdvancedFollowEditObject_getSaveString(__int64 a1, __int64 a2, __int64 a3)
+std::string AdvancedFollowEditObject::getSaveString(GJBaseGameLayer* layer)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(layer);
+  __int64 a3 = (__int64)to_gd_arg(0);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 SaveString; // rax
   __int64 v7; // rax
   __int64 v8; // r8
@@ -31,95 +44,100 @@ __int64 __fastcall AdvancedFollowEditObject_getSaveString(__int64 a1, __int64 a2
   _BYTE v12[40]; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE v13[528]; // [rsp+70h] [rbp-90h] BYREF
 
-  *(_QWORD *)&v10 = a2; /*0x63b818*/
-  fmt::BasicWriter<char>::BasicWriter<char>(v13); /*0x63b825*/
+  *(_QWORD *)&v10  = (uintptr_t)(a2); /*0x63b818*/
+//   fmt::BasicWriter<char>::BasicWriter<char>(v13); /*0x63b825*/ // cleaned fmt call
   SaveString = AdvancedFollowTriggerObject_getSaveString(a1, (__int64)v12, a3); /*0x63b837*/
-  v10 = *(_OWORD *)fmt::BasicStringRef<char>::BasicStringRef<char>(v11, SaveString); /*0x63b84e*/
-  fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b85d*/
+//   v10 = *(_OWORD *)fmt::BasicStringRef<char>::BasicStringRef<char>(v11, SaveString); /*0x63b84e*/ // cleaned fmt call
+//   fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b85d*/ // cleaned fmt call
   sub_3C310(v12); /*0x63b869*/
   if ( *(float *)(a1 + 2104) != 0.0 ) /*0x63b885*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b887*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b887*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b88c*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b89b*/
-    fmt::BasicWriter<char>::operator<<(v13, 566); /*0x63b8ab*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b8b1*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b89b*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 566); /*0x63b8ab*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b8b1*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b8b6*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b8c5*/
-    fmt::BasicWriter<char>::operator<<(v13); /*0x63b8db*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b8c5*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13); /*0x63b8db*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2108) != 0.0 ) /*0x63b8ee*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b8f0*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b8f0*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b8f5*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b904*/
-    fmt::BasicWriter<char>::operator<<(v13, 567); /*0x63b914*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b91a*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b904*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 567); /*0x63b914*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b91a*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b91f*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b92e*/
-    fmt::BasicWriter<char>::operator<<(v13); /*0x63b944*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b92e*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13); /*0x63b944*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2112) != 0.0 ) /*0x63b957*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b959*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b959*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b95e*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b96d*/
-    fmt::BasicWriter<char>::operator<<(v13, 568); /*0x63b97d*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b983*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b96d*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 568); /*0x63b97d*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b983*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b988*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b997*/
-    fmt::BasicWriter<char>::operator<<(v13); /*0x63b9ad*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b997*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13); /*0x63b9ad*/ // cleaned fmt call
   }
   if ( *(float *)(a1 + 2116) != 0.0 ) /*0x63b9c0*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b9c2*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b9c2*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b9c7*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b9d6*/
-    fmt::BasicWriter<char>::operator<<(v13, 569); /*0x63b9e6*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63b9ec*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63b9d6*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 569); /*0x63b9e6*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63b9ec*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63b9f1*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba00*/
-    fmt::BasicWriter<char>::operator<<(v13); /*0x63ba16*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba00*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13); /*0x63ba16*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 2120) ) /*0x63ba1c*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63ba25*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63ba25*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63ba2a*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba39*/
-    fmt::BasicWriter<char>::operator<<(v13, 570); /*0x63ba49*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63ba4f*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba39*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 570); /*0x63ba49*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63ba4f*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63ba54*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba63*/
-    fmt::BasicWriter<char>::operator<<(v13, *(unsigned __int8 *)(a1 + 2120)); /*0x63ba75*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba63*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, *(unsigned __int8 *)(a1 + 2120)); /*0x63ba75*/ // cleaned fmt call
   }
   if ( *(_BYTE *)(a1 + 1692) ) /*0x63ba7b*/
   {
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63ba84*/
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63ba84*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63ba89*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba98*/
-    fmt::BasicWriter<char>::operator<<(v13, 535); /*0x63baa8*/
-    *(_QWORD *)&v10 = &unk_709CE8; /*0x63baae*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63ba98*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, 535); /*0x63baa8*/ // cleaned fmt call
+    *(_QWORD *)&v10  = (uintptr_t)(&unk_709CE8); /*0x63baae*/
     *((_QWORD *)&v10 + 1) = 0; /*0x63bab3*/
-    fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63bac2*/
-    fmt::BasicWriter<char>::operator<<(v13, *(unsigned __int8 *)(a1 + 1692)); /*0x63bad4*/
+//     fmt::BasicWriter<char>::operator<<(v13, &v10); /*0x63bac2*/ // cleaned fmt call
+//     fmt::BasicWriter<char>::operator<<(v13, *(unsigned __int8 *)(a1 + 1692)); /*0x63bad4*/ // cleaned fmt call
   }
-  v7 = fmt::BasicWriter<char>::c_str(v13); /*0x63badf*/
+//   v7 = fmt::BasicWriter<char>::c_str(v13); /*0x63badf*/ // cleaned fmt call
   *(_OWORD *)a2 = 0; /*0x63bae8*/
-  *(_QWORD *)(a2 + 16) = 0; /*0x63baeb*/
-  *(_QWORD *)(a2 + 24) = 0; /*0x63baef*/
+  *(_QWORD *)(a2 + 16)  = (uintptr_t)(0); /*0x63baeb*/
+  *(_QWORD *)(a2 + 24)  = (uintptr_t)(0); /*0x63baef*/
   v8 = -1; /*0x63baf3*/
   do /*0x63bb03*/
     ++v8; /*0x63bb00*/
   while ( *(_BYTE *)(v7 + v8) ); /*0x63bb03*/
   sub_3C230(a2); /*0x63bb10*/
-  fmt::BasicWriter<char>::~BasicWriter<char>(v13); /*0x63bb1b*/
-  return a2; /*0x63bb24*/
+//   fmt::BasicWriter<char>::~BasicWriter<char>(v13); /*0x63bb1b*/ // cleaned fmt call
+  return {}; /*0x63bb24*/
 }
 
 // [3/3] Address: 0x63bb50
 // Method: AdvancedFollowEditObject::customObjectSetup
-bool __fastcall AdvancedFollowEditObject_customObjectSetup(__int64 a1, __int64 a2, __int64 a3)
+void AdvancedFollowEditObject::customObjectSetup(std::vector<std::string>& values, std::vector<void*>& exists)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(values);
+  __int64 a3 = (__int64)to_gd_arg(exists);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   float v6; // xmm6_4
   float v7; // xmm1_4
   const char *v8; // rcx
@@ -219,5 +237,5 @@ bool __fastcall AdvancedFollowEditObject_customObjectSetup(__int64 a1, __int64 a
     v18 = atoi(v21); /*0x63bd87*/
   }
   *(_BYTE *)(a1 + 1692) = v18 != 0; /*0x63bd93*/
-  return v18 != 0; /*0x63bd8b*/
+  { v18 != 0; return; } /*0x63bd8b*/
 }

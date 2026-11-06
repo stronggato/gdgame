@@ -1,25 +1,40 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AutoBackupOptionsPopup.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub COERCE_UNSIGNED_INT;
+inline GDStub FLAlert_Clicked;
+inline GDStub SetupTriggerPopup_getValue;
 using namespace cocos2d;
 
 // [1/3] Address: 0xcc3e0
 // Method: AutoBackupOptionsPopup::getValue
-double __fastcall AutoBackupOptionsPopup_getValue(__int64 a1, int a2)
+float AutoBackupOptionsPopup::getValue(int p0)
 {
+  __int64 a1 = (__int64)this;
+  int a2 = (int)to_gd_arg(p0);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   double result; // xmm0_8
 
   if ( a2 != -1 ) /*0xcc3e7*/
     return SetupTriggerPopup_getValue(a1, a2); /*0xcc3fe*/
-  *(_QWORD *)&result = COERCE_UNSIGNED_INT((float)(int)sub_9BFB0()); /*0xcc3f2*/
+  *(_QWORD *)&result  = (uintptr_t)(COERCE_UNSIGNED_INT((float)(int)sub_9BFB0())); /*0xcc3f2*/
   return result; /*0xcc3f5*/
 }
 
 // [2/3] Address: 0xcc410
 // Method: AutoBackupOptionsPopup::valueDidChange
-// Hidden C++ exception states: #wind=2
-void __fastcall AutoBackupOptionsPopup_valueDidChange(__int64 a1, int a2, float a3)
+void AutoBackupOptionsPopup::valueDidChange(int p0, float p1)
 {
+  __int64 a1 = (__int64)this;
+  int a2 = (int)to_gd_arg(p0);
+  float a3 = (float)to_gd_arg(p1);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   int v3; // edi
   __int64 v4; // rbx
   __int64 v5; // rbx
@@ -40,7 +55,7 @@ void __fastcall AutoBackupOptionsPopup_valueDidChange(__int64 a1, int a2, float 
     v4 = qword_905FD0; /*0xcc44c*/
     if ( !qword_905FD0 ) /*0xcc456*/
     {
-      v8 = operator new(0x6E8u); /*0xcc462*/
+      v8 = (_QWORD *)operator new(0x6E8u); /*0xcc462*/
       qword_905FD0 = sub_2723A0(v8); /*0xcc470*/
       (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0xcc481*/
       v4 = qword_905FD0; /*0xcc483*/
@@ -52,7 +67,7 @@ void __fastcall AutoBackupOptionsPopup_valueDidChange(__int64 a1, int a2, float 
     sub_43D80(Block, "0236", 4u); /*0xcc4d1*/
     v5 = *(_QWORD *)(v4 + 432); /*0xcc4d6*/
     v6 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, (unsigned int)(v3 + 1)); /*0xcc4e7*/
-    cocos2d::CCDictionary::setObject(v5, v6, Block); /*0xcc4f8*/
+    (((cocos2d::CCDictionary*)(v5))->setObject((cocos2d::CCObject*)(v6), (const char*)to_gd_arg(Block))); /*0xcc4f8*/
     if ( v11 > 0xF ) /*0xcc508*/
     {
       v7 = Block[0]; /*0xcc50d*/
@@ -62,16 +77,20 @@ void __fastcall AutoBackupOptionsPopup_valueDidChange(__int64 a1, int a2, float 
         if ( (unsigned __int64)((char *)Block[0] - (char *)v7 - 8) > 0x1F ) /*0xcc531*/
           invoke_watson(0, 0, 0, 0, 0); /*0xcc542*/
       }
-      j_j_free(v7); /*0xcc549*/
+//       j_j_free(v7); /*0xcc549*/ // cleaned scalar delete
     }
   }
 }
 
 // [3/3] Address: 0xcd170
 // Method: AutoBackupOptionsPopup::FLAlert_Clicked
-// Hidden C++ exception states: #wind=5
-double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, char a3)
+void AutoBackupOptionsPopup::FLAlert_Clicked(FLAlertLayer* p0, bool p1)
 {
+  void** a1 = (void**)this;
+  __int64 a2 = (__int64)to_gd_arg(p0);
+  char a3 = (char)to_gd_arg(p1);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   void **v4; // r14
   __int64 v5; // rdi
   void **v6; // rax
@@ -150,7 +169,7 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
           if ( (unsigned __int64)((char *)Block[0] - (char *)v9 - 8) > 0x1F ) /*0xcd283*/
             invoke_watson(0, 0, 0, 0, 0); /*0xcd294*/
         }
-        j_j_free(v9); /*0xcd29e*/
+//         j_j_free(v9); /*0xcd29e*/ // cleaned scalar delete
       }
       v38 = Block; /*0xcd2a7*/
       *(_OWORD *)Block = 0; /*0xcd2ae*/
@@ -161,7 +180,7 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
       if ( v8 == 1 ) /*0xcd2d3*/
         v10 = &byte_6E86E0; /*0xcd2d3*/
       v11 = cocos2d::CCString::createWithFormat("Removed %i backup%s", v8, v10); /*0xcd2e0*/
-      CString = cocos2d::CCString::getCString(v11); /*0xcd2e9*/
+      CString = (((cocos2d::CCString*)(v11))->getCString()); /*0xcd2e9*/
       v34 = 0; /*0xcd2f2*/
       v35 = 0; /*0xcd2f6*/
       v36 = 0; /*0xcd2fa*/
@@ -191,7 +210,7 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
           if ( (unsigned __int64)((char *)Block[0] - (char *)v18 - 8) > 0x1F ) /*0xcd3da*/
             invoke_watson(0, 0, 0, 0, 0); /*0xcd3eb*/
         }
-        j_j_free(v18); /*0xcd3f2*/
+//         j_j_free(v18); /*0xcd3f2*/ // cleaned scalar delete
       }
       v19 = 0; /*0xcd3f7*/
       v32 = 0; /*0xcd3fa*/
@@ -214,7 +233,7 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
             if ( v21[3] > 0xFu ) /*0xcd478*/
               v21 = (_QWORD *)*v21; /*0xcd47a*/
             *(_OWORD *)Block = 0; /*0xcd480*/
-            si128 = 0; /*0xcd487*/
+            si128 = _mm_setzero_si128(); /*0xcd487*/
             v25 = Size + v23; /*0xcd48c*/
             v26 = 15; /*0xcd490*/
             v27 = Block; /*0xcd495*/
@@ -252,7 +271,7 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
                 if ( (unsigned __int64)((char *)Block[0] - (char *)v29 - 8) > 0x1F ) /*0xcd543*/
                   invoke_watson(0, 0, 0, 0, 0); /*0xcd605*/
               }
-              j_j_free(v29); /*0xcd549*/
+//               j_j_free(v29); /*0xcd549*/ // cleaned scalar delete
             }
             v19 = v32; /*0xcd54e*/
             v20 = v34; /*0xcd552*/
@@ -269,8 +288,8 @@ double __fastcall AutoBackupOptionsPopup_FLAlert_Clicked(void **a1, __int64 a2, 
     sub_CC570(v4 - 125); /*0xcd5ae*/
     v30 = (void (__fastcall ***)(_QWORD))v4[1]; /*0xcd5b3*/
     if ( v30 ) /*0xcd5ba*/
-      (**v30)(v30); /*0xcd5bf*/
-    return sub_3C310(Src); /*0xcd5c6*/
+      (**v30)((uintptr_t)v30); /*0xcd5bf*/
+    { sub_3C310(Src); return; } /*0xcd5c6*/
   }
-  return result; /*0xcd5f1*/
+  { result; return; } /*0xcd5f1*/
 }

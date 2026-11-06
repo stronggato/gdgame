@@ -1,35 +1,51 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AutoSaveSettingsLayer.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub GameManager_getGameVariable;
+inline GDStub LABEL_31;
+inline GDStub LABEL_9;
+inline GDStub SetupTriggerPopup_getValue;
+inline GDStub UIPOptionsLayer__dtor_UIPOptionsLayer;
 using namespace cocos2d;
 
 // [1/3] Address: 0x99c10
 // Method: AutoSaveSettingsLayer::~AutoSaveSettingsLayer
-cocos2d::CCNode *__fastcall AutoSaveSettingsLayer__dtor_AutoSaveSettingsLayer(cocos2d::CCNode *Block, char a2)
+AutoSaveSettingsLayer::~AutoSaveSettingsLayer()
 {
-  *(_QWORD *)Block = &AutoSaveSettingsLayer::`vftable'; /*0x99c24*/
-  *((_QWORD *)Block + 40) = &AutoSaveSettingsLayer::`vftable'; /*0x99c30*/
-  *((_QWORD *)Block + 41) = &AutoSaveSettingsLayer::`vftable'; /*0x99c3e*/
-  *((_QWORD *)Block + 42) = &AutoSaveSettingsLayer::`vftable'; /*0x99c4c*/
-  *((_QWORD *)Block + 43) = &AutoSaveSettingsLayer::`vftable'; /*0x99c5a*/
-  *((_QWORD *)Block + 44) = &AutoSaveSettingsLayer::`vftable'; /*0x99c68*/
-  *((_QWORD *)Block + 51) = &AutoSaveSettingsLayer::`vftable'; /*0x99c76*/
-  *((_QWORD *)Block + 54) = &AutoSaveSettingsLayer::`vftable'; /*0x99c84*/
-  *((_QWORD *)Block + 68) = &AutoSaveSettingsLayer::`vftable'; /*0x99c92*/
-  *((_QWORD *)Block + 83) = &AutoSaveSettingsLayer::`vftable'; /*0x99ca0*/
-  *((_QWORD *)Block + 84) = &AutoSaveSettingsLayer::`vftable'; /*0x99cae*/
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   *(_QWORD *)Block  = (uintptr_t)(&AutoSaveSettingsLayer::`vftable'); /*0x99c24*/ // cleaned vftable
+//   *((_QWORD *)Block + 40) = &AutoSaveSettingsLayer::`vftable'; /*0x99c30*/ // cleaned vftable
+//   *((_QWORD *)Block + 41) = &AutoSaveSettingsLayer::`vftable'; /*0x99c3e*/ // cleaned vftable
+//   *((_QWORD *)Block + 42) = &AutoSaveSettingsLayer::`vftable'; /*0x99c4c*/ // cleaned vftable
+//   *((_QWORD *)Block + 43) = &AutoSaveSettingsLayer::`vftable'; /*0x99c5a*/ // cleaned vftable
+//   *((_QWORD *)Block + 44) = &AutoSaveSettingsLayer::`vftable'; /*0x99c68*/ // cleaned vftable
+//   *((_QWORD *)Block + 51) = &AutoSaveSettingsLayer::`vftable'; /*0x99c76*/ // cleaned vftable
+//   *((_QWORD *)Block + 54) = &AutoSaveSettingsLayer::`vftable'; /*0x99c84*/ // cleaned vftable
+//   *((_QWORD *)Block + 68) = &AutoSaveSettingsLayer::`vftable'; /*0x99c92*/ // cleaned vftable
+//   *((_QWORD *)Block + 83) = &AutoSaveSettingsLayer::`vftable'; /*0x99ca0*/ // cleaned vftable
+//   *((_QWORD *)Block + 84) = &AutoSaveSettingsLayer::`vftable'; /*0x99cae*/ // cleaned vftable
   sub_3C310((char *)Block + 1016); /*0x99cbc*/
-  UIPOptionsLayer__dtor_UIPOptionsLayer(Block); /*0x99cc4*/
-  if ( (a2 & 1) != 0 ) /*0x99ccc*/
-    j_j_free(Block); /*0x99cd6*/
-  return Block; /*0x99cdb*/
+//   UIPOptionsLayer__dtor_UIPOptionsLayer(Block); /*0x99cc4*/ // cleaned dtor call
+//   if ( (a2 & 1) != 0 ) /*0x99ccc*/
+//     j_j_free(Block); /*0x99cd6*/ // cleaned scalar delete
+  return; /*0x99cdb*/
 }
 
 // [2/3] Address: 0x9ae30
 // Method: AutoSaveSettingsLayer::getValue
-// Hidden C++ exception states: #wind=5
-float __fastcall AutoSaveSettingsLayer_getValue(__int64 a1, int a2)
+float AutoSaveSettingsLayer::getValue(int p0)
 {
+  __int64 a1 = (__int64)this;
+  int a2 = (int)to_gd_arg(p0);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   double Value; // xmm0_8
   __int64 v3; // rcx
   char *v4; // rdx
@@ -55,7 +71,7 @@ float __fastcall AutoSaveSettingsLayer_getValue(__int64 a1, int a2)
       v10 = qword_905FD0; /*0x9b018*/
       if ( !qword_905FD0 ) /*0x9b022*/
       {
-        v17 = operator new(0x6E8u); /*0x9b02e*/
+        v17 = (_QWORD *)operator new(0x6E8u); /*0x9b02e*/
         qword_905FD0 = sub_2723A0(v17); /*0x9b03b*/
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b04c*/
         v10 = qword_905FD0; /*0x9b04e*/
@@ -65,8 +81,8 @@ float __fastcall AutoSaveSettingsLayer_getValue(__int64 a1, int a2)
       v20 = 15; /*0x9b064*/
       LODWORD(Block[0]) = 6256231; /*0x9b072*/
       sub_43D80(Block, "0187", 4u); /*0x9b095*/
-      v11 = (cocos2d::CCString *)cocos2d::CCDictionary::valueForKey(*(_QWORD *)(v10 + 432), Block); /*0x9b0a5*/
-      v7 = cocos2d::CCString::intValue(v11); /*0x9b0b4*/
+      v11 = (cocos2d::CCString *)(((cocos2d::CCDictionary*)(*(_QWORD *)(v10 + 432)))->valueForKey((const char*)to_gd_arg(Block))); /*0x9b0a5*/
+      v7 = (((cocos2d::CCString*)(v11))->intValue()); /*0x9b0b4*/
       if ( v20 > 0xF ) /*0x9b0be*/
       {
         v12 = Block[0]; /*0x9b0c3*/
@@ -76,7 +92,7 @@ float __fastcall AutoSaveSettingsLayer_getValue(__int64 a1, int a2)
           if ( (unsigned __int64)((char *)Block[0] - (char *)v12 - 8) > 0x1F ) /*0x9b0e6*/
             invoke_watson(0, 0, 0, 0, 0); /*0x9b0fb*/
         }
-        j_j_free(v12); /*0x9b105*/
+//         j_j_free(v12); /*0x9b105*/ // cleaned scalar delete
       }
       v9 = 3600; /*0x9b10a*/
       break;
@@ -84,12 +100,12 @@ float __fastcall AutoSaveSettingsLayer_getValue(__int64 a1, int a2)
       v3 = qword_905FD0; /*0x9afcf*/
       if ( !qword_905FD0 ) /*0x9afd9*/
       {
-        v16 = operator new(0x6E8u); /*0x9afe5*/
+        v16 = (_QWORD *)operator new(0x6E8u); /*0x9afe5*/
         qword_905FD0 = sub_2723A0(v16); /*0x9aff2*/
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b003*/
         v3 = qword_905FD0; /*0x9b005*/
       }
-      v4 = "0186"; /*0x9b00c*/
+      v4 = (char*)"0186"; /*0x9b00c*/
 LABEL_9:
       if ( GameManager_getGameVariable(v3, v4) ) /*0x9aeb5*/
         LODWORD(Value) = 1065353216; /*0x9aebe*/
@@ -100,7 +116,7 @@ LABEL_9:
       v5 = qword_905FD0; /*0x9aed3*/
       if ( !qword_905FD0 ) /*0x9aedd*/
       {
-        v15 = operator new(0x6E8u); /*0x9aee9*/
+        v15 = (_QWORD *)operator new(0x6E8u); /*0x9aee9*/
         qword_905FD0 = sub_2723A0(v15); /*0x9aef6*/
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9af07*/
         v5 = qword_905FD0; /*0x9af09*/
@@ -110,8 +126,8 @@ LABEL_9:
       v20 = 15; /*0x9af1f*/
       LODWORD(Block[0]) = 6256231; /*0x9af2d*/
       sub_43D80(Block, "0185", 4u); /*0x9af50*/
-      v6 = (cocos2d::CCString *)cocos2d::CCDictionary::valueForKey(*(_QWORD *)(v5 + 432), Block); /*0x9af60*/
-      v7 = cocos2d::CCString::intValue(v6); /*0x9af6f*/
+      v6 = (cocos2d::CCString *)(((cocos2d::CCDictionary*)(*(_QWORD *)(v5 + 432)))->valueForKey((const char*)to_gd_arg(Block))); /*0x9af60*/
+      v7 = (((cocos2d::CCString*)(v6))->intValue()); /*0x9af6f*/
       if ( v20 > 0xF ) /*0x9af79*/
       {
         v8 = Block[0]; /*0x9af7e*/
@@ -121,7 +137,7 @@ LABEL_9:
           if ( (unsigned __int64)((char *)Block[0] - (char *)v8 - 8) > 0x1F ) /*0x9afa1*/
             invoke_watson(0, 0, 0, 0, 0); /*0x9afb6*/
         }
-        j_j_free(v8); /*0x9afc0*/
+//         j_j_free(v8); /*0x9afc0*/ // cleaned scalar delete
       }
       v9 = 300; /*0x9afc5*/
       break;
@@ -129,12 +145,12 @@ LABEL_9:
       v3 = qword_905FD0; /*0x9ae71*/
       if ( !qword_905FD0 ) /*0x9ae7b*/
       {
-        v14 = operator new(0x6E8u); /*0x9ae87*/
+        v14 = (_QWORD *)operator new(0x6E8u); /*0x9ae87*/
         qword_905FD0 = sub_2723A0(v14); /*0x9ae94*/
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9aea5*/
         v3 = qword_905FD0; /*0x9aea7*/
       }
-      v4 = "0184"; /*0x9aeae*/
+      v4 = (char*)"0184"; /*0x9aeae*/
       goto LABEL_9; /*0x9aeae*/
     default:
       Value = SetupTriggerPopup_getValue(a1, a2); /*0x9ae67*/
@@ -148,9 +164,13 @@ LABEL_9:
 
 // [3/3] Address: 0x9b140
 // Method: AutoSaveSettingsLayer::valueDidChange
-// Hidden C++ exception states: #wind=5
-void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a3)
+void AutoSaveSettingsLayer::valueDidChange(int p0, float p1)
 {
+  __int64 a1 = (__int64)this;
+  int a2 = (int)to_gd_arg(p0);
+  float a3 = (float)to_gd_arg(p1);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v3; // rcx
   int v4; // edi
   __int64 v5; // rbx
@@ -180,7 +200,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
     v11 = qword_905FD0; /*0x9b37b*/
     if ( !qword_905FD0 ) /*0x9b385*/
     {
-      v17 = operator new(0x6E8u); /*0x9b391*/
+      v17 = (_QWORD *)operator new(0x6E8u); /*0x9b391*/
       qword_905FD0 = sub_2723A0(v17); /*0x9b39e*/
       (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b3af*/
       v11 = qword_905FD0; /*0x9b3b1*/
@@ -192,7 +212,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
     sub_43D80(Block, "0187", 4u); /*0x9b3f8*/
     v12 = *(_QWORD *)(v11 + 432); /*0x9b3fd*/
     v13 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, (unsigned int)v10); /*0x9b40d*/
-    cocos2d::CCDictionary::setObject(v12, v13, Block); /*0x9b41d*/
+    (((cocos2d::CCDictionary*)(v12))->setObject((cocos2d::CCObject*)(v13), (const char*)to_gd_arg(Block))); /*0x9b41d*/
     if ( v20 > 0xF ) /*0x9b42c*/
     {
       v8 = Block[0]; /*0x9b431*/
@@ -210,7 +230,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
     v9 = qword_905FD0; /*0x9b30e*/
     if ( !qword_905FD0 ) /*0x9b318*/
     {
-      v16 = operator new(0x6E8u); /*0x9b324*/
+      v16 = (_QWORD *)operator new(0x6E8u); /*0x9b324*/
       qword_905FD0 = sub_2723A0(v16); /*0x9b331*/
       (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b342*/
       v9 = qword_905FD0; /*0x9b344*/
@@ -226,7 +246,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
         v3 = qword_905FD0; /*0x9b190*/
         if ( !qword_905FD0 ) /*0x9b19a*/
         {
-          v14 = operator new(0x6E8u); /*0x9b1a6*/
+          v14 = (_QWORD *)operator new(0x6E8u); /*0x9b1a6*/
           qword_905FD0 = sub_2723A0(v14); /*0x9b1b3*/
           (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b1c4*/
           v3 = qword_905FD0; /*0x9b1c6*/
@@ -243,7 +263,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
     v5 = qword_905FD0; /*0x9b1fd*/
     if ( !qword_905FD0 ) /*0x9b207*/
     {
-      v15 = operator new(0x6E8u); /*0x9b213*/
+      v15 = (_QWORD *)operator new(0x6E8u); /*0x9b213*/
       qword_905FD0 = sub_2723A0(v15); /*0x9b220*/
       (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x9b231*/
       v5 = qword_905FD0; /*0x9b233*/
@@ -255,7 +275,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
     sub_43D80(Block, "0185", 4u); /*0x9b27a*/
     v6 = *(_QWORD *)(v5 + 432); /*0x9b27f*/
     v7 = cocos2d::CCString::createWithFormat((const char *)&word_6E86F8, (unsigned int)v4); /*0x9b28f*/
-    cocos2d::CCDictionary::setObject(v6, v7, Block); /*0x9b29f*/
+    (((cocos2d::CCDictionary*)(v6))->setObject((cocos2d::CCObject*)(v7), (const char*)to_gd_arg(Block))); /*0x9b29f*/
     if ( v20 > 0xF ) /*0x9b2ae*/
     {
       v8 = Block[0]; /*0x9b2b7*/
@@ -266,7 +286,7 @@ void __fastcall AutoSaveSettingsLayer_valueDidChange(__int64 a1, int a2, float a
           invoke_watson(0, 0, 0, 0, 0); /*0x9b2f7*/
       }
 LABEL_31:
-      j_j_free(v8); /*0x9b470*/
+//       j_j_free(v8); /*0x9b470*/ // cleaned scalar delete
     }
   }
 }

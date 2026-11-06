@@ -81,6 +81,15 @@ struct _OWORD_t {
     operator int64() const { return static_cast<int64>(low); }
     operator uint32() const { return static_cast<uint32>(low); }
     operator int32() const { return static_cast<int32>(low); }
+    template <typename T>
+    _OWORD_t operator*(T const& rhs) const { return _OWORD_t(low * (uint64)rhs, high); }
+    _OWORD_t operator>>(int shift) const { return _OWORD_t(shift >= 64 ? high >> (shift - 64) : low >> shift, 0); }
+    _OWORD_t operator+(uint64 v) const { return _OWORD_t(low + v, high); }
+    _OWORD_t operator-(uint64 v) const { return _OWORD_t(low - v, high); }
+    _OWORD_t operator~() const { return _OWORD_t(~low, ~high); }
+    _OWORD_t operator&(const _OWORD_t& o) const { return _OWORD_t(low & o.low, high & o.high); }
+    _OWORD_t operator|(_OWORD_t const& o) const { return _OWORD_t(low | o.low, high | o.high); }
+    _OWORD_t operator^(_OWORD_t const& o) const { return _OWORD_t(low ^ o.low, high ^ o.high); }
 };
 #define _OWORD _OWORD_t
 

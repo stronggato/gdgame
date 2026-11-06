@@ -5,6 +5,7 @@
 #include <emmintrin.h>
 
 struct GDStubPtr {
+    operator const char*() const { return ""; }
     template <typename T>
     operator T*() const { return nullptr; }
     template <typename T>
@@ -34,7 +35,16 @@ struct GDStub {
     operator double() const { return 0.0; }
     operator void*() const { return nullptr; }
     operator __m128i() const { return _mm_setzero_si128(); }
+    operator const char*() const { return ""; }
     
+    template <typename T>
+    GDStub operator+(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator-(T&&) const { return GDStub{}; }
+    template <typename T>
+    friend GDStub operator+(T&&, const GDStub&) { return GDStub{}; }
+    template <typename T>
+    friend GDStub operator-(T&&, const GDStub&) { return GDStub{}; }
     template <typename T>
     GDStub& operator=(T&&) { return *this; }
     
@@ -2439,3 +2449,5 @@ inline GDStub word_76D0DC;
 inline GDStub word_788B58;
 inline GDStub word_79062C;
 inline GDStub word_790658;
+
+inline GDStub algn_7264;
