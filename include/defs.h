@@ -494,4 +494,16 @@ void __noreturn __break(uint16 code, uint16 subcode);
 #define j_j_free free
 #define invoke_watson(...) ((void)0)
 
+#ifdef __cplusplus
+#include "gd_stubs.hpp"
+#define CCObject_release(obj) do { auto _o = (obj); if (_o) _o->release(); } while(0)
+#define CCObject_retain(obj) do { auto _o = (obj); if (_o) _o->retain(); } while(0)
+#define CCObject_autorelease(obj) do { auto _o = (obj); if (_o) _o->autorelease(); } while(0)
+
+#define SetupTriggerPopup_onClose(...) ((void)0)
+#define FLAlertLayer_FLAlertLayer(...) ((void*)0)
+#define ButtonSprite_ButtonSprite(...) ((void*)0)
+#define ButtonSprite_init(...) 1
+#endif
+
 #endif // HEXRAYS_DEFS_H

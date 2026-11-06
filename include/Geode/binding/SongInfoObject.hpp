@@ -7,6 +7,7 @@
 #include <Geode/mapping/set.hpp>
 #include <Geode/mapping/unordered_set.hpp>
 #include <Geode/mapping/vector.hpp>
+#include <Geode/binding/GJLinkObject.hpp>
 
 class SongInfoObject : public cocos2d::CCNode {
 public:
