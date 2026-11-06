@@ -58,3 +58,66 @@ void __fastcall SetColorIDPopup_colorSelectClosed(__int64 a1, __int64 a2, int a3
     *(_BYTE *)(a1 - 28) = 0; /*0x3a2b98*/
   }
 }
+
+// Address: 0x3a2890
+// Method: SetColorIDPopup::init
+// Hidden C++ exception states: #wind=1
+char __fastcall SetColorIDPopup_init(__int64 a1, int a2)
+{
+  char result; // al
+  int v5; // eax
+  cocos2d::CCObject *v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  const char *v12; // rax
+  __int64 v13; // r8
+  _BYTE v14[8]; // [rsp+60h] [rbp-19h] BYREF
+  _QWORD v15[4]; // [rsp+68h] [rbp-11h] BYREF
+  __int128 v16; // [rsp+88h] [rbp+Fh] BYREF
+  __int64 v17; // [rsp+98h] [rbp+1Fh]
+  __int64 v18; // [rsp+A0h] [rbp+27h]
+  __int128 *v19; // [rsp+F0h] [rbp+77h] BYREF
+  char v20; // [rsp+F8h] [rbp+7Fh] BYREF
+
+  v19 = &v16;
+  v16 = 0;
+  v17 = 2;
+  v18 = 15;
+  strcpy((char *)&v16, "OK");
+  v15[2] = 12;
+  v15[3] = 15;
+  v15[0] = *(_QWORD *)"Color Filter";
+  v15[1] = *(unsigned int *)"lter";
+  result = sub_3A1A60(a1, a2, 0, 1101, (__int64)v15, (__int64)&v16, 1, 0, 0, 1, 0);
+  if ( result )
+  {
+    v5 = (unsigned int)cocos2d::CCSprite::createWithSpriteFrameName("GJ_plus2Btn_001.png");
+    v6 = CCMenuItemSpriteExtra_create(v5, 0, a1, (__int64)sub_3A2A70);
+    (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v6);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v20, 75.0, 0.0);
+    v8 = v7;
+    v9 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 664) + 200LL))(*(_QWORD *)(a1 + 664));
+    cocos2d::CCPoint::operator+(v9, &v19, v8);
+    v10 = *(_QWORD *)v6;
+    cocos2d::CCNode::convertToNodeSpace(*(_QWORD *)(a1 + 552), v14, &v19);
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v10 + 184))(v6, v11);
+    if ( a2 >= 1000 )
+    {
+      v12 = GJSpecialColorSelect_textForColorIdx(a2);
+      v16 = 0;
+      v17 = 0;
+      v18 = 0;
+      v13 = -1;
+      do
+        ++v13;
+      while ( v12[v13] );
+      sub_3C230(&v16);
+      SpriteAnimationManager_executeAnimation(*(_QWORD *)(a1 + 664), (void **)&v16);
+    }
+    return 1;
+  }
+  return result;
+}

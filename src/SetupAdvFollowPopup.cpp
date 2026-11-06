@@ -474,3 +474,113 @@ LABEL_160:
   sub_60ABF0(v3, 333); /*0x599309*/
   SetupAdvFollowPopup_updateMode((__int64)v3, 2); /*0x599321*/
 }
+
+// Address: 0x597e40
+// Method: SetupAdvFollowPopup::valueDidChange
+// Hidden C++ exception states: #wind=1
+void __fastcall SetupAdvFollowPopup_valueDidChange(cocos2d::CCDictionary **a1, int a2, float a3)
+{
+  unsigned __int64 v5; // rsi
+  struct cocos2d::CCObject *v6; // rbx
+  __int64 v7; // r8
+  void *v8; // rcx
+  void *Block[2]; // [rsp+30h] [rbp-19h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-9h]
+  __int64 v11; // [rsp+48h] [rbp-1h]
+  __int128 v12; // [rsp+50h] [rbp+7h] BYREF
+  __int64 v13; // [rsp+60h] [rbp+17h]
+  __int64 v14; // [rsp+68h] [rbp+1Fh]
+
+  if ( a2 != 138 && a2 != 200 && a2 != 201 )
+  {
+    if ( a2 == 306 )
+    {
+      if ( a3 != 0.0 )
+      {
+        if ( cocos2d::CCDictionary::objectForKey(a1[94], 307) )
+          (*((void (__fastcall **)(cocos2d::CCDictionary **, __int64, _QWORD))*a1 + 144))(a1, 307, 0);
+        else
+          sub_60A5A0(a1, 307);
+        sub_60ABF0(a1, 307);
+      }
+    }
+    else if ( a2 == 307 && a3 != 0.0 )
+    {
+      if ( cocos2d::CCDictionary::objectForKey(a1[94], 306) )
+        (*((void (__fastcall **)(cocos2d::CCDictionary **, __int64, _QWORD))*a1 + 144))(a1, 306, 0);
+      else
+        sub_60A5A0(a1, 306);
+      sub_60ABF0(a1, 306);
+    }
+    return;
+  }
+  sub_60ABF0(a1, 71);
+  *(_OWORD *)Block = 0;
+  v10 = 1;
+  v5 = 15;
+  v11 = 15;
+  LOWORD(Block[0]) = 48;
+  if ( a3 != 0.0 )
+  {
+    if ( a2 == 138 )
+    {
+      v10 = 2;
+      strcpy((char *)Block, "P1");
+    }
+    else
+    {
+      if ( cocos2d::CCDictionary::objectForKey(a1[94], 138) )
+        (*((void (__fastcall **)(cocos2d::CCDictionary **, __int64, _QWORD))*a1 + 144))(a1, 138, 0);
+      else
+        sub_60A5A0(a1, 138);
+      sub_60ABF0(a1, 138);
+      if ( a2 == 200 )
+      {
+        v10 = 2;
+        strcpy((char *)Block, "P2");
+LABEL_28:
+        if ( cocos2d::CCDictionary::objectForKey(a1[94], 201) )
+          (*((void (__fastcall **)(cocos2d::CCDictionary **, __int64, _QWORD))*a1 + 144))(a1, 201, 0);
+        else
+          sub_60A5A0(a1, 201);
+        sub_60ABF0(a1, 201);
+        goto LABEL_33;
+      }
+    }
+    if ( cocos2d::CCDictionary::objectForKey(a1[94], 200) )
+      (*((void (__fastcall **)(cocos2d::CCDictionary **, __int64, _QWORD))*a1 + 144))(a1, 200, 0);
+    else
+      sub_60A5A0(a1, 200);
+    sub_60ABF0(a1, 200);
+    if ( a2 != 201 )
+      goto LABEL_28;
+    v10 = 1;
+    LOWORD(Block[0]) = 67;
+  }
+LABEL_33:
+  v6 = cocos2d::CCDictionary::objectForKey(a1[95], 71);
+  if ( v6 )
+  {
+    v12 = 0;
+    v13 = 0;
+    v14 = 0;
+    v7 = -1;
+    do
+      ++v7;
+    while ( *((_BYTE *)Block + v7) );
+    sub_3C230(&v12);
+    CCTextInputNode_setString(v6, &v12);
+    v5 = v11;
+  }
+  if ( v5 > 0xF )
+  {
+    v8 = Block[0];
+    if ( v5 + 1 >= 0x1000 )
+    {
+      v8 = (void *)*((_QWORD *)Block[0] - 1);
+      if ( (unsigned __int64)((char *)Block[0] - (char *)v8 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v8);
+  }
+}

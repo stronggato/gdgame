@@ -185,3 +185,321 @@ __int64 __fastcall ReportQueuePopup_dropdownSelectionChanged(__int64 a1, __int64
   }
   return result; /*0xc779b*/
 }
+
+// Address: 0xc57b0
+// Method: ReportQueuePopup::init
+// Hidden C++ exception states: #wind=7
+char __fastcall ReportQueuePopup_init(__int64 a1, __int64 a2, __int64 a3, int a4)
+{
+  char v5; // bl
+  void *v6; // r8
+  __int64 v8; // rdi
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  __int64 v12; // rcx
+  float v13; // xmm6_4
+  cocos2d::CCObject *v14; // rbx
+  cocos2d::CCObject *v15; // rdi
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  _BYTE *v18; // r14
+  _BYTE *v19; // rcx
+  const char *v20; // rdx
+  __int64 v21; // rax
+  _OWORD *v22; // rcx
+  _OWORD *v23; // rax
+  __int64 v24; // rdx
+  char *v25; // rdi
+  __int64 v26; // rbx
+  __int64 v27; // rax
+  struct cocos2d::CCSprite *v28; // rax
+  cocos2d::CCObject *v29; // rdi
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  char *v32; // rbx
+  char *v33; // rdi
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  __int64 *v36; // rdi
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  __int64 v39; // rdi
+  __int64 v40; // rbx
+  __int64 v41; // rax
+  __int64 v42; // rdi
+  __int64 v43; // rbx
+  __int64 v44; // rax
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  char *v48; // rbx
+  char *v49; // rdi
+  char *v50; // rax
+  void **v51; // [rsp+50h] [rbp-B0h] BYREF
+  void *v52[2]; // [rsp+58h] [rbp-A8h] BYREF
+  char *v53; // [rsp+68h] [rbp-98h]
+  __int128 *v54; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v55; // [rsp+78h] [rbp-88h] BYREF
+  void **v56; // [rsp+88h] [rbp-78h]
+  __int64 v57; // [rsp+90h] [rbp-70h]
+  void *Block[2]; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v59; // [rsp+A8h] [rbp-58h]
+  unsigned __int64 v60; // [rsp+B0h] [rbp-50h]
+  __int128 v61; // [rsp+B8h] [rbp-48h]
+  __int64 v62; // [rsp+C8h] [rbp-38h]
+  __int64 v63; // [rsp+D0h] [rbp-30h]
+
+  *(_OWORD *)Block = 0;
+  v59 = 0;
+  v60 = 15;
+  LOBYTE(Block[0]) = 0;
+  v5 = sub_C0F40(a1, (unsigned int)"Moderation Queue", (unsigned int)Block, a4, 1133903872);
+  if ( v60 > 0xF )
+  {
+    v6 = Block[0];
+    if ( v60 + 1 >= 0x1000 )
+    {
+      v6 = (void *)*((_QWORD *)Block[0] - 1);
+      if ( (unsigned __int64)((char *)Block[0] - (char *)v6 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v6);
+  }
+  if ( !v5 )
+    return 0;
+  cocos2d::CCLabelBMFont::setFntFile(*(cocos2d::CCLabelBMFont **)(a1 + 744), (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 744) + 160LL))(*(_QWORD *)(a1 + 744));
+  v8 = **(_QWORD **)(a1 + 744);
+  v9 = *(_QWORD *)(a1 + 744);
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v54,
+    *(float *)(a1 + 664),
+    (float)((float)(*(float *)(a1 + 676) * 0.5) + *(float *)(a1 + 668)) - 14.0);
+  (*(void (__fastcall **)(__int64, __int64))(v8 + 184))(v9, v10);
+  sub_C13F0(a1);
+  v11 = *(_QWORD *)(a1 + 688);
+  if ( *(float *)(v11 + 520) <= 0.0 )
+  {
+    v12 = *(_QWORD *)(v11 + 416);
+    if ( v12 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 488LL))(v12);
+    sub_81190(v11);
+  }
+  *(_DWORD *)(v11 + 520) = 1110179840;
+  v13 = (float)(*(float *)(a1 + 668) - (float)(*(float *)(a1 + 676) * 0.5)) + 22.0;
+  v54 = (__int128 *)operator new(0x2C8u);
+  v14 = (cocos2d::CCObject *)ButtonSprite_ButtonSprite((__int64)v54);
+  if ( v14 )
+  {
+    if ( ButtonSprite_init(
+           (__int64)v14,
+           (__int64)"Top",
+           44,
+           0,
+           1056964608,
+           1,
+           (const char *)&qword_6FFF68,
+           (__int64)"GJ_button_04.png",
+           1103101952) )
+    {
+      cocos2d::CCObject::autorelease(v14);
+    }
+    else
+    {
+      (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(*(_QWORD *)v14 + 8LL))(v14, 1);
+      v14 = 0;
+    }
+  }
+  *(_QWORD *)(a1 + 808) = v14;
+  v15 = CCMenuItemSpriteExtra_create((int)v14, 0, a1, (__int64)sub_C7730);
+  *((_DWORD *)v15 + 93) = 1066192077;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v15);
+  v16 = *(_QWORD *)v15;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v54,
+    (float)(*(float *)(a1 + 664) - (float)(*(float *)(a1 + 672) * 0.5)) + 40.0,
+    v13);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v16 + 184))(v15, v17);
+  v61 = 0;
+  v18 = (_BYTE *)sub_3C460(368);
+  *(_QWORD *)&v61 = v18;
+  v62 = 355;
+  v63 = 367;
+  v19 = v18;
+  v20 = "Accounts that need a look, highest <cy>pts</c> first. Points come from blocked text and player reports.\n"
+        "\n"
+        "<cg>Review</c> opens the account with everything reported and the actions. Bans and deletes do not close a case."
+        " Press <cg>Clear</c> in the review when you are finished.\n"
+        "\n"
+        "Viewed by shows who opened the case in the last hour. It is a hint, not a lock.";
+  v21 = 2;
+  do
+  {
+    *(_OWORD *)v19 = *(_OWORD *)v20;
+    *((_OWORD *)v19 + 1) = *((_OWORD *)v20 + 1);
+    *((_OWORD *)v19 + 2) = *((_OWORD *)v20 + 2);
+    *((_OWORD *)v19 + 3) = *((_OWORD *)v20 + 3);
+    *((_OWORD *)v19 + 4) = *((_OWORD *)v20 + 4);
+    *((_OWORD *)v19 + 5) = *((_OWORD *)v20 + 5);
+    *((_OWORD *)v19 + 6) = *((_OWORD *)v20 + 6);
+    v19 += 128;
+    *((_OWORD *)v19 - 1) = *((_OWORD *)v20 + 7);
+    v20 += 128;
+    --v21;
+  }
+  while ( v21 );
+  *(_OWORD *)v19 = *(_OWORD *)v20;
+  *((_OWORD *)v19 + 1) = *((_OWORD *)v20 + 1);
+  *((_OWORD *)v19 + 2) = *((_OWORD *)v20 + 2);
+  *((_OWORD *)v19 + 3) = *((_OWORD *)v20 + 3);
+  *((_OWORD *)v19 + 4) = *((_OWORD *)v20 + 4);
+  *((_OWORD *)v19 + 5) = *((_OWORD *)v20 + 5);
+  *((_WORD *)v19 + 48) = *((_WORD *)v20 + 48);
+  v19[98] = v20[98];
+  v18[355] = 0;
+  v54 = &v55;
+  v55 = 0;
+  v56 = 0;
+  v57 = 0;
+  v22 = (_OWORD *)sub_3C460(368);
+  *(_QWORD *)&v55 = v22;
+  v56 = (void **)(&loc_15D + 6);
+  v57 = 367;
+  v23 = v18;
+  v24 = 2;
+  do
+  {
+    *v22 = *v23;
+    v22[1] = v23[1];
+    v22[2] = v23[2];
+    v22[3] = v23[3];
+    v22[4] = v23[4];
+    v22[5] = v23[5];
+    v22[6] = v23[6];
+    v22 += 8;
+    *(v22 - 1) = v23[7];
+    v23 += 8;
+    --v24;
+  }
+  while ( v24 );
+  *v22 = *v23;
+  v22[1] = v23[1];
+  v22[2] = v23[2];
+  v22[3] = v23[3];
+  v22[4] = v23[4];
+  v22[5] = v23[5];
+  *((_DWORD *)v22 + 24) = *((_DWORD *)v23 + 24);
+  *(_OWORD *)Block = 0;
+  v59 = 0;
+  v60 = 0;
+  Block[0] = (void *)sub_3C460(32);
+  v59 = 16;
+  v60 = 31;
+  strcpy((char *)Block[0], "Moderation Queue");
+  v25 = InfoAlertButton_create((__int64)Block, (__int64)&v55);
+  (*(void (__fastcall **)(_QWORD, char *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v25);
+  v26 = *(_QWORD *)v25;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v51,
+    (float)(*(float *)(a1 + 664) - (float)(*(float *)(a1 + 672) * 0.5)) + 90.0,
+    v13);
+  (*(void (__fastcall **)(char *, __int64))(v26 + 184))(v25, v27);
+  v28 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_updateBtn_001.png");
+  LODWORD(v26) = (_DWORD)v28;
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v28 + 160LL))(v28);
+  v29 = CCMenuItemSpriteExtra_create(v26, 0, a1, (__int64)ReportQueuePopup_rebuildContent);
+  *((_DWORD *)v29 + 93) = 1067030938;
+  (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v29);
+  v30 = *(_QWORD *)v29;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v51,
+    (float)((float)(*(float *)(a1 + 672) * 0.5) + *(float *)(a1 + 664)) - 24.0,
+    v13);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v30 + 184))(v29, v31);
+  *(_OWORD *)v52 = 0;
+  v53 = 0;
+  v32 = (char *)sub_3C460(96);
+  v52[0] = v32;
+  v52[1] = v32;
+  v53 = v32 + 96;
+  v51 = v52;
+  v33 = (char *)off_8F83C8;
+  *(_QWORD *)&v55 = v32;
+  *((_QWORD *)&v55 + 1) = v32;
+  v56 = v52;
+  do
+  {
+    v34 = *(_QWORD *)v33;
+    *(_OWORD *)v32 = 0;
+    *((_QWORD *)v32 + 2) = 0;
+    *((_QWORD *)v32 + 3) = 0;
+    v35 = -1;
+    do
+      ++v35;
+    while ( *(_BYTE *)(v34 + v35) );
+    sub_3C230(v32);
+    v32 += 32;
+    *((_QWORD *)&v55 + 1) = v32;
+    v33 += 8;
+  }
+  while ( v33 != &byte_8F83E0 );
+  v52[1] = v32;
+  v36 = (__int64 *)sub_11E1D0(a1, *(_QWORD *)(a1 + 552), (unsigned int)v52, 0, 1117782016, a1 + 784);
+  *(_QWORD *)(a1 + 816) = v36;
+  v37 = *v36;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v51,
+    (float)((float)(*(float *)(a1 + 672) * 0.5) + *(float *)(a1 + 664)) - 86.0,
+    v13);
+  (*(void (__fastcall **)(__int64 *, __int64))(v37 + 184))(v36, v38);
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+    *(_QWORD *)(a1 + 584),
+    *(_QWORD *)(a1 + 816),
+    2);
+  v39 = **(_QWORD **)(a1 + 736);
+  v40 = *(_QWORD *)(a1 + 736);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v51, 1.0, 0.5);
+  (*(void (__fastcall **)(__int64, __int64))(v39 + 288))(v40, v41);
+  (**(void (__fastcall ***)(__int64, void *))(*(_QWORD *)(a1 + 736) + 368LL))(
+    *(_QWORD *)(a1 + 736) + 368LL,
+    &unk_6FDE64);
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 736) + 160LL))(*(_QWORD *)(a1 + 736));
+  v42 = **(_QWORD **)(a1 + 736);
+  v43 = *(_QWORD *)(a1 + 736);
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v51,
+    (float)((float)(*(float *)(a1 + 672) * 0.5) + *(float *)(a1 + 664)) - 12.0,
+    (float)((float)(*(float *)(a1 + 676) * 0.5) + *(float *)(a1 + 668)) - 14.0);
+  (*(void (__fastcall **)(__int64, __int64))(v42 + 184))(v43, v44);
+  v47 = cocos2d::CCNotificationCenter::sharedNotificationCenter(v46, v45);
+  cocos2d::CCNotificationCenter::addObserver(v47, a1, sub_B1530, "ReportedContentChangedNotification", 0);
+  sub_C1780(a1, 0);
+  v48 = (char *)v52[0];
+  if ( v52[0] )
+  {
+    v49 = (char *)v52[1];
+    if ( v52[0] != v52[1] )
+    {
+      do
+      {
+        sub_3C310(v48);
+        v48 += 32;
+      }
+      while ( v48 != v49 );
+      v48 = (char *)v52[0];
+    }
+    v50 = v48;
+    if ( ((v53 - v48) & 0xFFFFFFFFFFFFFFE0uLL) >= 0x1000 )
+    {
+      v48 = (char *)*((_QWORD *)v48 - 1);
+      if ( (unsigned __int64)(v50 - v48 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v48);
+    *(_OWORD *)v52 = 0;
+    v53 = 0;
+  }
+  j_j_free(v18);
+  return 1;
+}

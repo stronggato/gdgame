@@ -313,3 +313,227 @@ __int64 __fastcall SequenceTriggerGameObject_getSaveString(__int64 a1, __int64 a
   fmt::BasicWriter<char>::~BasicWriter<char>(v17); /*0x651a0b*/
   return a2; /*0x651a14*/
 }
+
+// Address: 0x650eb0
+// Method: SequenceTriggerGameObject::triggerObject
+// Hidden C++ exception states: #wind=2
+void __fastcall SequenceTriggerGameObject_triggerObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  unsigned int v7; // r12d
+  int v8; // r8d
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  float v13; // xmm6_4
+  int v14; // ebx
+  float v15; // xmm0_4
+  float v16; // xmm2_4
+  float v17; // xmm1_4
+  int i; // edx
+  __int64 v19; // r8
+  __int64 v20; // rcx
+  int v21; // ebx
+  int v22; // r14d
+  int v23; // eax
+  int v24; // ecx
+  unsigned int *v25; // rax
+  unsigned int *v26; // rdx
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  __int64 v30; // r9
+  __int64 v31; // rcx
+  unsigned __int64 v32; // rbx
+  __int64 v33; // rbx
+  char *v34; // rdi
+  signed __int64 v35; // rbx
+  void *v36; // rcx
+  void *v37; // rcx
+  void *v38[2]; // [rsp+40h] [rbp-29h] BYREF
+  char *v39; // [rsp+50h] [rbp-19h]
+  void *Block[2]; // [rsp+58h] [rbp-11h]
+  __int64 v41; // [rsp+68h] [rbp-1h]
+  int v42; // [rsp+D0h] [rbp+67h] BYREF
+  int v43; // [rsp+D8h] [rbp+6Fh]
+
+  v7 = 0;
+  v43 = 0;
+  v8 = 0;
+  v42 = 0;
+  if ( *(_BYTE *)(a1 + 2028) )
+  {
+    if ( a4 )
+    {
+      v9 = *(_QWORD *)(a4 + 8);
+      if ( *(_QWORD *)a4 != v9 )
+      {
+        v8 = -*(_DWORD *)(v9 - 4);
+        v42 = v8;
+      }
+    }
+  }
+  v10 = *(_QWORD *)(a1 + 1904);
+  v11 = *(_QWORD *)(v10
+                  + 16
+                  * (*(_QWORD *)(a1 + 1928)
+                   & (0x100000001B3LL
+                    * (HIBYTE(v8)
+                     ^ (0x100000001B3LL
+                      * (BYTE2(v8)
+                       ^ (0x100000001B3LL
+                        * (BYTE1(v8) ^ (0x100000001B3LL * ((unsigned __int8)v8 ^ 0xCBF29CE484222325uLL)))))))))
+                  + 8);
+  if ( v11 != *(_QWORD *)(a1 + 1888) )
+  {
+    v12 = *(_QWORD *)(v10
+                    + 16
+                    * (*(_QWORD *)(a1 + 1928)
+                     & (0x100000001B3LL
+                      * (HIBYTE(v8)
+                       ^ (0x100000001B3LL
+                        * (BYTE2(v8)
+                         ^ (0x100000001B3LL
+                          * (BYTE1(v8) ^ (0x100000001B3LL * ((unsigned __int8)v8 ^ 0xCBF29CE484222325uLL))))))))));
+    if ( v8 == *(_DWORD *)(v11 + 16) )
+      goto LABEL_11;
+    while ( v11 != v12 )
+    {
+      v11 = *(_QWORD *)(v11 + 8);
+      if ( v8 == *(_DWORD *)(v11 + 16) )
+        goto LABEL_11;
+    }
+  }
+  v11 = 0;
+LABEL_11:
+  if ( v11 )
+    v13 = *(float *)(*(_QWORD *)sub_66DF0(a1 + 1880, v38, &v42) + 20LL);
+  else
+    v13 = -1.0;
+  v14 = *(_DWORD *)(*(_QWORD *)sub_66DF0(a1 + 1944, v38, &v42) + 20LL);
+  v15 = *(double *)(a2 + 984) - v13;
+  v16 = *(float *)(a1 + 2008);
+  if ( v16 <= 0.0 || v13 < 0.0 || v16 <= v15 )
+  {
+    if ( v14 > 0 )
+    {
+      v17 = *(float *)(a1 + 2020);
+      if ( v17 > 0.0 && v13 >= 0.0 && v15 > v17 )
+      {
+        if ( *(_DWORD *)(a1 + 2016) )
+          v14 = (int)fmaxf(0.0, (float)v14 - floorf(v15 / v17));
+        else
+          v14 = 0;
+      }
+    }
+    *(float *)(*(_QWORD *)sub_66DF0(a1 + 1880, v38, &v42) + 20LL) = *(double *)(a2 + 984);
+    i = *(_DWORD *)(a1 + 2024);
+    if ( i == -1 )
+    {
+      *(_DWORD *)(a1 + 2024) = 0;
+      v19 = *(_QWORD *)(a1 + 1864);
+      v20 = *(_QWORD *)(a1 + 1856);
+      for ( i = 0; v20 != v19; v20 += 16 )
+      {
+        i += *(_DWORD *)(v20 + 8);
+        *(_DWORD *)(a1 + 2024) = i;
+      }
+    }
+    v21 = v14 + 1;
+    v22 = 1;
+    if ( v21 > i )
+    {
+      v23 = *(_DWORD *)(a1 + 2012);
+      switch ( v23 )
+      {
+        case 0:
+          return;
+        case 1:
+          v21 = 1;
+          break;
+        case 2:
+          v21 = i;
+          break;
+      }
+    }
+    v24 = 0;
+    v25 = *(unsigned int **)(a1 + 1856);
+    v26 = *(unsigned int **)(a1 + 1864);
+    if ( v25 != v26 )
+    {
+      while ( 1 )
+      {
+        v24 += v25[2];
+        if ( v24 >= v21 )
+          break;
+        v25 += 4;
+        if ( v25 == v26 )
+          goto LABEL_38;
+      }
+      v7 = *v25;
+    }
+LABEL_38:
+    v27 = sub_66DF0(a1 + 1944, v38, &v42);
+    v31 = *(_QWORD *)v27;
+    *(_DWORD *)(*(_QWORD *)v27 + 20LL) = v21;
+    if ( a4 )
+    {
+      *(_OWORD *)v38 = 0;
+      v39 = 0;
+      v32 = (__int64)(*(_QWORD *)(a4 + 8) - *(_QWORD *)a4) >> 2;
+      if ( v32 )
+      {
+        if ( v32 > 0x3FFFFFFFFFFFFFFFLL )
+          sub_59000(v31, v28, v29, v30);
+        v33 = 4 * v32;
+        v34 = (char *)sub_3C460(v33);
+        v38[0] = v34;
+        v38[1] = v34;
+        v39 = &v34[v33];
+        v35 = *(_QWORD *)(a4 + 8) - *(_QWORD *)a4;
+        memmove(v34, *(const void **)a4, v35);
+        v38[1] = &v34[4 * (v35 >> 2)];
+      }
+    }
+    else
+    {
+      *(_OWORD *)Block = 0;
+      v41 = 0;
+      v22 = 2;
+    }
+    v43 = v22;
+    if ( !*(_BYTE *)(a2 + 13712) )
+      (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(a2 + 408) + 8LL))(a2 + 408, v7, 0);
+    if ( (v22 & 2) != 0 )
+    {
+      LOBYTE(v22) = v22 & 0xFD;
+      v36 = Block[0];
+      if ( Block[0] )
+      {
+        if ( ((v41 - (unsigned __int64)Block[0]) & 0xFFFFFFFFFFFFFFFCuLL) >= 0x1000 )
+        {
+          v36 = (void *)*((_QWORD *)Block[0] - 1);
+          if ( (unsigned __int64)((char *)Block[0] - (char *)v36 - 8) > 0x1F )
+            invoke_watson(0, 0, 0, 0, 0);
+        }
+        j_j_free(v36);
+        *(_OWORD *)Block = 0;
+        v41 = 0;
+      }
+    }
+    if ( (v22 & 1) != 0 )
+    {
+      v37 = v38[0];
+      if ( v38[0] )
+      {
+        if ( ((v39 - (char *)v38[0]) & 0xFFFFFFFFFFFFFFFCuLL) >= 0x1000 )
+        {
+          v37 = (void *)*((_QWORD *)v38[0] - 1);
+          if ( (unsigned __int64)((char *)v38[0] - (char *)v37 - 8) > 0x1F )
+            invoke_watson(0, 0, 0, 0, 0);
+        }
+        j_j_free(v37);
+      }
+    }
+  }
+}

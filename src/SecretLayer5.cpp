@@ -1131,3 +1131,309 @@ void __fastcall SecretLayer5_keyBackClicked(__int64 a1)
 {
   SecretLayer5_onBack(a1 - 336); /*0x588b59*/
 }
+
+// Address: 0x5867f0
+// Method: SecretLayer5::showSuccessAnimation
+// Hidden C++ exception states: #wind=9
+struct cocos2d::CCAction *__fastcall SecretLayer5_showSuccessAnimation(cocos2d::CCNode *a1)
+{
+  __int64 v2; // rax
+  cocos2d::CCNode *v3; // rdi
+  struct cocos2d::CCActionInterval *v4; // rax
+  struct cocos2d::CCEaseInOut *v5; // rbx
+  struct cocos2d::CCFiniteTimeAction *v6; // rax
+  struct cocos2d::CCAction *v7; // rax
+  cocos2d::CCNode *v8; // rsi
+  struct cocos2d::CCActionInterval *v9; // rax
+  struct cocos2d::CCEaseInOut *v10; // rdi
+  struct cocos2d::CCDelayTime *v11; // rbx
+  struct cocos2d::CCActionInterval *v12; // rax
+  struct cocos2d::CCFiniteTimeAction *v13; // rax
+  struct cocos2d::CCAction *v14; // rax
+  const struct cocos2d::CCPoint *v15; // rax
+  struct cocos2d::CCMoveBy *v16; // r15
+  const struct cocos2d::CCPoint *v17; // rax
+  struct cocos2d::CCMoveBy *v18; // r14
+  const struct cocos2d::CCPoint *v19; // rax
+  struct cocos2d::CCMoveBy *v20; // rsi
+  const struct cocos2d::CCPoint *v21; // rax
+  struct cocos2d::CCMoveBy *v22; // rdi
+  const struct cocos2d::CCPoint *v23; // rax
+  struct cocos2d::CCMoveBy *v24; // rbx
+  const struct cocos2d::CCPoint *v25; // rax
+  struct cocos2d::CCFiniteTimeAction *v26; // rax
+  unsigned int v27; // r12d
+  struct cocos2d::CCAction *v28; // rax
+  cocos2d::CCNode *v29; // r14
+  struct cocos2d::CCActionInterval *v30; // rax
+  struct cocos2d::CCEaseInOut *v31; // rsi
+  struct cocos2d::CCDelayTime *v32; // rdi
+  struct cocos2d::CCActionInterval *v33; // rax
+  struct cocos2d::CCEaseOut *v34; // rbx
+  struct cocos2d::CCFiniteTimeAction *v35; // rax
+  struct cocos2d::CCAction *v36; // rax
+  float v37; // xmm6_4
+  __int64 v38; // rax
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  __int64 v41; // rbx
+  struct cocos2d::CCLayerColor *v42; // rsi
+  __int64 v43; // rdi
+  struct cocos2d::CCBlink *v44; // rbx
+  struct cocos2d::CCFiniteTimeAction *v45; // rax
+  struct cocos2d::CCAction *v46; // rax
+  cocos2d::CCNode *v47; // rsi
+  struct cocos2d::CCActionInterval *v48; // rax
+  struct cocos2d::CCEaseInOut *v49; // rdi
+  struct cocos2d::CCDelayTime *v50; // rbx
+  struct cocos2d::CCActionInterval *v51; // rax
+  struct cocos2d::CCFiniteTimeAction *v52; // rax
+  struct cocos2d::CCAction *v53; // rax
+  __int64 v54; // rcx
+  void *v55; // rbx
+  __int64 v56; // r8
+  __int64 v57; // r9
+  int v58; // ecx
+  __int64 v59; // rcx
+  void *v60; // rdi
+  int v61; // ebx
+  __int64 v62; // r8
+  __int64 v63; // r9
+  __int64 v64; // rcx
+  void *v65; // rdi
+  int v66; // ebx
+  __int64 v67; // r8
+  __int64 v68; // r9
+  __int64 v69; // rcx
+  void *v70; // rdi
+  int v71; // ebx
+  __int64 v72; // r8
+  __int64 v73; // r9
+  cocos2d::CCNode *v74; // rdi
+  struct cocos2d::CCActionInterval *v75; // rax
+  struct cocos2d::CCEaseInOut *v76; // rbx
+  struct cocos2d::CCFiniteTimeAction *v77; // rax
+  struct cocos2d::CCAction *v78; // rax
+  struct cocos2d::CCObject *v79; // rdi
+  __int64 v80; // rax
+  struct cocos2d::CCActionInterval *v81; // rax
+  struct cocos2d::CCEaseInOut *v82; // rbx
+  struct cocos2d::CCActionInterval *v83; // rax
+  struct cocos2d::CCFiniteTimeAction *v84; // rax
+  struct cocos2d::CCAction *v85; // rax
+  __int64 v86; // rbx
+  struct cocos2d::CCFiniteTimeAction *v87; // rax
+  struct cocos2d::CCAction *v88; // rax
+  __int64 v89; // rbx
+  struct cocos2d::CCFiniteTimeAction *v90; // rax
+  struct cocos2d::CCAction *v91; // rax
+  _BYTE v93[8]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v94[8]; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE v95[8]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v96[8]; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v97[32]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v98[152]; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE *v99; // [rsp+160h] [rbp+60h] BYREF
+  float v100; // [rsp+168h] [rbp+68h] BYREF
+  float v101; // [rsp+16Ch] [rbp+6Ch]
+  __int64 v102; // [rsp+170h] [rbp+70h] BYREF
+  char v103; // [rsp+178h] [rbp+78h] BYREF
+
+  *((_BYTE *)a1 + 552) = 1;
+  v2 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v2, &v100);
+  LOWORD(v99) = -81;
+  BYTE2(v99) = -81;
+  (**(void (__fastcall ***)(__int64, _BYTE **))(*((_QWORD *)a1 + 71) + 320LL))(*((_QWORD *)a1 + 71) + 320LL, &v99);
+  cocos2d::CCNode::stopAllActions(*((cocos2d::CCNode **)a1 + 71));
+  v3 = (cocos2d::CCNode *)*((_QWORD *)a1 + 71);
+  v4 = cocos2d::CCFadeTo::create(1.8, 0);
+  v5 = cocos2d::CCEaseInOut::create(v4, 2.0);
+  v6 = cocos2d::CCDelayTime::create(0.80000001);
+  v7 = cocos2d::CCSequence::create(v6, v5, 0);
+  cocos2d::CCNode::runAction(v3, v7);
+  cocos2d::CCNode::stopAllActions(*((cocos2d::CCNode **)a1 + 72));
+  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(*((_QWORD *)a1 + 72) + 320LL) + 40LL))(
+    *((_QWORD *)a1 + 72) + 320LL,
+    0);
+  LOWORD(v99) = -206;
+  BYTE2(v99) = 50;
+  (**(void (__fastcall ***)(__int64, _BYTE **))(*((_QWORD *)a1 + 72) + 320LL))(*((_QWORD *)a1 + 72) + 320LL, &v99);
+  v8 = (cocos2d::CCNode *)*((_QWORD *)a1 + 72);
+  v9 = cocos2d::CCFadeTo::create(2.2, 0);
+  v10 = cocos2d::CCEaseInOut::create(v9, 2.0);
+  v11 = cocos2d::CCDelayTime::create(0.2);
+  v12 = cocos2d::CCFadeTo::create(0.0099999998, 0xFFu);
+  v13 = cocos2d::CCEaseInOut::create(v12, 2.0);
+  v14 = cocos2d::CCSequence::create(v13, v11, v10, 0);
+  cocos2d::CCNode::runAction(v8, v14);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, -2.0, 0.0);
+  v16 = cocos2d::CCMoveBy::create(0.060000002, v15);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v102, 2.0, 0.0);
+  v18 = cocos2d::CCMoveBy::create(0.060000002, v17);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v93, -5.0, 0.0);
+  v20 = cocos2d::CCMoveBy::create(0.050000001, v19);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v94, 5.0, 0.0);
+  v22 = cocos2d::CCMoveBy::create(0.050000001, v21);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v95, -5.0, 0.0);
+  v24 = cocos2d::CCMoveBy::create(0.0, v23);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v96, 5.0, 0.0);
+  v26 = cocos2d::CCMoveBy::create(0.0, v25);
+  v27 = 0;
+  v28 = cocos2d::CCSequence::create(v26, v24, v22, v20, v18, v16, 0);
+  cocos2d::CCNode::runAction(*((cocos2d::CCNode **)a1 + 70), v28);
+  v29 = (cocos2d::CCNode *)*((_QWORD *)a1 + 70);
+  v30 = cocos2d::CCScaleTo::create(1.2, 1.2);
+  v31 = cocos2d::CCEaseInOut::create(v30, 2.0);
+  v32 = cocos2d::CCDelayTime::create(0.15000001);
+  v33 = cocos2d::CCScaleTo::create(0.2, 1.5);
+  v34 = cocos2d::CCEaseOut::create(v33, 1.8);
+  v35 = cocos2d::CCDelayTime::create(0.050000001);
+  v36 = cocos2d::CCSequence::create(v35, v34, v32, v31, 0);
+  cocos2d::CCNode::runAction(v29, v36);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v103, v100 * 0.5, v101 + 10.0);
+  v37 = (float)((float)-v101 * 0.5) - 25.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v99, (const struct cocos2d::CCPoint *)&unk_905628);
+  v39 = v38;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v102, 0.0, v37);
+  v41 = cocos2d_lightningWithStrikePoint(v40, v39);
+  (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v41 + 184LL))(v41, &v103);
+  (**(void (__fastcall ***)(__int64, void *))(v41 + 320))(v41 + 320, &unk_6FF654);
+  *(_DWORD *)(v41 + 368) = 1084227584;
+  *(_WORD *)(v41 + 372) = 257;
+  *(_DWORD *)(v41 + 380) = 1065353216;
+  (*(void (__fastcall **)(cocos2d::CCNode *, __int64, _QWORD))(*(_QWORD *)a1 + 456LL))(a1, v41, 0);
+  LODWORD(v99) = 845465750;
+  v42 = cocos2d::CCLayerColor::create((const struct cocos2d::_ccColor4B *)&v99);
+  v102 = 0x100000302LL;
+  (**((void (__fastcall ***)(__int64, __int64))v42 + 54))((__int64)v42 + 432, 0x100000302LL);
+  (*(void (__fastcall **)(cocos2d::CCNode *, struct cocos2d::CCLayerColor *, __int64))(*(_QWORD *)a1 + 456LL))(
+    a1,
+    v42,
+    10);
+  v43 = cocos2d::CCCallFunc::create(v42, sub_3E5B0);
+  v44 = cocos2d::CCBlink::create(0.12, 1u);
+  v45 = cocos2d::CCDelayTime::create(0.079999998);
+  v46 = cocos2d::CCSequence::create(v45, v44, v43, 0);
+  cocos2d::CCNode::runAction(v42, v46);
+  v47 = (cocos2d::CCNode *)*((_QWORD *)a1 + 73);
+  v48 = cocos2d::CCTintTo::create(0.80000001, 0x1Du, 0xEu, 0x2Fu);
+  v49 = cocos2d::CCEaseInOut::create(v48, 2.0);
+  v50 = cocos2d::CCDelayTime::create(0.1);
+  v51 = cocos2d::CCTintTo::create(0.30000001, 0x1Du, 0x2Au, 0x2Fu);
+  v52 = cocos2d::CCEaseInOut::create(v51, 2.0);
+  v53 = cocos2d::CCSequence::create(v52, v50, v49, 0);
+  cocos2d::CCNode::runAction(v47, v53);
+  v99 = v97;
+  v54 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v102 = (__int64)operator new(0x3D0u);
+    qword_906070 = sub_47C350(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v54 = qword_906070;
+  }
+  v55 = MusicDownloadManager_pathForSFX(v54, v97, 0x4E6u);
+  v58 = qword_905F60;
+  if ( !qword_905F60 )
+  {
+    v102 = (__int64)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v58 = qword_905F60;
+  }
+  FMODAudioEngine_playEffect_0(v58, (__int64)v55, v56, v57, 1065353216);
+  v99 = v98;
+  v59 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v102 = (__int64)operator new(0x3D0u);
+    qword_906070 = sub_47C350(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v59 = qword_906070;
+  }
+  v60 = MusicDownloadManager_pathForSFX(v59, v98, 0x1DD4u);
+  v61 = qword_905F60;
+  if ( !qword_905F60 )
+  {
+    v102 = (__int64)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v61 = qword_905F60;
+  }
+  rand();
+  FMODAudioEngine_playEffect_0(v61, (__int64)v60, v62, v63, 1061997773);
+  v99 = v97;
+  v64 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v102 = (__int64)operator new(0x3D0u);
+    qword_906070 = sub_47C350(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v64 = qword_906070;
+  }
+  v65 = MusicDownloadManager_pathForSFX(v64, v97, 0x4FDu);
+  v66 = qword_905F60;
+  if ( !qword_905F60 )
+  {
+    v102 = (__int64)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v66 = qword_905F60;
+  }
+  rand();
+  FMODAudioEngine_playEffect_0(v66, (__int64)v65, v67, v68, 1065353216);
+  v99 = v98;
+  v69 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v102 = (__int64)operator new(0x3D0u);
+    qword_906070 = sub_47C350(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v69 = qword_906070;
+  }
+  v70 = MusicDownloadManager_pathForSFX(v69, v98, 0x51FAu);
+  v71 = qword_905F60;
+  if ( !qword_905F60 )
+  {
+    v102 = (__int64)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v102);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v71 = qword_905F60;
+  }
+  rand();
+  FMODAudioEngine_playEffect_0(v71, (__int64)v70, v72, v73, 1065353216);
+  qmemcpy(&v99, ",8=", 3);
+  (**(void (__fastcall ***)(__int64, _BYTE **))(*((_QWORD *)a1 + 74) + 320LL))(*((_QWORD *)a1 + 74) + 320LL, &v99);
+  v74 = (cocos2d::CCNode *)*((_QWORD *)a1 + 74);
+  v75 = cocos2d::CCTintTo::create(2.2, 0x6Eu, 0x47u, 0x99u);
+  v76 = cocos2d::CCEaseInOut::create(v75, 1.8);
+  v77 = cocos2d::CCDelayTime::create(0.60000002);
+  v78 = cocos2d::CCSequence::create(v77, v76, 0);
+  cocos2d::CCNode::runAction(v74, v78);
+  if ( cocos2d::CCArray::count(*((cocos2d::CCArray **)a1 + 63)) )
+  {
+    do
+    {
+      v79 = cocos2d::CCArray::objectAtIndex(*((cocos2d::CCArray **)a1 + 63), v27);
+      v80 = (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v79 + 40) + 8LL))((__int64)v79 + 320);
+      LOWORD(v99) = *(_WORD *)v80;
+      v81 = cocos2d::CCTintTo::create(1.2, (unsigned __int8)v99, BYTE1(v99), *(_BYTE *)(v80 + 2));
+      v82 = cocos2d::CCEaseInOut::create(v81, 2.0);
+      v83 = cocos2d::CCTintTo::create(0.2, (v27 & 1) != 0 ? 0x96 : 0, 0xFFu, 0);
+      v84 = cocos2d::CCEaseInOut::create(v83, 2.0);
+      v85 = cocos2d::CCSequence::create(v84, v82, 0);
+      cocos2d::CCNode::runAction(v79, v85);
+      ++v27;
+    }
+    while ( v27 < cocos2d::CCArray::count(*((cocos2d::CCArray **)a1 + 63)) );
+  }
+  v86 = cocos2d::CCCallFunc::create(a1, sub_587250);
+  v87 = cocos2d::CCDelayTime::create(0.30000001);
+  v88 = cocos2d::CCSequence::create(v87, v86, 0);
+  cocos2d::CCNode::runAction(a1, v88);
+  v89 = cocos2d::CCCallFunc::create(a1, sub_587320);
+  v90 = cocos2d::CCDelayTime::create(1.0);
+  v91 = cocos2d::CCSequence::create(v90, v89, 0);
+  return cocos2d::CCNode::runAction(a1, v91);
+}

@@ -1569,3 +1569,45 @@ __int64 __fastcall SecretLayer2_keyBackClicked(__int64 a1)
 {
   return sub_57A6E0(a1 - 336, 0);
 }
+
+// Address: 0x5730d0
+// Method: SecretLayer2::init
+// Hidden C++ exception states: #wind=9
+bool __fastcall SecretLayer2_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  cocos2d::CCTextureCache *v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  cocos2d::CCSpriteFrameCache *v8; // rax
+  unsigned int v9; // r15d
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  cocos2d::CCObject *v16; // rax
+  __int64 v17; // rbx
+  cocos2d::CCString *v18; // rax
+  __int64 v19; // rcx
+  int v20; // ebx
+  unsigned __int64 v21; // rdx
+  void *v22; // r8
+  struct cocos2d::CCObject *v23; // rbx
+  __int64 v24; // rbx
+  cocos2d::CCString *v25; // rax
+  int v26; // ebx
+  void *v27; // r8
+  __int64 v28; // rbx
+  cocos2d::CCString *v29; // rax
+  __int64 v30; // rcx
+  int v31; // ebx
+  unsigned __int64 v32; // rdx
+  void *v33; // r8
+  struct cocos2d::CCObject *v34; // rbx
+  __int64 v35; // rbx
+  cocos2d::CCString *v36; // rax
+  __int64 v37; ... [27235 chars total]
