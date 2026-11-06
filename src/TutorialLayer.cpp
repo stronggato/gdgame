@@ -255,3 +255,216 @@ void __fastcall TutorialLayer_keyBackClicked(__int64 a1)
 {
   TutorialLayer_onClose((_DWORD *)(a1 - 336)); /*0x66b059*/
 }
+
+// Address: 0x66a980
+// Method: TutorialLayer::loadPage
+// Hidden C++ exception states: #wind=2
+void __fastcall TutorialLayer_loadPage(__int64 a1, __int64 a2)
+{
+  int v2; // edi
+  __int64 v4; // rcx
+  int v5; // edx
+  cocos2d::CCString *v6; // rax
+  const char *CString; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  cocos2d::CCTextureCache *v10; // rax
+  __int64 v11; // rax
+  cocos2d::CCString *v12; // rax
+  const char *v13; // rax
+  struct cocos2d::CCSprite *v14; // r14
+  __int64 v15; // rbx
+  float v16; // xmm7_4
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  float v21; // xmm8_4
+  int v22; // xmm10_4
+  unsigned __int64 v23; // rdx
+  int v24; // edi
+  int v25; // edi
+  int v26; // edi
+  int v27; // edi
+  char *v28; // rcx
+  void **v29; // rax
+  __int64 v30; // r8
+  const struct cocos2d::CCPoint *v31; // rax
+  char *v32; // rdi
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 *v36; // rcx
+  __int64 v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rdx
+  __int64 v40; // rdx
+  void *v41; // rcx
+  float v42; // [rsp+40h] [rbp-59h] BYREF
+  float v43; // [rsp+44h] [rbp-55h]
+  __int128 *v44; // [rsp+48h] [rbp-51h] BYREF
+  __int128 v45; // [rsp+50h] [rbp-49h] BYREF
+  __int64 v46; // [rsp+60h] [rbp-39h]
+  __int64 v47; // [rsp+68h] [rbp-31h]
+  _BYTE v48[8]; // [rsp+70h] [rbp-29h] BYREF
+  void *Block[2]; // [rsp+78h] [rbp-21h] BYREF
+  __int64 v50; // [rsp+88h] [rbp-11h]
+  unsigned __int64 v51; // [rsp+90h] [rbp-9h]
+
+  v2 = a2;
+  LOBYTE(a2) = 1;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 664) + 576LL))(*(_QWORD *)(a1 + 664), a2);
+  v5 = *(_DWORD *)(a1 + 672);
+  if ( v5 )
+  {
+    v6 = cocos2d::CCString::createWithFormat("tutorial_%02d.png", v5);
+    CString = cocos2d::CCString::getCString(v6);
+    v10 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v9, v8);
+    cocos2d::CCTextureCache::removeTextureForKey(v10, CString);
+  }
+  *(_DWORD *)(a1 + 672) = v2;
+  v11 = cocos2d::CCDirector::sharedDirector(v4);
+  cocos2d::CCDirector::getWinSize(v11, &v42);
+  v12 = cocos2d::CCString::createWithFormat("tutorial_%02d.png", v2);
+  v13 = cocos2d::CCString::getCString(v12);
+  v14 = cocos2d::CCSprite::create(v13);
+  v15 = *(_QWORD *)v14;
+  v16 = 0.0;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v44, 0.0, 0.0);
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v15 + 288))(v14, v17);
+  if ( *(_BYTE *)(cocos2d::CCApplication::sharedApplication(v18) + 244) )
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v14 + 160LL))(v14);
+  (*(void (__fastcall **)(_QWORD, struct cocos2d::CCSprite *))(**(_QWORD **)(a1 + 664) + 464LL))(
+    *(_QWORD *)(a1 + 664),
+    v14);
+  v19 = *(_QWORD *)v14;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v44,
+    (float)((float)(v42 * 0.5) - 210.0) + 10.0,
+    (float)((float)(v43 * 0.5) - 130.0) + 10.0);
+  (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v19 + 184))(v14, v20);
+  v21 = 0.69999999;
+  v22 = 1109393408;
+  *(_OWORD *)Block = 0;
+  v50 = 0;
+  v23 = 15;
+  v51 = 15;
+  LOBYTE(Block[0]) = 0;
+  v24 = v2 - 1;
+  if ( !v24 )
+  {
+    v28 = (char *)sub_3C460(80);
+    v50 = 66;
+    v23 = 79;
+    strcpy(v28, "<cg>Tap</c> the screen to jump.\n<cg>Hold</c> down to keep jumping.");
+    goto LABEL_17;
+  }
+  v25 = v24 - 1;
+  if ( !v25 )
+  {
+    v28 = (char *)sub_3C460(64);
+    v50 = 52;
+    v23 = 63;
+    strcpy(v28, "<cg>Hold</c> to fly up.\n<cg>Release</c> to fly down.");
+    goto LABEL_17;
+  }
+  v26 = v25 - 1;
+  if ( v26 )
+  {
+    v27 = v26 - 1;
+    if ( !v27 )
+    {
+      v28 = (char *)sub_3C460(128);
+      v50 = 125;
+      v23 = 127;
+      strcpy(
+        v28,
+        "You can place checkpoints manually, or use the auto-checkpoint feature.\n"
+        "Tap the delete button to remove your last checkpoint.");
+      v21 = 0.55000001;
+      v16 = -13.0;
+      v22 = 1110704128;
+      goto LABEL_17;
+    }
+    if ( v27 != 1 )
+    {
+      v28 = (char *)Block[0];
+      goto LABEL_18;
+    }
+    v28 = (char *)sub_3C460(144);
+    v50 = 129;
+    v23 = 143;
+    strcpy(
+      v28,
+      "<cy>Jump Orbs</c> activate when you are on top of them.\n"
+      "<cg>Tap</c> while touching an orb to interact with it and use its effect.");
+  }
+  else
+  {
+    v28 = (char *)sub_3C460(112);
+    v50 = 106;
+    v23 = 111;
+    strcpy(
+      v28,
+      "You can enter <cl>practice mode</c> from the pause menu.\nPractice mode lets you place <cg>checkpoints</c>.");
+  }
+  v21 = 0.60000002;
+  v16 = -13.0;
+LABEL_17:
+  v51 = v23;
+  Block[0] = v28;
+LABEL_18:
+  v44 = &v45;
+  v29 = Block;
+  if ( v23 > 0xF )
+    v29 = (void **)v28;
+  v45 = 0;
+  v46 = 0;
+  v47 = 0;
+  v30 = -1;
+  do
+    ++v30;
+  while ( *((_BYTE *)v29 + v30) );
+  sub_3C230(&v45);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v48, 0.5, 1.0);
+  v32 = TextArea_create((__int64)&v45, &qword_6FFF68, 1.0, 400.0 / v21, v31, v22, 0, 0);
+  (*(void (__fastcall **)(char *))(*(_QWORD *)v32 + 160LL))(v32);
+  (*(void (__fastcall **)(_QWORD, char *))(**(_QWORD **)(a1 + 664) + 464LL))(*(_QWORD *)(a1 + 664), v32);
+  v33 = *(_QWORD *)v32;
+  cocos2d::CCPoint::CCPoint(
+    (cocos2d::CCPoint *)&v44,
+    v42 * 0.5,
+    (float)((float)((float)(v43 * 0.5) + 130.0) - 75.0) + v16);
+  (*(void (__fastcall **)(char *, __int64))(v33 + 184))(v32, v34);
+  v36 = *(__int64 **)(a1 + 680);
+  v37 = *v36;
+  if ( *(int *)(a1 + 672) < 5 )
+  {
+    LOBYTE(v35) = 1;
+    (*(void (__fastcall **)(__int64 *, __int64))(v37 + 336))(v36, v35);
+    LOBYTE(v40) = 1;
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 680) + 936LL))(*(_QWORD *)(a1 + 680), v40);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 688) + 336LL))(*(_QWORD *)(a1 + 688), 0);
+    v39 = 0;
+  }
+  else
+  {
+    (*(void (__fastcall **)(__int64 *, _QWORD))(v37 + 336))(v36, 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 680) + 936LL))(*(_QWORD *)(a1 + 680), 0);
+    LOBYTE(v38) = 1;
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 688) + 336LL))(*(_QWORD *)(a1 + 688), v38);
+    LOBYTE(v39) = 1;
+  }
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 688) + 936LL))(*(_QWORD *)(a1 + 688), v39);
+  if ( v51 > 0xF )
+  {
+    v41 = Block[0];
+    if ( v51 + 1 >= 0x1000 )
+    {
+      v41 = (void *)*((_QWORD *)Block[0] - 1);
+      if ( (unsigned __int64)((char *)Block[0] - (char *)v41 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v41);
+  }
+}

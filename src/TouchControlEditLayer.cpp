@@ -358,3 +358,330 @@ void __fastcall TouchControlEditLayer_onExit(cocos2d::CCArray **a1)
   }
   cocos2d::CCLayer::onExit((cocos2d::CCLayer *)a1); /*0x452714*/
 }
+
+// Address: 0x450040
+// Method: TouchControlEditLayer::ccTouchBegan
+char __fastcall TouchControlEditLayer_ccTouchBegan(__int64 a1, __int64 a2)
+{
+  __int64 v3; // rcx
+  cocos2d::CCEGLViewProtocol *v4; // rax
+  __int64 v5; // rcx
+  cocos2d::CCEGLViewProtocol *v6; // rax
+  __int64 v7; // rcx
+  cocos2d::CCEGLViewProtocol *v8; // rax
+  float *v9; // r15
+  float **v10; // r15
+  float v11; // xmm7_4
+  float v12; // xmm6_4
+  const struct cocos2d::CCPoint *v13; // rax
+  const struct cocos2d::CCPoint *v14; // r8
+  __int64 v15; // rdi
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  __int64 v18; // rdi
+  const struct cocos2d::CCPoint *v19; // rdx
+  char *v21; // r8
+  char *v22; // rcx
+  float v23; // xmm2_4
+  float v24; // xmm0_4
+  __int32 v25; // xmm7_4
+  float v26; // xmm2_4
+  __int64 v27; // rcx
+  double v28; // xmm0_8
+  int v29; // xmm1_4
+  float *v30; // rcx
+  float v31; // xmm6_4
+  float v32; // xmm0_4
+  float v33; // xmm0_4
+  float v34; // [rsp+20h] [rbp-49h] BYREF
+  float v35; // [rsp+24h] [rbp-45h]
+  char v36[8]; // [rsp+28h] [rbp-41h] BYREF
+  char v37[8]; // [rsp+30h] [rbp-39h] BYREF
+  __m128i si128; // [rsp+38h] [rbp-31h] BYREF
+  _BYTE v39[8]; // [rsp+48h] [rbp-21h] BYREF
+  char v40[8]; // [rsp+50h] [rbp-19h] BYREF
+  char v41[8]; // [rsp+58h] [rbp-11h] BYREF
+  char v42[8]; // [rsp+60h] [rbp-9h] BYREF
+
+  if ( *(_QWORD *)(a1 + 896) != *(_QWORD *)(a1 + 904) )
+  {
+    cocos2d::CCTouch::getLocation(a2, v37);
+    cocos2d::CCNode::convertToNodeSpace(a1 - 320, v36, v37);
+    v4 = (cocos2d::CCEGLViewProtocol *)cocos2d::CCEGLView::sharedOpenGLView(v3);
+    cocos2d::CCEGLViewProtocol::getScaleY(v4);
+    v6 = (cocos2d::CCEGLViewProtocol *)cocos2d::CCEGLView::sharedOpenGLView(v5);
+    cocos2d::CCEGLViewProtocol::getScaleY(v6);
+    v8 = (cocos2d::CCEGLViewProtocol *)cocos2d::CCEGLView::sharedOpenGLView(v7);
+    cocos2d::CCEGLViewProtocol::getScaleY(v8);
+    v9 = *(float **)(a1 + 920);
+    if ( v9 || (v10 = *(float ***)(a1 + 896), v10 != *(float ***)(a1 + 904)) && (v9 = *v10) != 0 )
+    {
+      v11 = v9[86] * 0.5;
+      v12 = v9[87] * 0.5;
+      v13 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(float *))(*(_QWORD *)v9 + 200LL))(v9);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v34, v13);
+      si128 = _mm_load_si128((const __m128i *)&xmmword_831170);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v39, v34 - v11, v12 + v35);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v40, v11 + v34, v12 + v35);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v41, v34 - v11, v35 - v12);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v42, v11 + v34, v35 - v12);
+      v15 = 0;
+      while ( cocos2d::ccpDistance((cocos2d *)v36, (const struct cocos2d::CCPoint *)&v39[8 * v15], v14) >= 22.050001 )
+      {
+        v15 = (unsigned int)(v15 + 1);
+        if ( (int)v15 >= 4 )
+          goto LABEL_8;
+      }
+      v21 = v36;
+      *(_DWORD *)(a1 + 960) = si128.m128i_i32[v15];
+      v22 = &v39[8 * v15];
+      *(_QWORD *)(a1 + 968) = v9;
+      goto LABEL_14;
+    }
+LABEL_8:
+    v16 = *(_QWORD *)(a1 + 896);
+    v17 = 0;
+    if ( (*(_QWORD *)(a1 + 904) - v16) >> 3 )
+    {
+      while ( 1 )
+      {
+        v18 = *(_QWORD *)(v16 + 8 * v17);
+        cocos2d::CCNode::convertToNodeSpace(v18, &v34, v37);
+        if ( cocos2d::CCRect::containsPoint((cocos2d::CCRect *)(v18 + 336), (const struct cocos2d::CCPoint *)&v34) )
+          break;
+        v16 = *(_QWORD *)(a1 + 896);
+        if ( ++v17 >= (unsigned __int64)((*(_QWORD *)(a1 + 904) - v16) >> 3) )
+          goto LABEL_11;
+      }
+      if ( v18 != *(_QWORD *)(a1 + 920) )
+      {
+        *(_QWORD *)(a1 + 920) = v18;
+        sub_44F5F0(a1 - 320);
+        sub_44F770(a1 - 320);
+        sub_44F6F0(a1 - 320);
+      }
+      if ( !*(_QWORD *)(v18 + 328) )
+        goto LABEL_22;
+      if ( *(_BYTE *)(v18 + 381) )
+      {
+        v23 = cocos2d::ccpLength((cocos2d *)&v34, v19);
+        v24 = *(float *)(v18 + 372);
+        if ( fabs(v23 - v24) < 22.050001 )
+        {
+          *(_DWORD *)(a1 + 960) = 7;
+          *(_QWORD *)(a1 + 968) = v18;
+          *(float *)(a1 + 984) = *(float *)(v18 + 372) - v23;
+          return 1;
+        }
+        if ( v24 <= v23 )
+          goto LABEL_22;
+LABEL_24:
+        *(_DWORD *)(a1 + 960) = 6;
+        *(_QWORD *)(a1 + 968) = v18;
+        sub_44FF60(a1 - 320, v18, &v34);
+        return 1;
+      }
+      v25 = _mm_load_si128((const __m128i *)&xmmword_831640).m128i_i32[0];
+      v26 = v34;
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(COERCE_FLOAT(LODWORD(v34) & v25) - *(float *)(v18 + 376)) & v25) < 14.700001 )
+        goto LABEL_24;
+      v27 = *(_QWORD *)(v18 + 320);
+      if ( v27 )
+      {
+        v28 = (*(double (__fastcall **)(__int64))(*(_QWORD *)v27 + 216LL))(v27);
+        v26 = v34;
+        v29 = LODWORD(v28) & v25;
+      }
+      else
+      {
+        v29 = *(int *)(v18 + 372);
+      }
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(COERCE_FLOAT(LODWORD(v26) & v25) - *(float *)&v29) & v25) >= 22.050001
+        || COERCE_FLOAT(LODWORD(v35) & v25) >= 29.400002 )
+      {
+LABEL_22:
+        *(_DWORD *)(a1 + 960) = 1;
+        *(_QWORD *)(a1 + 968) = v18;
+        v21 = (char *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 200LL))(v18);
+        v22 = v36;
+LABEL_14:
+        cocos2d::CCPoint::operator-(v22, &si128, v21);
+        cocos2d::CCPoint::operator=(a1 + 976, &si128);
+        return 1;
+      }
+      *(_DWORD *)(a1 + 960) = 7;
+      *(_QWORD *)(a1 + 968) = v18;
+      v30 = *(float **)(v18 + 320);
+      if ( v30 )
+      {
+        v31 = v30[108];
+        v32 = (*(float (**)(void))(*(_QWORD *)v30 + 168LL))();
+        v26 = v34;
+        v33 = v32 * v31;
+      }
+      else
+      {
+        v33 = 0.0;
+      }
+      *(float *)(a1 + 984) = *(float *)(v18 + 372) - (float)(COERCE_FLOAT(LODWORD(v26) & v25) - (float)(v33 * 0.5));
+    }
+    else
+    {
+LABEL_11:
+      *(_DWORD *)(a1 + 960) = 0;
+      *(_QWORD *)(a1 + 968) = 0;
+    }
+  }
+  return 1;
+}
+
+// Address: 0x450500
+// Method: TouchControlEditLayer::ccTouchMoved
+__int64 __fastcall TouchControlEditLayer_ccTouchMoved(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+  float *v4; // rbx
+  const struct cocos2d::CCPoint *v5; // rax
+  float v6; // xmm10_4
+  float v7; // xmm9_4
+  const struct cocos2d::CCPoint *v8; // rax
+  float v9; // xmm6_4
+  float v10; // xmm7_4
+  int v11; // eax
+  float v12; // xmm2_4
+  float v13; // xmm1_4
+  __int64 v14; // rax
+  float v15; // xmm7_4
+  float v16; // xmm6_4
+  __int64 v17; // rax
+  float v18; // xmm4_4
+  float v19; // xmm3_4
+  __int64 v20; // rax
+  float v21; // xmm0_4
+  float v22; // xmm1_4
+  float *v23; // rcx
+  float v24; // xmm6_4
+  float v25; // xmm0_4
+  const struct cocos2d::CCPoint *v26; // rax
+  _BYTE v27[8]; // [rsp+30h] [rbp-69h] BYREF
+  float v28[2]; // [rsp+38h] [rbp-61h] BYREF
+  float v29; // [rsp+40h] [rbp-59h] BYREF
+  _BYTE v30[8]; // [rsp+48h] [rbp-51h] BYREF
+  _BYTE v31[8]; // [rsp+50h] [rbp-49h] BYREF
+  _BYTE v32[8]; // [rsp+58h] [rbp-41h] BYREF
+  _BYTE v33[8]; // [rsp+60h] [rbp-39h] BYREF
+  _BYTE v34[24]; // [rsp+68h] [rbp-31h] BYREF
+  float v35; // [rsp+100h] [rbp+67h] BYREF
+  float v36; // [rsp+104h] [rbp+6Bh]
+  float v37; // [rsp+118h] [rbp+7Fh] BYREF
+  float v38; // [rsp+11Ch] [rbp+83h]
+
+  result = a2;
+  if ( !*(_DWORD *)(a1 + 960) )
+    return result;
+  v4 = *(float **)(a1 + 968);
+  if ( !v4 )
+    return result;
+  cocos2d::CCTouch::getLocation(a2, v30);
+  cocos2d::CCNode::convertToNodeSpace(a1 - 320, v31, v30);
+  cocos2d::CCNode::convertToNodeSpace(v4, &v29, v30);
+  v5 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(float *))(*(_QWORD *)v4 + 200LL))(v4);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v32, v5);
+  cocos2d::CCSize::CCSize((cocos2d::CCSize *)v33, (const struct cocos2d::CCSize *)(v4 + 86));
+  v6 = v4[94];
+  v7 = v4[93];
+  switch ( *(_DWORD *)(a1 + 960) )
+  {
+    case 1:
+      cocos2d::CCPoint::operator-(v31, &v35, a1 + 976);
+      (*(void (__fastcall **)(float *, float *))(*(_QWORD *)v4 + 184LL))(v4, &v35);
+      goto LABEL_24;
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      cocos2d::CCPoint::operator+(v31, v28, a1 + 976);
+      v8 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(float *))(*(_QWORD *)v4 + 200LL))(v4);
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v35, v8);
+      v9 = v4[86] * 0.5;
+      v10 = v4[87] * 0.5;
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v37);
+      v11 = *(_DWORD *)(a1 + 960);
+      if ( v11 == 2 )
+      {
+        v12 = v36 - v10;
+        v13 = v35 + v9;
+        goto LABEL_10;
+      }
+      if ( v11 == 3 )
+      {
+        v12 = v36 - v10;
+LABEL_9:
+        v13 = v35 - v9;
+        goto LABEL_10;
+      }
+      v12 = v36 + v10;
+      if ( v11 != 4 )
+        goto LABEL_9;
+      v13 = v35 + v9;
+LABEL_10:
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v27, v13, v12);
+      cocos2d::CCPoint::operator=(&v37, v14);
+      v15 = v28[0] - v37;
+      v16 = v28[1] - v38;
+      cocos2d::CCPoint::operator+(v28, v34, &v37);
+      cocos2d::CCPoint::operator/(v17, v27);
+      (*(void (__fastcall **)(float *, _BYTE *))(*(_QWORD *)v4 + 184LL))(v4, v27);
+      v18 = fmaxf(10.0, fabs(v16));
+      v19 = fmaxf(10.0, fabs(v15));
+      cocos2d::CCRect::CCRect((cocos2d::CCRect *)v34, (float)-v19 * 0.5, (float)-v18 * 0.5, v19, v18);
+      cocos2d::CCRect::operator=(v4 + 84, v20);
+LABEL_24:
+      v26 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(float *))(*(_QWORD *)v4 + 200LL))(v4);
+      if ( !cocos2d::CCPoint::equals((cocos2d::CCPoint *)v32, v26)
+        || !cocos2d::CCSize::equals((cocos2d::CCSize *)v33, (const struct cocos2d::CCSize *)(v4 + 86))
+        || v6 != v4[94]
+        || v7 != v4[93] )
+      {
+        *(_BYTE *)(a1 + 1008) = 1;
+      }
+      return sub_44F770(a1 - 320);
+    case 6:
+      cocos2d::CCPoint::operator-(&v29, &v35, a1 + 988);
+      if ( *((_BYTE *)v4 + 381) )
+        v21 = v4[93];
+      else
+        v21 = v4[86] * 0.5;
+      v4[94] = (float)(int)fmaxf(
+                             0.0,
+                             fminf(
+                               (float)((float)(v36 * *(float *)(a1 + 1000)) + (float)(v35 * *(float *)(a1 + 996)))
+                             + *(float *)(a1 + 1004),
+                               v21));
+      goto LABEL_24;
+    case 7:
+      if ( *((_BYTE *)v4 + 381) )
+      {
+        v22 = cocos2d::ccpLength((cocos2d *)&v29, (const struct cocos2d::CCPoint *)0xFFFFFFFFFFFFF000LL);
+      }
+      else
+      {
+        v23 = (float *)*((_QWORD *)v4 + 40);
+        if ( v23 )
+        {
+          v24 = v23[108];
+          v25 = (*(float (**)(void))(*(_QWORD *)v23 + 168LL))() * v24;
+        }
+        else
+        {
+          v25 = 0.0;
+        }
+        v22 = fabs(v29) - (float)(v25 * 0.5);
+      }
+      v4[93] = fmaxf(0.0, fmaxf(0.0, v22 + *(float *)(a1 + 984)));
+      sub_66F240(v4);
+      goto LABEL_24;
+    default:
+      goto LABEL_24;
+  }
+}

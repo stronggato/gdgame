@@ -398,3 +398,271 @@ void __fastcall TopArtistsLayer_loadPage(__int64 a1, int a2)
     j_j_free(v26); /*0x66a1cf*/
   }
 }
+
+// Address: 0x6691c0
+// Method: TopArtistsLayer::init
+// Hidden C++ exception states: #wind=7
+bool __fastcall TopArtistsLayer_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 *v6; // rdi
+  __int64 v7; // rdx
+  void (__fastcall *v8)(__int64 *, __int64); // r8
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // r14
+  __int64 v12; // rbx
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rax
+  struct cocos2d::CCLabelBMFont *v19; // rdi
+  __int64 v20; // rbx
+  __int64 v21; // rax
+  int v22; // eax
+  cocos2d::CCObject *v23; // rsi
+  __int64 v24; // rdi
+  __int64 v25; // rbx
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  __int64 v32; // rsi
+  float v33; // xmm8_4
+  struct cocos2d::CCSprite *v34; // rax
+  cocos2d::CCObject *v35; // rax
+  __int64 v36; // rdi
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  __int64 v39; // rax
+  cocos2d::CCSprite *v40; // rbx
+  cocos2d::CCObject *v41; // rax
+  __int64 v42; // rdi
+  __int64 v43; // rbx
+  __int64 v44; // rax
+  __int64 v45; // rax
+  cocos2d::CCLayerColor *v46; // rax
+  struct cocos2d::CCLabelBMFont *v47; // rax
+  __int64 v48; // rdi
+  __int64 v49; // rbx
+  __int64 v50; // rax
+  __int64 v51; // rdi
+  __int64 v52; // rbx
+  __int64 v53; // rax
+  cocos2d::CCString *v54; // rax
+  const char *CString; // rax
+  __int64 v56; // r8
+  __int128 *v57; // rbx
+  __int64 v58; // rcx
+  __int64 v59; // rdi
+  __int64 v60; // rcx
+  __int128 *v61; // rbx
+  __int64 v62; // rax
+  __int128 *v63; // r8
+  __int128 *v64; // r8
+  __int64 v65; // rdx
+  __int64 v66; // r15
+  __int64 v67; // rcx
+  float v68; // [rsp+30h] [rbp-59h] BYREF
+  float v69; // [rsp+34h] [rbp-55h]
+  _BYTE v70[8]; // [rsp+38h] [rbp-51h] BYREF
+  _QWORD v71[2]; // [rsp+40h] [rbp-49h] BYREF
+  __int128 v72; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v73; // [rsp+60h] [rbp-29h]
+  __int64 v74; // [rsp+68h] [rbp-21h]
+  __int128 v75; // [rsp+70h] [rbp-19h] BYREF
+  __int64 v76; // [rsp+80h] [rbp-9h]
+  unsigned __int64 v77; // [rsp+88h] [rbp-1h]
+
+  result = FLAlertLayer_init(a1, 150);
+  if ( result )
+  {
+    v4 = cocos2d::CCDirector::sharedDirector(v3);
+    cocos2d::CCDirector::getWinSize(v4, &v68);
+    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v71, 0.0, 0.0, 80.0, 80.0);
+    v6 = (__int64 *)cocos2d::extension::CCScale9Sprite::create("GJ_square02.png", v5);
+    v7 = v6[40];
+    v8 = *(void (__fastcall **)(__int64 *, __int64))(v7 + 40);
+    LOBYTE(v7) = -1;
+    v8(v6 + 40, v7);
+    v9 = *v6;
+    cocos2d::CCSize::CCSize((cocos2d::CCSize *)v70, 440.0, 290.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v9 + 312))(v6, v10);
+    v11 = -1;
+    (*(void (__fastcall **)(_QWORD, __int64 *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v6,
+      0xFFFFFFFFLL);
+    v12 = *v6;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v70, v68 * 0.5, v69 * 0.5);
+    (*(void (__fastcall **)(__int64 *, __int64))(v12 + 184))(v6, v13);
+    v18 = cocos2d::CCMenu::create(v15, v14, v16, v17);
+    *(_QWORD *)(a1 + 552) = v18;
+    (*(void (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(*(_QWORD *)(a1 + 584), v18, 10);
+    v19 = cocos2d::CCLabelBMFont::create("Featured Artists", (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v19,
+      20);
+    v20 = *(_QWORD *)v19;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v70, v68 * 0.5, (float)((float)(v69 * 0.5) + 145.0) - 18.0);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v20 + 184))(v19, v21);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v19 + 160LL))(v19);
+    *(_DWORD *)(a1 + 640) = -1;
+    v22 = (unsigned int)cocos2d::CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png");
+    v23 = CCMenuItemSpriteExtra_create(v22, 0, a1, (__int64)UploadPopup_onClose);
+    (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v23);
+    *((_DWORD *)v23 + 93) = 1070386381;
+    v24 = *(_QWORD *)v23;
+    v25 = *(_QWORD *)(a1 + 552);
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)v70,
+      (float)((float)(v68 * 0.5) - 220.0) + 10.0,
+      (float)((float)(v69 * 0.5) + 145.0) - 10.0);
+    cocos2d::CCNode::convertToNodeSpace(v25, v71, v26);
+    (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v24 + 184))(v23, v27);
+    v32 = cocos2d::CCMenu::create(v29, v28, v30, v31);
+    (*(void (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(*(_QWORD *)(a1 + 584), v32, 10);
+    v33 = v69 * 0.5;
+    v34 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_arrow_03_001.png");
+    LODWORD(v25) = (_DWORD)v34;
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v34 + 160LL))(v34);
+    v35 = CCMenuItemSpriteExtra_create(v25, 0, a1, (__int64)sub_66A210);
+    *(_QWORD *)(a1 + 704) = v35;
+    (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)v32 + 464LL))(v32, v35);
+    v36 = **(_QWORD **)(a1 + 704);
+    v37 = *(_QWORD *)(a1 + 704);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, (float)((float)(v68 * 0.5) - 220.0) + 22.0, v33);
+    cocos2d::CCNode::convertToNodeSpace(v32, v70, v38);
+    (*(void (__fastcall **)(__int64, __int64))(v36 + 184))(v37, v39);
+    v40 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_arrow_03_001.png");
+    (*(void (__fastcall **)(cocos2d::CCSprite *))(*(_QWORD *)v40 + 160LL))(v40);
+    cocos2d::CCSprite::setFlipX(v40, 1);
+    v41 = CCMenuItemSpriteExtra_create((int)v40, 0, a1, (__int64)sub_66A200);
+    *(_QWORD *)(a1 + 696) = v41;
+    (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)v32 + 464LL))(v32, v41);
+    v42 = **(_QWORD **)(a1 + 696);
+    v43 = *(_QWORD *)(a1 + 696);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, (float)((float)(v68 * 0.5) + 220.0) - 22.0, v33);
+    cocos2d::CCNode::convertToNodeSpace(v32, v70, v44);
+    (*(void (__fastcall **)(__int64, __int64))(v42 + 184))(v43, v45);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 704) + 336LL))(*(_QWORD *)(a1 + 704), 0);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 696) + 336LL))(*(_QWORD *)(a1 + 696), 0);
+    v46 = LoadingCircle_create();
+    *(_QWORD *)(a1 + 688) = v46;
+    *((_QWORD *)v46 + 69) = *(_QWORD *)(a1 + 584);
+    *(_BYTE *)(*(_QWORD *)(a1 + 688) + 560LL) = 0;
+    cocos2d::CCObject::retain(*(cocos2d::CCObject **)(a1 + 688));
+    LoadingCircle_show(*(_QWORD *)(a1 + 688));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 688) + 336LL))(*(_QWORD *)(a1 + 688), 0);
+    v47 = cocos2d::CCLabelBMFont::create(" ", "goldFont.fnt");
+    *(_QWORD *)(a1 + 720) = v47;
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *))(**(_QWORD **)(a1 + 584) + 464LL))(
+      *(_QWORD *)(a1 + 584),
+      v47);
+    v48 = **(_QWORD **)(a1 + 720);
+    v49 = *(_QWORD *)(a1 + 720);
+    cocos2d::CCPoint::CCPoint(
+      (cocos2d::CCPoint *)v71,
+      (float)((float)(v68 * 0.5) + 220.0) - 8.0,
+      (float)((float)(v69 * 0.5) + 145.0) - 8.0);
+    (*(void (__fastcall **)(__int64, __int64))(v48 + 184))(v49, v50);
+    v51 = **(_QWORD **)(a1 + 720);
+    v52 = *(_QWORD *)(a1 + 720);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v71, 1.0, 1.0);
+    (*(void (__fastcall **)(__int64, __int64))(v51 + 288))(v52, v53);
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v71[0] = operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v71[0]);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+    }
+    v54 = cocos2d::CCString::createWithFormat("topArtists_%i", 0);
+    CString = cocos2d::CCString::getCString(v54);
+    v75 = 0;
+    v76 = 0;
+    v77 = 0;
+    v56 = -1;
+    do
+      ++v56;
+    while ( CString[v56] );
+    sub_3C230(&v75);
+    v57 = &v75;
+    if ( v77 > 0xF )
+      v57 = (__int128 *)v75;
+    v58 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v71[0] = operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v71[0]);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v58 = *(_QWORD *)&qword_905FB0;
+    }
+    v59 = sub_21E690(v58, v57);
+    v60 = *(_QWORD *)&qword_905FB0;
+    if ( v59 )
+    {
+      v61 = &v75;
+      if ( v77 > 0xF )
+        v61 = (__int128 *)v75;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v71[0] = operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v71[0]);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v60 = *(_QWORD *)&qword_905FB0;
+      }
+      v62 = sub_21E790(v60, v61);
+      v72 = 0;
+      v73 = 0;
+      v74 = 0;
+      do
+        ++v11;
+      while ( *(_BYTE *)(v62 + v11) );
+      sub_3C230(&v72);
+      v63 = &v75;
+      if ( v77 > 0xF )
+        v63 = (__int128 *)v75;
+      (*(void (__fastcall **)(__int64, __int128 *, __int128 *))(*(_QWORD *)(a1 + 664) + 16LL))(a1 + 664, &v72, v63);
+      v64 = &v75;
+      if ( v77 > 0xF )
+        v64 = (__int128 *)v75;
+      (**(void (__fastcall ***)(__int64, __int64, __int128 *))(a1 + 664))(a1 + 664, v59, v64);
+    }
+    else
+    {
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v71[0] = operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v71[0]);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v60 = *(_QWORD *)&qword_905FB0;
+      }
+      GameLevelManager_makeTimeStamp(v60, (__int64)"upd_artists");
+      LOBYTE(v65) = 1;
+      (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 + 688) + 336LL))(*(_QWORD *)(a1 + 688), v65);
+      sub_669A20(a1, 0);
+      v66 = a1 + 664;
+      v67 = *(_QWORD *)&qword_905FB0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v71[0] = operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v71[0]);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+        v67 = *(_QWORD *)&qword_905FB0;
+      }
+      *(_QWORD *)(v67 + 1584) = v66;
+      GameLevelManager_getTopArtists(v67, 0, 0);
+    }
+    sub_3C310(&v75);
+    return 1;
+  }
+  return result;
+}

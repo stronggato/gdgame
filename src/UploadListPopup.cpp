@@ -201,3 +201,165 @@ bool __fastcall UploadListPopup_onReturnToList(__int64 *a1)
   v5 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v4); /*0x42fe24*/
   return cocos2d::CCDirector::replaceScene(v5, v3); /*0x42fe30*/
 }
+
+// Address: 0x42f390
+// Method: UploadListPopup::init
+// Hidden C++ exception states: #wind=4
+bool __fastcall UploadListPopup_init(__int64 a1, cocos2d::CCObject *a2)
+{
+  bool result; // al
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 *v11; // rdi
+  __int64 v12; // rdx
+  void (__fastcall *v13)(__int64 *, __int64); // r8
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  const char *v18; // rcx
+  struct cocos2d::CCLabelBMFont *v19; // rdi
+  __int64 v20; // rbx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rax
+  const struct cocos2d::CCPoint *v27; // rax
+  char *v28; // rax
+  __int64 v29; // rdi
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  cocos2d::CCLayerColor *v32; // rax
+  __int64 *v33; // rdi
+  __int64 v34; // rbx
+  __int64 v35; // rax
+  __int64 v36; // rcx
+  int v37; // eax
+  cocos2d::CCObject *v38; // rax
+  __int64 v39; // rsi
+  __int64 v40; // rcx
+  cocos2d::CCDirector *v41; // rax
+  float v42; // xmm7_4
+  __int64 v43; // rcx
+  cocos2d::CCDirector *v44; // rax
+  float v45; // xmm0_4
+  __int64 v46; // rbx
+  __int64 v47; // rdi
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int128 *v50; // [rsp+40h] [rbp-29h] BYREF
+  float v51; // [rsp+48h] [rbp-21h] BYREF
+  float v52; // [rsp+4Ch] [rbp-1Dh]
+  _BYTE v53[16]; // [rsp+50h] [rbp-19h] BYREF
+  __int128 v54; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v55; // [rsp+70h] [rbp+7h]
+  unsigned __int64 v56; // [rsp+78h] [rbp+Fh]
+
+  LODWORD(v50) = -1778384896;
+  result = cocos2d::CCLayerColor::initWithColor((cocos2d::CCLayerColor *)a1, (const struct cocos2d::_ccColor4B *)&v50);
+  if ( result )
+  {
+    sub_5ABA0(a1);
+    *(_QWORD *)(a1 + 672) = a2;
+    cocos2d::CCObject::retain(a2);
+    LOBYTE(v5) = 1;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 920LL))(a1, v5);
+    LOBYTE(v6) = 1;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 992LL))(a1, v6);
+    v8 = cocos2d::CCDirector::sharedDirector(v7);
+    cocos2d::CCDirector::getWinSize(v8, &v51);
+    v9 = cocos2d::CCLayer::create();
+    *(_QWORD *)(a1 + 584) = v9;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 464LL))(a1, v9);
+    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v53, 0.0, 0.0, 80.0, 80.0);
+    v11 = (__int64 *)cocos2d::extension::CCScale9Sprite::create("square04_001.png", v10);
+    v12 = v11[40];
+    v13 = *(void (__fastcall **)(__int64 *, __int64))(v12 + 40);
+    LOBYTE(v12) = -1;
+    v13(v11 + 40, v12);
+    (*(void (__fastcall **)(__int64 *, __int16 *))v11[40])(v11 + 40, &word_6FEBA0);
+    v14 = *v11;
+    cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v50, 420.0, 300.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v14 + 312))(v11, v15);
+    (*(void (__fastcall **)(_QWORD, __int64 *, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(
+      *(_QWORD *)(a1 + 584),
+      v11,
+      0xFFFFFFFFLL);
+    v16 = *v11;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, v51 * 0.5, v52 * 0.5);
+    (*(void (__fastcall **)(__int64 *, __int64))(v16 + 184))(v11, v17);
+    sub_3E4F0(&v54, *(_QWORD *)(a1 + 672) + 440LL);
+    v18 = (const char *)&v54;
+    if ( v56 > 0xF )
+      v18 = (const char *)v54;
+    v19 = cocos2d::CCLabelBMFont::create(v18, "goldFont.fnt");
+    sub_3C310(&v54);
+    (*(void (__fastcall **)(_QWORD, struct cocos2d::CCLabelBMFont *))(**(_QWORD **)(a1 + 584) + 464LL))(
+      *(_QWORD *)(a1 + 584),
+      v19);
+    v20 = *(_QWORD *)v19;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, v51 * 0.5, (float)((float)(v52 * 0.5) + 150.0) - 25.0);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v20 + 184))(v19, v21);
+    v26 = cocos2d::CCMenu::create(v23, v22, v24, v25);
+    *(_QWORD *)(a1 + 552) = v26;
+    (*(void (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(a1 + 584) + 456LL))(*(_QWORD *)(a1 + 584), v26, 10);
+    v50 = &v54;
+    v54 = 0;
+    v55 = 0;
+    v56 = 0;
+    *(_QWORD *)&v54 = sub_3C460(32);
+    v55 = 30;
+    v56 = 31;
+    strcpy((char *)v54, "Please wait, uploading list...");
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, 0.5, 1.0);
+    v28 = TextArea_create((__int64)&v54, "chatFont.fnt", 1.0, 400.0, v27, 1101004800, 0, 0);
+    *(_QWORD *)(a1 + 680) = v28;
+    (*(void (__fastcall **)(_QWORD, char *))(**(_QWORD **)(a1 + 584) + 464LL))(*(_QWORD *)(a1 + 584), v28);
+    v29 = **(_QWORD **)(a1 + 680);
+    v30 = *(_QWORD *)(a1 + 680);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, v51 * 0.5, (float)(v52 * 0.5) - 30.0);
+    (*(void (__fastcall **)(__int64, __int64))(v29 + 184))(v30, v31);
+    *(_DWORD *)(a1 + 640) = -1;
+    v32 = LoadingCircle_create();
+    *(_QWORD *)(a1 + 688) = v32;
+    *((_QWORD *)v32 + 69) = *(_QWORD *)(a1 + 584);
+    *(_BYTE *)(*(_QWORD *)(a1 + 688) + 560LL) = 0;
+    LoadingCircle_show(*(_QWORD *)(a1 + 688));
+    v33 = *(__int64 **)(*(_QWORD *)(a1 + 688) + 544LL);
+    v34 = *v33;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, v51 * 0.5, (float)(v52 * 0.5) + 20.0);
+    (*(void (__fastcall **)(__int64 *, __int64))(v34 + 184))(v33, v35);
+    v36 = *(_QWORD *)&qword_905FB0;
+    if ( !*(_QWORD *)&qword_905FB0 )
+    {
+      v50 = (__int128 *)operator new(0x690u);
+      *(_QWORD *)&qword_905FB0 = sub_214250(v50);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      v36 = *(_QWORD *)&qword_905FB0;
+    }
+    *(_QWORD *)(v36 + 1408) = a1 + 664;
+    sub_229D50(v36, *(_QWORD *)(a1 + 672));
+    v37 = (unsigned int)cocos2d::CCSprite::createWithSpriteFrameName("GJ_arrow_01_001.png");
+    v38 = CCMenuItemSpriteExtra_create(v37, 0, a1, (__int64)sub_42FEA0);
+    *(_QWORD *)(a1 + 696) = v38;
+    (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 552) + 464LL))(*(_QWORD *)(a1 + 552), v38);
+    v39 = **(_QWORD **)(a1 + 696);
+    v41 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v40);
+    v42 = cocos2d::CCDirector::getScreenTop(v41) - 40.0;
+    v44 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v43);
+    v45 = cocos2d::CCDirector::getScreenLeft(v44) + 40.0;
+    v46 = *(_QWORD *)(a1 + 552);
+    v47 = *(_QWORD *)(a1 + 696);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v53, v45, v42);
+    cocos2d::CCNode::convertToNodeSpace(v46, &v50, v48);
+    (*(void (__fastcall **)(__int64, __int64))(v39 + 184))(v47, v49);
+    return 1;
+  }
+  return result;
+}

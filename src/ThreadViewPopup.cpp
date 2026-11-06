@@ -1290,3 +1290,89 @@ __int64 __fastcall ThreadViewPopup_ccTouchCancelled(__int64 a1, __int64 a2, __in
     sub_805B0(); /*0xe3524*/
   return FLAlertLayer_ccTouchCancelled(a1, a2, a3); /*0xe3532*/
 }
+
+// Address: 0xdf730
+// Method: ThreadViewPopup::mountVirtualRow
+// Hidden C++ exception states: #wind=11
+void __fastcall ThreadViewPopup_mountVirtualRow(__int64 a1, int a2, __int64 a3, void *a4)
+{
+  __int64 v5; // r12
+  __int64 v7; // rsi
+  __int64 v8; // r14
+  float v9; // xmm8_4
+  int v10; // eax
+  char v11; // di
+  cocos2d::CCObject *v12; // rbx
+  const char *v13; // rdx
+  cocos2d::CCObject *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  cocos2d::CCObject *v17; // rbx
+  cocos2d::CCObject *v18; // rdi
+  __int64 v19; // rbx
+  float v20; // xmm8_4
+  __int64 v21; // rax
+  cocos2d::CCObject *v22; // rbx
+  cocos2d::CCObject *v23; // rdi
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  cocos2d::CCString *v27; // rax
+  const char *CString; // rax
+  struct cocos2d::CCSprite *v29; // rdi
+  __int64 v30; // rdx
+  void (__fastcall *v31)(char *, __int64); // r8
+  float v32; // xmm8_4
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  __int64 v35; // rbx
+  __int64 v36; // rdx
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  __int64 v39... [26731 chars total]
+
+// Address: 0xdcaa0
+// Method: ThreadViewPopup::threadMessagesFinished
+// Hidden C++ exception states: #wind=43
+double __usercall ThreadViewPopup_threadMessagesFinished@<xmm0>(
+        int a1@<edx>,
+        __int64 a2@<rcx>,
+        cocos2d::CCArray *a3@<r8>,
+        char a4@<r9b>,
+        double result@<xmm0>)
+{
+  char v5; // r12
+  cocos2d::CCArray *v6; // r13
+  __int64 v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  char v11; // cl
+  float v12; // xmm8_4
+  void *v13; // rcx
+  void *v14; // rdx
+  __int64 v15; // r15
+  const void **v16; // rsi
+  const void **v17; // r14
+  const void **v18; // rdx
+  unsigned __int64 v19; // r12
+  const void *v20; // rcx
+  size_t v21; // r13
+  size_t v22; // r8
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  int v25; // ecx
+  __int64 v26; // rax
+  char v27; // si
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  int v32; // ecx
+  __int64 v33; // rax
+  char v34; // cl
+  float v35; // xmm0_4
+  __int64 v36; // rbx
+  int v37; // eax
+  char v38; // r14
+  const void **v39; // rsi
+  __i... [29231 chars total]

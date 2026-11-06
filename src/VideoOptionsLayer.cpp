@@ -365,3 +365,47 @@ cocos2d::CCMenuItem *__fastcall VideoOptionsLayer_createToggleButton(
   sub_3C310(a2); /*0x4ca773*/
   return v15; /*0x4ca77b*/
 }
+
+// Address: 0x4c86c0
+// Method: VideoOptionsLayer::init
+// Hidden C++ exception states: #wind=25
+bool __fastcall VideoOptionsLayer_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rdx
+  cocos2d::CCObject *v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 *v16; // rdi
+  __int64 v17; // rbx
+  __int64 v18; // rax
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  struct cocos2d::CCLabelBMFont *v21; // rdi
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  int v29; // r14d
+  unsigned int v30; // edi
+  cocos2d::CCArray *v31; // rbx
+  struct cocos2d::CCObject *v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v36; // r9
+  cocos2d::CCArray *v37; // rbx
+  struct cocos2d::CCObject *v38; // rax
+  __in... [25873 chars total]

@@ -999,3 +999,50 @@ char __fastcall UILayer_processUINodesTouch(__int64 a1, int a2, __int64 a3)
   }
   return 1; /*0x66e785*/
 }
+
+// Address: 0x66c5c0
+// Method: UILayer::handleAction
+// Hidden C++ exception states: #wind=77
+char __fastcall UILayer_handleAction(__int64 a1, int a2, unsigned __int8 a3, double a4)
+{
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  bool v21; // bl
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  __int64 v27; // rax
+  char v28; // cl
+  bool v29; // bl
+  __int64 v30; // rcx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // rcx
+  __int64 v37; // rcx
+  bool v38; // bl
+  __int64 v39; // rcx
+  __int64 v40; // rdx
+  __int64 v41; // rdx
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // rcx
+  bool v45; // al
+  __int64 v46; // rax
+  __int64 v47; // rcx
+  bool v48... [28289 chars total]

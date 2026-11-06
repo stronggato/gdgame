@@ -777,3 +777,246 @@ void __fastcall TableView_touchFinish(__int64 a1)
     cocos2d::CCGLProgram::setUniformLocationWith1f(v3, v2, 0.0); /*0x6218ff*/
   }
 }
+
+// Address: 0x87c00
+// Method: TableView::checkBoundaryOfContent
+// Hidden C++ exception states: #wind=4
+void __fastcall TableView_checkBoundaryOfContent(__int64 a1)
+{
+  int v2; // eax
+  int v3; // ebx
+  cocos2d::CCArray *v4; // rcx
+  struct cocos2d::CCObject *v5; // r14
+  struct cocos2d::CCObject *v6; // r12
+  int v7; // ebx
+  int v8; // r13d
+  const struct cocos2d::CCPoint *v9; // rax
+  __int64 v10; // rax
+  cocos2d::CCObject *v11; // r14
+  double v12; // xmm0_8
+  float v13; // xmm6_4
+  struct cocos2d::CCObject *v14; // rax
+  struct cocos2d::CCObject *v15; // rsi
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  float *v19; // rax
+  __int64 v20; // rax
+  cocos2d::CCArray *v21; // rcx
+  cocos2d::CCArray *v22; // rcx
+  struct cocos2d::CCObject *v23; // rdx
+  float v24; // xmm0_4
+  unsigned int v25; // esi
+  int v26; // eax
+  cocos2d::CCArray *v27; // rcx
+  struct cocos2d::CCObject *v28; // rax
+  double v29; // xmm0_8
+  float v30; // xmm6_4
+  struct cocos2d::CCObject *v31; // rax
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  __int64 v34; // rbx
+  float *v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  __int64 v41; // rcx
+  _QWORD v42[7]; // [rsp+20h] [rbp-79h] BYREF
+  __int64 v43; // [rsp+58h] [rbp-41h]
+  _QWORD v44[7]; // [rsp+60h] [rbp-39h] BYREF
+  int v45; // [rsp+98h] [rbp-1h]
+  int v46; // [rsp+9Ch] [rbp+3h]
+  char v47; // [rsp+100h] [rbp+67h] BYREF
+  float v48; // [rsp+104h] [rbp+6Bh]
+  cocos2d::CCObject *v49; // [rsp+110h] [rbp+77h] BYREF
+  char v50; // [rsp+118h] [rbp+7Fh] BYREF
+
+  v2 = cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 584));
+  v3 = v2;
+  v4 = *(cocos2d::CCArray **)(a1 + 584);
+  if ( v4 && v2 > 0 )
+  {
+    v5 = cocos2d::CCArray::objectAtIndex(v4, 0);
+    v6 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 584), v3 - 1);
+    if ( v3 == 1 )
+    {
+      v7 = (***(__int64 (__fastcall ****)(_QWORD, _QWORD, __int64))(a1 + 616))(
+             *(_QWORD *)(a1 + 616),
+             *((unsigned int *)v5 + 121),
+             a1)
+         - 1;
+      cocos2d::CCObject::CCObject((cocos2d::CCObject *)v42);
+      v42[0] = &CCIndexPath::`vftable';
+      v43 = 0;
+      cocos2d::CCObject::CCObject((cocos2d::CCObject *)v44);
+      v44[0] = &CCIndexPath::`vftable';
+      v45 = v7;
+      v46 = 0;
+      if ( *((_QWORD *)v5 + 60) == v43 )
+      {
+        sub_88470(a1, v6);
+      }
+      else if ( !*((_DWORD *)v6 + 121) && *((_DWORD *)v6 + 120) == v7 )
+      {
+        TableView_checkFirstCell(a1, v5);
+      }
+      cocos2d::CCObject::~CCObject((cocos2d::CCObject *)v44);
+      cocos2d::CCObject::~CCObject((cocos2d::CCObject *)v42);
+    }
+    else
+    {
+      TableView_checkFirstCell(a1, v5);
+      sub_88470(a1, v6);
+    }
+    return;
+  }
+  v8 = (***(__int64 (__fastcall ****)(_QWORD, _QWORD, __int64))(a1 + 616))(*(_QWORD *)(a1 + 616), 0, a1);
+  if ( !v8 )
+    return;
+  v9 = (const struct cocos2d::CCPoint *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 480) + 200LL))(*(_QWORD *)(a1 + 480));
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v47, v9);
+  v10 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 480) + 320LL))(*(_QWORD *)(a1 + 480));
+  if ( (float)(v48 - *(float *)(v10 + 4)) >= 0.0 )
+  {
+    v11 = (cocos2d::CCObject *)operator new(0x40u);
+    v49 = v11;
+    cocos2d::CCObject::CCObject(v11);
+    *(_QWORD *)v11 = &CCIndexPath::`vftable';
+    *((_DWORD *)v11 + 14) = v8 - 1;
+    *((_DWORD *)v11 + 15) = 0;
+    cocos2d::CCObject::autorelease(v11);
+    if ( *((_DWORD *)v11 + 14) >= v8 )
+      return;
+    if ( TableView_isDuplicateInVisibleCellArray(a1, (__int64)v11) )
+      return;
+    v12 = (*(double (__fastcall **)(_QWORD, cocos2d::CCObject *, __int64))(**(_QWORD **)(a1 + 608) + 40LL))(
+            *(_QWORD *)(a1 + 608),
+            v11,
+            a1);
+    v13 = *(float *)&v12;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v49, (const struct cocos2d::CCPoint *)(a1 + 552));
+    if ( (unsigned int)sub_87B00(a1, &v49) == 1 )
+      return;
+    v14 = (struct cocos2d::CCObject *)(*(__int64 (__fastcall **)(_QWORD, cocos2d::CCObject *, __int64))(**(_QWORD **)(a1 + 616) + 24LL))(
+                                        *(_QWORD *)(a1 + 616),
+                                        v11,
+                                        a1);
+    v15 = v14;
+    if ( !v14 )
+      return;
+    v16 = *(_QWORD *)v14;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, 0.0, 1.0);
+    (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v16 + 288))(v15, v17);
+    v18 = *(_QWORD *)v15;
+    v19 = (float *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 320LL))(a1);
+    cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v50, *v19 * 0.5, v13);
+    (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v18 + 312))(v15, v20);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, (const struct cocos2d::CCPoint *)(a1 + 552));
+    (*(void (__fastcall **)(struct cocos2d::CCObject *, char *))(*(_QWORD *)v15 + 184LL))(v15, &v50);
+    cocos2d::CCObject::operator=((char *)v15 + 424, v11);
+    *((_DWORD *)v15 + 120) = *((_DWORD *)v11 + 14);
+    *((_DWORD *)v15 + 121) = *((_DWORD *)v11 + 15);
+    v21 = *(cocos2d::CCArray **)(a1 + 584);
+    if ( v8 == 1 )
+      cocos2d::CCArray::insertObject(v21, v15, 0);
+    else
+      cocos2d::CCArray::addObject(v21, v15);
+    if ( TableView_isDuplicateIndexPath(a1, (__int64)v11) )
+      goto LABEL_39;
+    v22 = *(cocos2d::CCArray **)(a1 + 600);
+    v23 = v11;
+    if ( v8 != 1 )
+    {
+      cocos2d::CCArray::addObject(v22, v11);
+LABEL_39:
+      v40 = *(_QWORD *)(a1 + 608);
+      if ( v40 )
+        (*(void (__fastcall **)(__int64, cocos2d::CCObject *, struct cocos2d::CCObject *, __int64))(*(_QWORD *)v40 + 16LL))(
+          v40,
+          v11,
+          v15,
+          a1);
+      (*(void (__fastcall **)(_QWORD, struct cocos2d::CCObject *))(**(_QWORD **)(a1 + 480) + 464LL))(
+        *(_QWORD *)(a1 + 480),
+        v15);
+      v41 = *(_QWORD *)(a1 + 608);
+      if ( v41 )
+        (*(void (__fastcall **)(__int64, cocos2d::CCObject *, struct cocos2d::CCObject *, __int64))(*(_QWORD *)v41 + 24LL))(
+          v41,
+          v11,
+          v15,
+          a1);
+      return;
+    }
+LABEL_38:
+    cocos2d::CCArray::insertObject(v22, v23, 0);
+    goto LABEL_39;
+  }
+  v24 = *(float *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 320LL))(a1) + 4);
+  if ( v24 >= v48 )
+  {
+    v11 = (cocos2d::CCObject *)operator new(0x40u);
+    v49 = v11;
+    cocos2d::CCObject::CCObject(v11);
+    *(_QWORD *)v11 = &CCIndexPath::`vftable';
+    v25 = 0;
+    *((_QWORD *)v11 + 7) = 0;
+    cocos2d::CCObject::autorelease(v11);
+    v26 = *((_DWORD *)v11 + 14);
+    if ( v26 >= 0 && v26 < v8 )
+    {
+      v27 = *(cocos2d::CCArray **)(a1 + 584);
+      if ( !v27 || !cocos2d::CCArray::count(v27) || !cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 584)) )
+        goto LABEL_34;
+      while ( 1 )
+      {
+        v28 = cocos2d::CCArray::objectAtIndex(*(cocos2d::CCArray **)(a1 + 584), v25);
+        if ( *((_DWORD *)v28 + 121) == *((_DWORD *)v11 + 15) && *((_DWORD *)v28 + 120) == *((_DWORD *)v11 + 14) )
+          break;
+        if ( ++v25 >= cocos2d::CCArray::count(*(cocos2d::CCArray **)(a1 + 584)) )
+          goto LABEL_34;
+      }
+      if ( !v28 )
+      {
+LABEL_34:
+        v29 = (*(double (__fastcall **)(_QWORD, cocos2d::CCObject *, __int64))(**(_QWORD **)(a1 + 608) + 40LL))(
+                *(_QWORD *)(a1 + 608),
+                v11,
+                a1);
+        v30 = *(float *)&v29;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v49, (const struct cocos2d::CCPoint *)(a1 + 552));
+        if ( (unsigned int)sub_87B00(a1, &v49) == 1 )
+          return;
+        v31 = (struct cocos2d::CCObject *)(*(__int64 (__fastcall **)(_QWORD, cocos2d::CCObject *, __int64))(**(_QWORD **)(a1 + 616) + 24LL))(
+                                            *(_QWORD *)(a1 + 616),
+                                            v11,
+                                            a1);
+        v15 = v31;
+        if ( !v31 )
+          return;
+        v32 = *(_QWORD *)v31;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, 0.0, 1.0);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v32 + 288))(v15, v33);
+        v34 = *(_QWORD *)v15;
+        v35 = (float *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 320LL))(a1);
+        cocos2d::CCSize::CCSize((cocos2d::CCSize *)&v50, *v35, v30);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v34 + 312))(v15, v36);
+        v37 = *(_QWORD *)v15;
+        v38 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 480) + 320LL))(*(_QWORD *)(a1 + 480));
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v50, 0.0, *(float *)(v38 + 4) - v30);
+        (*(void (__fastcall **)(struct cocos2d::CCObject *, __int64))(v37 + 184))(v15, v39);
+        cocos2d::CCObject::operator=((char *)v15 + 424, v11);
+        *((_DWORD *)v15 + 120) = *((_DWORD *)v11 + 14);
+        *((_DWORD *)v15 + 121) = *((_DWORD *)v11 + 15);
+        cocos2d::CCArray::insertObject(*(cocos2d::CCArray **)(a1 + 584), v15, 0);
+        if ( TableView_isDuplicateIndexPath(a1, (__int64)v11) )
+          goto LABEL_39;
+        v23 = v11;
+        v22 = *(cocos2d::CCArray **)(a1 + 600);
+        goto LABEL_38;
+      }
+    }
+  }
+}
