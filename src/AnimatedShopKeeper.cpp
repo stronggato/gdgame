@@ -1,12 +1,29 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AnimatedShopKeeper.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub CCAnimatedSprite__dtor_CCAnimatedSprite;
+inline GDStub COERCE_UNSIGNED_INT;
+inline GDStub GJGameState_tweenValue;
+inline GDStub SpriteAnimationManager_runAnimation;
 using namespace cocos2d;
 
 // [1/3] Address: 0x33b2f0
 // Method: AnimatedShopKeeper::startAnimating
-__int64 __fastcall AnimatedShopKeeper_startAnimating(__int64 a1, float a2, float a3, int a4, int a5, int a6, int a7)
+void AnimatedShopKeeper::startAnimating()
 {
+  __int64 a1 = (__int64)this;
+  float a2 = (float)to_gd_arg(0);
+  float a3 = (float)to_gd_arg(0);
+  int a4 = (int)to_gd_arg(0);
+  int a5 = (int)to_gd_arg(0);
+  int a6 = (int)to_gd_arg(0);
+  int a7 = (int)to_gd_arg(0);
+  uint64_t a8 = 0;
+
   __int64 v8; // rcx
   __int64 result; // rax
   int v10; // [rsp+68h] [rbp+10h] BYREF
@@ -14,32 +31,39 @@ __int64 __fastcall AnimatedShopKeeper_startAnimating(__int64 a1, float a2, float
   v8 = a1 + 424; /*0x33b2fc*/
   *(float *)(v8 + 16) = a2; /*0x33b306*/
   if ( a3 > 0.0 ) /*0x33b30b*/
-    return GJGameState_tweenValue(v8, *(float *)(a1 + 432), a2, 15, SLODWORD(a3), a4, a5, a6, a7); /*0x33b34e*/
+    { GJGameState_tweenValue(v8, *(float *)(a1 + 432), a2, 15, SLODWORD(a3), a4, a5, a6, a7); return; } /*0x33b34e*/
   v10 = 15; /*0x33b360*/
   sub_351620(a1 + 1064, &v10); /*0x33b36d*/
   result = *(unsigned int *)(a1 + 440); /*0x33b372*/
   *(_DWORD *)(a1 + 432) = result; /*0x33b378*/
-  return result; /*0x33b353*/
+  { result; return; } /*0x33b353*/
 }
 
 // [2/3] Address: 0x3abd10
 // Method: AnimatedShopKeeper::~AnimatedShopKeeper
-cocos2d::CCSprite *__fastcall AnimatedShopKeeper__dtor_AnimatedShopKeeper(cocos2d::CCSprite *Block, char a2)
+AnimatedShopKeeper::~AnimatedShopKeeper()
 {
-  *(_QWORD *)Block = &AnimatedShopKeeper::`vftable'; /*0x3abd23*/
-  *((_QWORD *)Block + 40) = &AnimatedShopKeeper::`vftable'; /*0x3abd30*/
-  *((_QWORD *)Block + 43) = &AnimatedShopKeeper::`vftable'; /*0x3abd3e*/
-  CCAnimatedSprite__dtor_CCAnimatedSprite(Block); /*0x3abd45*/
-  if ( (a2 & 1) != 0 ) /*0x3abd4d*/
-    j_j_free(Block); /*0x3abd57*/
-  return Block; /*0x3abd5c*/
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
+//   *(_QWORD *)Block  = (uintptr_t)(&AnimatedShopKeeper::`vftable'); /*0x3abd23*/ // cleaned vftable
+//   *((_QWORD *)Block + 40) = &AnimatedShopKeeper::`vftable'; /*0x3abd30*/ // cleaned vftable
+//   *((_QWORD *)Block + 43) = &AnimatedShopKeeper::`vftable'; /*0x3abd3e*/ // cleaned vftable
+//   CCAnimatedSprite__dtor_CCAnimatedSprite(Block); /*0x3abd45*/ // cleaned dtor call
+//   if ( (a2 & 1) != 0 ) /*0x3abd4d*/
+//     j_j_free(Block); /*0x3abd57*/ // cleaned scalar delete
+  return; /*0x3abd5c*/
 }
 
 // [3/3] Address: 0x3b2810
 // Method: AnimatedShopKeeper::animationFinished
-// Hidden C++ exception states: #wind=6
-double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
+void AnimatedShopKeeper::animationFinished(char const* key)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(key);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v4; // rdi
   __int64 v5; // r8
   void **v6; // rcx
@@ -125,7 +149,7 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
       if ( (unsigned __int64)(v12 - v7 - 8) > 0x1F ) /*0x3b2927*/
         invoke_watson(0, 0, 0, 0, 0); /*0x3b293c*/
     }
-    j_j_free(v7); /*0x3b2946*/
+//     j_j_free(v7); /*0x3b2946*/ // cleaned scalar delete
   }
   if ( !v11 ) /*0x3b294f*/
     *(_BYTE *)(a1 + 757) = 0; /*0x3b2951*/
@@ -160,7 +184,7 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
       if ( (unsigned __int64)(v20 - v15 - 8) > 0x1F ) /*0x3b2a33*/
         invoke_watson(0, 0, 0, 0, 0); /*0x3b2a44*/
     }
-    j_j_free(v15); /*0x3b2a4e*/
+//     j_j_free(v15); /*0x3b2a4e*/ // cleaned scalar delete
   }
   if ( v19 ) /*0x3b2a57*/
   {
@@ -173,7 +197,7 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
     sub_86290(*(_QWORD *)(a1 + 664)); /*0x3b2ad2*/
     sub_3E4F0(&Buf2, Buf1); /*0x3b2adf*/
     SpriteAnimationManager_runAnimation(*(_QWORD *)(a1 + 664), v21); /*0x3b2aee*/
-    return sub_3C310(Buf1); /*0x3b2ee2*/
+    { sub_3C310(Buf1); return; } /*0x3b2ee2*/
   }
   *(_OWORD *)Buf1 = 0; /*0x3b2afc*/
   v43 = 6; /*0x3b2b05*/
@@ -206,7 +230,7 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
       if ( (unsigned __int64)(v29 - v24 - 8) > 0x1F ) /*0x3b2bca*/
         invoke_watson(0, 0, 0, 0, 0); /*0x3b2bdb*/
     }
-    j_j_free(v24); /*0x3b2be5*/
+//     j_j_free(v24); /*0x3b2be5*/ // cleaned scalar delete
   }
   if ( !v28 ) /*0x3b2bee*/
   {
@@ -240,7 +264,7 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
         if ( (unsigned __int64)(v39 - v34 - 8) > 0x1F ) /*0x3b2e05*/
           invoke_watson(0, 0, 0, 0, 0); /*0x3b2e16*/
       }
-      j_j_free(v34); /*0x3b2e20*/
+//       j_j_free(v34); /*0x3b2e20*/ // cleaned scalar delete
     }
     v43 = 6; /*0x3b2e29*/
     v44 = 15; /*0x3b2e2d*/
@@ -254,13 +278,13 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
       SpriteAnimationManager_runAnimation(*(_QWORD *)(a1 + 664), v40); /*0x3b2e81*/
       result = sub_3C310(Buf1); /*0x3b2e8b*/
       *(_BYTE *)(a1 + 756) = 1; /*0x3b2e90*/
-      return result; /*0x3b2e97*/
+      { result; return; } /*0x3b2e97*/
     }
     qmemcpy(Buf1, "idle00", 6); /*0x3b2e9f*/
     sub_86290(*(_QWORD *)(a1 + 664)); /*0x3b2ebc*/
     sub_3E4F0(&Buf2, Buf1); /*0x3b2ec9*/
     SpriteAnimationManager_runAnimation(*(_QWORD *)(a1 + 664), v41); /*0x3b2ed8*/
-    return sub_3C310(Buf1); /*0x3b2ed8*/
+    { sub_3C310(Buf1); return; } /*0x3b2ed8*/
   }
   if ( (float)((float)rand() / 32767.0) <= 0.89999998 || *(_DWORD *)(a1 + 744) == 4 ) /*0x3b2c19*/
   {
@@ -283,8 +307,8 @@ double __fastcall AnimatedShopKeeper_animationFinished(__int64 a1, __int64 a2)
     SpriteAnimationManager_runAnimation(*(_QWORD *)(a1 + 664), v30); /*0x3b2c76*/
   }
   sub_3C310(Buf1); /*0x3b2ce3*/
-  *(_QWORD *)&result = COERCE_UNSIGNED_INT((float)rand()); /*0x3b2cf2*/
+  *(_QWORD *)&result  = (uintptr_t)(COERCE_UNSIGNED_INT((float)rand())); /*0x3b2cf2*/
   *(float *)&result = (float)((float)(*(float *)&result / 32767.0) * 3.0) + 2.0; /*0x3b2d05*/
   *(_DWORD *)(a1 + 748) = (int)*(float *)&result; /*0x3b2d11*/
-  return result; /*0x3b2ee7*/
+  { result; return; } /*0x3b2ee7*/
 }

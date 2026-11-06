@@ -1,13 +1,43 @@
+#include <new>
+#include <Geode/Bindings.hpp>
 #include <Geode/binding/AccountLayer.hpp>
 #include <cocos2d.h>
 
+
+inline __m128i Size = {0};
+inline GDStub AccountLayer_onLogin;
+inline GDStub AccountLayer_onRegister;
+inline GDStub AccountLoginLayer_create;
+inline GDStub ButtonSprite_create;
+inline GDStub CCMenuItemSpriteExtra_create;
+inline GDStub FLAlertLayer_create_0;
+inline GDStub FLAlertLayer_show;
+inline GDStub FLAlert_Clicked;
+inline GDStub GJDropDownLayer_GJDropDownLayer;
+inline GDStub GJDropDownLayer__dtor_GJDropDownLayer;
+inline GDStub GJDropDownLayer_init;
+inline GDStub GJDropDownLayer_showLayer;
+inline GDStub GJ_button_01;
+inline GDStub LABEL_11;
+inline GDStub LABEL_19;
+inline GDStub LoadingCircle_create;
+inline GDStub LoadingCircle_show;
+inline GDStub MoreSearchLayer_onClose;
+inline GDStub PlayerObject_togglePlayerScale;
+inline GDStub TextArea_colorAllCharactersTo;
+inline GDStub TextArea_create;
+inline GDStub TextArea_setString;
+inline GDStub asc_6E86E4;
 using namespace cocos2d;
 
 // [1/12] Address: 0x91870
 // Method: AccountLayer::~AccountLayer
-// Hidden C++ exception states: #wind=1
-char *__fastcall AccountLayer__dtor_AccountLayer(char *Block, char a2)
+AccountLayer::~AccountLayer()
 {
+  auto Block = (char*)this;
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   char *v4; // rbx
   char *v5; // r14
   char *v6; // rsi
@@ -18,63 +48,64 @@ char *__fastcall AccountLayer__dtor_AccountLayer(char *Block, char a2)
   __int64 v11; // rax
   __int64 v12; // rcx
 
-  *(_QWORD *)Block = &AccountLayer::`vftable'; /*0x91894*/
-  *((_QWORD *)Block + 40) = &AccountLayer::`vftable'; /*0x9189e*/
-  *((_QWORD *)Block + 41) = &AccountLayer::`vftable'; /*0x918ac*/
-  *((_QWORD *)Block + 42) = &AccountLayer::`vftable'; /*0x918ba*/
-  *((_QWORD *)Block + 43) = &AccountLayer::`vftable'; /*0x918c8*/
-  *((_QWORD *)Block + 44) = &AccountLayer::`vftable'; /*0x918d6*/
-  *((_QWORD *)Block + 51) = &AccountLayer::`vftable'; /*0x918e4*/
-  *((_QWORD *)Block + 54) = &AccountLayer::`vftable'; /*0x918f2*/
+//   *(_QWORD *)Block  = (uintptr_t)(&AccountLayer::`vftable'); /*0x91894*/ // cleaned vftable
+//   *((_QWORD *)Block + 40) = &AccountLayer::`vftable'; /*0x9189e*/ // cleaned vftable
+//   *((_QWORD *)Block + 41) = &AccountLayer::`vftable'; /*0x918ac*/ // cleaned vftable
+//   *((_QWORD *)Block + 42) = &AccountLayer::`vftable'; /*0x918ba*/ // cleaned vftable
+//   *((_QWORD *)Block + 43) = &AccountLayer::`vftable'; /*0x918c8*/ // cleaned vftable
+//   *((_QWORD *)Block + 44) = &AccountLayer::`vftable'; /*0x918d6*/ // cleaned vftable
+//   *((_QWORD *)Block + 51) = &AccountLayer::`vftable'; /*0x918e4*/ // cleaned vftable
+//   *((_QWORD *)Block + 54) = &AccountLayer::`vftable'; /*0x918f2*/ // cleaned vftable
   v4 = Block + 608; /*0x918f9*/
-  *((_QWORD *)Block + 76) = &AccountLayer::`vftable'; /*0x91907*/
+//   *((_QWORD *)Block + 76) = &AccountLayer::`vftable'; /*0x91907*/ // cleaned vftable
   v5 = Block + 616; /*0x9190a*/
-  *((_QWORD *)Block + 77) = &AccountLayer::`vftable'; /*0x91918*/
+//   *((_QWORD *)Block + 77) = &AccountLayer::`vftable'; /*0x91918*/ // cleaned vftable
   v6 = Block + 624; /*0x9191b*/
-  *((_QWORD *)Block + 78) = &AccountLayer::`vftable'; /*0x91929*/
-  *((_QWORD *)Block + 79) = &AccountLayer::`vftable'; /*0x91933*/
-  v7 = GJAccountManager_sharedState(Block); /*0x9193a*/
+//   *((_QWORD *)Block + 78) = &AccountLayer::`vftable'; /*0x91929*/ // cleaned vftable
+//   *((_QWORD *)Block + 79) = &AccountLayer::`vftable'; /*0x91933*/ // cleaned vftable
+  v7 = ((uintptr_t)GJAccountManager::sharedState()); /*0x9193a*/
   if ( !Block ) /*0x91945*/
     v4 = 0; /*0x91945*/
   if ( *(char **)(v7 + 424) == v4 ) /*0x91950*/
-    *(_QWORD *)(GJAccountManager_sharedState(v8) + 424) = 0; /*0x91957*/
-  v9 = GJAccountManager_sharedState(v8); /*0x9195e*/
+    *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 424)  = (uintptr_t)(0); /*0x91957*/
+  v9 = ((uintptr_t)GJAccountManager::sharedState()); /*0x9195e*/
   if ( !Block ) /*0x91966*/
     v5 = 0; /*0x91966*/
   if ( *(char **)(v9 + 432) == v5 ) /*0x91971*/
-    *(_QWORD *)(GJAccountManager_sharedState(v10) + 432) = 0; /*0x91978*/
-  v11 = GJAccountManager_sharedState(v10); /*0x9197f*/
+    *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 432)  = (uintptr_t)(0); /*0x91978*/
+  v11 = ((uintptr_t)GJAccountManager::sharedState()); /*0x9197f*/
   if ( !Block ) /*0x91987*/
     v6 = 0; /*0x91987*/
   if ( *(char **)(v11 + 440) == v6 ) /*0x91992*/
-    *(_QWORD *)(GJAccountManager_sharedState(v12) + 440) = 0; /*0x91999*/
-  GJDropDownLayer__dtor_GJDropDownLayer((struct cocos2d::CCObject *)Block); /*0x919a3*/
-  if ( (a2 & 1) != 0 ) /*0x919ad*/
-    j_j_free(Block); /*0x919b7*/
-  return Block; /*0x919bf*/
+    *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 440)  = (uintptr_t)(0); /*0x91999*/
+//   GJDropDownLayer__dtor_GJDropDownLayer((struct cocos2d::CCObject *)Block); /*0x919a3*/ // cleaned dtor call
+//   if ( (a2 & 1) != 0 ) /*0x919ad*/
+//     j_j_free(Block); /*0x919b7*/ // cleaned scalar delete
+  return; /*0x919bf*/
 }
 
 // [2/12] Address: 0x91ae0
 // Method: AccountLayer::create
-// Hidden C++ exception states: #wind=1
-_QWORD *AccountLayer_create()
+AccountLayer* AccountLayer::create()
 {
+  uint64_t a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   _QWORD *v0; // rbx
 
-  v0 = operator new(0x2D0u); /*0x91af4*/
-  GJDropDownLayer_GJDropDownLayer((__int64)v0); /*0x91aff*/
-  *v0 = &AccountLayer::`vftable'; /*0x91b0b*/
-  v0[40] = &AccountLayer::`vftable'; /*0x91b15*/
-  v0[41] = &AccountLayer::`vftable'; /*0x91b23*/
-  v0[42] = &AccountLayer::`vftable'; /*0x91b31*/
-  v0[43] = &AccountLayer::`vftable'; /*0x91b3f*/
-  v0[44] = &AccountLayer::`vftable'; /*0x91b4d*/
-  v0[51] = &AccountLayer::`vftable'; /*0x91b5b*/
-  v0[54] = &AccountLayer::`vftable'; /*0x91b69*/
-  v0[76] = &AccountLayer::`vftable'; /*0x91b77*/
-  v0[77] = &AccountLayer::`vftable'; /*0x91b85*/
-  v0[78] = &AccountLayer::`vftable'; /*0x91b93*/
-  v0[79] = &AccountLayer::`vftable'; /*0x91ba1*/
+  v0 = (_QWORD *)operator new(0x2D0u); /*0x91af4*/
+//   GJDropDownLayer_GJDropDownLayer((__int64)v0); /*0x91aff*/ // cleaned base ctor
+//   *v0 = &AccountLayer::`vftable'; /*0x91b0b*/ // cleaned vftable
+//   v0[40] = &AccountLayer::`vftable'; /*0x91b15*/ // cleaned vftable
+//   v0[41] = &AccountLayer::`vftable'; /*0x91b23*/ // cleaned vftable
+//   v0[42] = &AccountLayer::`vftable'; /*0x91b31*/ // cleaned vftable
+//   v0[43] = &AccountLayer::`vftable'; /*0x91b3f*/ // cleaned vftable
+//   v0[44] = &AccountLayer::`vftable'; /*0x91b4d*/ // cleaned vftable
+//   v0[51] = &AccountLayer::`vftable'; /*0x91b5b*/ // cleaned vftable
+//   v0[54] = &AccountLayer::`vftable'; /*0x91b69*/ // cleaned vftable
+//   v0[76] = &AccountLayer::`vftable'; /*0x91b77*/ // cleaned vftable
+//   v0[77] = &AccountLayer::`vftable'; /*0x91b85*/ // cleaned vftable
+//   v0[78] = &AccountLayer::`vftable'; /*0x91b93*/ // cleaned vftable
+//   v0[79] = &AccountLayer::`vftable'; /*0x91ba1*/ // cleaned vftable
   v0[80] = 0; /*0x91baa*/
   v0[81] = 0; /*0x91bb1*/
   v0[82] = 0; /*0x91bb8*/
@@ -86,51 +117,56 @@ _QWORD *AccountLayer_create()
   *((_BYTE *)v0 + 716) = 0; /*0x91be1*/
   if ( GJDropDownLayer_init(v0, (int)"Account", 220.0, 0) ) /*0x91bfd*/
   {
-    cocos2d::CCObject::autorelease((cocos2d::CCObject *)v0); /*0x91c09*/
-    return v0; /*0x91c0f*/
+    CCObject_autorelease((cocos2d::CCObject *)v0); /*0x91c09*/
+    return (AccountLayer*)v0; /*0x91c0f*/
   }
   else
   {
     (*(void (__fastcall **)(_QWORD *, __int64))(*v0 + 8LL))(v0, 1); /*0x91c2c*/
-    return 0; /*0x91c2f*/
+    return (AccountLayer*)0; /*0x91c2f*/
   }
 }
 
 // [4/12] Address: 0x923b0
 // Method: AccountLayer::onLogin
-__int64 __fastcall AccountLayer_onLogin(__int64 a1)
+void AccountLayer::onLogin(cocos2d::CCObject* sender)
 {
+  __int64 a1 = (__int64)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v1; // rax
   _QWORD *v2; // rax
   _BYTE v4[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = GJAccountManager_sharedState(a1); /*0x923b4*/
+  v1 = ((uintptr_t)GJAccountManager::sharedState()); /*0x923b4*/
   sub_3E4F0(v4, v1 + 328); /*0x923c5*/
   v2 = AccountLoginLayer_create((__int64)v4); /*0x923cf*/
-  return (*(__int64 (__fastcall **)(_QWORD *))(*v2 + 1064LL))(v2); /*0x923e3*/
+  { (*(__int64 (__fastcall **)(_QWORD *))(*v2 + 1064LL))(v2); return; } /*0x923e3*/
 }
 
 // [5/12] Address: 0x923f0
 // Method: AccountLayer::onRegister
-// Hidden C++ exception states: #wind=1
-__int64 AccountLayer_onRegister()
+void AccountLayer::onRegister(cocos2d::CCObject* sender)
 {
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   _QWORD *v0; // rbx
   __int64 (__fastcall *v1)(__int64); // rdx
 
-  v0 = operator new(0x310u); /*0x92404*/
-  FLAlertLayer_FLAlertLayer((__int64)v0); /*0x9240f*/
-  *v0 = &AccountRegisterLayer::`vftable'; /*0x9241b*/
-  v0[40] = &AccountRegisterLayer::`vftable'; /*0x92425*/
-  v0[41] = &AccountRegisterLayer::`vftable'; /*0x92433*/
-  v0[42] = &AccountRegisterLayer::`vftable'; /*0x92441*/
-  v0[43] = &AccountRegisterLayer::`vftable'; /*0x9244f*/
-  v0[44] = &AccountRegisterLayer::`vftable'; /*0x9245d*/
-  v0[51] = &AccountRegisterLayer::`vftable'; /*0x9246b*/
-  v0[54] = &AccountRegisterLayer::`vftable'; /*0x92479*/
-  v0[68] = &AccountRegisterLayer::`vftable'; /*0x92487*/
-  v0[83] = &AccountRegisterLayer::`vftable'; /*0x92495*/
-  v0[84] = &AccountRegisterLayer::`vftable'; /*0x924a3*/
+  v0 = (_QWORD *)operator new(0x310u); /*0x92404*/
+//   FLAlertLayer_FLAlertLayer((__int64)v0); /*0x9240f*/ // cleaned base ctor
+//   *v0 = &AccountRegisterLayer::`vftable'; /*0x9241b*/ // cleaned vftable
+//   v0[40] = &AccountRegisterLayer::`vftable'; /*0x92425*/ // cleaned vftable
+//   v0[41] = &AccountRegisterLayer::`vftable'; /*0x92433*/ // cleaned vftable
+//   v0[42] = &AccountRegisterLayer::`vftable'; /*0x92441*/ // cleaned vftable
+//   v0[43] = &AccountRegisterLayer::`vftable'; /*0x9244f*/ // cleaned vftable
+//   v0[44] = &AccountRegisterLayer::`vftable'; /*0x9245d*/ // cleaned vftable
+//   v0[51] = &AccountRegisterLayer::`vftable'; /*0x9246b*/ // cleaned vftable
+//   v0[54] = &AccountRegisterLayer::`vftable'; /*0x92479*/ // cleaned vftable
+//   v0[68] = &AccountRegisterLayer::`vftable'; /*0x92487*/ // cleaned vftable
+//   v0[83] = &AccountRegisterLayer::`vftable'; /*0x92495*/ // cleaned vftable
+//   v0[84] = &AccountRegisterLayer::`vftable'; /*0x924a3*/ // cleaned vftable
   v0[85] = 0; /*0x924ac*/
   v0[86] = 0; /*0x924b3*/
   v0[87] = 0; /*0x924ba*/
@@ -144,7 +180,7 @@ __int64 AccountLayer_onRegister()
   *((_BYTE *)v0 + 776) = 0; /*0x924f2*/
   if ( (unsigned __int8)PlayerObject_togglePlayerScale(v0) ) /*0x9250f*/
   {
-    cocos2d::CCObject::autorelease((cocos2d::CCObject *)v0); /*0x9251f*/
+    CCObject_autorelease((cocos2d::CCObject *)v0); /*0x9251f*/
   }
   else
   {
@@ -153,24 +189,31 @@ __int64 AccountLayer_onRegister()
   }
   v1 = *(__int64 (__fastcall **)(__int64))(*v0 + 1064LL); /*0x92538*/
   if ( v1 == FLAlertLayer_show ) /*0x9254c*/
-    return FLAlertLayer_show((__int64)v0); /*0x92558*/
+    { FLAlertLayer_show((__int64)v0); return; } /*0x92558*/
   else
-    return v1((__int64)v0); /*0x92567*/
+    { v1((__int64)v0); return; } /*0x92567*/
 }
 
 // [6/12] Address: 0x92d00
 // Method: AccountLayer::accountStatusChanged
-__int64 __fastcall AccountLayer_accountStatusChanged(__int64 a1, __int64 a2)
+void AccountLayer::accountStatusChanged()
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(0);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   LOBYTE(a2) = 1; /*0x92d07*/
-  return MoreSearchLayer_onClose(a1 - 608, a2);
+  { MoreSearchLayer_onClose((__int64)(a1 - 608), a2); return; }
 }
 
 // [7/12] Address: 0x930d0
 // Method: AccountLayer::backupAccountFinished
-// Hidden C++ exception states: #wind=1
-__int64 __fastcall AccountLayer_backupAccountFinished(__int64 a1, __int64 a2)
+void AccountLayer::backupAccountFinished()
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(0);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v3; // rdx
   __int64 v4; // rax
   cocos2d::CCObject *v5; // rbx
@@ -181,14 +224,14 @@ __int64 __fastcall AccountLayer_backupAccountFinished(__int64 a1, __int64 a2)
   __int128 *v11; // [rsp+A0h] [rbp+67h] BYREF
 
   LOBYTE(a2) = 1; /*0x930f1*/
-  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 - 56) + 1040LL))(*(_QWORD *)(a1 - 56), a2); /*0x930f3*/
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)((__int64)(a1 - 56)) + 1040LL))(*(_QWORD *)((__int64)(a1 - 56)), a2); /*0x930f3*/
   LOBYTE(v3) = 1; /*0x93100*/
-  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 - 616) + 992LL))(a1 - 616, v3); /*0x93109*/
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)((__int64)(a1 - 616)) + 992LL))((__int64)(a1 - 616), v3); /*0x93109*/
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 88) + 336LL))(*(_QWORD *)(a1 + 88), 0); /*0x93118*/
   v7 = 0; /*0x93121*/
   v8 = 0; /*0x93127*/
   v9 = 0; /*0x9312b*/
-  *(_QWORD *)&v7 = sub_3C460(32); /*0x93139*/
+  *(_QWORD *)&v7  = (uintptr_t)(sub_3C460(32)); /*0x93139*/
   v8 = 17; /*0x9313d*/
   v9 = 31; /*0x93145*/
   strcpy((char *)v7, "Backup successful"); /*0x93154*/
@@ -199,7 +242,7 @@ __int64 __fastcall AccountLayer_backupAccountFinished(__int64 a1, __int64 a2)
   v7 = 0; /*0x93196*/
   v8 = 0; /*0x9319a*/
   v9 = 0; /*0x9319e*/
-  *(_QWORD *)&v7 = sub_3C460(64); /*0x931ac*/
+  *(_QWORD *)&v7  = (uintptr_t)(sub_3C460(64)); /*0x931ac*/
   v8 = 50; /*0x931b0*/
   v9 = 63; /*0x931b8*/
   strcpy((char *)v7, "Your <cg>save data</c> has been <cy>backed up</c>."); /*0x931c7*/
@@ -207,14 +250,18 @@ __int64 __fastcall AccountLayer_backupAccountFinished(__int64 a1, __int64 a2)
   v4 = sub_3E4F0(v10, &v7); /*0x931fe*/
   v5 = FLAlertLayer_create_0(0, (int)"Save Data", v4, (__int64)"OK", 0, 1133903872, 0, 0, 1065353216); /*0x93249*/
   sub_3C310(&v7); /*0x93250*/
-  return (*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v5 + 1064LL))(v5); /*0x93264*/
+  { (*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v5 + 1064LL))(v5); return; } /*0x93264*/
 }
 
 // [8/12] Address: 0x93280
 // Method: AccountLayer::backupAccountFailed
-// Hidden C++ exception states: #wind=1
-void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
+void AccountLayer::backupAccountFailed(BackupAccountError errorType, int response)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(errorType);
+  int a3 = (int)to_gd_arg(response);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   int v4; // esi
   __int64 v6; // rdx
   __int64 v7; // rcx
@@ -244,12 +291,12 @@ void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
 
   v4 = a2; /*0x932b1*/
   LOBYTE(a2) = 1; /*0x932bd*/
-  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 - 56) + 1040LL))(*(_QWORD *)(a1 - 56), a2); /*0x932bf*/
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)((__int64)(a1 - 56)) + 1040LL))(*(_QWORD *)((__int64)(a1 - 56)), a2); /*0x932bf*/
   LOBYTE(v6) = 1; /*0x932cc*/
-  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 - 616) + 992LL))(a1 - 616, v6); /*0x932d5*/
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)((__int64)(a1 - 616)) + 992LL))((__int64)(a1 - 616), v6); /*0x932d5*/
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 88) + 336LL))(*(_QWORD *)(a1 + 88), 0); /*0x932e4*/
-  v8 = (float)*(int *)(GJAccountManager_sharedState(v7) + 456) * 0.00000095367432; /*0x932fa*/
-  v10 = (float)*(int *)(GJAccountManager_sharedState(v9) + 460) * 0.00000095367432; /*0x93312*/
+  v8 = (float)*(int *)(((uintptr_t)GJAccountManager::sharedState()) + 456) * 0.00000095367432; /*0x932fa*/
+  v10 = (float)*(int *)(((uintptr_t)GJAccountManager::sharedState()) + 460) * 0.00000095367432; /*0x93312*/
   *(_OWORD *)Block = 0; /*0x9331d*/
   v29 = 0; /*0x93324*/
   v30 = 15; /*0x93328*/
@@ -270,7 +317,7 @@ void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
             (float)(v10 + v8),
             v8,
             v10);
-    CString = (char *)cocos2d::CCString::getCString(v12); /*0x93373*/
+    CString = (char *)(((cocos2d::CCString*)(v12))->getCString()); /*0x93373*/
     v14 = -1; /*0x93379*/
     do /*0x93383*/
       ++v14; /*0x93380*/
@@ -284,7 +331,7 @@ void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
     if ( v30 > 0xF ) /*0x934a5*/
       v19 = (void **)v15; /*0x934a5*/
     v20 = cocos2d::CCString::createWithFormat("Backup failed. Error code: %i\n%s", a3, (const char *)v19);
-    v21 = cocos2d::CCString::getCString(v20); /*0x934bc*/
+    v21 = (((cocos2d::CCString*)(v20))->getCString()); /*0x934bc*/
     v25 = 0; /*0x934c5*/
     v26 = 0; /*0x934c9*/
     v27 = 0; /*0x934cd*/
@@ -297,7 +344,7 @@ void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
     if ( v4 == -2 ) /*0x933f6*/
     {
       v25 = 0; /*0x93441*/
-      *(_QWORD *)&v25 = sub_3C460(64); /*0x93457*/
+      *(_QWORD *)&v25  = (uintptr_t)(sub_3C460(64)); /*0x93457*/
       v26 = 50; /*0x9345b*/
       v27 = 63; /*0x93463*/
       strcpy((char *)v25, "Login failed. Please login to verify your account."); /*0x93472*/
@@ -307,7 +354,7 @@ void __fastcall AccountLayer_backupAccountFailed(__int64 a1, __int64 a2, int a3)
     if ( v30 > 0xF ) /*0x93401*/
       v16 = (void **)v15; /*0x93401*/
     v17 = cocos2d::CCString::createWithFormat("Backup failed. Please try again later.\n%s", (const char *)v16); /*0x9340c*/
-    v18 = cocos2d::CCString::getCString(v17); /*0x93415*/
+    v18 = (((cocos2d::CCString*)(v17))->getCString()); /*0x93415*/
     v25 = 0; /*0x9341e*/
     v26 = 0; /*0x93422*/
     v27 = 0; /*0x93426*/
@@ -330,15 +377,18 @@ LABEL_19:
       if ( (unsigned __int64)((char *)Block[0] - (char *)v22 - 8) > 0x1F ) /*0x9353e*/
         invoke_watson(0, 0, 0, 0, 0); /*0x9354f*/
     }
-    j_j_free(v22); /*0x93556*/
+//     j_j_free(v22); /*0x93556*/ // cleaned scalar delete
   }
 }
 
 // [9/12] Address: 0x93590
 // Method: AccountLayer::syncAccountFinished
-// Hidden C++ exception states: #wind=1
-__int64 __fastcall AccountLayer_syncAccountFinished(__int64 a1, __int64 a2)
+void AccountLayer::syncAccountFinished()
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(0);
+  uint64_t a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 v3; // rdx
   __int64 v4; // rax
   cocos2d::CCObject *v5; // rbx
@@ -349,9 +399,9 @@ __int64 __fastcall AccountLayer_syncAccountFinished(__int64 a1, __int64 a2)
   __int128 *v11; // [rsp+A0h] [rbp+67h] BYREF
 
   LOBYTE(a2) = 1; /*0x935b1*/
-  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 - 64) + 1040LL))(*(_QWORD *)(a1 - 64), a2); /*0x935b3*/
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)((__int64)(a1 - 64)) + 1040LL))(*(_QWORD *)((__int64)(a1 - 64)), a2); /*0x935b3*/
   LOBYTE(v3) = 1; /*0x935c0*/
-  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 - 624) + 992LL))(a1 - 624, v3); /*0x935c9*/
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)((__int64)(a1 - 624)) + 992LL))((__int64)(a1 - 624), v3); /*0x935c9*/
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 80) + 336LL))(*(_QWORD *)(a1 + 80), 0); /*0x935d8*/
   v8 = 15; /*0x935de*/
   v9 = 15; /*0x935e6*/
@@ -363,7 +413,7 @@ __int64 __fastcall AccountLayer_syncAccountFinished(__int64 a1, __int64 a2)
   v7 = 0; /*0x9364f*/
   v8 = 0; /*0x93655*/
   v9 = 0; /*0x93659*/
-  *(_QWORD *)&v7 = sub_3C460(48); /*0x9366a*/
+  *(_QWORD *)&v7  = (uintptr_t)(sub_3C460(48)); /*0x9366a*/
   v8 = 47; /*0x9366e*/
   v9 = 47; /*0x93676*/
   strcpy((char *)v7, "<cg>Saved data</c> has been <cy>downloaded</c>."); /*0x93685*/
@@ -371,13 +421,18 @@ __int64 __fastcall AccountLayer_syncAccountFinished(__int64 a1, __int64 a2)
   v4 = sub_3E4F0(v10, &v7); /*0x936d1*/
   v5 = FLAlertLayer_create_0(0, (int)"Load Data", v4, (__int64)"OK", 0, 1133903872, 0, 0, 1065353216); /*0x9371c*/
   sub_3C310(&v7); /*0x93723*/
-  return (*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v5 + 1064LL))(v5); /*0x93737*/
+  { (*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v5 + 1064LL))(v5); return; } /*0x93737*/
 }
 
 // [10/12] Address: 0x93750
 // Method: AccountLayer::syncAccountFailed
-__int64 __fastcall AccountLayer_syncAccountFailed(__int64 a1, __int64 a2, int a3)
+void AccountLayer::syncAccountFailed(BackupAccountError errorType, int response)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(errorType);
+  int a3 = (int)to_gd_arg(response);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   int v4; // esi
   __int64 v6; // rdx
   cocos2d::CCString *v7; // rax
@@ -392,14 +447,14 @@ __int64 __fastcall AccountLayer_syncAccountFailed(__int64 a1, __int64 a2, int a3
 
   v4 = a2; /*0x93768*/
   LOBYTE(a2) = 1; /*0x9376e*/
-  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(a1 - 64) + 1040LL))(*(_QWORD *)(a1 - 64), a2); /*0x93776*/
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)((__int64)(a1 - 64)) + 1040LL))(*(_QWORD *)((__int64)(a1 - 64)), a2); /*0x93776*/
   LOBYTE(v6) = 1; /*0x9378a*/
-  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 - 624) + 992LL))(a1 - 624, v6); /*0x9378c*/
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)((__int64)(a1 - 624)) + 992LL))((__int64)(a1 - 624), v6); /*0x9378c*/
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 80) + 336LL))(*(_QWORD *)(a1 + 80), 0); /*0x9379b*/
   if ( v4 == -3 )
   {
     v7 = cocos2d::CCString::createWithFormat("Sync failed. Error code: %i", a3);
-    CString = cocos2d::CCString::getCString(v7); /*0x93867*/
+    CString = (((cocos2d::CCString*)(v7))->getCString()); /*0x93867*/
     v12 = 0; /*0x93872*/
     v13 = 0; /*0x93876*/
     v9 = -1; /*0x9387a*/
@@ -416,14 +471,14 @@ __int64 __fastcall AccountLayer_syncAccountFailed(__int64 a1, __int64 a2, int a3
     v12 = 0; /*0x937b7*/
     if ( v4 == -2 ) /*0x937be*/
     {
-      *(_QWORD *)&v12 = sub_3C460(64); /*0x93816*/
+      *(_QWORD *)&v12  = (uintptr_t)(sub_3C460(64)); /*0x93816*/
       v13 = 50; /*0x9381a*/
       v14 = 63; /*0x93822*/
       strcpy((char *)v12, "Login failed. Please login to verify your account."); /*0x9382a*/
     }
     else
     {
-      *(_QWORD *)&v12 = sub_3C460(48); /*0x937d1*/
+      *(_QWORD *)&v12  = (uintptr_t)(sub_3C460(48)); /*0x937d1*/
       v13 = 36; /*0x937d5*/
       v14 = 47; /*0x937dd*/
       strcpy((char *)v12, "Sync failed. Please try again later."); /*0x937e5*/
@@ -433,13 +488,18 @@ __int64 __fastcall AccountLayer_syncAccountFailed(__int64 a1, __int64 a2, int a3
   v10 = *(_QWORD *)(a1 + 24); /*0x938a7*/
   v15 = 19455; /*0x938af*/
   v16 = 0; /*0x938b5*/
-  return TextArea_colorAllCharactersTo(v10, &v15); /*0x938be*/
+  { TextArea_colorAllCharactersTo(v10, &v15); return; } /*0x938be*/
 }
 
 // [11/12] Address: 0x938e0
 // Method: AccountLayer::FLAlert_Clicked
-__int64 __fastcall AccountLayer_FLAlert_Clicked(__int64 a1, __int64 a2, char a3)
+void AccountLayer::FLAlert_Clicked(FLAlertLayer* layer, bool btn2)
 {
+  __int64 a1 = (__int64)this;
+  __int64 a2 = (__int64)to_gd_arg(layer);
+  char a3 = (char)to_gd_arg(btn2);
+  uint64_t a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   __int64 result; // rax
   __int64 v6; // rcx
   __int64 v7; // rax
@@ -455,33 +515,33 @@ __int64 __fastcall AccountLayer_FLAlert_Clicked(__int64 a1, __int64 a2, char a3)
   if ( !(_DWORD)result ) /*0x938fd*/
   {
     if ( !a3 ) /*0x9396e*/
-      return result; /*0x9396e*/
-    v8 = (_QWORD **)(a1 - 632); /*0x93970*/
-    MoreSearchLayer_onClose(a1 - 632, 0); /*0x9397c*/
-    v13 = GJAccountManager_sharedState(v12); /*0x93981*/
+      { result; return; } /*0x9396e*/
+    v8 = (_QWORD **)((__int64)(a1 - 632)); /*0x93970*/
+    MoreSearchLayer_onClose((__int64)(a1 - 632), 0); /*0x9397c*/
+    v13 = ((uintptr_t)GJAccountManager::sharedState()); /*0x93981*/
     if ( !(unsigned __int8)sub_303530(v13) ) /*0x93990*/
     {
       v11 = v8 + 77; /*0x939cf*/
-      return ((__int64 (__fastcall *)(_QWORD **, __int64, _QWORD))(*v11)[1])(v11, 0xFFFFFFFFLL, 0); /*0x939cf*/
+      { ((__int64 (__fastcall *)(_QWORD **, __int64, _QWORD))(*v11)[1])(v11, 0xFFFFFFFFLL, 0); return; } /*0x939cf*/
     }
 LABEL_11:
     (*(void (__fastcall **)(_QWORD *, _QWORD))(*v8[70] + 1040LL))(v8[70], 0); /*0x93992*/
     ((void (__fastcall *)(_QWORD **, _QWORD))(*v8)[124])(v8, 0); /*0x939ac*/
     LOBYTE(v14) = 1; /*0x939b9*/
-    return (*(__int64 (__fastcall **)(_QWORD *, __int64))(*v8[88] + 336LL))(v8[88], v14); /*0x939c8*/
+    { (*(__int64 (__fastcall **)(_QWORD *, __int64))(*v8[88] + 336LL))(v8[88], v14); return; } /*0x939c8*/
   }
   result = (unsigned int)(result - 1); /*0x938ff*/
   if ( !(_DWORD)result ) /*0x93902*/
   {
     if ( !a3 ) /*0x9393b*/
-      return result; /*0x9393b*/
-    v8 = (_QWORD **)(a1 - 632); /*0x93941*/
-    MoreSearchLayer_onClose(a1 - 632, 0); /*0x9394d*/
-    v10 = GJAccountManager_sharedState(v9); /*0x93952*/
+      { result; return; } /*0x9393b*/
+    v8 = (_QWORD **)((__int64)(a1 - 632)); /*0x93941*/
+    MoreSearchLayer_onClose((__int64)(a1 - 632), 0); /*0x9394d*/
+    v10 = ((uintptr_t)GJAccountManager::sharedState()); /*0x93952*/
     if ( !(unsigned __int8)sub_3045B0(v10) ) /*0x9395a*/
     {
       v11 = v8 + 78; /*0x93963*/
-      return ((__int64 (__fastcall *)(_QWORD **, __int64, _QWORD))(*v11)[1])(v11, 0xFFFFFFFFLL, 0); /*0x939e1*/
+      { ((__int64 (__fastcall *)(_QWORD **, __int64, _QWORD))(*v11)[1])(v11, 0xFFFFFFFFLL, 0); return; } /*0x939e1*/
     }
     goto LABEL_11; /*0x93961*/
   }
@@ -489,20 +549,22 @@ LABEL_11:
   {
     if ( a3 ) /*0x9390f*/
     {
-      v7 = cocos2d::CCApplication::sharedApplication(v6); /*0x93915*/
-      return (*(__int64 (__fastcall **)(__int64, const char *))(*(_QWORD *)v7 + 96LL))( /*0x93936*/
+      v7 = ((uintptr_t)cocos2d::CCApplication::sharedApplication()); /*0x93915*/
+      { (*(__int64 (__fastcall **)(__int64, const char *))(*(_QWORD *)v7 + 96LL))( /*0x93936*/
                v7,
-               "https://www.boomlings.com/database/accounts/accountManagement.php");
+               "https://www.boomlings.com/database/accounts/accountManagement.php"); return; }
     }
   }
-  return result; /*0x9392c*/
+  { result; return; } /*0x9392c*/
 }
 
 // [12/12] Address: 0x939f0
 // Method: AccountLayer::layerHidden
-// Hidden C++ exception states: #wind=1
-__int64 __fastcall AccountLayer_layerHidden(_BYTE *a1)
+void AccountLayer::layerHidden()
 {
+  _BYTE* a1 = (_BYTE*)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   _QWORD *v2; // rbx
   __int64 v3; // rax
   struct cocos2d::CCAction *(__fastcall *v4)(cocos2d::CCNode *, char); // r8
@@ -511,22 +573,22 @@ __int64 __fastcall AccountLayer_layerHidden(_BYTE *a1)
 
   if ( *((_DWORD *)a1 + 178) == 1 ) /*0x93a04*/
   {
-    v2 = operator new(0x298u); /*0x93a14*/
-    GJDropDownLayer_GJDropDownLayer((__int64)v2); /*0x93a1f*/
-    *v2 = &AccountHelpLayer::`vftable'; /*0x93a2b*/
-    v2[40] = &AccountHelpLayer::`vftable'; /*0x93a35*/
-    v2[41] = &AccountHelpLayer::`vftable'; /*0x93a43*/
-    v2[42] = &AccountHelpLayer::`vftable'; /*0x93a51*/
-    v2[43] = &AccountHelpLayer::`vftable'; /*0x93a5f*/
-    v2[44] = &AccountHelpLayer::`vftable'; /*0x93a6d*/
-    v2[51] = &AccountHelpLayer::`vftable'; /*0x93a7b*/
-    v2[54] = &AccountHelpLayer::`vftable'; /*0x93a89*/
-    v2[76] = &AccountHelpLayer::`vftable'; /*0x93a97*/
-    v2[77] = &AccountHelpLayer::`vftable'; /*0x93aa5*/
+    v2 = (_QWORD *)operator new(0x298u); /*0x93a14*/
+//     GJDropDownLayer_GJDropDownLayer((__int64)v2); /*0x93a1f*/ // cleaned base ctor
+//     *v2 = &AccountHelpLayer::`vftable'; /*0x93a2b*/ // cleaned vftable
+//     v2[40] = &AccountHelpLayer::`vftable'; /*0x93a35*/ // cleaned vftable
+//     v2[41] = &AccountHelpLayer::`vftable'; /*0x93a43*/ // cleaned vftable
+//     v2[42] = &AccountHelpLayer::`vftable'; /*0x93a51*/ // cleaned vftable
+//     v2[43] = &AccountHelpLayer::`vftable'; /*0x93a5f*/ // cleaned vftable
+//     v2[44] = &AccountHelpLayer::`vftable'; /*0x93a6d*/ // cleaned vftable
+//     v2[51] = &AccountHelpLayer::`vftable'; /*0x93a7b*/ // cleaned vftable
+//     v2[54] = &AccountHelpLayer::`vftable'; /*0x93a89*/ // cleaned vftable
+//     v2[76] = &AccountHelpLayer::`vftable'; /*0x93a97*/ // cleaned vftable
+//     v2[77] = &AccountHelpLayer::`vftable'; /*0x93aa5*/ // cleaned vftable
     *((_BYTE *)v2 + 656) = 0; /*0x93aac*/
     if ( GJDropDownLayer_init(v2, (int)"Account Help", 220.0, 0) ) /*0x93ac8*/
     {
-      cocos2d::CCObject::autorelease((cocos2d::CCObject *)v2); /*0x93ad4*/
+      CCObject_autorelease((cocos2d::CCObject *)v2); /*0x93ad4*/
     }
     else
     {
@@ -545,16 +607,18 @@ __int64 __fastcall AccountLayer_layerHidden(_BYTE *a1)
   if ( a1[584] ) /*0x93b41*/
   {
     LOBYTE(v6) = 1; /*0x93b4d*/
-    return (*(__int64 (__fastcall **)(_BYTE *, __int64))(*(_QWORD *)a1 + 520LL))(a1, v6); /*0x93b52*/
+    { (*(__int64 (__fastcall **)(_BYTE *, __int64))(*(_QWORD *)a1 + 520LL))(a1, v6); return; } /*0x93b52*/
   }
-  return result; /*0x93b58*/
+  { result; return; } /*0x93b58*/
 }
 
 // Address: 0x91c40
 // Method: AccountLayer::customSetup
-// Hidden C++ exception states: #wind=2
-__int64 __fastcall AccountLayer_customSetup(__int64 a1)
+void AccountLayer::customSetup()
 {
+  __int64 a1 = (__int64)this;
+  uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
+
   char v2; // r14
   __int64 v3; // rax
   struct cocos2d::CCLabelBMFont *v4; // rax
@@ -607,34 +671,34 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
 
   v2 = 0;
   v46 = 0;
-  v3 = cocos2d::CCDirector::sharedDirector(a1);
-  cocos2d::CCDirector::getWinSize(v3, &v47);
+  v3 = ((uintptr_t)cocos2d::CCDirector::sharedDirector());
+  *(cocos2d::CCSize*)(&v47) = cocos2d::CCDirector::sharedDirector()->getWinSize();
   v4 = cocos2d::CCLabelBMFont::create(&byte_6E86E0, "goldFont.fnt");
-  *(_QWORD *)(a1 + 640) = v4;
+  *(_QWORD *)(a1 + 640)  = (uintptr_t)(v4);
   (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v4 + 160LL))(v4);
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 576) + 464LL))(
     *(_QWORD *)(a1 + 576),
     *(_QWORD *)(a1 + 640));
   v5 = **(_QWORD **)(a1 + 640);
   v6 = *(_QWORD *)(a1 + 640);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v44, v47 * 0.5, (float)(v48 * 0.5) + 87.0);
+//   new ((cocos2d::CCPoint*)&v44) cocos2d::CCPoint(v47 * 0.5, (float)(v48 * 0.5) + 87.0); // cleaned base ctor/dtor
   (*(void (__fastcall **)(__int64, __int64))(v5 + 184))(v6, v7);
   v44 = &v49;
   v49 = 0;
   v50 = 1;
   v51 = 15;
   LOWORD(v49) = (unsigned __int8)asc_6E86E4[0];
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.5, 1.0);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.5, 1.0); // cleaned base ctor/dtor
   v9 = TextArea_create((__int64)&v49, &qword_6FFF68, 1.0, 1000.0, v8, 1108082688, 0, 0);
-  *(_QWORD *)(a1 + 648) = v9;
+  *(_QWORD *)(a1 + 648)  = (uintptr_t)(v9);
   (*(void (__fastcall **)(char *))(*(_QWORD *)v9 + 160LL))(v9);
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 576) + 464LL))(
     *(_QWORD *)(a1 + 576),
     *(_QWORD *)(a1 + 648));
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, -17.0);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, -17.0); // cleaned base ctor/dtor
   v11 = v10;
   v12 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 640) + 200LL))(*(_QWORD *)(a1 + 640));
-  cocos2d::CCPoint::operator+(v12, &v44, v11);
+  *((cocos2d::CCPoint*)(v12)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v11));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 648) + 184LL))(*(_QWORD *)(a1 + 648), &v44);
   v13 = (unsigned int)ButtonSprite_create(
                         (int)"Log in",
@@ -646,7 +710,7 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
                         (__int64)"GJ_button_01.png",
                         0);
   v14 = CCMenuItemSpriteExtra_create(v13, 0, a1, (__int64)AccountLayer_onLogin);
-  *(_QWORD *)(a1 + 656) = v14;
+  *(_QWORD *)(a1 + 656)  = (uintptr_t)(v14);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v14);
   v15 = (unsigned int)ButtonSprite_create(
                         (int)"Register",
@@ -658,16 +722,16 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
                         (__int64)"GJ_button_01.png",
                         0);
   v16 = CCMenuItemSpriteExtra_create(v15, 0, a1, (__int64)AccountLayer_onRegister);
-  *(_QWORD *)(a1 + 664) = v16;
+  *(_QWORD *)(a1 + 664)  = (uintptr_t)(v16);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v16);
-  v45 = operator new(0x2C8u);
-  v17 = ButtonSprite_ButtonSprite((__int64)v45);
+  v45 = (_QWORD *)operator new(0x2C8u);
+//   v17 = ButtonSprite_ButtonSprite((__int64)v45); // cleaned base ctor
   v18 = (cocos2d::CCObject *)v17;
   if ( v17 )
   {
     if ( ButtonSprite_init(v17, (__int64)"Save", 160, 0, 1065353216, 1, "goldFont.fnt", (__int64)"GJ_button_01.png", 0) )
     {
-      cocos2d::CCObject::autorelease(v18);
+      CCObject_autorelease(v18);
     }
     else
     {
@@ -676,7 +740,7 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
     }
   }
   v19 = CCMenuItemSpriteExtra_create((int)v18, 0, a1, (__int64)sub_92570);
-  *(_QWORD *)(a1 + 672) = v19;
+  *(_QWORD *)(a1 + 672)  = (uintptr_t)(v19);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v19);
   v20 = (unsigned int)ButtonSprite_create(
                         (int)"Load",
@@ -688,7 +752,7 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
                         (__int64)"GJ_button_01.png",
                         0);
   v21 = CCMenuItemSpriteExtra_create(v20, 0, a1, (__int64)sub_92900);
-  *(_QWORD *)(a1 + 680) = v21;
+  *(_QWORD *)(a1 + 680)  = (uintptr_t)(v21);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v21);
   v22 = (unsigned int)ButtonSprite_create(
                         (int)"Help",
@@ -700,7 +764,7 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
                         (__int64)"GJ_button_01.png",
                         0);
   v23 = CCMenuItemSpriteExtra_create(v22, 0, a1, (__int64)sub_92B90);
-  *(_QWORD *)(a1 + 688) = v23;
+  *(_QWORD *)(a1 + 688)  = (uintptr_t)(v23);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v23);
   v24 = (unsigned int)ButtonSprite_create(
                         (int)"More",
@@ -712,57 +776,57 @@ __int64 __fastcall AccountLayer_customSetup(__int64 a1)
                         (__int64)"GJ_button_01.png",
                         0);
   v25 = CCMenuItemSpriteExtra_create(v24, 0, a1, (__int64)sub_92CB0);
-  *(_QWORD *)(a1 + 696) = v25;
+  *(_QWORD *)(a1 + 696)  = (uintptr_t)(v25);
   (*(void (__fastcall **)(_QWORD, cocos2d::CCObject *))(**(_QWORD **)(a1 + 560) + 464LL))(*(_QWORD *)(a1 + 560), v25);
   v26 = *(_QWORD *)(a1 + 576);
   v27 = *(_QWORD *)(a1 + 560);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v47 * 0.5, (float)(v48 * 0.5) + 30.0);
-  cocos2d::CCNode::convertToWorldSpace(v26, &v44, v28);
-  cocos2d::CCNode::convertToNodeSpace(v27, &v46, v29);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, 0.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v30);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(v47 * 0.5, (float)(v48 * 0.5) + 30.0); // cleaned base ctor/dtor
+  *(cocos2d::CCPoint*)(v26) = ((cocos2d::CCNode*)(&v44))->convertToWorldSpace(*(cocos2d::CCPoint*)(v28));
+  *(cocos2d::CCPoint*)(v27) = ((cocos2d::CCNode*)(&v46))->convertToNodeSpace(*(cocos2d::CCPoint*)(v29));
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, 0.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v30));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 656) + 184LL))(*(_QWORD *)(a1 + 656), &v44);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, -90.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v31);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, -90.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v31));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 664) + 184LL))(*(_QWORD *)(a1 + 664), &v44);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, 0.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v32);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, 0.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v32));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 672) + 184LL))(*(_QWORD *)(a1 + 672), &v44);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, -45.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v33);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, -45.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v33));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 680) + 184LL))(*(_QWORD *)(a1 + 680), &v44);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, -45.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v34);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, -45.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v34));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 688) + 184LL))(*(_QWORD *)(a1 + 688), &v44);
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, 0.0, -90.0);
-  cocos2d::CCPoint::operator+(&v46, &v44, v35);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(0.0, -90.0); // cleaned base ctor/dtor
+  *((cocos2d::CCPoint*)(&v46)) = *((cocos2d::CCPoint*)(&v44)) + *((cocos2d::CCPoint*)(v35));
   (*(void (__fastcall **)(_QWORD, __int128 **))(**(_QWORD **)(a1 + 696) + 184LL))(*(_QWORD *)(a1 + 696), &v44);
-  v36 = GJAccountManager_sharedState();
+  v36 = ((uintptr_t)GJAccountManager::sharedState());
   v38 = 0;
   if ( *(_DWORD *)(v36 + 360) != *(_DWORD *)(v36 + 364) )
   {
-    v37 = GJAccountManager_sharedState();
+    v37 = ((uintptr_t)GJAccountManager::sharedState());
     sub_3E4F0(&v49, v37 + 376);
     v2 = 3;
     if ( v50 )
       v38 = 1;
   }
   *(_BYTE *)(a1 + 716) = v38;
-  if ( (v2 & 1) != 0 )
+//   if ( (v2 & 1) != 0 )
     sub_3C310(&v49);
   MoreSearchLayer_onClose(a1, 0);
-  *(_QWORD *)(GJAccountManager_sharedState() + 424) = a1 + 608;
-  *(_QWORD *)(GJAccountManager_sharedState() + 432) = a1 + 616;
-  *(_QWORD *)(GJAccountManager_sharedState() + 440) = a1 + 624;
+  *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 424)  = (uintptr_t)(a1 + 608);
+  *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 432)  = (uintptr_t)(a1 + 616);
+  *(_QWORD *)(((uintptr_t)GJAccountManager::sharedState()) + 440)  = (uintptr_t)(a1 + 624);
   v39 = LoadingCircle_create();
-  *(_QWORD *)(a1 + 704) = v39;
+  *(_QWORD *)(a1 + 704)  = (uintptr_t)(v39);
   *((_QWORD *)v39 + 69) = *(_QWORD *)(a1 + 576);
-  *(_BYTE *)(*(_QWORD *)(a1 + 704) + 560LL) = 1;
-  cocos2d::CCObject::retain(*(cocos2d::CCObject **)(a1 + 704));
+  *(_BYTE *)(*(_QWORD *)(a1 + 704) + 560LL)  = (uintptr_t)(1);
+  CCObject_retain(*(cocos2d::CCObject **)(a1 + 704));
   LoadingCircle_show(*(_QWORD *)(a1 + 704));
   (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 704) + 336LL))(*(_QWORD *)(a1 + 704), 0);
   v40 = *(__int64 **)(*(_QWORD *)(a1 + 704) + 544LL);
   v41 = *v40;
-  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v45, v47 * 0.5, v48 * 0.5);
-  return (*(__int64 (__fastcall **)(__int64 *, __int64))(v41 + 184))(v40, v42);
+//   new ((cocos2d::CCPoint*)&v45) cocos2d::CCPoint(v47 * 0.5, v48 * 0.5); // cleaned base ctor/dtor
+  { (*(__int64 (__fastcall **)(__int64 *, __int64))(v41 + 184))(v40, v42); return; }
 }

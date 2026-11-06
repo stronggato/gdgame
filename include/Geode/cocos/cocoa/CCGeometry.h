@@ -88,6 +88,16 @@ public:
     inline constexpr CCPoint operator-(const CCPoint& right) const {
         return CCPoint(this->x - right.x, this->y - right.y);
     }
+    inline operator uint64_t() const {
+        uint64_t u;
+        std::memcpy(&u, this, sizeof(u));
+        return u;
+    }
+    inline operator int64_t() const {
+        int64_t u;
+        std::memcpy(&u, this, sizeof(u));
+        return u;
+    }
     /**
      * @lua NA
      */
@@ -351,6 +361,16 @@ public:
      */
     inline constexpr CCSize operator-(const CCSize& right) const {
         return CCSize(this->width - right.width, this->height - right.height);
+    }
+    inline operator uint64_t() const {
+        uint64_t u;
+        std::memcpy(&u, this, sizeof(u));
+        return u;
+    }
+    inline operator int64_t() const {
+        int64_t u;
+        std::memcpy(&u, this, sizeof(u));
+        return u;
     }
     /**
      * @lua NA

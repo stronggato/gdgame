@@ -75,6 +75,12 @@ struct _OWORD_t {
     _OWORD_t(int v) : low(v), high(0) {}
     _OWORD_t(uint64 l, uint64 h) : low(l), high(h) {}
     operator bool() const { return low != 0 || high != 0; }
+    template <typename T>
+    operator T*() const { return reinterpret_cast<T*>(low); }
+    operator uint64() const { return low; }
+    operator int64() const { return static_cast<int64>(low); }
+    operator uint32() const { return static_cast<uint32>(low); }
+    operator int32() const { return static_cast<int32>(low); }
 };
 #define _OWORD _OWORD_t
 
@@ -496,6 +502,21 @@ void __noreturn __break(uint16 code, uint16 subcode);
 
 #ifdef __cplusplus
 #include "gd_stubs.hpp"
+#include <type_traits>
+
+template <typename T>
+uintptr_t to_gd_arg(T&& val) {
+    if constexpr (std::is_pointer_v<std::decay_t<T>>) {
+        return (uintptr_t)val;
+    } else if constexpr (std::is_integral_v<std::decay_t<T>> || std::is_enum_v<std::decay_t<T>>) {
+        return (uintptr_t)val;
+    } else if constexpr (std::is_floating_point_v<std::decay_t<T>>) {
+        return (uintptr_t)(uint64_t)val;
+    } else {
+        return (uintptr_t)&val;
+    }
+}
+
 #define CCObject_release(obj) do { auto _o = (obj); if (_o) _o->release(); } while(0)
 #define CCObject_retain(obj) do { auto _o = (obj); if (_o) _o->retain(); } while(0)
 #define CCObject_autorelease(obj) do { auto _o = (obj); if (_o) _o->autorelease(); } while(0)
@@ -504,6 +525,27 @@ void __noreturn __break(uint16 code, uint16 subcode);
 #define FLAlertLayer_FLAlertLayer(...) ((void*)0)
 #define ButtonSprite_ButtonSprite(...) ((void*)0)
 #define ButtonSprite_init(...) 1
+
+namespace fmt {
+    template <typename Char = char>
+    struct BasicWriter {
+        BasicWriter(...) {}
+        template <typename T>
+        BasicWriter& operator<<(T&&) { return *this; }
+        const Char* c_str() const { return ""; }
+        const Char* data() const { return ""; }
+        size_t size() const { return 0; }
+        void clear() {}
+        operator const Char*() const { return ""; }
+    };
+    template <typename Char = char>
+    using MemoryWriter = BasicWriter<Char>;
+    template <typename Char = char>
+    struct BasicStringRef {
+        template <typename... Args>
+        BasicStringRef(Args&&...) {}
+    };
+}
 #endif
 
 #endif // HEXRAYS_DEFS_H

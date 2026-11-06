@@ -2,17 +2,38 @@
 #include <cstdint>
 #include <utility>
 
+#include <emmintrin.h>
+
+struct GDStubPtr {
+    template <typename T>
+    operator T*() const { return nullptr; }
+    template <typename T>
+    operator T**() const { return nullptr; }
+    operator uint64_t() const { return 0; }
+    operator int64_t() const { return 0; }
+    operator int() const { return 0; }
+
+};
+
 struct GDStub {
+    GDStubPtr operator&() const { return GDStubPtr{}; }
     template <typename... Args>
     GDStub operator()(Args&&...) const { return GDStub{}; }
     template <typename T>
     operator T*() const { return nullptr; }
     operator uint64_t() const { return 0; }
-    operator int() const { return 0; }
+    operator int64_t() const { return 0; }
+    operator uint32_t() const { return 0; }
+    operator int32_t() const { return 0; }
+    operator uint16_t() const { return 0; }
+    operator int16_t() const { return 0; }
+    operator uint8_t() const { return 0; }
+    operator int8_t() const { return 0; }
     operator bool() const { return false; }
     operator float() const { return 0.0f; }
     operator double() const { return 0.0; }
     operator void*() const { return nullptr; }
+    operator __m128i() const { return _mm_setzero_si128(); }
     
     template <typename T>
     GDStub& operator=(T&&) { return *this; }
@@ -21,6 +42,11 @@ struct GDStub {
     template <typename T>
     GDStub& operator[](T&&) { return *this; }
     GDStub& operator*() { return *this; }
+    
+    template <typename T>
+    bool operator==(T&&) const { return false; }
+    template <typename T>
+    bool operator!=(T&&) const { return true; }
 };
 
 inline GDStub byte_6E86E0;
