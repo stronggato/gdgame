@@ -67,6 +67,21 @@ typedef ull             uint64;
 #define _WORD  uint16
 #define _DWORD uint32
 #define _QWORD uint64
+
+struct _OWORD_t {
+    uint64 low;
+    uint64 high;
+    _OWORD_t() : low(0), high(0) {}
+    _OWORD_t(int v) : low(v), high(0) {}
+    _OWORD_t(uint64 l, uint64 h) : low(l), high(h) {}
+    operator bool() const { return low != 0 || high != 0; }
+};
+#define _OWORD _OWORD_t
+
+#if defined(_MSC_VER) && !defined(__clang__)
+#define __int128 _OWORD_t
+#endif
+
 #if !defined(_MSC_VER)
 #define _LONGLONG __int128
 #endif
@@ -124,11 +139,34 @@ typedef int bool;       // we want to use bool in our C programs
 #define WORDn(x, n)   (*((_WORD*)&(x)+n))
 #define DWORDn(x, n)  (*((_DWORD*)&(x)+n))
 
+#ifdef LOBYTE
+#undef LOBYTE
+#endif
 #define LOBYTE(x)  BYTEn(x,LOW_IND(x,_BYTE))
+
+#ifdef LOWORD
+#undef LOWORD
+#endif
 #define LOWORD(x)  WORDn(x,LOW_IND(x,_WORD))
+
+#ifdef LODWORD
+#undef LODWORD
+#endif
 #define LODWORD(x) DWORDn(x,LOW_IND(x,_DWORD))
+
+#ifdef HIBYTE
+#undef HIBYTE
+#endif
 #define HIBYTE(x)  BYTEn(x,HIGH_IND(x,_BYTE))
+
+#ifdef HIWORD
+#undef HIWORD
+#endif
 #define HIWORD(x)  WORDn(x,HIGH_IND(x,_WORD))
+
+#ifdef HIDWORD
+#undef HIDWORD
+#endif
 #define HIDWORD(x) DWORDn(x,HIGH_IND(x,_DWORD))
 #define BYTE1(x)   BYTEn(x,  1)         // byte 1 (counting from 0)
 #define BYTE2(x)   BYTEn(x,  2)

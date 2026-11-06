@@ -11,6 +11,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/binding
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/cocos
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/cocos/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/cocos/extensions
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/cocos/kazmath/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Geode/fmod
 )
