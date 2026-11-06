@@ -490,4 +490,8 @@ void __noreturn __break(uint16 code, uint16 subcode);
 
 #define ADJ(p) (__parentof(p) *)(p-__deltaof(p))
 
+#include <stdlib.h>
+#define j_j_free free
+#define invoke_watson(...) ((void)0)
+
 #endif // HEXRAYS_DEFS_H

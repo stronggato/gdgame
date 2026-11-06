@@ -277,9 +277,11 @@ namespace cocos2d::extension { class CCControlStepper; }
 namespace cocos2d::extension { class CCControlSwitch; } 
 namespace cocos2d::extension { class CCControlUtils; } 
 namespace cocos2d::extension { class CCEditBox; } 
-namespace cocos2d::extension { class CCHttpClient; } 
-namespace cocos2d::extension { class CCHttpRequest; } 
-namespace cocos2d::extension { class CCHttpResponse; } 
+namespace cocos2d { struct ParticleStruct; }
+namespace cocos2d::extension { class CCHttpClient; }
+namespace cocos2d::extension { class CCHttpRequest; }
+namespace cocos2d::extension { class CCHttpResponse; }
+namespace cocos2d::extension { typedef void (cocos2d::CCObject::*SEL_HttpResponse)(CCHttpClient* client, CCHttpResponse* response); }
 namespace cocos2d::extension { class CCInvocation; } 
 namespace cocos2d::extension { class CCScale9Sprite; } 
 namespace cocos2d::extension { class CCScrollView; } 

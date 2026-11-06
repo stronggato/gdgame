@@ -12,6 +12,8 @@ public:
     static constexpr auto CLASS_NAME = "TextArea";
     GEODE_CUSTOM_CONSTRUCTOR_CUTOFF(TextArea, cocos2d::CCSprite)
 
+    TextArea();
+
     /**
      * @note[short] Windows: 0x89c40
      * @note[short] Android: Rebinded
