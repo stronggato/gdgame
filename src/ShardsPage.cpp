@@ -81,3 +81,45 @@ void __fastcall ShardsPage_goToPage(__int64 a1, int a2)
     (*(void (__fastcall **)(__int64 *, struct cocos2d::CCSpriteFrame *))(v16 + 1008))(v14, v18); /*0x628d20*/
   }
 }
+
+// Address: 0x625be0
+// Method: ShardsPage::init
+// Hidden C++ exception states: #wind=19
+bool __fastcall ShardsPage_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 *v6; // rdi
+  __int64 v7; // rdx
+  void (__fastcall *v8)(__int64 *, __int64); // r8
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  int v13; // r14d
+  int i; // esi
+  cocos2d::CCSprite *v15; // rdi
+  float v16; // xmm6_4
+  float v17; // xmm7_4
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  struct cocos2d::CCSprite *v20; // rbx
+  __int64 v21; // rax
+  struct cocos2d::CCSprite *v22; // rbx
+  __int64 v23; // rax
+  struct cocos2d::CCSprite *v24; // rbx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  cocos2d::CCObject *v27; // rax
+  unsigned int v28; // edi
+  cocos2d::CCObject *v29; // rbx
+  struct cocos2d::CCMenu *v30; // rax
+  __int64 v31; // rdi
+  struct cocos2d::CCMenu *v32; // rbx
+  __int64 v33; // rax
+  __int64 v34; // rcx
+  int v35; // r15d
+  __int64 v36; // rcx
+  c... [62416 chars total]

@@ -1306,3 +1306,135 @@ LABEL_35:
   sub_3C310(Src); /*0x49340e*/
   return a2; /*0x493416*/
 }
+
+// Address: 0x48fff0
+// Method: SongInfoObject::create
+// Hidden C++ exception states: #wind=4
+struct cocos2d::CCObject *__fastcall SongInfoObject_create_0(unsigned int a1)
+{
+  __int64 v2; // rcx
+  struct cocos2d::CCObject *result; // rax
+  char v4[8]; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v5; // [rsp+68h] [rbp-21h]
+  __int64 v6; // [rsp+70h] [rbp-19h]
+  __int64 v7; // [rsp+78h] [rbp-11h]
+  __int128 v8; // [rsp+80h] [rbp-9h] BYREF
+  __int64 v9; // [rsp+90h] [rbp+7h]
+  __int64 v10; // [rsp+98h] [rbp+Fh]
+  __int128 v11; // [rsp+A0h] [rbp+17h] BYREF
+  __int64 v12; // [rsp+B0h] [rbp+27h]
+  __int64 v13; // [rsp+B8h] [rbp+2Fh]
+  __int128 v14; // [rsp+C0h] [rbp+37h] BYREF
+  __int64 v15; // [rsp+D0h] [rbp+47h]
+  __int64 v16; // [rsp+D8h] [rbp+4Fh]
+  void *v17; // [rsp+F8h] [rbp+6Fh]
+
+  v2 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v17 = operator new(0x3D0u);
+    qword_906070 = sub_47C350(v17);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v2 = qword_906070;
+  }
+  result = MusicDownloadManager_getSongInfoObject(v2, a1);
+  if ( !result )
+  {
+    v8 = 0;
+    v9 = 0;
+    v10 = 15;
+    LOBYTE(v8) = 0;
+    v11 = 0;
+    v12 = 0;
+    v13 = 15;
+    LOBYTE(v11) = 0;
+    v14 = 0;
+    v15 = 0;
+    v16 = 15;
+    LOBYTE(v14) = 0;
+    v5 = 0;
+    v6 = 7;
+    v7 = 15;
+    strcpy(v4, "Unknown");
+    result = (struct cocos2d::CCObject *)sub_4910B0(
+                                           a1,
+                                           (unsigned int)v4,
+                                           (unsigned int)&v14,
+                                           0,
+                                           0,
+                                           (__int64)&v11,
+                                           0,
+                                           (__int64)&v8,
+                                           0,
+                                           0,
+                                           -1);
+    *((_BYTE *)result + 472) = 1;
+  }
+  return result;
+}
+
+// Address: 0x48fff0
+// Method: SongInfoObject::create
+// Hidden C++ exception states: #wind=4
+struct cocos2d::CCObject *__fastcall SongInfoObject_create_0(unsigned int a1)
+{
+  __int64 v2; // rcx
+  struct cocos2d::CCObject *result; // rax
+  char v4[8]; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v5; // [rsp+68h] [rbp-21h]
+  __int64 v6; // [rsp+70h] [rbp-19h]
+  __int64 v7; // [rsp+78h] [rbp-11h]
+  __int128 v8; // [rsp+80h] [rbp-9h] BYREF
+  __int64 v9; // [rsp+90h] [rbp+7h]
+  __int64 v10; // [rsp+98h] [rbp+Fh]
+  __int128 v11; // [rsp+A0h] [rbp+17h] BYREF
+  __int64 v12; // [rsp+B0h] [rbp+27h]
+  __int64 v13; // [rsp+B8h] [rbp+2Fh]
+  __int128 v14; // [rsp+C0h] [rbp+37h] BYREF
+  __int64 v15; // [rsp+D0h] [rbp+47h]
+  __int64 v16; // [rsp+D8h] [rbp+4Fh]
+  void *v17; // [rsp+F8h] [rbp+6Fh]
+
+  v2 = qword_906070;
+  if ( !qword_906070 )
+  {
+    v17 = operator new(0x3D0u);
+    qword_906070 = sub_47C350(v17);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_906070 + 72LL))(qword_906070);
+    v2 = qword_906070;
+  }
+  result = MusicDownloadManager_getSongInfoObject(v2, a1);
+  if ( !result )
+  {
+    v8 = 0;
+    v9 = 0;
+    v10 = 15;
+    LOBYTE(v8) = 0;
+    v11 = 0;
+    v12 = 0;
+    v13 = 15;
+    LOBYTE(v11) = 0;
+    v14 = 0;
+    v15 = 0;
+    v16 = 15;
+    LOBYTE(v14) = 0;
+    v5 = 0;
+    v6 = 7;
+    v7 = 15;
+    strcpy(v4, "Unknown");
+    result = (struct cocos2d::CCObject *)sub_4910B0(
+                                           a1,
+                                           (unsigned int)v4,
+                                           (unsigned int)&v14,
+                                           0,
+                                           0,
+                                           (__int64)&v11,
+                                           0,
+                                           (__int64)&v8,
+                                           0,
+                                           0,
+                                           -1);
+    *((_BYTE *)result + 472) = 1;
+  }
+  return result;
+}

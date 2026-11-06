@@ -115,3 +115,75 @@ void __fastcall SetupAudioTriggerPopup_valueDidChange(cocos2d::CCDictionary **a1
 LABEL_23:
     SetupAudioTriggerPopup_updateSpecialGroup((__int64)a1); /*0x5d6e8e*/
 }
+
+// Address: 0x5d5780
+// Method: SetupAudioTriggerPopup::addTimeControls
+// Hidden C++ exception states: #wind=2
+double __fastcall SetupAudioTriggerPopup_addTimeControls(__int64 a1, __int64 a2, float a3)
+{
+  int v3; // ebx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rax
+  float v10[2]; // [rsp+80h] [rbp-29h] BYREF
+  _BYTE v11[8]; // [rsp+88h] [rbp-21h] BYREF
+  __int128 *v12; // [rsp+90h] [rbp-19h] BYREF
+  __int128 *v13; // [rsp+98h] [rbp-11h] BYREF
+  __int128 v14; // [rsp+A0h] [rbp-9h] BYREF
+  __int64 v15; // [rsp+B0h] [rbp+7h]
+  __int64 v16; // [rsp+B8h] [rbp+Fh]
+  char v17; // [rsp+128h] [rbp+7Fh] BYREF
+
+  v3 = a1;
+  v4 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v4, v10);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v17, v10[0] * 0.5, (float)(v10[1] * 0.5) + a3);
+  v12 = &v14;
+  v14 = 0;
+  v15 = 6;
+  v16 = 15;
+  strcpy((char *)&v14, "Start:");
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v13, -91.0, -0.0);
+  cocos2d::CCPoint::operator+(&v17, v11, v5);
+  sub_6088F0(v3, 408, (unsigned int)&v14, (unsigned int)v11, 1059481190, 0, 2, 6, 0, 0, 1148846080, 1, 0, 1, 2, 0);
+  v13 = &v14;
+  v15 = 7;
+  v16 = 15;
+  v14 = 0x3A6E4965646146uLL;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v12, 91.0, -0.0);
+  cocos2d::CCPoint::operator+(&v17, v11, v6);
+  sub_6088F0(v3, 409, (unsigned int)&v14, (unsigned int)v11, 1059481190, 0, 2, 6, 0, 0, 1148846080, 1, 0, 1, 2, 0);
+  v13 = &v14;
+  v14 = 0;
+  v15 = 4;
+  v16 = 15;
+  strcpy((char *)&v14, "End:");
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v12, -91.0, -39.0);
+  cocos2d::CCPoint::operator+(&v17, v11, v7);
+  sub_6088F0(v3, 410, (unsigned int)&v14, (unsigned int)v11, 1059481190, 0, 2, 6, 0, 0, 1148846080, 1, 0, 1, 2, 0);
+  v13 = &v14;
+  v15 = 8;
+  v16 = 15;
+  v14 = 0x3A74754F65646146uLL;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v12, 91.0, -39.0);
+  cocos2d::CCPoint::operator+(&v17, v11, v8);
+  return sub_6088F0(
+           v3,
+           411,
+           (unsigned int)&v14,
+           (unsigned int)v11,
+           1059481190,
+           0,
+           2,
+           6,
+           0,
+           0,
+           1148846080,
+           1,
+           0,
+           1,
+           2,
+           0);
+}
