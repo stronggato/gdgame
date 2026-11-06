@@ -1341,3 +1341,246 @@ __int64 __fastcall LocalLevelManager_updateLevelOrder(__int64 a1)
   sub_58EA20(a1); /*0x58ec75*/
   return sub_58F250(a1); /*0x58ec7d*/
 }
+
+// Address: 0x46afd0
+// Method: LocalLevelManager::filesPicked
+// Hidden C++ exception states: #wind=6
+void __fastcall LocalLevelManager_filesPicked(__int64 a1, __int64 *a2)
+{
+  int v2; // r13d
+  _QWORD *v3; // rbx
+  _QWORD *v4; // r12
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rcx
+  _QWORD *v7; // rax
+  char v8; // di
+  __int64 v9; // r12
+  const char *v10; // rsi
+  const char *v11; // r15
+  int v12; // r14d
+  const char *v13; // rcx
+  cocos2d::CCString *v14; // rax
+  cocos2d::CCString *v15; // rbx
+  const char *CString; // rax
+  __int64 v17; // rcx
+  const char *v18; // rax
+  __int64 v19; // r8
+  void *v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rbx
+  bool v23; // di
+  _QWORD *v24; // rax
+  __int64 v25; // rdx
+  void **v26; // rdx
+  int v27; // eax
+  int v28; // eax
+  __int64 v29; // rdi
+  __int64 i; // rbx
+  const char *v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rax
+  char *v34; // rbx
+  char *v35; // rdi
+  char *v36; // rax
+  int v37; // [rsp+40h] [rbp-C0h]
+  __int64 v38; // [rsp+48h] [rbp-B8h]
+  void *Block[2]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v40; // [rsp+60h] [rbp-A0h]
+  void *Src[4]; // [rsp+68h] [rbp-98h] BYREF
+  __int64 *v42; // [rsp+88h] [rbp-78h]
+  void **v43; // [rsp+90h] [rbp-70h]
+  void *v44; // [rsp+98h] [rbp-68h]
+  void *Buf2[2]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v46; // [rsp+B0h] [rbp-50h]
+  unsigned __int64 v47; // [rsp+B8h] [rbp-48h]
+  _BYTE v48[32]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v49[16]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v50; // [rsp+F0h] [rbp-10h]
+
+  v42 = a2;
+  v38 = a1;
+  v2 = 0;
+  *(_OWORD *)Block = 0;
+  v40 = 0;
+  v3 = (_QWORD *)*a2;
+  v4 = (_QWORD *)a2[1];
+  if ( (_QWORD *)*a2 != v4 )
+  {
+    do
+    {
+      *(_OWORD *)Buf2 = 0;
+      v46 = 6;
+      v47 = 15;
+      strcpy((char *)Buf2, ".gdlvl");
+      v5 = v3[2];
+      if ( v5 < 6 )
+        goto LABEL_7;
+      v6 = v5 - 6;
+      v7 = v3;
+      if ( v3[3] > 0xFu )
+        v7 = (_QWORD *)*v3;
+      if ( !memcmp((char *)v7 + v6, Buf2, 6u) )
+        v8 = 1;
+      else
+LABEL_7:
+        v8 = 0;
+      if ( v8 )
+        sub_74DE0(Block, v3);
+      v3 += 4;
+    }
+    while ( v3 != v4 );
+    a1 = v38;
+  }
+  v37 = *(_DWORD *)(a1 + 316);
+  v9 = a1 - 360;
+  v10 = (const char *)Block[0];
+  v11 = (const char *)Block[1];
+  v12 = 0;
+  if ( Block[0] != Block[1] )
+  {
+    do
+    {
+      v13 = v10;
+      if ( *((_QWORD *)v10 + 3) > 0xFu )
+        v13 = *(const char **)v10;
+      v14 = cocos2d::CCString::createWithContentsOfFile(v13);
+      v15 = v14;
+      if ( v14 )
+      {
+        CString = cocos2d::CCString::getCString(v14);
+        v17 = -1;
+        do
+          ++v17;
+        while ( CString[v17] );
+        if ( v17 )
+        {
+          v18 = cocos2d::CCString::getCString(v15);
+          *(_OWORD *)Buf2 = 0;
+          v46 = 0;
+          v47 = 0;
+          v19 = -1;
+          do
+            ++v19;
+          while ( v18[v19] );
+          sub_3C230(Buf2);
+          cocos2d::ZipUtils::decompressString(v48, Buf2, 0, 11);
+          if ( v47 > 0xF )
+          {
+            v20 = Buf2[0];
+            if ( v47 + 1 >= 0x1000 )
+            {
+              v20 = (void *)*((_QWORD *)Buf2[0] - 1);
+              if ( (unsigned __int64)((char *)Buf2[0] - (char *)v20 - 8) > 0x1F )
+                invoke_watson(0, 0, 0, 0, 0);
+            }
+            j_j_free(v20);
+          }
+          v46 = 0;
+          v47 = 15;
+          LOBYTE(Buf2[0]) = 0;
+          v21 = sub_266F30(v48);
+          v22 = v21;
+          v23 = 1;
+          if ( v21 )
+          {
+            sub_3E4F0(v49, v21 + 408);
+            v2 |= 3u;
+            if ( v50 )
+              v23 = 0;
+          }
+          if ( (v2 & 1) != 0 )
+          {
+            v2 &= ~1u;
+            sub_3C310(v49);
+          }
+          if ( v23 )
+          {
+            sub_3C310(v48);
+          }
+          else
+          {
+            v24 = (_QWORD *)(v22 + 1592);
+            *(_QWORD *)(v22 + 1608) = 0;
+            if ( *(_QWORD *)(v22 + 1616) > 0xFu )
+              v24 = (_QWORD *)*v24;
+            *(_BYTE *)v24 = 0;
+            *(_DWORD *)(v22 + 1220) = 2;
+            v25 = qword_905FD0;
+            if ( !qword_905FD0 )
+            {
+              v44 = operator new(0x6E8u);
+              qword_905FD0 = sub_2723A0(v44);
+              (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+              v25 = qword_905FD0;
+            }
+            sub_3E4F0(Src, v25 + 656);
+            v2 |= 4u;
+            v43 = Src;
+            if ( (void **)(v22 + 440) != Src )
+            {
+              v26 = Src;
+              if ( Src[3] > (char *)&loc_D + 2 )
+                v26 = (void **)Src[0];
+              sub_3F5A0((void *)(v22 + 440), v26, (size_t)Src[2]);
+            }
+            sub_3C310(Src);
+            *(_DWORD *)(v22 + 336) = 0;
+            v27 = (int)(float)((float)((float)rand() / 32767.0) * 1000.0);
+            *(_DWORD *)(v22 + 332) = v27;
+            *(_DWORD *)(v22 + 328) = v27;
+            *(_WORD *)(v22 + 856) = 0;
+            *(_DWORD *)(v22 + 860) = 1;
+            v28 = (int)(float)((float)((float)rand() / 32767.0) * 1000.0);
+            *(_DWORD *)(v22 + 852) = v28;
+            *(_DWORD *)(v22 + 848) = v28;
+            GJGameLevel_unverifyCoins((_DWORD *)v22);
+            *(_DWORD *)(v22 + 988) = v37;
+            cocos2d::CCArray::insertObject(*(cocos2d::CCArray **)(v9 + 368), (struct cocos2d::CCObject *)v22, 0);
+            ++v12;
+            sub_3C310(v48);
+          }
+        }
+      }
+      v10 += 32;
+    }
+    while ( v10 != v11 );
+    if ( v12 > 0 )
+      sub_467550(v9);
+    a1 = v38;
+  }
+  *(_DWORD *)(a1 + 324) = v12;
+  v29 = v42[1];
+  for ( i = *v42; i != v29; i += 32 )
+  {
+    v31 = (const char *)i;
+    if ( *(_QWORD *)(i + 24) > 0xFu )
+      v31 = *(const char **)i;
+    remove(v31);
+  }
+  v32 = cocos2d::CCDirector::sharedDirector(a1);
+  v33 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v32 + 112LL))(v32);
+  cocos2d::CCScheduler::scheduleSelector(v33, sub_46B5C0, v38 - 360);
+  v34 = (char *)Block[0];
+  if ( Block[0] )
+  {
+    v35 = (char *)Block[1];
+    if ( Block[0] != Block[1] )
+    {
+      do
+      {
+        sub_3C310(v34);
+        v34 += 32;
+      }
+      while ( v34 != v35 );
+      v34 = (char *)Block[0];
+    }
+    v36 = v34;
+    if ( ((v40 - (_QWORD)v34) & 0xFFFFFFFFFFFFFFE0uLL) >= 0x1000 )
+    {
+      v34 = (char *)*((_QWORD *)v34 - 1);
+      if ( (unsigned __int64)(v36 - v34 - 8) > 0x1F )
+        invoke_watson(0, 0, 0, 0, 0);
+    }
+    j_j_free(v34);
+  }
+}

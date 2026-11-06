@@ -1859,3 +1859,46 @@ __int64 __fastcall MessageThreadsPage_keyBackClicked(__int64 a1)
 {
   return MessageThreadsPage_onClose((struct cocos2d::CCObject *)(a1 - 336));
 }
+
+// Address: 0xd2660
+// Method: MessageThreadsPage::init
+// Hidden C++ exception states: #wind=10
+bool __fastcall MessageThreadsPage_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rdx
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  struct cocos2d::CCLabelBMFont *v13; // r15
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 v21; // r8
+  _OWORD *v22; // rcx
+  const char *v23; // rax
+  __int64 v24; // rdx
+  char *v25; // rsi
+  float v26; // xmm6_4
+  double v27; // xmm0_8
+  float v28; // xmm7_4
+  __int64 v29; // rdi
+  double (__fastcall *v30)(struct cocos2d::CCLabelBMFont *); // rbx
+  double v31; // xmm0_8
+  float v32; // xmm6_4
+  double v33; // xmm0_8
+  __int64 v34; // rax
+  struct cocos2d::CCSprite *v35; // rax
+  cocos2d::CCObject *v36; // rdi
+  __int64 v37; // rbx
+  __int64 v3... [30174 chars total]

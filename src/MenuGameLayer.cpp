@@ -819,3 +819,255 @@ void __fastcall MenuGameLayer_registerWithTouchDispatcher(__int64 a1)
   v4 = (cocos2d::CCTouchDispatcher *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 144LL))(v2); /*0x46dbb0*/
   cocos2d::CCTouchDispatcher::addTargetedDelegate(v4, v3, 1, 1); /*0x46dbcc*/
 }
+
+// Address: 0x46b8b0
+// Method: MenuGameLayer::init
+// Hidden C++ exception states: #wind=21
+bool __fastcall MenuGameLayer_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // r8
+  __int64 v7; // rbx
+  int v8; // ecx
+  int v9; // ebx
+  cocos2d::CCString *v10; // rax
+  const char *CString; // rax
+  struct cocos2d::CCSprite *v12; // rax
+  cocos2d::CCTexture2D *v13; // rax
+  __int64 v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  cocos2d::CCDirector *v19; // rax
+  float v20; // xmm0_4
+  float v21; // xmm1_4
+  __int64 v22; // rcx
+  cocos2d::CCObject *v23; // rax
+  __int64 v24; // rdi
+  __int64 v25; // rbx
+  __int64 v26; // rax
+  __int64 v27; // rbx
+  int v28; // r14d
+  char v29; // r12
+  float v30; // xmm0_4
+  __int64 v31; // rax
+  cocos2d::CCObject *v32; // rax
+  __int64 v33; // rdi
+  __int64 v34; // rbx
+  __int64 v35; // rax
+  __int64 v36; // r15
+  void (__fastcall **v37)(__int64, char *); // rdi
+  int v38; // eax
+  __int64 v39; // rbx
+  char *v40; // rax
+  __int64 v41; // rdi
+  int v42; // eax
+  _QWORD *v43; // rbx
+  char *v44; // rax
+  __int64 v45; // rbx
+  float v46; // xmm0_4
+  __int64 v47; // rax
+  __int64 v48; // rbx
+  __int64 v49; // rbx
+  __int16 v50[2]; // [rsp+30h] [rbp-29h] BYREF
+  __int16 v51; // [rsp+34h] [rbp-25h] BYREF
+  char v52; // [rsp+36h] [rbp-23h]
+  void *v53; // [rsp+38h] [rbp-21h] BYREF
+  void *v54; // [rsp+40h] [rbp-19h] BYREF
+  char v55[8]; // [rsp+48h] [rbp-11h] BYREF
+  _BYTE v56[8]; // [rsp+50h] [rbp-9h] BYREF
+  float v57; // [rsp+58h] [rbp-1h]
+  _BYTE v58[8]; // [rsp+60h] [rbp+7h] BYREF
+  _DWORD v59[4]; // [rsp+68h] [rbp+Fh] BYREF
+
+  result = cocos2d::CCLayer::init((cocos2d::CCLayer *)a1);
+  if ( result )
+  {
+    LOBYTE(v3) = 1;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 920LL))(a1, v3);
+    v5 = cocos2d::CCDirector::sharedDirector(v4);
+    cocos2d::CCDirector::getWinSize(v5, v58);
+    v6 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v54 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v54);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v6 = qword_905FD0;
+    }
+    v7 = v6;
+    if ( !v6 )
+    {
+      v54 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v54);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v6 = qword_905FD0;
+    }
+    v8 = 59;
+    if ( *(int *)(v7 + 1012) < 59 )
+      v8 = *(_DWORD *)(v7 + 1012);
+    v9 = 1;
+    if ( v8 > 1 )
+      v9 = v8;
+    GameManager_loadBackground(v6, v9);
+    v10 = cocos2d::CCString::createWithFormat("game_bg_%02d_001.png", v9);
+    CString = cocos2d::CCString::getCString(v10);
+    v12 = cocos2d::CCSprite::create(CString);
+    *(_QWORD *)(a1 + 440) = v12;
+    v59[0] = 9729;
+    v59[1] = 9729;
+    v59[2] = 10497;
+    v59[3] = 10497;
+    v13 = (cocos2d::CCTexture2D *)(*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v12 + 43) + 16LL))((__int64)v12 + 344);
+    cocos2d::CCTexture2D::setTexParameters(v13, (struct cocos2d::_ccTexParams *)v59);
+    (*(void (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)a1 + 456LL))(a1, *(_QWORD *)(a1 + 440), 4294967196LL);
+    v14 = **(_QWORD **)(a1 + 440);
+    v15 = *(_QWORD *)(a1 + 440);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v54, 0.0, 0.0);
+    (*(void (__fastcall **)(__int64, __int64))(v14 + 288))(v15, v16);
+    cocos2d::CCApplication::sharedApplication(v17);
+    v19 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v18);
+    cocos2d::CCDirector::getScreenScaleFactorMax(v19);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 440) + 160LL))(*(_QWORD *)(a1 + 440));
+    v50[0] = 26112;
+    v51 = 26112;
+    v52 = -1;
+    ++*(_DWORD *)(a1 + 420);
+    (**(void (__fastcall ***)(__int64, __int16 *))(*(_QWORD *)(a1 + 440) + 320LL))(*(_QWORD *)(a1 + 440) + 320LL, &v51);
+    cocos2d::CCRect::CCRect((cocos2d::CCRect *)v56, (const struct cocos2d::CCRect *)(*(_QWORD *)(a1 + 440) + 424LL));
+    v20 = (*(float (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 440) + 168LL))(*(_QWORD *)(a1 + 440));
+    v21 = v57;
+    *(float *)(a1 + 456) = v20 * v57;
+    v57 = v21 * 2.0;
+    (*(void (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)(a1 + 440) + 992LL))(*(_QWORD *)(a1 + 440), v56);
+    v22 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v54 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v54);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v22 = qword_905FD0;
+    }
+    v23 = GJGroundLayer_create(*(_DWORD *)(v22 + 1016), 1u);
+    *(_QWORD *)(a1 + 448) = v23;
+    (*(void (__fastcall **)(__int64, cocos2d::CCObject *, __int64))(*(_QWORD *)a1 + 456LL))(a1, v23, 100);
+    v24 = **(_QWORD **)(a1 + 448);
+    v25 = *(_QWORD *)(a1 + 448);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v54, 0.0, 90.0);
+    (*(void (__fastcall **)(__int64, __int64))(v24 + 184))(v25, v26);
+    v27 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v27 = qword_905FD0;
+    }
+    v28 = *(_DWORD *)(v27 + 880) - *(_DWORD *)(v27 + 884);
+    v29 = *(_BYTE *)(v27 + 944);
+    *(_DWORD *)(v27 + 888) = 1;
+    v30 = (float)((float)rand() / 32767.0) * 1000.0;
+    *(_DWORD *)(v27 + 884) = (int)v30;
+    *(_DWORD *)(v27 + 880) = (int)v30 + 1;
+    v31 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v31 = qword_905FD0;
+    }
+    *(_BYTE *)(v31 + 944) = 0;
+    v32 = PlayerObject_create(1, 1, 0, a1, 0);
+    *(_QWORD *)(a1 + 432) = v32;
+    (*(void (__fastcall **)(__int64, cocos2d::CCObject *, __int64))(*(_QWORD *)a1 + 456LL))(a1, v32, 60);
+    PlayerObject_addAllParticles(*(_QWORD *)(a1 + 432));
+    v33 = **(_QWORD **)(a1 + 432);
+    v34 = *(_QWORD *)(a1 + 432);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v53, 0.0, 105.0);
+    (*(void (__fastcall **)(__int64, __int64))(v33 + 184))(v34, v35);
+    v36 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v54 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v54);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v36 = qword_905FD0;
+    }
+    v37 = *(void (__fastcall ***)(__int64, char *))(*(_QWORD *)(a1 + 432) + 320LL);
+    v38 = rand();
+    v39 = *(_QWORD *)(a1 + 432);
+    v40 = GameManager_colorForIdx(v36, (char *)v50, (int)(float)((float)((float)v38 / 32767.0) * 108.0));
+    (*v37)(v39 + 320, v40);
+    v41 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v41 = qword_905FD0;
+    }
+    v42 = rand();
+    v43 = *(_QWORD **)(a1 + 432);
+    v44 = GameManager_colorForIdx(v41, v55, (int)(float)((float)((float)v42 / 32767.0) * 108.0));
+    PlayerObject_setSecondColor(v43, (__int64)v44);
+    sub_4F6EE0(*(_QWORD *)(a1 + 432));
+    *(_DWORD *)(*(_QWORD *)(a1 + 432) + 2740LL) = 1056964608;
+    v45 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v45 = qword_905FD0;
+    }
+    if ( !*(_BYTE *)(v45 + 1124) )
+    {
+      *(_BYTE *)(v45 + 1124) = 1;
+      PlayerObject_toggleDartMode(*(_QWORD *)(a1 + 432), 1, 0);
+      PlayerObject_toggleDartMode(*(_QWORD *)(a1 + 432), 0, 0);
+      v45 = qword_905FD0;
+    }
+    if ( !v45 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v45 = qword_905FD0;
+    }
+    *(_DWORD *)(v45 + 888) = v28;
+    v46 = (float)((float)rand() / 32767.0) * 1000.0;
+    *(_DWORD *)(v45 + 884) = (int)v46;
+    *(_DWORD *)(v45 + 880) = v28 + (int)v46;
+    v47 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v53 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v53);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v47 = qword_905FD0;
+    }
+    *(_BYTE *)(v47 + 944) = v29;
+    cocos2d::CCNode::scheduleUpdate((cocos2d::CCNode *)a1);
+    cocos2d::CCNode::schedule(a1, MenuGameLayer_tryJump);
+    cocos2d::CCNode::schedule(a1, MenuGameLayer_updateColor);
+    MenuGameLayer_updateColor(a1);
+    v48 = *(_QWORD *)(a1 + 432);
+    cocos2d::CCNode::stopActionByTag(*(cocos2d::CCNode **)(v48 + 1976), 8);
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(v48 + 1976) + 320LL) + 40LL))(
+      *(_QWORD *)(v48 + 1976) + 320LL,
+      0);
+    v49 = *(_QWORD *)(v48 + 1976);
+    cocos2d::CCNode::unschedule(v49, sub_3BC0A0);
+    *(_BYTE *)(v49 + 442) = 0;
+    cocos2d::CCDrawNode::clear((cocos2d::CCDrawNode *)v49);
+    cocos2d::CCArray::removeAllObjects(*(cocos2d::CCArray **)(v49 + 416));
+    sub_46CBD0(a1);
+    return 1;
+  }
+  return result;
+}

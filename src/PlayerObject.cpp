@@ -8605,3 +8605,87 @@ void __fastcall PlayerObject_updateInternalActions(__int64 a1)
     }
   }
 }
+
+// Address: 0x33b660
+// Method: PlayerObject::collidedWithObjectInternal
+// Hidden C++ exception states: #wind=3
+double __fastcall PlayerObject_collidedWithObjectInternal(__int64 a1, float a2)
+{
+  __int64 v3; // rax
+  _QWORD *v4; // rax
+  float v5; // xmm14_4
+  double v6; // xmm0_8
+  __int64 v7; // rax
+  float v8; // xmm2_4
+  float v9; // xmm3_4
+  float v10; // xmm1_4
+  float v11; // xmm2_4
+  float v12; // xmm0_4
+  float v13; // xmm1_4
+  float X; // xmm6_4
+  int v15; // eax
+  int v16; // r8d
+  int v17; // r9d
+  float v18; // xmm6_4
+  __int64 v19; // rbx
+  int v20; // eax
+  int v21; // r8d
+  int v22; // r9d
+  float *v23; // rax
+  char v24; // cl
+  __int64 v25; // rdx
+  __int64 v26; // rbx
+  __int64 v27; // rbx
+  float v28; // xmm2_4
+  float v29; // xmm3_4
+  float MaxX; // xmm12_4
+  float MinX; // xmm11_4
+  float MaxY; // xmm9_4
+  float MinY; // xmm10_4
+  float v34; // xmm7_4
+  float v35; // xmm0_4
+  float v36; // xmm0_4
+  int v37; // r13d
+  float v38; // xmm7_4
+  float v39; // xmm0_4
+  int v40; // esi
+  float v41; // xmm0_4
+  int v42; // ebx
+  __int64 v43... [24393 chars total]
+
+// Address: 0x4d8ad0
+// Method: PlayerObject::playDeathEffect
+__int64 __fastcall PlayerObject_playDeathEffect(_QWORD **a1)
+{
+  __int64 v2; // rax
+  int v3; // ebx
+  __int64 v4; // r12
+  float v5; // xmm10_4
+  struct cocos2d::CCAction *v6; // rbx
+  cocos2d::CCNode *v7; // r14
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  float v12; // xmm6_4
+  __int64 v13; // rcx
+  cocos2d::CCArray *v14; // r15
+  int v15; // edi
+  cocos2d::CCString *v16; // rax
+  const char *CString; // rbx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  cocos2d::CCSpriteFrameCache *v20; // rax
+  struct cocos2d::CCObject *v21; // rax
+  float v22; // xmm6_4
+  struct cocos2d::CCAnimation *v23; // rax
+  struct cocos2d::CCFiniteTimeAction *v24; // rbx
+  __int64 v25; // rax
+  struct cocos2d::CCAction *v26; // rax
+  float v27; // xmm6_4
+  struct cocos2d::CCFiniteTimeAction *v28; // rbx
+  struct cocos2d::CCFadeOut *v29; // rax
+  struct cocos2d::CCAction *v30; // rax
+  cocos2d::CCParticleSystem *v31; // rdi
+  __int64 v32; // rbx
+  __int64 v33; //... [121661 chars total]

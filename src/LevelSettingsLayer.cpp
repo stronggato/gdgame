@@ -709,3 +709,44 @@ __int64 __fastcall LevelSettingsLayer_keyBackClicked(__int64 a1)
 {
   return sub_4568E0(a1 - 336, 0);
 }
+
+// Address: 0x5898e0
+// Method: LevelSettingsLayer::init
+// Hidden C++ exception states: #wind=29
+bool __fastcall LevelSettingsLayer_init(__int64 a1, __int64 a2, cocos2d::CCObject *a3)
+{
+  bool result; // al
+  __int64 v7; // rcx
+  cocos2d::CCObject *v8; // rax
+  __int64 v9; // rcx
+  cocos2d::CCObject *v10; // rax
+  __int64 v11; // rcx
+  cocos2d::CCObject *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  cocos2d::CCObject *v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 *v23; // rdi
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  __int64 v26; // rbx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  cocos2d::CCArray *v29; // rdi
+  __int64 v30; // rdx
+  void (__fastcall *v31)(char *, __int64); // r8
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  __int64 v34; // r12
+  __int64 v35; // rbx
+  __int64 v36; // rax
+  struct cocos2d::CCLabelBMFont *v37; // rdi
+  __int64 v38; // rbx
+  __int64 v39; // rax
+  struct cocos2d::... [48292 chars total]

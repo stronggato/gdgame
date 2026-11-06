@@ -543,3 +543,340 @@ LABEL_13:
   }
   return result; /*0x4c8573*/
 }
+
+// Address: 0x4c6c70
+// Method: OptionsLayer::customSetup
+// Hidden C++ exception states: #wind=8
+__int64 __fastcall OptionsLayer_customSetup(__int64 *a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  int v7; // eax
+  cocos2d::CCObject *v8; // r13
+  int v9; // eax
+  cocos2d::CCObject *v10; // r12
+  int v11; // eax
+  cocos2d::CCObject *v12; // r15
+  int v13; // eax
+  cocos2d::CCObject *v14; // r14
+  int v15; // eax
+  cocos2d::CCObject *v16; // rsi
+  int v17; // eax
+  cocos2d::CCObject *v18; // rdi
+  int v19; // eax
+  cocos2d::CCObject *v20; // rbx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 *v28; // rsi
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  __int64 v33; // r12
+  __int64 v34; // rcx
+  int Stat; // edi
+  const char *v36; // rcx
+  struct cocos2d::CCSprite *v37; // r15
+  cocos2d::CCObject *v38; // r14
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  __int64 v41; // rax
+  float v42; // xmm6_4
+  float *v43; // rax
+  struct cocos2d::CCSprite *v44; // rbx
+  __int64 v45; // rax
+  struct cocos2d::CCLabelBMFont *v46; // rbx
+  __int64 v47; // rax
+  struct cocos2d::CCLabelBMFont *v48; // r14
+  __int64 v49; // rbx
+  __int64 v50; // rax
+  int v51; // r8d
+  __int64 v52; // rax
+  __int64 v53; // rdx
+  __int64 v54; // rax
+  __int64 v55; // rbx
+  __int64 v56; // rax
+  struct cocos2d::CCLabelBMFont *v57; // rdi
+  __int64 v58; // rax
+  __int64 v59; // rbx
+  __int64 v60; // rax
+  int v61; // r8d
+  __int64 v62; // rax
+  __int64 v63; // rdx
+  __int64 v64; // rax
+  __int64 v65; // rbx
+  __int64 v66; // rax
+  __int64 v67; // rcx
+  bool GameVariable; // di
+  __int64 v69; // rax
+  __int64 v70; // rbx
+  __int64 v71; // rax
+  __int64 v72; // rax
+  char v74[8]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD *v75; // [rsp+88h] [rbp-78h] BYREF
+  char v76[8]; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v77[14]; // [rsp+98h] [rbp-68h] BYREF
+  __int64 *v78; // [rsp+150h] [rbp+50h] BYREF
+  char v79; // [rsp+158h] [rbp+58h] BYREF
+  float v80; // [rsp+160h] [rbp+60h] BYREF
+  float v81; // [rsp+164h] [rbp+64h]
+  char v82; // [rsp+168h] [rbp+68h] BYREF
+
+  v78 = a1;
+  v2 = cocos2d::CCDirector::sharedDirector(a1);
+  cocos2d::CCDirector::getWinSize(v2, &v80);
+  a1[78] = cocos2d::CCMenu::create(v4, v3, v5, v6);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v82, v80 * 0.5, (float)(v81 * 0.5) + 80.0);
+  cocos2d::CCNode::convertToNodeSpace(a1[78], &v79, &v82);
+  v7 = (unsigned int)ButtonSprite_create(
+                       (int)"Account",
+                       130,
+                       0,
+                       1.0,
+                       1,
+                       (__int64)"goldFont.fnt",
+                       (__int64)"GJ_button_01.png",
+                       0);
+  v8 = CCMenuItemSpriteExtra_create(v7, 0, (int)a1, (__int64)sub_4C82B0);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v8);
+  v9 = (unsigned int)ButtonSprite_create(
+                       (int)"How To Play",
+                       130,
+                       0,
+                       1.0,
+                       1,
+                       (__int64)"goldFont.fnt",
+                       (__int64)"GJ_button_01.png",
+                       0);
+  v10 = CCMenuItemSpriteExtra_create(v9, 0, (int)a1, (__int64)sub_4C8380);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v10);
+  v11 = (unsigned int)ButtonSprite_create(
+                        (int)"Options",
+                        130,
+                        0,
+                        1.0,
+                        1,
+                        (__int64)"goldFont.fnt",
+                        (__int64)"GJ_button_01.png",
+                        0);
+  v12 = CCMenuItemSpriteExtra_create(v11, 0, (int)a1, (__int64)sub_4C7A40);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v12);
+  v13 = (unsigned int)ButtonSprite_create(
+                        (int)"Graphics",
+                        130,
+                        0,
+                        1.0,
+                        1,
+                        (__int64)"goldFont.fnt",
+                        (__int64)"GJ_button_01.png",
+                        0);
+  v14 = CCMenuItemSpriteExtra_create(v13, 0, (int)a1, (__int64)sub_4C8240);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v14);
+  v15 = (unsigned int)ButtonSprite_create(
+                        (int)"Rate",
+                        78,
+                        0,
+                        1.0,
+                        1,
+                        (__int64)"goldFont.fnt",
+                        (__int64)"GJ_button_01.png",
+                        0);
+  v16 = CCMenuItemSpriteExtra_create(v15, 0, (int)a1, (__int64)OptionsLayer_onRate);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v16);
+  v17 = (unsigned int)ButtonSprite_create(
+                        (int)"Parent",
+                        78,
+                        0,
+                        1.0,
+                        1,
+                        (__int64)"goldFont.fnt",
+                        (__int64)"GJ_button_01.png",
+                        0);
+  v18 = CCMenuItemSpriteExtra_create(v17, 0, (int)a1, (__int64)sub_4C7A70);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)a1[78] + 464LL))(a1[78], v18);
+  v19 = (unsigned int)ButtonSprite_create(
+                        (int)"Help",
+                        78,
+                        0,
+                        1.0,
+                        1,
+                        (__int64)"goldFont.fnt",
+                        (__int64)"GJ_button_01.png",
+                        0);
+  v20 = CCMenuItemSpriteExtra_create(v19, 0, (int)a1, (__int64)sub_4C8260);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)v78[78] + 464LL))(v78[78], v20);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, -79.0, 0.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v21);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v8 + 184LL))(v8, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 79.0, 0.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v22);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v10 + 184LL))(v10, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, -79.0, -40.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v23);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v12 + 184LL))(v12, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 79.0, -40.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v24);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v14 + 184LL))(v14, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, -105.0, -80.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v25);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v16 + 184LL))(v16, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, -80.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v26);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v18 + 184LL))(v18, v74);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 105.0, -80.0);
+  cocos2d::CCPoint::operator+(&v79, v74, v27);
+  (*(void (__fastcall **)(cocos2d::CCObject *, char *))(*(_QWORD *)v20 + 184LL))(v20, v74);
+  v28 = v78;
+  (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v78[72] + 456LL))(v78[72], v78[78], 1);
+  v33 = cocos2d::CCMenu::create(v30, v29, v31, v32);
+  v34 = qword_905FE0;
+  if ( !qword_905FE0 )
+  {
+    v78 = (__int64 *)operator new(0x3E8u);
+    qword_905FE0 = sub_2D2B40(v78);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FE0 + 72LL))(qword_905FE0);
+    v34 = qword_905FE0;
+  }
+  Stat = GameStatsManager_getStat(v34, (const char *)&word_7231BC);
+  v36 = (const char *)&xmmword_7178B0;
+  if ( Stat >= 10 )
+    v36 = "GJ_lock_open_001.png";
+  v37 = cocos2d::CCSprite::createWithSpriteFrameName(v36);
+  v38 = CCMenuItemSpriteExtra_create((int)v37, 0, (int)v28, (__int64)OptionsLayer_onSecretVault);
+  (*(void (__fastcall **)(__int64, cocos2d::CCObject *))(*(_QWORD *)v33 + 464LL))(v33, v38);
+  v39 = *(_QWORD *)v38;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v78, v80 - 20.0, v81 - 18.0);
+  cocos2d::CCNode::convertToNodeSpace(v33, &v75, v40);
+  (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v39 + 184))(v38, v41);
+  if ( Stat < 10 )
+  {
+    v42 = (float)(*(float *)((*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v38 + 320LL))(v38) + 4) * 0.5)
+        - 21.0;
+    v43 = (float *)(*(__int64 (__fastcall **)(cocos2d::CCObject *))(*(_QWORD *)v38 + 320LL))(v38);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v78, *v43 * 0.5, v42);
+    v44 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_coinsIcon2_001.png");
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, struct cocos2d::CCSprite *))(*(_QWORD *)v37 + 464LL))(v37, v44);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 7.5, 0.0);
+    cocos2d::CCPoint::operator+(&v78, v74, v45);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, char *))(*(_QWORD *)v44 + 184LL))(v44, v74);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v44 + 160LL))(v44);
+    v46 = cocos2d::CCLabelBMFont::create("10", (const char *)&qword_6FFF68);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v37 + 464LL))(
+      v37,
+      v46);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, -7.5, 0.0);
+    cocos2d::CCPoint::operator+(&v78, v74, v47);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, char *))(*(_QWORD *)v46 + 184LL))(v46, v74);
+    (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v46 + 160LL))(v46);
+  }
+  *((_DWORD *)v38 + 93) = 1069547520;
+  v48 = cocos2d::CCLabelBMFont::create("Music", (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(__int64, struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v28[72] + 464LL))(v28[72], v48);
+  v49 = *(_QWORD *)v48;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v78, v80 * 0.5, (float)(v81 * 0.5) - 34.0);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64))(v49 + 184))(v48, v50);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v48 + 160LL))(v48);
+  v52 = sub_83590(
+          (_DWORD)v28,
+          (unsigned int)OptionsLayer_musicSliderChanged,
+          v51,
+          (unsigned int)"slidergroove.png",
+          (__int64)"sliderthumb.png",
+          (__int64)"sliderthumbsel.png",
+          1065353216);
+  v28[81] = v52;
+  LOBYTE(v53) = 1;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(v52 + 416) + 336LL))(*(_QWORD *)(v52 + 416), v53);
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v28[72] + 464LL))(v28[72], v28[81]);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, -20.0);
+  v55 = v54;
+  v56 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v48 + 200LL))(v48);
+  cocos2d::CCPoint::operator+(v56, &v78, v55);
+  (*(void (__fastcall **)(__int64, __int64 **))(*(_QWORD *)v28[81] + 184LL))(v28[81], &v78);
+  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v28[81] + 64LL))(v28[81], 0);
+  if ( !qword_905F60 )
+  {
+    v78 = (__int64 *)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v78);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+  }
+  sub_83840(v28[81]);
+  v57 = cocos2d::CCLabelBMFont::create("SFX", (const char *)&qword_6FFF68);
+  (*(void (__fastcall **)(__int64, struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v28[72] + 464LL))(v28[72], v57);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, -40.0);
+  v59 = v58;
+  v60 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v48 + 200LL))(v48);
+  cocos2d::CCPoint::operator+(v60, &v78, v59);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *, __int64 **))(*(_QWORD *)v57 + 184LL))(v57, &v78);
+  (*(void (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v57 + 160LL))(v57);
+  v62 = sub_83590(
+          (_DWORD)v28,
+          (unsigned int)PauseLayer_sfxSliderChanged,
+          v61,
+          (unsigned int)"slidergroove.png",
+          (__int64)"sliderthumb.png",
+          (__int64)"sliderthumbsel.png",
+          1065353216);
+  v28[82] = v62;
+  LOBYTE(v63) = 1;
+  (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)(v62 + 416) + 336LL))(*(_QWORD *)(v62 + 416), v63);
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v28[72] + 464LL))(v28[72], v28[82]);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, -20.0);
+  v65 = v64;
+  v66 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v57 + 200LL))(v57);
+  cocos2d::CCPoint::operator+(v66, &v78, v65);
+  (*(void (__fastcall **)(__int64, __int64 **))(*(_QWORD *)v28[82] + 184LL))(v28[82], &v78);
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v28[82] + 64LL))(v28[82], 1);
+  if ( !qword_905F60 )
+  {
+    v78 = (__int64 *)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v78);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+  }
+  sub_83840(v28[82]);
+  v67 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v78 = (__int64 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v78);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v67 = qword_905FD0;
+  }
+  *(_QWORD *)(v67 + 984) = v28 + 77;
+  v75 = v77;
+  GameVariable = GameManager_getGameVariable(v67, "0122");
+  v77[1] = 25449;
+  v77[2] = 10;
+  v77[3] = 15;
+  v77[0] = 0x73754D0A756E654DLL;
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v74, 145.0, -35.0);
+  v70 = v69;
+  v71 = (*(__int64 (__fastcall **)(struct cocos2d::CCLabelBMFont *))(*(_QWORD *)v48 + 200LL))(v48);
+  cocos2d::CCPoint::operator+(v71, &v78, v70);
+  cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)v76, 0.0, 2.0);
+  sub_6D440(
+    (unsigned int)v77,
+    (unsigned int)sub_4C7820,
+    !GameVariable,
+    v33,
+    (__int64)&v78,
+    (__int64)v28,
+    v28[72],
+    1058642330,
+    1051931443,
+    0,
+    v72,
+    (__int64)&qword_6FFF68,
+    1,
+    0,
+    0);
+  return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v28[72] + 464LL))(v28[72], v33);
+}

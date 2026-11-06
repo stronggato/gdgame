@@ -355,3 +355,729 @@ const char *__fastcall LoadingLayer_getLoadingString(__int64 a1)
   }
   return result; /*0x466354*/
 }
+
+// Address: 0x464f40
+// Method: LoadingLayer::init
+// Hidden C++ exception states: #wind=6
+bool __fastcall LoadingLayer_init(__int64 a1, char a2)
+{
+  bool result; // al
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  cocos2d::CCTextureCache *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  cocos2d::CCSpriteFrameCache *v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  cocos2d::CCString *v16; // rax
+  const char *CString; // rax
+  struct cocos2d::CCSprite *v18; // rdi
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  __int64 v22; // rcx
+  cocos2d::CCDirector *v23; // rax
+  struct cocos2d::CCSprite *v24; // rsi
+  __int64 v25; // rbx
+  __int64 v26; // rax
+  struct cocos2d::CCSprite *v27; // rdi
+  __int64 v28; // rax
+  __int64 v29; // rbx
+  __int64 v30; // rax
+  struct cocos2d::CCSprite *v31; // rsi
+  __int64 v32; // rbx
+  __int64 v33; // rax
+  struct cocos2d::CCSprite *v34; // rdi
+  __int64 v35; // rax
+  __int64 v36; // rbx
+  __int64 v37; // rax
+  const char *LoadingString; // rax
+  struct cocos2d::CCLabelBMFont *v39; // rax
+  __int64 v40; // rdi
+  __int64 v41; // rbx
+  __int64 v42; // rax
+  const char *v43; // rax
+  __int64 v44; // r8
+  const struct cocos2d::CCPoint *v45; // rax
+  char *v46; // rax
+  __int64 v47; // rdi
+  __int64 v48; // rbx
+  __int64 v49; // rax
+  __int64 *v50; // rcx
+  __int64 v51; // rbx
+  float *v52; // rsi
+  struct cocos2d::CCSprite *v53; // rax
+  cocos2d::CCTexture2D *v54; // rax
+  __int64 v55; // rdi
+  __int64 v56; // rbx
+  __int64 v57; // rax
+  __int64 v58; // rdi
+  __int64 v59; // rbx
+  __int64 v60; // rax
+  __int64 v61; // rbx
+  float v62; // xmm6_4
+  float *v63; // rax
+  __int64 v64; // rax
+  __int64 v65; // rcx
+  __int64 v66; // rsi
+  __int64 (__fastcall *v67)(__int64); // rdi
+  __int64 v68; // rbx
+  struct cocos2d::CCFiniteTimeAction *v69; // rax
+  struct cocos2d::CCAction *v70; // rbx
+  cocos2d::CCActionManager *v71; // rax
+  void *v72; // [rsp+40h] [rbp-59h] BYREF
+  float v73; // [rsp+48h] [rbp-51h] BYREF
+  float v74; // [rsp+4Ch] [rbp-4Dh]
+  __int128 *v75; // [rsp+50h] [rbp-49h] BYREF
+  __int16 v76; // [rsp+58h] [rbp-41h]
+  __int16 v77; // [rsp+5Ch] [rbp-3Dh] BYREF
+  char v78; // [rsp+5Eh] [rbp-3Bh]
+  __int128 v79; // [rsp+60h] [rbp-39h] BYREF
+  __int64 v80; // [rsp+70h] [rbp-29h]
+  __int64 v81; // [rsp+78h] [rbp-21h]
+  _DWORD v82[4]; // [rsp+80h] [rbp-19h] BYREF
+
+  result = cocos2d::CCLayer::init((cocos2d::CCLayer *)a1);
+  if ( result )
+  {
+    *(_BYTE *)(a1 + 448) = a2;
+    *(_BYTE *)(cocos2d::CCDirector::sharedDirector(v5) + 217) = 1;
+    cocos2d::CCTexture2D::setDefaultAlphaPixelFormat(0);
+    if ( !*(_BYTE *)(a1 + 448) )
+    {
+      if ( !qword_905F60 )
+      {
+        v72 = operator new(0x8A8u);
+        qword_905F60 = sub_5AE20(v72);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+      }
+      sub_5B750();
+    }
+    v8 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v72 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v72);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v8 = qword_905FD0;
+    }
+    if ( *(_BYTE *)(v8 + 1084) )
+    {
+      *(_BYTE *)(v8 + 1084) = 0;
+      if ( !*(_QWORD *)&qword_905FB0 )
+      {
+        v72 = operator new(0x690u);
+        *(_QWORD *)&qword_905FB0 = sub_214250(v72);
+        (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+      }
+      sub_228CE0();
+    }
+    v9 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v7, v6);
+    cocos2d::CCTextureCache::addImage(v9, "GJ_LaunchSheet.png", 0);
+    v12 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v11, v10);
+    cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v12, "GJ_LaunchSheet.plist");
+    v14 = cocos2d::CCDirector::sharedDirector(v13);
+    cocos2d::CCDirector::getWinSize(v14, &v73);
+    v15 = qword_905FD0;
+    if ( !qword_905FD0 )
+    {
+      v72 = operator new(0x6E8u);
+      qword_905FD0 = sub_2723A0(v72);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+      v15 = qword_905FD0;
+    }
+    GameManager_loadBackground(v15, 1);
+    v16 = cocos2d::CCString::createWithFormat("game_bg_%02d_001.png", 1);
+    CString = cocos2d::CCString::getCString(v16);
+    v18 = cocos2d::CCSprite::create(CString);
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v18);
+    v19 = *(_QWORD *)v18;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v72, v73 * 0.5, v74 * 0.5);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v19 + 184))(v18, v20);
+    cocos2d::CCApplication::sharedApplication(v21);
+    v23 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v22);
+    cocos2d::CCDirector::getScreenScaleFactorMax(v23);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v18 + 160LL))(v18);
+    v76 = 26112;
+    v77 = 26112;
+    v78 = -1;
+    (**((void (__fastcall ***)(__int64, __int16 *))v18 + 40))((__int64)v18 + 320, &v77);
+    v24 = cocos2d::CCSprite::createWithSpriteFrameName("GJ_logo_001.png");
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v24);
+    v25 = *(_QWORD *)v24;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v72, v73 * 0.5, (float)(v74 * 0.5) + 0.0);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v25 + 184))(v24, v26);
+    v27 = cocos2d::CCSprite::createWithSpriteFrameName("RobTopLogoBig_001.png");
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v27);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, 80.0);
+    v29 = v28;
+    v30 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v24 + 200LL))(v24);
+    cocos2d::CCPoint::operator+(v30, &v72, v29);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, void **))(*(_QWORD *)v27 + 184LL))(v27, &v72);
+    *(_BYTE *)(a1 + 409) = 1;
+    *(_DWORD *)(a1 + 412) = 0;
+    v31 = cocos2d::CCSprite::createWithSpriteFrameName("cocos2DxLogo.png");
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v31);
+    v32 = *(_QWORD *)v31;
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, v73 - 34.0, 13.0);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, __int64))(v32 + 184))(v31, v33);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v31 + 160LL))(v31);
+    v34 = cocos2d::CCSprite::createWithSpriteFrameName("fmodLogo.png");
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCSprite *))(*(_QWORD *)a1 + 464LL))(a1, v34);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, 20.0);
+    v36 = v35;
+    v37 = (*(__int64 (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v31 + 200LL))(v31);
+    cocos2d::CCPoint::operator+(v37, &v72, v36);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *, void **))(*(_QWORD *)v34 + 184LL))(v34, &v72);
+    (*(void (__fastcall **)(struct cocos2d::CCSprite *))(*(_QWORD *)v34 + 160LL))(v34);
+    (**((void (__fastcall ***)(__int64, void *))v34 + 40))((__int64)v34 + 320, &unk_6FF4B0);
+    LoadingString = LoadingLayer_getLoadingString(a1);
+    v39 = cocos2d::CCLabelBMFont::create(LoadingString, "goldFont.fnt");
+    *(_QWORD *)(a1 + 416) = v39;
+    (*(void (__fastcall **)(__int64, struct cocos2d::CCLabelBMFont *))(*(_QWORD *)a1 + 464LL))(a1, v39);
+    v40 = **(_QWORD **)(a1 + 416);
+    v41 = *(_QWORD *)(a1 + 416);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, v73 * 0.5, (float)(v74 * 0.5) - 70.0);
+    (*(void (__fastcall **)(__int64, __int64))(v40 + 184))(v41, v42);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 160LL))(*(_QWORD *)(a1 + 416));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 416) + 336LL))(*(_QWORD *)(a1 + 416), 0);
+    v75 = &v79;
+    v43 = LoadingLayer_getLoadingString(a1);
+    v79 = 0;
+    v80 = 0;
+    v81 = 0;
+    v44 = -1;
+    do
+      ++v44;
+    while ( v43[v44] );
+    sub_3C230(&v79);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v72, 0.5, 0.5);
+    v46 = TextArea_create((__int64)&v79, "goldFont.fnt", 1.0, 440.0, v45, 1105199104, 0, 0);
+    *(_QWORD *)(a1 + 424) = v46;
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 464LL))(a1, v46);
+    v47 = **(_QWORD **)(a1 + 424);
+    v48 = *(_QWORD *)(a1 + 424);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, v73 * 0.5, (float)(v74 * 0.5) - 100.0);
+    (*(void (__fastcall **)(__int64, __int64))(v47 + 184))(v48, v49);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 424) + 160LL))(*(_QWORD *)(a1 + 424));
+    if ( *(float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 320LL))(*(_QWORD *)(a1 + 416)) > 300.0 )
+    {
+      v50 = *(__int64 **)(a1 + 416);
+      v51 = *v50;
+      (*(__int64 (__fastcall **)(__int64 *))(*v50 + 320))(v50);
+      (*(void (__fastcall **)(_QWORD))(v51 + 160))(*(_QWORD *)(a1 + 416));
+    }
+    fminf(
+      0.69999999,
+      COERCE_FLOAT(COERCE_UNSIGNED_INT64((*(double (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 168LL))(*(_QWORD *)(a1 + 416)))));
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 160LL))(*(_QWORD *)(a1 + 416));
+    v52 = (float *)cocos2d::CCSprite::create("slidergroove.png");
+    (*(void (__fastcall **)(__int64, float *, __int64))(*(_QWORD *)a1 + 456LL))(a1, v52, 3);
+    v53 = cocos2d::CCSprite::create("sliderBar.png");
+    *(_QWORD *)(a1 + 432) = v53;
+    *(float *)(a1 + 440) = v52[108] - 4.0;
+    *(_DWORD *)(a1 + 444) = 1090519040;
+    v82[0] = 9729;
+    v82[1] = 9729;
+    v82[2] = 10497;
+    v82[3] = 10497;
+    v54 = (cocos2d::CCTexture2D *)(*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v53 + 43) + 16LL))((__int64)v53 + 344);
+    cocos2d::CCTexture2D::setTexParameters(v54, (struct cocos2d::_ccTexParams *)v82);
+    (*(void (__fastcall **)(float *, _QWORD, __int64))(*(_QWORD *)v52 + 456LL))(
+      v52,
+      *(_QWORD *)(a1 + 432),
+      0xFFFFFFFFLL);
+    v55 = **(_QWORD **)(a1 + 432);
+    v56 = *(_QWORD *)(a1 + 432);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 0.0, 0.0);
+    (*(void (__fastcall **)(__int64, __int64))(v55 + 288))(v56, v57);
+    v58 = **(_QWORD **)(a1 + 432);
+    v59 = *(_QWORD *)(a1 + 432);
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, 2.0, 4.0);
+    (*(void (__fastcall **)(__int64, __int64))(v58 + 184))(v59, v60);
+    v61 = *(_QWORD *)v52;
+    v62 = *(float *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 424) + 200LL))(*(_QWORD *)(a1 + 424)) + 4)
+        + 40.0;
+    v63 = (float *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 416) + 200LL))(*(_QWORD *)(a1 + 416));
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v75, *v63, v62);
+    (*(void (__fastcall **)(float *, __int64))(v61 + 184))(v52, v64);
+    sub_465790(a1, 0);
+    v66 = cocos2d::CCDirector::sharedDirector(v65);
+    v67 = *(__int64 (__fastcall **)(__int64))(*(_QWORD *)v66 + 128LL);
+    v68 = cocos2d::CCCallFunc::create(a1, LoadingLayer_loadAssets);
+    v69 = cocos2d::CCDelayTime::create(0.0);
+    v70 = cocos2d::CCSequence::create(v69, v68, 0);
+    v71 = (cocos2d::CCActionManager *)v67(v66);
+    cocos2d::CCActionManager::addAction(v71, v70, (struct cocos2d::CCNode *)a1, 0);
+    return 1;
+  }
+  return result;
+}
+
+// Address: 0x465800
+// Method: LoadingLayer::loadAssets
+// Hidden C++ exception states: #wind=19
+void __fastcall LoadingLayer_loadAssets(_BYTE *a1)
+{
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int v5; // eax
+  cocos2d::CCTextureCache *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  cocos2d::CCSpriteFrameCache *v9; // rcx
+  const char *v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rsi
+  __int64 (__fastcall *v13)(__int64); // rdi
+  __int64 v14; // rbx
+  struct cocos2d::CCFiniteTimeAction *v15; // rax
+  struct cocos2d::CCAction *v16; // rbx
+  cocos2d::CCActionManager *v17; // rax
+  cocos2d::CCTextureCache *v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  cocos2d::CCTextureCache *v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  cocos2d::CCSpriteFrameCache *v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  cocos2d::CCTextureCache *v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  cocos2d::CCTextureCache *v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  cocos2d::CCSpriteFrameCache *v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  cocos2d::CCTextureCache *v36; // rax
+  cocos2d::CCTextureCache *v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  cocos2d::CCTextureCache *v40; // rax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  cocos2d::CCSpriteFrameCache *v43; // rax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  cocos2d::CCTextureCache *v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  cocos2d::CCSpriteFrameCache *v49; // rax
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  cocos2d::CCTextureCache *v52; // rax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  cocos2d::CCTextureCache *v55; // rax
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  cocos2d::CCTextureCache *v58; // rax
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  cocos2d::CCSpriteFrameCache *v61; // rax
+  __int64 v62; // rdx
+  __int64 v63; // rcx
+  cocos2d::CCTextureCache *v64; // rax
+  __int64 v65; // rdx
+  __int64 v66; // rcx
+  cocos2d::CCTextureCache *v67; // rax
+  __int64 v68; // rdx
+  __int64 v69; // rcx
+  cocos2d::CCSpriteFrameCache *v70; // rax
+  __int64 v71; // rdx
+  __int64 v72; // rcx
+  cocos2d::CCTextureCache *v73; // rax
+  __int64 v74; // rdx
+  __int64 v75; // rcx
+  cocos2d::CCTextureCache *v76; // rax
+  __int64 v77; // rdx
+  __int64 v78; // rcx
+  cocos2d::CCTextureCache *v79; // rax
+  __int64 v80; // rdx
+  __int64 v81; // rcx
+  cocos2d::CCTextureCache *v82; // rax
+  __int64 v83; // rdx
+  __int64 v84; // rcx
+  cocos2d::CCTextureCache *v85; // rax
+  cocos2d::CCTextureCache *v86; // rax
+  __int64 v87; // rdx
+  __int64 v88; // rcx
+  cocos2d::CCTextureCache *v89; // rax
+  __int64 v90; // rdx
+  __int64 v91; // rcx
+  cocos2d::CCTextureCache *v92; // rax
+  __int64 v93; // rdx
+  __int64 v94; // rcx
+  cocos2d::CCTextureCache *v95; // rax
+  __int64 v96; // rdx
+  __int64 v97; // rcx
+  cocos2d::CCTextureCache *v98; // rax
+  __int64 v99; // rdx
+  __int64 v100; // rcx
+  cocos2d::CCTextureCache *v101; // rax
+  const struct cocos2d::CCPoint *v102; // rax
+  __int64 v103; // rdx
+  __int64 v104; // rcx
+  cocos2d::CCTextureCache *v105; // rax
+  __int64 v106; // rdx
+  __int64 v107; // rcx
+  cocos2d::CCTextureCache *v108; // rax
+  __int64 v109; // rax
+  __int64 v110; // rax
+  CCContentManager *v111; // rax
+  CCContentManager *v112; // rax
+  CCContentManager *v113; // rax
+  __int64 v114; // rax
+  cocos2d::CCObject *v115; // rdi
+  __int64 v116; // rbx
+  __int64 v117; // rax
+  __int64 v118; // rbx
+  __int64 v119; // rcx
+  __int64 v120; // rax
+  __int64 v121; // rdx
+  __int64 v122; // rcx
+  __int64 v123; // rax
+  __int64 v124; // rbx
+  __int64 v125; // rcx
+  __int64 v126; // rax
+  __int64 v127; // rdx
+  __int64 v128; // rcx
+  bool GameVariable; // bl
+  __int64 v130; // rcx
+  __int64 v131; // rcx
+  __int64 v132; // rax
+  __int64 v133; // rcx
+  __int64 v134; // rdx
+  __int64 v135; // rcx
+  __int64 v136; // r8
+  __int64 v137; // r9
+  __int64 v138; // rdi
+  __int64 v139; // rcx
+  int v140; // xmm1_4
+  __int64 v141; // rbx
+  struct cocos2d::CCScene *v142; // rbx
+  __int64 v143; // rcx
+  cocos2d::CCDirector *v144; // rax
+  struct cocos2d::CCScene *v145; // rbx
+  __int64 v146; // rcx
+  cocos2d::CCDirector *v147; // rax
+  __int128 *v148; // [rsp+40h] [rbp-9h] BYREF
+  __int128 v149; // [rsp+48h] [rbp-1h] BYREF
+  __int64 v150; // [rsp+58h] [rbp+Fh]
+  __int64 v151; // [rsp+60h] [rbp+17h]
+  struct __timeb64 Time; // [rsp+68h] [rbp+1Fh] BYREF
+
+  ftime64(&Time);
+  v5 = *((_DWORD *)a1 + 103);
+  if ( v5 <= 0 )
+  {
+    v6 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+    cocos2d::CCTextureCache::addImage(v6, "GJ_GameSheet.png", 0);
+    v9 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v8, v7);
+    v10 = "GJ_GameSheet.plist";
+LABEL_3:
+    cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v9, v10);
+    goto LABEL_4;
+  }
+  switch ( v5 )
+  {
+    case 1:
+      v18 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v18, "GJ_GameSheet02.png", 0);
+      v9 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v20, v19);
+      v10 = "GJ_GameSheet02.plist";
+      goto LABEL_3;
+    case 2:
+      v21 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v21, "GJ_GameSheet03.png", 0);
+      v24 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v23, v22);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v24, "GJ_GameSheet03.plist");
+      v27 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v26, v25);
+      cocos2d::CCTextureCache::addImage(v27, "GJ_GameSheetEditor.png", 0);
+      v9 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v29, v28);
+      v10 = "GJ_GameSheetEditor.plist";
+      goto LABEL_3;
+    case 3:
+      v30 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v30, "GJ_GameSheet04.png", 0);
+      v33 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v32, v31);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v33, "GJ_GameSheet04.plist");
+      v36 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v35, v34);
+      cocos2d::CCTextureCache::prepareAsyncLoading(v36);
+      goto LABEL_4;
+    case 4:
+      v37 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v37, "GJ_GameSheetGlow.png", 0);
+      v9 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v39, v38);
+      v10 = "GJ_GameSheetGlow.plist";
+      goto LABEL_3;
+    case 5:
+      v40 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v40, "FireSheet_01.png", 0);
+      v43 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v42, v41);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v43, "FireSheet_01.plist");
+      v46 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v45, v44);
+      cocos2d::CCTextureCache::addImage(v46, "GJ_ShopSheet.png", 0);
+      v49 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v48, v47);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v49, "GJ_ShopSheet.plist");
+      v52 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v51, v50);
+      cocos2d::CCTextureCache::addImage(v52, "smallDot.png", 0);
+      v55 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v54, v53);
+      cocos2d::CCTextureCache::addImage(v55, "square02_001.png", 0);
+      v58 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v57, v56);
+      cocos2d::CCTextureCache::addImage(v58, "GJ_ParticleSheet.png", 0);
+      v61 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v60, v59);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v61, "GJ_ParticleSheet.plist");
+      v64 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v63, v62);
+      cocos2d::CCTextureCache::addImage(v64, "PixelSheet_01.png", 0);
+      v9 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v66, v65);
+      v10 = "PixelSheet_01.plist";
+      goto LABEL_3;
+    case 6:
+      v67 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v67, "CCControlColourPickerSpriteSheet.png", 0);
+      v70 = (cocos2d::CCSpriteFrameCache *)cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache(v69, v68);
+      cocos2d::CCSpriteFrameCache::addSpriteFramesWithFile(v70, "CCControlColourPickerSpriteSheet.plist");
+      v73 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v72, v71);
+      cocos2d::CCTextureCache::addImage(v73, "GJ_gradientBG.png", 0);
+      v76 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v75, v74);
+      cocos2d::CCTextureCache::addImage(v76, "edit_barBG_001.png", 0);
+      v79 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v78, v77);
+      cocos2d::CCTextureCache::addImage(v79, "GJ_button_01.png", 0);
+      v82 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v81, v80);
+      cocos2d::CCTextureCache::addImage(v82, "slidergroove2.png", 0);
+      v85 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v84, v83);
+      cocos2d::CCTextureCache::addImage(v85, "sliderBar2.png", 0);
+      goto LABEL_4;
+    case 7:
+      v86 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v3, v2);
+      cocos2d::CCTextureCache::addImage(v86, "GJ_square01.png", 0);
+      v89 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v88, v87);
+      cocos2d::CCTextureCache::addImage(v89, "GJ_square02.png", 0);
+      v92 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v91, v90);
+      cocos2d::CCTextureCache::addImage(v92, "GJ_square03.png", 0);
+      v95 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v94, v93);
+      cocos2d::CCTextureCache::addImage(v95, (const char *)&qword_7400F0, 0);
+      v98 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v97, v96);
+      cocos2d::CCTextureCache::addImage(v98, "GJ_square05.png", 0);
+      v101 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v100, v99);
+      cocos2d::CCTextureCache::addImage(v101, "gravityLine_001.png", 0);
+      goto LABEL_4;
+    case 8:
+      cocos2d::CCLabelBMFont::create(" ", "chatFont.fnt");
+      Time.time = (__time64_t)&v149;
+      v149 = 0;
+      v150 = 4;
+      v151 = 15;
+      strcpy((char *)&v149, "temp");
+      cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v148, 0.0, 1.0);
+      TextArea_create((__int64)&v149, "chatFont.fnt", 1.0, 200.0, v102, 1101004800, 0, 0);
+      v105 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v104, v103);
+      cocos2d::CCTextureCache::addImage(v105, "goldFont.png", 0);
+      v108 = (cocos2d::CCTextureCache *)cocos2d::CCTextureCache::sharedTextureCache(v107, v106);
+      cocos2d::CCTextureCache::addImage(v108, "bigFont.png", 0);
+      cocos2d::CCLabelBMFont::create(" ", "goldFont.fnt");
+      cocos2d::CCLabelBMFont::create(" ", (const char *)&qword_6FFF68);
+      goto LABEL_4;
+    case 9:
+      v109 = ObjectManager_instance();
+      sub_7AE40(v109);
+      v110 = sub_43FE0();
+      CCAnimateFrameCache_addSpriteFramesWithFile(v110, "Robot_AnimDesc.plist");
+      v111 = (CCContentManager *)CCContentManager::sharedManager();
+      CCContentManager::addDict(v111, "glassDestroy01.plist", 0);
+      v112 = (CCContentManager *)CCContentManager::sharedManager();
+      CCContentManager::addDict(v112, "coinPickupEffect.plist", 0);
+      v113 = (CCContentManager *)CCContentManager::sharedManager();
+      CCContentManager::addDict(v113, "explodeEffect.plist", 0);
+      AchievementManager_sharedState();
+      ObjectToolbox_sharedState();
+      goto LABEL_4;
+    case 10:
+      goto LABEL_4;
+    case 11:
+      v114 = qword_905FD0;
+      if ( !qword_905FD0 )
+      {
+        v148 = (__int128 *)operator new(0x6E8u);
+        qword_905FD0 = sub_2723A0(v148);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+        v114 = qword_905FD0;
+      }
+      if ( *(_BYTE *)(v114 + 955) )
+      {
+        if ( !a1[448] )
+          *(_BYTE *)(v114 + 952) = 1;
+      }
+      goto LABEL_4;
+    case 12:
+      CCTextInputNode_create(v3, v2, (__int64)"Temp");
+      goto LABEL_4;
+    case 13:
+      if ( !a1[448] )
+      {
+        v115 = CCCircleWave_create(v3, v2, v4, 1, 1);
+        (*(void (__fastcall **)(_BYTE *, cocos2d::CCObject *))(*(_QWORD *)a1 + 464LL))(a1, v115);
+        v116 = *(_QWORD *)v115;
+        cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&v148, -100.0, -100.0);
+        (*(void (__fastcall **)(cocos2d::CCObject *, __int64))(v116 + 184))(v115, v117);
+      }
+      goto LABEL_4;
+  }
+  if ( v5 != 14 )
+  {
+LABEL_4:
+    ++*((_DWORD *)a1 + 103);
+    a1[409] = 1;
+    sub_465790(a1, (unsigned int)(7 * *((_DWORD *)a1 + 103)));
+    v12 = cocos2d::CCDirector::sharedDirector(v11);
+    v13 = *(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 128LL);
+    v14 = cocos2d::CCCallFunc::create(a1, LoadingLayer_loadAssets);
+    v15 = cocos2d::CCDelayTime::create(0.0099999998);
+    v16 = cocos2d::CCSequence::create(v15, v14, 0);
+    v17 = (cocos2d::CCActionManager *)v13(v12);
+    cocos2d::CCActionManager::addAction(v17, v16, (struct cocos2d::CCNode *)a1, 0);
+    return;
+  }
+  v118 = cocos2d::CCDirector::sharedDirector(v3);
+  v120 = cocos2d::CCApplication::sharedApplication(v119);
+  v121 = v120 + 216;
+  if ( !v120 )
+    v121 = 0;
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v118 + 240LL))(v118, v121);
+  v122 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v122 = qword_905FD0;
+  }
+  if ( GameManager_getGameVariable(v122, "0115") )
+  {
+    v148 = &v149;
+    v150 = 12;
+    v151 = 15;
+    *(_QWORD *)&v149 = *(_QWORD *)"chatFont.fnt";
+    *((_QWORD *)&v149 + 1) = *(unsigned int *)".fnt";
+    cocos2d::CCPoint::CCPoint((cocos2d::CCPoint *)&Time, 0.0, 0.0);
+    v124 = v123;
+    v126 = cocos2d::CCDirector::sharedDirector(v125);
+    LOBYTE(v127) = 1;
+    cocos2d::CCDirector::toggleShowFPS(v126, v127, &v149, v124);
+  }
+  v128 = qword_905FD0;
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+    v128 = qword_905FD0;
+  }
+  GameVariable = GameManager_getGameVariable(v128, "0168");
+  *(_BYTE *)(cocos2d::CCDirector::sharedDirector(v130) + 405) = GameVariable;
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+  }
+  GameManager_updateCustomFPS();
+  v132 = sub_182B60(v131);
+  sub_182D10(v132);
+  *(_BYTE *)(cocos2d::CCApplication::sharedApplication(v133) + 240) = 1;
+  if ( !*(_QWORD *)&qword_905FB0 )
+  {
+    v148 = (__int128 *)operator new(0x690u);
+    *(_QWORD *)&qword_905FB0 = sub_214250(v148);
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)&qword_905FB0 + 72LL))(*(_QWORD *)&qword_905FB0);
+  }
+  sub_220540();
+  if ( a1[448] )
+    goto LABEL_69;
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+  }
+  v138 = qword_905FD0;
+  v139 = qword_905F60;
+  if ( !qword_905F60 )
+  {
+    v148 = (__int128 *)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v139 = qword_905F60;
+  }
+  v140 = *(_DWORD *)(v138 + 704);
+  *(_DWORD *)(v139 + 524) = 0;
+  *(_DWORD *)(v139 + 512) = v140;
+  if ( *(_QWORD *)(v139 + 552) )
+  {
+    FMOD::ChannelControl::setVolume(*(_QWORD *)(v139 + 552));
+    v139 = qword_905F60;
+  }
+  if ( !v139 )
+  {
+    v148 = (__int128 *)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v139 = qword_905F60;
+  }
+  v141 = v139;
+  *(_DWORD *)(v139 + 516) = *(_DWORD *)(v138 + 708);
+  if ( *(_QWORD *)(v139 + 584) )
+  {
+    FMOD::ChannelControl::setVolume(*(_QWORD *)(v139 + 584));
+    v139 = qword_905F60;
+  }
+  if ( *(_QWORD *)(v141 + 600) )
+  {
+    FMOD::ChannelControl::setVolume(*(_QWORD *)(v141 + 600));
+    v139 = qword_905F60;
+  }
+  if ( !v139 )
+  {
+    v148 = (__int128 *)operator new(0x8A8u);
+    qword_905F60 = sub_5AE20(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905F60 + 72LL))(qword_905F60);
+    v139 = qword_905F60;
+  }
+  *(_DWORD *)(v139 + 620) = (int)*(float *)(v138 + 712);
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+  }
+  sub_2732D0(qword_905FD0);
+  if ( !qword_905FD0 )
+  {
+    v148 = (__int128 *)operator new(0x6E8u);
+    qword_905FD0 = sub_2723A0(v148);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0);
+  }
+  if ( a1[448] )
+  {
+LABEL_69:
+    LOBYTE(v135) = 1;
+    v145 = (struct cocos2d::CCScene *)MenuLayer_scene(v135, v134, v136, v137);
+    v147 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v146);
+    cocos2d::CCDirector::replaceScene(v147, v145);
+  }
+  else
+  {
+    v142 = (struct cocos2d::CCScene *)MenuLayer_scene(0, v134, v136, v137);
+    v144 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(v143);
+    cocos2d::CCDirector::replaceScene(v144, v142);
+  }
+}

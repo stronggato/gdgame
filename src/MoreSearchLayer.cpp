@@ -316,3 +316,46 @@ double __fastcall MoreSearchLayer_updateAudioLabel(__int64 a1)
   }
   return result; /*0x48d7ee*/
 }
+
+// Address: 0x437870
+// Method: MoreSearchLayer::init
+// Hidden C++ exception states: #wind=21
+bool __fastcall MoreSearchLayer_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rdx
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  cocos2d::CCObject *v10; // rax
+  __int64 v11; // rcx
+  cocos2d::CCObject *v12; // rax
+  __int64 v13; // rcx
+  cocos2d::CCObject *v14; // rax
+  __int64 v15; // rax
+  __int64 *v16; // rdi
+  __int64 v17; // rdx
+  void (__fastcall *v18)(__int64 *, __int64); // r8
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // r15
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  int v24; // eax
+  cocos2d::CCObject *v25; // rax
+  struct cocos2d::CCMenu *v26; // rdi
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  struct cocos2d::CCLabelBMFont *v29; // rdi
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  float v32; // xmm10_4
+  float v33; // xmm11_4
+  float v34; // xmm9_4
+  float v35; // xmm7_4
+  float v36; // xmm12_4
+  float v37; // xmm13_4
+ ... [34539 chars total]

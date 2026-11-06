@@ -462,3 +462,48 @@ void __fastcall MenuLayer_endGame(__int64 a1)
   v1 = (cocos2d::CCDirector *)cocos2d::CCDirector::sharedDirector(a1); /*0x4713d4*/
   cocos2d::CCDirector::end(v1); /*0x4713e1*/
 }
+
+// Address: 0x46dee0
+// Method: MenuLayer::init
+// Hidden C++ exception states: #wind=41
+bool __fastcall MenuLayer_init(__int64 a1)
+{
+  bool result; // al
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  char *v9; // rbx
+  bool (__fastcall *v10)(__int64); // rdx
+  bool v11; // al
+  struct cocos2d::CCSprite *v12; // rdi
+  __int64 v13; // rbx
+  __int64 v14; // rcx
+  cocos2d::CCDirector *v15; // rax
+  float v16; // xmm0_4
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  int v22; // eax
+  cocos2d::CCObject *v23; // r15
+  __int64 v24; // rbx
+  __int64 v25; // rax
+  int v26; // eax
+  __int128 v27; // rdi
+  __int64 v28; // rax
+  __int64 v29; // rbx
+  __int64 v30; // rax
+  __int64 v31; // rax
+  struct cocos2d::CCSprite *v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rbx
+  __int64 v35; // rax
+  __int64 v36; // rax
+  int v37; // eax
+  cocos2d::CCObject *v38; // r14
+  __int64 v39; // rax
+  __int64 ... [38207 chars total]

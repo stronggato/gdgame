@@ -832,3 +832,45 @@ __int64 __fastcall PauseLayer_keyBackClicked(__int64 a1)
   }
   return result; /*0x4d738e*/
 }
+
+// Address: 0x4d26f0
+// Method: PauseLayer::customSetup
+// Hidden C++ exception states: #wind=37
+__int64 __fastcall PauseLayer_customSetup(__int64 a1)
+{
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  cocos2d::CCDirector *v7; // rax
+  float ScreenRight; // xmm0_4
+  __int64 v9; // rcx
+  cocos2d::CCDirector *v10; // rax
+  float v11; // xmm7_4
+  __int64 v12; // rcx
+  cocos2d::CCDirector *v13; // rax
+  float ScreenTop; // xmm0_4
+  __int64 v15; // rcx
+  cocos2d::CCDirector *v16; // rax
+  float v17; // xmm13_4
+  __int64 v18; // rax
+  _QWORD *v19; // rdi
+  __int64 v20; // rdx
+  __int64 v21; // rbx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  void **v24; // rcx
+  struct cocos2d::CCLabelBMFont *v25; // rdi
+  __int64 v26; // rbx
+  float v27; // xmm13_4
+  __int64 v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // r9
+  cocos2d::CCMenu *v34; // r12
+  struct cocos2d::CCSprite *v35; // r15
+  __int64 v36; // rdx
+  struct cocos2d:... [53601 chars total]
