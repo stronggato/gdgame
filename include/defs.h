@@ -80,12 +80,13 @@ struct _OWORD_t {
     operator uint64() const { return low; }
     operator int64() const { return static_cast<int64>(low); }
     operator uint32() const { return static_cast<uint32>(low); }
-    operator int32() const { return static_cast<int32>(low); }
     template <typename T>
     _OWORD_t operator*(T const& rhs) const { return _OWORD_t(low * (uint64)rhs, high); }
     _OWORD_t operator>>(int shift) const { return _OWORD_t(shift >= 64 ? high >> (shift - 64) : low >> shift, 0); }
-    _OWORD_t operator+(uint64 v) const { return _OWORD_t(low + v, high); }
-    _OWORD_t operator-(uint64 v) const { return _OWORD_t(low - v, high); }
+    template <typename T>
+    _OWORD_t operator+(T const& v) const { return _OWORD_t(low + (uint64)v, high); }
+    template <typename T>
+    _OWORD_t operator-(T const& v) const { return _OWORD_t(low - (uint64)v, high); }
     _OWORD_t operator~() const { return _OWORD_t(~low, ~high); }
     _OWORD_t operator&(const _OWORD_t& o) const { return _OWORD_t(low & o.low, high & o.high); }
     _OWORD_t operator|(_OWORD_t const& o) const { return _OWORD_t(low | o.low, high | o.high); }
@@ -506,6 +507,8 @@ void __noreturn __break(uint16 code, uint16 subcode);
 #define ADJ(p) (__parentof(p) *)(p-__deltaof(p))
 
 #include <stdlib.h>
+#include <sys/timeb.h>
+#define ftime64 _ftime64
 #define j_j_free free
 #define invoke_watson(...) ((void)0)
 
@@ -515,14 +518,30 @@ void __noreturn __break(uint16 code, uint16 subcode);
 
 template <typename T>
 uintptr_t to_gd_arg(T&& val) {
-    if constexpr (std::is_pointer_v<std::decay_t<T>>) {
+    using Decayed = std::decay_t<T>;
+    if constexpr (std::is_pointer_v<Decayed>) {
         return (uintptr_t)val;
-    } else if constexpr (std::is_integral_v<std::decay_t<T>> || std::is_enum_v<std::decay_t<T>>) {
+    } else if constexpr (std::is_integral_v<Decayed> || std::is_enum_v<Decayed>) {
         return (uintptr_t)val;
-    } else if constexpr (std::is_floating_point_v<std::decay_t<T>>) {
+    } else if constexpr (std::is_floating_point_v<Decayed>) {
         return (uintptr_t)(uint64_t)val;
+    } else if constexpr (requires { val.c_str(); }) {
+        return (uintptr_t)val.c_str();
     } else {
         return (uintptr_t)&val;
+    }
+}
+
+template <typename Target, typename Src>
+Target to_gd_val(Src&& s) {
+    if constexpr (std::is_constructible_v<Target, Src>) {
+        return static_cast<Target>(s);
+    } else if constexpr (std::is_pointer_v<Target>) {
+        return reinterpret_cast<Target>(to_gd_arg(s));
+    } else if constexpr (std::is_integral_v<Target> || std::is_enum_v<Target>) {
+        return static_cast<Target>(to_gd_arg(s));
+    } else {
+        return *reinterpret_cast<Target*>(to_gd_arg(s));
     }
 }
 
@@ -554,6 +573,13 @@ namespace fmt {
         template <typename... Args>
         BasicStringRef(Args&&...) {}
     };
+}
+
+namespace cocos2d {
+    typedef unsigned char GLubyte;
+    typedef float GLfloat;
+    typedef unsigned int GLuint;
+    typedef int GLint;
 }
 #endif
 

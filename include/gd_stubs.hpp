@@ -12,8 +12,20 @@ struct GDStubPtr {
     operator T**() const { return nullptr; }
     operator uint64_t() const { return 0; }
     operator int64_t() const { return 0; }
+    operator uint32_t() const { return 0; }
     operator int() const { return 0; }
-
+    operator char() const { return 0; }
+    operator uint8_t() const { return 0; }
+    operator int8_t() const { return 0; }
+    
+    template <typename T>
+    GDStubPtr operator+(T&&) const { return GDStubPtr{}; }
+    template <typename T>
+    GDStubPtr operator-(T&&) const { return GDStubPtr{}; }
+    template <typename T>
+    friend GDStubPtr operator+(T&&, const GDStubPtr&) { return GDStubPtr{}; }
+    template <typename T>
+    friend GDStubPtr operator-(T&&, const GDStubPtr&) { return GDStubPtr{}; }
 };
 
 struct GDStub {
@@ -26,8 +38,11 @@ struct GDStub {
     operator int64_t() const { return 0; }
     operator uint32_t() const { return 0; }
     operator int32_t() const { return 0; }
+    operator unsigned long() const { return 0; }
+    operator long() const { return 0; }
     operator uint16_t() const { return 0; }
     operator int16_t() const { return 0; }
+    operator char() const { return 0; }
     operator uint8_t() const { return 0; }
     operator int8_t() const { return 0; }
     operator bool() const { return false; }
@@ -46,12 +61,34 @@ struct GDStub {
     template <typename T>
     friend GDStub operator-(T&&, const GDStub&) { return GDStub{}; }
     template <typename T>
+    GDStub operator*(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator/(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator%(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator&(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator|(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator^(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator<<(T&&) const { return GDStub{}; }
+    template <typename T>
+    GDStub operator>>(T&&) const { return GDStub{}; }
+    GDStub operator~() const { return GDStub{}; }
+    GDStub operator!() const { return GDStub{}; }
+    template <typename T>
     GDStub& operator=(T&&) { return *this; }
     
     GDStub* operator->() { return this; }
+    const GDStub* operator->() const { return this; }
     template <typename T>
     GDStub& operator[](T&&) { return *this; }
+    template <typename T>
+    const GDStub& operator[](T&&) const { return *this; }
     GDStub& operator*() { return *this; }
+    const GDStub& operator*() const { return *this; }
     
     template <typename T>
     bool operator==(T&&) const { return false; }
