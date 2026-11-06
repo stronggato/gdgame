@@ -23,12 +23,12 @@ void AudioEffectsLayer::resetAudioVars()
   {
     (((cocos2d::CCArray*)(v2))->removeAllObjects()); /*0x99565*/
     CCObject_release(*(cocos2d::CCObject **)(a1 + 560)); /*0x99572*/
-    *(_QWORD *)(a1 + 560)  = (uintptr_t)(0); /*0x99578*/
+    *(_QWORD *)(a1 + 560)   = (uintptr_t)((uintptr_t)(0)); /*0x99578*/
   }
   v3 = cocos2d::CCArray::createWithArray(*(struct cocos2d::CCArray **)(a1 + 552)); /*0x9958a*/
-  *(_QWORD *)(a1 + 560)  = (uintptr_t)(v3); /*0x99593*/
+  *(_QWORD *)(a1 + 560)   = (uintptr_t)((uintptr_t)(v3)); /*0x99593*/
   CCObject_retain(v3); /*0x9959a*/
-  *(_DWORD *)(a1 + 568)  = (uintptr_t)(0); /*0x995a0*/
+  *(_DWORD *)(a1 + 568)   = (uintptr_t)((uintptr_t)(0)); /*0x995a0*/
 }
 
 // [2/3] Address: 0x995b0
@@ -92,7 +92,7 @@ void AudioEffectsLayer::audioStep(float dt)
           if ( *(_BYTE *)(a1 + 576) || v9 >= *(float *)(a1 + 572) ) /*0x99720*/
           {
             *(float *)(a1 + 572) = v9; /*0x99726*/
-            *(_BYTE *)(a1 + 576)  = (uintptr_t)(0); /*0x9972e*/
+            *(_BYTE *)(a1 + 576)   = (uintptr_t)((uintptr_t)(0)); /*0x9972e*/
             (((cocos2d::CCNode*)((cocos2d::CCNode *)a1))->stopActionByTag(0)); /*0x9973a*/
             v10 = cocos2d::CCActionTween::create(0.050000001, "audioScale", *(float *)(a1 + 580), v9); /*0x99760*/
             v11 = cocos2d::CCActionTween::create(0.2, "audioScale", v9, 0.1); /*0x99783*/
@@ -114,5 +114,5 @@ void AudioEffectsLayer::goingDown()
   __int64 a1 = (__int64)this;
   uint64_t a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0;
 
-  *(_BYTE *)(a1 + 576)  = (uintptr_t)(1); /*0x99960*/
+  *(_BYTE *)(a1 + 576)   = (uintptr_t)((uintptr_t)(1)); /*0x99960*/
 }

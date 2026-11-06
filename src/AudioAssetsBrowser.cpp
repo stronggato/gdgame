@@ -31,7 +31,7 @@ void AudioAssetsBrowser::musicActionFinished(GJMusicAction action)
   {
     if ( !*((_QWORD *)v2 + 48) ) /*0x98401*/
       MusicDownloadManager_getCustomContentURL(v2); /*0x9840b*/
-    sub_98480(((uintptr_t)a1 - 672)); /*0x9841c*/
+    sub_98480(((uintptr_t)((uintptr_t)a1 - 672))); /*0x9841c*/
   }
   else if ( *((_QWORD *)v2 + 48) ) /*0x98421*/
   {
@@ -106,7 +106,7 @@ bool AudioAssetsBrowser::init(std::vector<int>& songIds, std::vector<int>& sfxId
       (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x1af43a*/
       v17 = qword_905FD0; /*0x1af43c*/
     }
-    *(_OWORD *)Src  = (uintptr_t)(0); /*0x1af446*/
+    *(_OWORD *)Src   = (uintptr_t)((uintptr_t)(0)); /*0x1af446*/
     v26 = 3; /*0x1af44a*/
     v27 = 15; /*0x1af452*/
     LODWORD(Src[0]) = 6256231; /*0x1af460*/
@@ -139,7 +139,7 @@ bool AudioAssetsBrowser::init(std::vector<int>& songIds, std::vector<int>& sfxId
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x1af128*/
         v6 = qword_905FD0; /*0x1af12a*/
       }
-      *(_OWORD *)Block  = (uintptr_t)(0); /*0x1af134*/
+      *(_OWORD *)Block   = (uintptr_t)((uintptr_t)(0)); /*0x1af134*/
       v29 = 3; /*0x1af138*/
       v30 = 15; /*0x1af140*/
       LODWORD(Block[0]) = 6256231; /*0x1af14e*/
@@ -156,7 +156,7 @@ bool AudioAssetsBrowser::init(std::vector<int>& songIds, std::vector<int>& sfxId
           if ( (unsigned __int64)((char *)Block[0] - (char *)v9 - 8) > 0x1F ) /*0x1af1d0*/
             invoke_watson(0, 0, 0, 0, 0); /*0x1af1e5*/
         }
-//         j_j_free(v9); /*0x1af1ec*/ // cleaned scalar delete
+// //         j_j_free(v9); /*0x1af1ec*/ // cleaned scalar delete // cleaned scalar delete
       }
       v29 = 0; /*0x1af1f1*/
       v30 = 15; /*0x1af1f9*/
@@ -170,7 +170,7 @@ bool AudioAssetsBrowser::init(std::vector<int>& songIds, std::vector<int>& sfxId
         v10 = qword_905FD0; /*0x1af23b*/
       }
       v11 = *(_DWORD *)(v5 + 1036); /*0x1af242*/
-      *(_OWORD *)Src  = (uintptr_t)(0); /*0x1af24b*/
+      *(_OWORD *)Src   = (uintptr_t)((uintptr_t)(0)); /*0x1af24b*/
       v26 = 3; /*0x1af24f*/
       v27 = 15; /*0x1af257*/
       LODWORD(Src[0]) = 6256231; /*0x1af265*/
@@ -188,7 +188,7 @@ bool AudioAssetsBrowser::init(std::vector<int>& songIds, std::vector<int>& sfxId
             invoke_watson(0, 0, 0, 0, 0); /*0x1af305*/
         }
 LABEL_29:
-//         j_j_free(v14); /*0x1af4fb*/ // cleaned scalar delete
+// //         j_j_free(v14); /*0x1af4fb*/ // cleaned scalar delete // cleaned scalar delete
       }
     }
     else
@@ -200,7 +200,7 @@ LABEL_29:
         (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_905FD0 + 72LL))(qword_905FD0); /*0x1af339*/
         v6 = qword_905FD0; /*0x1af33b*/
       }
-      *(_OWORD *)Src  = (uintptr_t)(0); /*0x1af345*/
+      *(_OWORD *)Src   = (uintptr_t)((uintptr_t)(0)); /*0x1af345*/
       v26 = 3; /*0x1af349*/
       v27 = 15; /*0x1af351*/
       LODWORD(Src[0]) = 6256231; /*0x1af35f*/
